@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.PhoneInputInput {
+  @apply bg-transparent;
+  display: flex;
+  align-items: center;
+  outline: none;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #FAFAFA;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #050505;
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: #FAFAFA;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+}
+
+
+@theme {
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-primary: #cbb9ab;
+  --color-secondary: #665d56;
+  --color-tertiary: #677597;
+  --color-yellow-state: #D6AB00;
+  --color-red-state: #FF2C2C;
+  --color-purple-state: #A22CFF;
+  --color-purple-2: #6658F4;
+  --color-purple-light: #D0D1FB;
+  --color-orange-state: #FF9D33;
+  --color-gray-1: #A6AFC2;
+  --color-gray-2: #DFE2E9;
+  --color-gray-3: #E6E8EB;
+  --breakpoint-xs: 440px;
+  --breakpoint-2xs: 375px;
+}
+
+.centered {
+  @apply flex items-center justify-center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-medium
+}
+h1 {
+  @apply font-extrabold text-[35px] md:text-4xl lg:text-[54px] leading-[100%] lg:leading-[120%]
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+  }
+}
+
+
+.wysiwyg b {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
 }
