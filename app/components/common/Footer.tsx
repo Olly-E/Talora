@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "../elements/Button";
+import footerImg from "@/public/images/footer.webp";
 
 const Footer = () => {
   const footerLinks = {
@@ -31,10 +32,10 @@ const Footer = () => {
   };
 
   return (
-    <footer>
+    <footer className="bg-secondary">
       {/* CTA Section */}
-      <div className="bg-primary rounded-3xl mx-4 lg:mx-8 mb-8 overflow-hidden">
-        <div className="container mx-auto px-8 lg:px-16 py-12 lg:py-16">
+      <div className="container mx-auto px-4 lg:px-8 py-12">
+        <div className="bg-primary rounded-3xl overflow-hidden px-8 lg:px-16 py-12 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
             <div>
@@ -67,16 +68,20 @@ const Footer = () => {
             </div>
 
             {/* Right Image */}
-            <div className="relative h-80 lg:h-96 rounded-2xl overflow-hidden bg-gray-200">
-              {/* Placeholder for image */}
-              <div className="w-full h-full bg-gradient-to-br from-secondary/20 to-secondary/5" />
+            <div className="relative h-80 lg:h-96 rounded-2xl overflow-hidden">
+              <Image
+                src={footerImg}
+                alt="HR Team Collaboration"
+                fill
+                className="object-cover object-[50%_40%]"
+              />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Footer */}
-      <div className="bg-secondary text-white">
+      {/* Main Footer Links */}
+      <div className="text-white">
         <div className="container mx-auto px-4 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
             {/* Footer Links Columns */}
