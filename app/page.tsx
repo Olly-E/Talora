@@ -8,6 +8,8 @@ import FutureReady from "./components/common/FutureReady";
 import AutomateSection from "./components/common/AutomateSection";
 import SmarterHRSection from "./components/common/SmarterHRSection";
 import TeamSection from "./components/common/TeamSection";
+import ContactSection from "./components/common/ContactSection";
+import ArticleSection from "./components/common/ArticleSection";
 
 export default function Home() {
   return (
@@ -121,6 +123,12 @@ export default function Home() {
       </section>
       <section>
         <TeamSection />
+      </section>
+      <section>
+        <ContactSection />
+      </section>
+      <section>
+        <ArticleSection />
       </section>
     </div>
   );

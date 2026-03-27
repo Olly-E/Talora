@@ -114,7 +114,6 @@ const TeamSection = () => {
             </h2>
           </div>
 
-          {/* Navigation */}
           <div className="flex gap-3">
             <button
               onClick={() => scroll("left")}
