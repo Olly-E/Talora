@@ -16,7 +16,7 @@ import heroImg from "../public/images/heroImg.jpg";
 export default function Home() {
   return (
     <div className="">
-      <section className="container pt-10">
+      <section className="container sm:pt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="">
             <div className="rounded-3xl py-24 bg-secondary px-10">
@@ -35,7 +35,7 @@ export default function Home() {
                 modern businesses
               </p>
               <div className="flex items-center gap-4 mt-10 justify-center">
-                <Button size="md">Get Started Now</Button>
+                <Button  size="md">Get Started Now</Button>
                 <Button size="md" variant="outlineWhite">
                   Learn More
                 </Button>

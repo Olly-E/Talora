@@ -81,7 +81,7 @@ const ArticleSection = () => {
               </div>
               <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-8">
                 Explore Insights That Shape
-                <br />
+                <br  className="hidden sm:block"/>
                 Modern HR Practices
               </h2>
             </div>

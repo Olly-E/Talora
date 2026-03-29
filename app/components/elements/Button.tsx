@@ -97,7 +97,7 @@ export const Button: React.FC<ButtonProps> = ({
         variant === "secondary" && "bg-black text-white",
         variant === "outline" && "border border-black text-black",
         variant === "outlineWhite" && "border border-white text-white",
-        "bg-none border border-black justify-center",
+        "bg-none  justify-center",
         (variant === "close" || variant === "back") &&
           "text-black bg-white border border-black overflow-hidden rounded-lg w-[39.9px] min-w-[39.9px] h-[39.9px]",
         variant !== "close" && variant !== "back" && sizeClass[size],

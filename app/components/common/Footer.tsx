@@ -41,7 +41,7 @@ const Footer = () => {
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-secondary mb-4">
                 Empowering HR Teams to
-                <br />
+                <br  className="hidden sm:block" />
                 Work Smarter Everyday
               </h2>
               <p className="text-secondary/80 mb-8 max-w-lg">
