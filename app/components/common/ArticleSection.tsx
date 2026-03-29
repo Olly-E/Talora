@@ -71,9 +71,9 @@ const ArticleSection = () => {
 
   return (
     <section className="py-20 bg-gray-50 container">
-      <div className=" mx-auto px-4">
-        <div className="flex items-end justify-between gap-40 mb-8 ">
-          <div className="max-w-175">
+      <div className=" lg:mx-auto xl:px-4">
+        <div className="flex-col xl:flex-row flex xl:items-end xl:justify-between gap-10 xl:gap-40 mb-8 ">
+          <div className="lg:max-w-175">
             <div className="">
               <div className="bg-secondary flex items-center gap-2 text-white text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-4">
                 <div className="size-2 rounded-full min-w-2 bg-primary" />
@@ -85,7 +85,7 @@ const ArticleSection = () => {
                 Modern HR Practices
               </h2>
             </div>
-            <div className="flex-1 border-2 border-gray-200 rounded-full p-2 overflow-x-auto scrollbar-hide max-w-175 w-full">
+            <div className="flex-1 border-2 border-gray-200 rounded-full p-2 overflow-x-auto scrollbar-hide lg:max-w-175 w-full">
               <div className="flex gap-2">
                 {categories.map((category) => (
                   <button
@@ -104,7 +104,6 @@ const ArticleSection = () => {
             </div>
           </div>
 
-          {/* Stay Updated Section */}
           <div className="">
             <p className="text-gray-600 text-sm max-w-xs">
               Stay updated with expert tips, trends, and HR technology
@@ -113,7 +112,7 @@ const ArticleSection = () => {
             <Button
               variant="secondary"
               size="md"
-              className="bg-black text-white mt-10 px-6"
+              className="bg-black text-white mt-4 xl:mt-10 px-6"
             >
               See More <span className="text-lg">→</span>
             </Button>

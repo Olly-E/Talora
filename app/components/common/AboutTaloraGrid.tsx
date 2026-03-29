@@ -63,10 +63,10 @@ const gridData: GridItem[] = [
 
 const AboutTaloraGrid = () => {
   return (
-    <div className="grid grid-cols-4 gap-4 pt-20 container">
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 pt-20 container">
       {gridData.map((item, index) => {
         if (item.type === "empty") {
-          return <div key={index}></div>;
+          return <div className="hidden xl:block" key={index}></div>;
         }
 
         if (item.type === "image") {
@@ -79,7 +79,12 @@ const AboutTaloraGrid = () => {
                 src={item.image}
                 alt={item.alt}
                 fill
-                className="object-cover"
+                className={clsx(
+                  "object-cover object-[40%_20%]",
+                  item.image &&
+                    index === gridData.length - 1 &&
+                    "object-[40%_30%]",
+                )}
               />
             </div>
           );
@@ -94,7 +99,12 @@ const AboutTaloraGrid = () => {
                 item.bgColor,
               )}
             >
-              <h3 className={clsx("text-6xl font-bold mb-4", item.textColor)}>
+              <h3
+                className={clsx(
+                  "text-5xl xl:text-6xl font-bold mb-4",
+                  item.textColor,
+                )}
+              >
                 {item.value}
               </h3>
 

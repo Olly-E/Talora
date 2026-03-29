@@ -2,6 +2,7 @@ import React from "react";
 
 import { Wallet, Users, Mail } from "lucide-react";
 import clsx from "clsx";
+import { Button } from "../elements/Button";
 
 const SERVICES = [
   {
@@ -31,9 +32,9 @@ const FutureReady = () => {
   return (
     <div className="w-full bg-primary/50 py-20">
       <div className="container mx-auto">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
           <div>
-            <div className="bg-white text-secondary/80 text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-2 flex items-center gap-2">
+            <div className="bg-white text-secondary/80 whitespace-nowrap text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-2 flex items-center gap-2">
               <div className="size-2 rounded-full min-w-2 bg-secondary" />
               Our Service
             </div>
@@ -43,11 +44,11 @@ const FutureReady = () => {
               HR Services Platform
             </h2>
           </div>
-          <button className="bg-secondary text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-secondary/80 transition-all">
+          <Button className="bg-secondary!" variant="secondary">
             See More <span className="text-xl">→</span>
-          </button>
+          </Button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((service) => (
             <div
               key={service.title}

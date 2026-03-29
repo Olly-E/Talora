@@ -2,20 +2,22 @@ import { Play } from "lucide-react";
 import { Button } from "./components/elements/Button";
 import Image from "next/image";
 
-import heroImg from "../public/images/heroImg.jpg";
-import AboutTaloraGrid from "./components/common/AboutTaloraGrid";
-import FutureReady from "./components/common/FutureReady";
-import AutomateSection from "./components/common/AutomateSection";
 import SmarterHRSection from "./components/common/SmarterHRSection";
-import TeamSection from "./components/common/TeamSection";
+import AboutTaloraGrid from "./components/common/AboutTaloraGrid";
+import AutomateSection from "./components/common/AutomateSection";
 import ContactSection from "./components/common/ContactSection";
 import ArticleSection from "./components/common/ArticleSection";
+import ClientsSection from "./components/common/ClientsSection";
+import FutureReady from "./components/common/FutureReady";
+import TeamSection from "./components/common/TeamSection";
+
+import heroImg from "../public/images/heroImg.jpg";
 
 export default function Home() {
   return (
     <div className="">
       <section className="container pt-10">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="">
             <div className="rounded-3xl py-24 bg-secondary px-10">
               <div className="bg-white/15 border border-white/10 text-white rounded-full px-4 py-1 w-fit mx-auto flex items-center gap-2">
@@ -39,28 +41,7 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="mt-4 rounded-3xl bg-primary p-8 lg:p-10">
-              <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-black mb-2">
-                    Clients across industries
-                  </h3>
-                  <p className="text-black/90 text-sm">
-                    Many of our clients report better hiring processes and
-                    better employee engagement after switching to our system
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5 shadow-sm">
-                  <div className="flex -space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-secondary border-2 border-white"></div>
-                    <div className="w-8 h-8 rounded-full bg-black border-2 border-white"></div>
-                    <div className="w-8 h-8 rounded-full bg-primary border-2 border-white"></div>
-                  </div>
-                  <span className="text-black font-bold text-sm ml-2">80+</span>
-                </div>
-              </div>
-            </div>
+            <ClientsSection className="hidden sm:block mt-4" />
           </div>
 
           <div className="rounded-3xl overflow-hidden bg-gray-2 min-h-150 relative">
@@ -92,15 +73,16 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <ClientsSection className="block sm:hidden" />
         </div>
       </section>
       <section className="border-t border-gray-2 my-20 py-20">
-        <div className="container flex items-start justify-between">
-          <div className="bg-secondary flex items-center gap-2 text-white text-sm font-medium w-fit shadow-sm px-4 py-2 rounded-full">
-            <div className="size-2 rounded-full min-w-2 bg-primary" />
+        <div className="container flex-col sm:flex-row flex gap-10 items-start justify-between">
+          <div className="bg-secondary whitespace-nowrap flex items-center gap-2 text-white text-sm font-medium w-fit shadow-sm px-4 py-2 rounded-full">
+            <div className="size-2  rounded-full min-w-2 bg-primary" />
             About Talora
           </div>
-          <h2 className=" max-w-5xl text-[28px] text-end">
+          <h2 className=" max-w-5xl text-[28px] sm:text-end">
             At our core, we believe that great companies are built by empowered
             people. That&apos;s why we created a powerful, intuitive HRM SaaS
             platform{" "}

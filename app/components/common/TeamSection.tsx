@@ -2,7 +2,7 @@
 
 import { StaticImageData } from "next/image";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import team1 from "../../../public/images/team1.webp";
@@ -44,12 +44,39 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
-const TeamCard = ({ member }: { member: TeamMember }) => {
+const TeamCard = ({
+  member,
+  isExpanded,
+  onClick,
+}: {
+  member: TeamMember;
+  isExpanded: boolean;
+  onClick: () => void;
+}) => {
   return (
-    <div className="group relative rounded-3xl overflow-hidden transition-all duration-400 ease-in cursor-pointer bg-secondary min-w-80 hover:min-w-150 h-112.5">
-      <div className="flex transition-all duration-400 ease-in group-hover:flex-row group-hover:gap-6 group-hover:pt-4 group-hover:pl-4 group-hover:pb-4 group-hover:pr-8 h-full">
+    <div
+      onClick={onClick}
+      className={`group relative rounded-3xl overflow-hidden transition-all duration-400 ease-in cursor-pointer bg-secondary h-96 md:h-112.5 ${
+        isExpanded
+          ? "min-w-full md:min-w-150"
+          : "min-w-64 md:min-w-80 md:hover:min-w-150"
+      }`}
+    >
+      <div
+        className={`flex h-full transition-all duration-400 ease-in ${
+          isExpanded
+            ? "flex-row gap-4 md:gap-6 pt-3 pl-3 pb-3 pr-6 md:pt-4 md:pl-4 md:pb-4 md:pr-8"
+            : "flex-col md:flex-col md:group-hover:flex-row md:group-hover:gap-6 md:group-hover:pt-4 md:group-hover:pl-4 md:group-hover:pb-4 md:group-hover:pr-8"
+        }`}
+      >
         {/* Image */}
-        <div className="relative overflow-hidden rounded-2xl transition-all duration-400 ease-in w-full h-full group-hover:w-48 group-hover:h-80 group-hover:shrink-0 group-hover:my-auto">
+        <div
+          className={`relative overflow-hidden rounded-2xl transition-all duration-400 ease-in ${
+            isExpanded
+              ? "w-40 md:w-48 h-64 md:h-80 shrink-0 my-auto"
+              : "w-full h-full md:group-hover:w-48 md:group-hover:h-80 md:group-hover:shrink-0 md:group-hover:my-auto"
+          }`}
+        >
           <Image
             src={member.image}
             alt={member.name}
@@ -58,20 +85,32 @@ const TeamCard = ({ member }: { member: TeamMember }) => {
           />
         </div>
 
-        <div className="flex flex-col justify-center transition-opacity duration-400 ease-in delay-0 group-hover:delay-400 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto w-0 overflow-hidden group-hover:w-auto group-hover:flex-1">
-          <h3 className="font-bold text-white text-2xl mb-2 whitespace-nowrap">
+        <div
+          className={`flex flex-col justify-center transition-opacity duration-400 ease-in overflow-hidden ${
+            isExpanded
+              ? "opacity-100 pointer-events-auto w-auto flex-1 delay-400"
+              : "opacity-0 pointer-events-none w-0 h-0 delay-0 md:group-hover:delay-400 md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:group-hover:w-auto md:group-hover:h-auto md:group-hover:flex-1"
+          }`}
+        >
+          <h3 className="font-bold text-white text-xl md:text-2xl mb-2 whitespace-nowrap">
             {member.name}
           </h3>
-          <div className="text-white/80 text-sm mb-4 truncate">
+          <div className="text-white/80 text-xs md:text-sm mb-4 truncate">
             {member.title}
           </div>
-          <p className="text-white/90 text-sm leading-relaxed line-clamp-12">
+          <p className="text-white/90 text-xs md:text-sm leading-relaxed line-clamp-12">
             {member.bio}
           </p>
         </div>
       </div>
 
-      <div className="absolute bottom-3 left-3 right-4 transition-all duration-400 ease-in opacity-100 group-hover:opacity-0 group-hover:invisible">
+      <div
+        className={`absolute bottom-3 left-3 right-4 transition-all duration-400 ease-in ${
+          isExpanded
+            ? "opacity-0 invisible"
+            : "opacity-100 md:group-hover:opacity-0 md:group-hover:invisible"
+        }`}
+      >
         <div className="bg-secondary p-2 rounded-xl w-fit">
           <h3 className="font-bold text-white text-sm text-left">
             {member.name}
@@ -84,6 +123,7 @@ const TeamCard = ({ member }: { member: TeamMember }) => {
 
 const TeamSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -96,6 +136,10 @@ const TeamSection = () => {
         behavior: "smooth",
       });
     }
+  };
+
+  const handleCardClick = (index: number) => {
+    setExpandedCard(expandedCard === index ? null : index);
   };
 
   return (
@@ -142,10 +186,20 @@ const TeamSection = () => {
         <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
           <div className="flex gap-6">
             {teamMembers.map((member, idx) => (
-              <TeamCard key={idx} member={member} />
+              <TeamCard
+                key={idx}
+                member={member}
+                isExpanded={expandedCard === idx}
+                onClick={() => handleCardClick(idx)}
+              />
             ))}
             {teamMembers.map((member, idx) => (
-              <TeamCard key={`dup-${idx}`} member={member} />
+              <TeamCard
+                key={`dup-${idx}`}
+                member={member}
+                isExpanded={expandedCard === teamMembers.length + idx}
+                onClick={() => handleCardClick(teamMembers.length + idx)}
+              />
             ))}
           </div>
         </div>

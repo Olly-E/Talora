@@ -33,7 +33,7 @@ export function NavLink({
           href={href}
           onClick={onMobileClick}
           className={clsx(
-            "transition-all duration-100 block border-b border-gray-3 px-3 rounded-full",
+            "transition-all duration-100 block whitespace-nowrap border-b border-gray-3 px-3 rounded-full",
             isActive
               ? "text-black font-semibold py-3 bg-primary"
               : "py-3 text-black",
@@ -52,7 +52,7 @@ export function NavLink({
     <Link
       href={href}
       className={clsx(
-        "transition-color duration-300 px-4 py-1 rounded-full hover:bg-black hover:text-white text-sm",
+        "transition-color duration-300 px-4 whitespace-nowrap py-1 rounded-full hover:bg-black hover:text-white text-sm",
         isActive ? "text-white bg-black" : "text-black",
       )}
     >
