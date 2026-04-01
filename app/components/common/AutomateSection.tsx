@@ -69,9 +69,9 @@ const automateCards: AutomateCardProps[] = [
 
 const AutomateSection = () => {
   return (
-    <section className=" bg-secondary rounded-3xl my-20 pb-8 md:pb-15">
+    <section className=" sm:bg-secondary rounded-3xl my-20 pb-8 md:pb-15">
       <div className="mx-auto">
-        <div className="p-8 md:p-16">
+        <div className="py-8 sm:p-8 md:p-16">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-12">
             <div className="flex-1">
               <div className="bg-primary flex items-center gap-2 text-black/80 text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-4">

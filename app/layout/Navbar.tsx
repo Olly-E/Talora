@@ -40,7 +40,7 @@ export default function Navbar() {
       <div className="container mx-auto px-6 lg:px-20 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-linear-to-br from-yellow-400 to-orange-400 rounded-lg"></div>
+            <div className="w-10 h-10 bg-linear-to-br from-black to-gray-600 rounded-lg"></div>
             <span className="text-xl font-bold text-black">Talora</span>
           </Link>
 

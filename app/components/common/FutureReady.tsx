@@ -34,17 +34,17 @@ const FutureReady = () => {
       <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
           <div>
-            <div className="bg-white text-secondary/80 whitespace-nowrap text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-2 flex items-center gap-2">
+            <div className="bg-white text-secondary/80 whitespace-nowrap text-sm mb-4 font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-2 flex items-center gap-2">
               <div className="size-2 rounded-full min-w-2 bg-secondary" />
               Our Service
             </div>
-            <h2 className="text-5xl font-extrabold leading-tight text-secondary mb-2">
+            <h2 className="text-[34px] sm:text-5xl font-extrabold leading-tight text-secondary mb-2">
               Future-Ready
               <br />
               HR Services Platform
             </h2>
           </div>
-          <Button className="bg-secondary!" variant="secondary">
+          <Button className="bg-secondary! !mt-4" variant="secondary">
             See More <span className="text-xl">→</span>
           </Button>
         </div>

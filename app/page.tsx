@@ -35,7 +35,7 @@ export default function Home() {
                 modern businesses
               </p>
               <div className="flex items-center gap-4 mt-10 justify-center">
-                <Button  size="md">Get Started Now</Button>
+                <Button size="md">Get Started Now</Button>
                 <Button size="md" variant="outlineWhite">
                   Learn More
                 </Button>
@@ -97,7 +97,7 @@ export default function Home() {
       <section>
         <FutureReady />
       </section>
-      <section className="container">
+      <section className="container bg-secondary sm:bg-transparent">
         <AutomateSection />
       </section>
       <section>
