@@ -57,13 +57,19 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Button href="/book-call" as="link" variant="secondary" className="bg-secondary!" size="md">
+            <Button
+              href="/book-call"
+              as="link"
+              variant="secondary"
+              className="bg-secondary!"
+              size="md"
+            >
               Book a Call
             </Button>
           </div>
           <button
             aria-label={openSideNav ? "close navigation" : "open navigation"}
-            className="lg:hidden pl-2 py-2 rounded-md z-100"
+            className="lg:hidden pl-2 py-2 rounded-md z-50"
             ref={dropDownButtonRef}
           >
             <Hamburger
@@ -84,13 +90,13 @@ export default function Navbar() {
       <div
         ref={ref}
         className={clsx(
-          "fixed z-90 pb-10 right-0 top-0 text-base flex flex-col justify-between box-border transition-all overflow-y-auto overflow-x-hidden bg-white border-l border-gray-2 h-screen lg:hidden items-start pt-20",
+          "fixed z-40 pb-10 right-0 top-0 text-base flex flex-col justify-between box-border transition-all overflow-y-auto overflow-x-hidden bg-white border-l border-gray-2 h-screen lg:hidden items-start pt-20",
           openSideNav
             ? "w-70 px-6 opacity-100 shadow-xl"
             : "w-0 px-0 opacity-0",
         )}
       >
-        <div className="w-full flex items-center gap-20">
+        <div className="w-full flex flex-col items-start gap-6">
           {NAV_LINKS.map((link, index) => (
             <NavLink
               key={link.id}

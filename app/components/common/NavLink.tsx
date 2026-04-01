@@ -28,16 +28,13 @@ export function NavLink({
 }: NavLinkProps) {
   if (variant === "mobile") {
     return (
-      <div>
+      <div className="w-full">
         <Link
           href={href}
           onClick={onMobileClick}
           className={clsx(
-            "transition-all duration-100 block whitespace-nowrap border-b border-gray-3 px-3 rounded-full",
-            isActive
-              ? "text-black font-semibold py-3 bg-primary"
-              : "py-3 text-black",
-            index > 0 && "mt-2",
+            "transition-all duration-100 block whitespace-nowrap px-3 py-3 w-full border-b border-black",
+            isActive ? "text-white font-semibold bg-black" : "text-black",
             isSideNavOpen ? "opacity-100" : "opacity-0",
           )}
         >

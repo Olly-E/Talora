@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "../elements/Button";
 
