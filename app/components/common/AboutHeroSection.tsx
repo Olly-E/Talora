@@ -1,6 +1,9 @@
-import Image, { StaticImageData } from "next/image";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+
 import { Button } from "../elements/Button";
+
+import aboutUsBig from "../../../public/images/aboutUsBig.webp";
 
 const customerAvatars = [
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
@@ -14,7 +17,7 @@ export default function AboutHeroSection() {
       <div className="relative sm:rounded-3xl overflow-hidden sm:mt-10 py-24">
         <div className="absolute inset-0">
           <Image
-            src="/images/aboutUsBig.webp"
+            src={aboutUsBig}
             alt="About us hero"
             fill
             className="object-cover"
