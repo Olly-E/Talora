@@ -1,37 +1,35 @@
 import {
   ArrowRight,
-  Sparkles,
+  Award,
   CheckCircle2,
-  Users,
   TrendingUp,
-  Shield,
+  Target,
 } from "lucide-react";
-import { Button } from "../elements/Button";
+import { Button } from "@/app/components/elements/Button";
 import Image from "next/image";
-import serviceHeroImg from "@/public/images/serviceHero.webp";
 
-export default function ServicesHeroSection() {
+export default function CaseStudyHeroSection() {
   const stats = [
     {
-      icon: Users,
-      value: "500+",
-      label: "Clients Served",
+      icon: Award,
+      value: "50+",
+      label: "Success Stories",
       position: "top-4 right-4 lg:top-6 lg:right-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
       icon: TrendingUp,
-      value: "98%",
-      label: "Satisfaction Rate",
+      value: "200%",
+      label: "Avg Growth",
       position: "bottom-4 left-4 lg:bottom-6 lg:left-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
-      icon: Shield,
-      value: "24/7",
-      label: "Support Available",
+      icon: Target,
+      value: "95%",
+      label: "Goal Achievement",
       position: "top-4 left-4 lg:top-1/2 lg:left-6 lg:-translate-y-1/2",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
@@ -46,21 +44,19 @@ export default function ServicesHeroSection() {
           <div className="order-2 lg:order-1 space-y-8 bg-secondary rounded-3xl p-8 lg:p-10 flex flex-col justify-between">
             <div className="space-y-6">
               <div className="bg-white/10 border border-white/20 text-white rounded-full px-4 py-2 w-fit flex items-center gap-2">
-                <Sparkles className="size-4 text-primary" />
-                <span className="text-sm font-medium">
-                  Comprehensive HR Solutions
-                </span>
+                <Award className="size-4 text-primary" />
+                <span className="text-sm font-medium">Proven Results</span>
               </div>
 
               <h1 className="text-white leading-tight font-semibold!">
-                Transform Your Workforce with{" "}
-                <span className="text-primary">Expert Services</span>
+                Real Solutions,{" "}
+                <span className="text-primary">Real Results</span>
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                From recruitment to retention, we provide end-to-end HR services
-                designed to streamline operations, enhance employee experience,
-                and drive business growth
+                Explore how we&apos;ve helped businesses transform their HR
+                operations and achieve remarkable growth through innovative
+                solutions.
               </p>
 
               {/* Feature List */}
@@ -71,9 +67,9 @@ export default function ServicesHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Strategic Recruitment
+                      Tech Startups
                     </h3>
-                    <p className="text-xs text-white/70">Top talent sourcing</p>
+                    <p className="text-xs text-white/70">Rapid scaling</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -82,10 +78,21 @@ export default function ServicesHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      HR Automation
+                      Manufacturing
+                    </h3>
+                    <p className="text-xs text-white/70">Process automation</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-full bg-primary/20 p-1 mt-1">
+                    <CheckCircle2 className="size-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white text-sm mb-1">
+                      Healthcare
                     </h3>
                     <p className="text-xs text-white/70">
-                      Streamlined processes
+                      Compliance excellence
                     </p>
                   </div>
                 </div>
@@ -95,23 +102,10 @@ export default function ServicesHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Compliance Management
+                      Retail & Finance
                     </h3>
                     <p className="text-xs text-white/70">
-                      Stay regulations-ready
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-primary/20 p-1 mt-1">
-                    <CheckCircle2 className="size-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white text-sm mb-1">
-                      Performance Tracking
-                    </h3>
-                    <p className="text-xs text-white/70">
-                      Data-driven insights
+                      Engagement growth
                     </p>
                   </div>
                 </div>
@@ -119,27 +113,27 @@ export default function ServicesHeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Button size="md" className="">
-                Explore Services
+              <Button size="md">
+                View Success Stories
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button size="md" variant="outlineWhite">
-                Schedule Consultation
+                Get Your Story
               </Button>
             </div>
           </div>
 
           {/* Right Image Section */}
           <div className="order-1 lg:order-2 relative h-full">
-            <div className="relative rounded-3xl overflow-hidden bg-secondary shadow-2xl h-full min-h-[400px]">
+            <div className="relative rounded-3xl overflow-hidden bg-secondary shadow-2xl h-full min-h-100">
               <Image
-                src={serviceHeroImg}
-                alt="Professional HR Services Team"
+                src="https://img.freepik.com/free-photo/business-people-shaking-hands-together_53876-13391.jpg"
+                alt="Case Studies Success"
                 fill
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-secondary/80 via-secondary/20 to-transparent" />
 
               {/* Floating Stats Cards */}
               {stats.map((stat, index) => {
@@ -158,10 +152,10 @@ export default function ServicesHeroSection() {
                         />
                       </div>
                     </div>
-                    <div className="text-2xl lg:text-3xl font-bold text-secondary">
+                    <div className="text-xl lg:text-2xl font-bold text-gray-900 mb-0.5 lg:mb-1">
                       {stat.value}
                     </div>
-                    <div className="text-[10px] lg:text-xs text-secondary/60">
+                    <div className="text-xs text-gray-600 leading-tight">
                       {stat.label}
                     </div>
                   </div>
