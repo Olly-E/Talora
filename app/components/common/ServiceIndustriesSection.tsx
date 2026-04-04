@@ -82,9 +82,7 @@ export default function ServiceIndustriesSection() {
                   key={industry.name}
                   className="relative overflow-hidden rounded-3xl p-8 bg-secondary border border-secondary hover:shadow-lg transition-all group cursor-pointer"
                 >
-                  <div
-                    className="border border-white bg-white rounded-2xl p-4 w-fit mb-6 group-hover:scale-110 transition-transform"
-                  >
+                  <div className="border border-white bg-white rounded-2xl p-4 w-fit mb-6 group-hover:scale-110 transition-transform">
                     <Icon className="size-8 text-black" strokeWidth={2} />
                   </div>
 
@@ -92,7 +90,9 @@ export default function ServiceIndustriesSection() {
                     {industry.name}
                   </h3>
 
-                  <p className="text-white/80 text-sm">{industry.description}</p>
+                  <p className="text-white/80 text-sm">
+                    {industry.description}
+                  </p>
 
                   {/* Decorative element */}
                   <div className="absolute -bottom-6 -right-6 size-24 rounded-full bg-white/10 blur-2xl" />
