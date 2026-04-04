@@ -1,37 +1,38 @@
 import {
   ArrowRight,
-  Award,
+  Zap,
   CheckCircle2,
+  Clock,
   TrendingUp,
-  Target,
+  Shield,
 } from "lucide-react";
-import Image from "next/image";
-
 import { Button } from "@/app/components/elements/Button";
+import Image from "next/image";
+import automationImg from "@/public/images/automationImg.webp";
 
-export default function CaseStudyHeroSection() {
+export default function HRAutomationHeroSection() {
   const stats = [
     {
-      icon: Award,
-      value: "50+",
-      label: "Success Stories",
+      icon: Clock,
+      value: "70%",
+      label: "Time Saved",
       position: "top-4 right-4 lg:top-6 lg:right-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
       icon: TrendingUp,
-      value: "200%",
-      label: "Avg Growth",
+      value: "3x",
+      label: "Efficiency Boost",
       position: "bottom-4 left-4 lg:bottom-6 lg:left-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
-      icon: Target,
-      value: "95%",
-      label: "Goal Achievement",
-      position: "top-4 left-4 lg:top-1/2 lg:left-6 lg:-translate-y-1/2",
+      icon: Shield,
+      value: "100%",
+      label: "Compliance Ready",
+      position: "top-4 left-4 lg:top-1/2 lg:right-6 lg:-translate-y-1/2",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
     },
@@ -45,19 +46,19 @@ export default function CaseStudyHeroSection() {
           <div className="order-2 lg:order-1 space-y-8 bg-secondary rounded-3xl p-8 lg:p-10 flex flex-col justify-between">
             <div className="space-y-6">
               <div className="bg-white/10 border border-white/20 text-white rounded-full px-4 py-2 w-fit flex items-center gap-2">
-                <Award className="size-4 text-primary" />
-                <span className="text-sm font-medium">Proven Results</span>
+                <Zap className="size-4 text-primary" />
+                <span className="text-sm font-medium">Smart Automation</span>
               </div>
 
               <h1 className="text-white leading-tight font-semibold!">
-                Real Solutions,{" "}
-                <span className="text-primary">Real Results</span>
+                Automate Your HR,{" "}
+                <span className="text-primary">Elevate Your Business</span>
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Explore how we&apos;ve helped businesses transform their HR
-                operations and achieve remarkable growth through innovative
-                solutions.
+                Transform manual HR processes into intelligent automated
+                workflows. Save time, reduce errors, and empower your team with
+                cutting-edge automation solutions.
               </p>
 
               {/* Feature List */}
@@ -68,32 +69,10 @@ export default function CaseStudyHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Tech Startups
-                    </h3>
-                    <p className="text-xs text-white/70">Rapid scaling</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-primary/20 p-1 mt-1">
-                    <CheckCircle2 className="size-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white text-sm mb-1">
-                      Manufacturing
-                    </h3>
-                    <p className="text-xs text-white/70">Process automation</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-primary/20 p-1 mt-1">
-                    <CheckCircle2 className="size-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white text-sm mb-1">
-                      Healthcare
+                      Payroll Automation
                     </h3>
                     <p className="text-xs text-white/70">
-                      Compliance excellence
+                      Error-free processing
                     </p>
                   </div>
                 </div>
@@ -103,9 +82,33 @@ export default function CaseStudyHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Retail & Finance
+                      Smart Onboarding
                     </h3>
-                    <p className="text-xs text-white/70">Engagement growth</p>
+                    <p className="text-xs text-white/70">Seamless experience</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-full bg-primary/20 p-1 mt-1">
+                    <CheckCircle2 className="size-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white text-sm mb-1">
+                      Leave Management
+                    </h3>
+                    <p className="text-xs text-white/70">Automated tracking</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-full bg-primary/20 p-1 mt-1">
+                    <CheckCircle2 className="size-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white text-sm mb-1">
+                      Performance Reviews
+                    </h3>
+                    <p className="text-xs text-white/70">
+                      Data-driven insights
+                    </p>
                   </div>
                 </div>
               </div>
@@ -113,11 +116,11 @@ export default function CaseStudyHeroSection() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Button size="md">
-                View Success Stories
+                Get Started
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button size="md" variant="outlineWhite">
-                Get Your Story
+                Watch Demo
               </Button>
             </div>
           </div>
@@ -126,8 +129,8 @@ export default function CaseStudyHeroSection() {
           <div className="order-1 lg:order-2 relative h-full">
             <div className="relative rounded-3xl overflow-hidden bg-secondary shadow-2xl h-full min-h-100">
               <Image
-                src="https://img.freepik.com/free-photo/business-people-shaking-hands-together_53876-13391.jpg"
-                alt="Case Studies Success"
+                src={automationImg}
+                alt="HR Automation Technology"
                 fill
                 className="object-cover"
                 priority

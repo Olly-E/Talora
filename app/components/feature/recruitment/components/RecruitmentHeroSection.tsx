@@ -1,37 +1,38 @@
 import {
   ArrowRight,
-  Award,
+  Users,
   CheckCircle2,
-  TrendingUp,
   Target,
+  Award,
+  TrendingUp,
 } from "lucide-react";
-import Image from "next/image";
-
 import { Button } from "@/app/components/elements/Button";
+import Image from "next/image";
+import recruitmentHeroImg from "@/public/images/recruitmentHero.webp";
 
-export default function CaseStudyHeroSection() {
+export default function RecruitmentHeroSection() {
   const stats = [
     {
-      icon: Award,
-      value: "50+",
-      label: "Success Stories",
-      position: "top-4 right-4 lg:top-6 lg:right-6",
+      icon: Target,
+      value: "95%",
+      label: "Match Rate",
+      position: "top-4 left-4 lg:top-6 lg:left-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
       icon: TrendingUp,
-      value: "200%",
-      label: "Avg Growth",
-      position: "bottom-4 left-4 lg:bottom-6 lg:left-6",
+      value: "18 Days",
+      label: "Avg Time to Hire",
+      position: "bottom-4 right-4 lg:bottom-6 lg:right-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
-      icon: Target,
-      value: "95%",
-      label: "Goal Achievement",
-      position: "top-4 left-4 lg:top-1/2 lg:left-6 lg:-translate-y-1/2",
+      icon: Award,
+      value: "2500+",
+      label: "Placements/Year",
+      position: "bottom-4 left-4 lg:bottom-1/4 lg:left-6",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
     },
@@ -45,19 +46,19 @@ export default function CaseStudyHeroSection() {
           <div className="order-2 lg:order-1 space-y-8 bg-secondary rounded-3xl p-8 lg:p-10 flex flex-col justify-between">
             <div className="space-y-6">
               <div className="bg-white/10 border border-white/20 text-white rounded-full px-4 py-2 w-fit flex items-center gap-2">
-                <Award className="size-4 text-primary" />
-                <span className="text-sm font-medium">Proven Results</span>
+                <Users className="size-4 text-primary" />
+                <span className="text-sm font-medium">Expert Recruitment</span>
               </div>
 
               <h1 className="text-white leading-tight font-semibold!">
-                Real Solutions,{" "}
-                <span className="text-primary">Real Results</span>
+                Find Top Talent,{" "}
+                <span className="text-primary">Build Great Teams</span>
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Explore how we&apos;ve helped businesses transform their HR
-                operations and achieve remarkable growth through innovative
-                solutions.
+                Connect with the best candidates who don&apos;t just meet your
+                requirements, but align with your culture and drive your
+                business forward.
               </p>
 
               {/* Feature List */}
@@ -68,9 +69,9 @@ export default function CaseStudyHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Tech Startups
+                      Executive Search
                     </h3>
-                    <p className="text-xs text-white/70">Rapid scaling</p>
+                    <p className="text-xs text-white/70">Leadership roles</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -79,9 +80,9 @@ export default function CaseStudyHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Manufacturing
+                      Volume Hiring
                     </h3>
-                    <p className="text-xs text-white/70">Process automation</p>
+                    <p className="text-xs text-white/70">Scale quickly</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -90,11 +91,9 @@ export default function CaseStudyHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Healthcare
+                      Specialized Roles
                     </h3>
-                    <p className="text-xs text-white/70">
-                      Compliance excellence
-                    </p>
+                    <p className="text-xs text-white/70">Niche expertise</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -103,9 +102,9 @@ export default function CaseStudyHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Retail & Finance
+                      Talent Pipeline
                     </h3>
-                    <p className="text-xs text-white/70">Engagement growth</p>
+                    <p className="text-xs text-white/70">Future-ready</p>
                   </div>
                 </div>
               </div>
@@ -113,11 +112,11 @@ export default function CaseStudyHeroSection() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Button size="md">
-                View Success Stories
+                Start Hiring
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button size="md" variant="outlineWhite">
-                Get Your Story
+                View Success Stories
               </Button>
             </div>
           </div>
@@ -126,8 +125,8 @@ export default function CaseStudyHeroSection() {
           <div className="order-1 lg:order-2 relative h-full">
             <div className="relative rounded-3xl overflow-hidden bg-secondary shadow-2xl h-full min-h-100">
               <Image
-                src="https://img.freepik.com/free-photo/business-people-shaking-hands-together_53876-13391.jpg"
-                alt="Case Studies Success"
+                src={recruitmentHeroImg}
+                alt="Recruitment Services"
                 fill
                 className="object-cover"
                 priority

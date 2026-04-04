@@ -5,10 +5,12 @@ import Hamburger from "hamburger-react";
 import Link from "next/link";
 import React from "react";
 import clsx from "clsx";
+import { Zap, Users } from "lucide-react";
 
 import { useComponentVisible } from "../hooks/useComponentVisible";
 import { Button } from "../components/elements/Button";
 import { NavLink } from "../components/common/NavLink";
+import NavDropdown from "../components/common/NavDropdown";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -19,12 +21,22 @@ export default function Navbar() {
     ref,
   } = useComponentVisible();
 
-  const NAV_LINKS = [
+  const servicesDropdownItems = [
     {
-      name: "Services",
-      href: "/services",
-      id: "2",
+      name: "HR Automation",
+      href: "/services/hr-automation",
+      description: "Intelligent automation solutions for HR operations",
+      icon: <Zap className="size-5" />,
     },
+    {
+      name: "Recruitment",
+      href: "/services/recruitment",
+      description: "Find and hire top talent for your organization",
+      icon: <Users className="size-5" />,
+    },
+  ];
+
+  const NAV_LINKS = [
     { name: "Jobs", href: "/jobs", id: "3" },
     { name: "Case Studies", href: "/case-studies", id: "4" },
     { name: "Insights", href: "/insights", id: "5" },
@@ -34,6 +46,9 @@ export default function Navbar() {
 
   const pathIsActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
+
+  const servicesIsActive =
+    pathname === "/services" || pathname.startsWith("/services/");
 
   return (
     <nav className="w-full relative z-50">
@@ -45,6 +60,12 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden lg:flex items-center gap-8">
+            <NavDropdown
+              label="Services"
+              items={servicesDropdownItems}
+              isActive={servicesIsActive}
+              variant="desktop"
+            />
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.id}
@@ -86,17 +107,23 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Side Navigation */}
       <div
         ref={ref}
         className={clsx(
           "fixed z-40 pb-10 right-0 top-0 text-base flex flex-col justify-between box-border transition-all overflow-y-auto overflow-x-hidden bg-white border-l border-gray-2 h-screen lg:hidden items-start pt-20",
           openSideNav
-            ? "w-70 px-6 opacity-100 shadow-xl"
+            ? "w-70 opacity-100 shadow-xl"
             : "w-0 px-0 opacity-0",
         )}
       >
-        <div className="w-full flex flex-col items-start gap-6">
+        <div className="w-full flex flex-col items-start">
+          <NavDropdown
+            label="Services"
+            items={servicesDropdownItems}
+            isActive={servicesIsActive}
+            variant="mobile"
+            onMobileClick={() => setOpenSideNav(false)}
+          />
           {NAV_LINKS.map((link, index) => (
             <NavLink
               key={link.id}

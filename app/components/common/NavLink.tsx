@@ -22,9 +22,7 @@ export function NavLink({
   isActive,
   variant = "desktop",
   onMobileClick,
-  index = 0,
   isSideNavOpen = false,
-  currentPath,
 }: NavLinkProps) {
   if (variant === "mobile") {
     return (
@@ -33,7 +31,7 @@ export function NavLink({
           href={href}
           onClick={onMobileClick}
           className={clsx(
-            "transition-all duration-100 block whitespace-nowrap px-3 py-3 w-full border-b border-black",
+            "transition-all py-4 flex items-center duration-100 whitespace-nowrap px-6 w-full border-b border-black",
             isActive ? "text-white font-semibold bg-black" : "text-black",
             isSideNavOpen ? "opacity-100" : "opacity-0",
           )}
@@ -49,8 +47,8 @@ export function NavLink({
     <Link
       href={href}
       className={clsx(
-        "transition-color duration-300 px-4 whitespace-nowrap py-1 rounded-full hover:bg-black hover:text-white text-sm",
-        isActive ? "text-white bg-black" : "text-black",
+        "transition-colors duration-300 py-2 text-base font-medium",
+        isActive ? "text-primary" : "text-black hover:text-primary",
       )}
     >
       {name}
