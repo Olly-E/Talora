@@ -64,11 +64,11 @@ export default function HRAutomationCTASection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="primary">
+                <Button size="lg" variant="primary" as="link" href="/book-call">
                   Start Free Trial
                   <ArrowRight className="size-5" />
                 </Button>
-                <Button size="lg" variant="outlineWhite" className="border-2">
+                <Button size="lg" variant="outlineWhite" className="border-2" as="link" href="/contact#contact-form">
                   Schedule a Demo
                 </Button>
               </div>

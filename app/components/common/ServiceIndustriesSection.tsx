@@ -7,6 +7,7 @@ import {
   Landmark,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import proffGridImg from "@/public/images/proffGrid.webp";
 
 const industries = [
@@ -119,9 +120,11 @@ export default function ServiceIndustriesSection() {
             Don&apos;t see your industry? We work with businesses across all
             sectors.
           </p>
-          <button className="bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary/90 transition-all">
-            Contact Us to Learn More
-          </button>
+          <Link href="/contact#contact-form">
+            <button className="bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary/90 transition-all">
+              Contact Us to Learn More
+            </button>
+          </Link>
         </div>
       </div>
     </section>

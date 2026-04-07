@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import AutomateCard, { AutomateCardProps } from "./AutomateCard";
 
@@ -90,9 +91,11 @@ const AutomateSection = () => {
                 streamline pay, manage benefits, and ensure total compliance
                 every cycle.
               </p>
-              <button className="bg-white text-secondary! font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition-all">
-                Get Started Now
-              </button>
+              <Link href="/services/hr-automation">
+                <button className="bg-white text-secondary! font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition-all">
+                  Get Started Now
+                </button>
+              </Link>
             </div>
             <div className="flex-1 flex items-center justify-center">
               <div className="relative w-full h-100 rounded-2xl overflow-hidden">

@@ -41,11 +41,14 @@ export default function Navbar() {
     { name: "Case Studies", href: "/case-studies", id: "4" },
     { name: "Insights", href: "/insights", id: "5" },
     { name: "About", href: "/about", id: "6" },
-    { name: "Contact", href: "/contact", id: "7" },
+    { name: "Contact", href: "/contact#contact-form", id: "7" },
   ];
 
-  const pathIsActive = (href: string) =>
-    pathname === href || pathname.startsWith(href + "/");
+  const pathIsActive = (href: string) => {
+    // Strip hash from href for comparison
+    const pathWithoutHash = href.split('#')[0];
+    return pathname === pathWithoutHash || pathname.startsWith(pathWithoutHash + "/");
+  };
 
   const servicesIsActive =
     pathname === "/services" || pathname.startsWith("/services/");
@@ -129,7 +132,7 @@ export default function Navbar() {
               key={link.id}
               name={link.name}
               href={link.href}
-              isActive={link.href === pathname}
+              isActive={pathIsActive(link.href)}
               variant="mobile"
               onMobileClick={() => setOpenSideNav(false)}
               index={index}

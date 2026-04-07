@@ -35,8 +35,8 @@ export default function Home() {
                 modern businesses
               </p>
               <div className="flex items-center gap-4 mt-10 justify-center">
-                <Button size="md">Get Started Now</Button>
-                <Button size="md" variant="outlineWhite">
+                <Button size="md" as="link" href="/book-call">Get Started Now</Button>
+                <Button size="md" variant="outlineWhite" as="link" href="/services">
                   Learn More
                 </Button>
               </div>

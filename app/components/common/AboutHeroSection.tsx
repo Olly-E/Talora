@@ -57,7 +57,7 @@ export default function AboutHeroSection() {
               processes with cutting-edge solutions designed for the modern
               workplace.
             </p>
-            <Button variant="secondary" className="bg-secondary!">
+            <Button variant="secondary" className="bg-secondary!" as="link" href="/about">
               Discover Our Story{" "}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>

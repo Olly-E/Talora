@@ -36,11 +36,11 @@ export default function JobHeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" variant="primary">
+              <Button size="lg" variant="primary" as="link" href="/jobs">
                 Browse Positions
                 <Search className="size-5" />
               </Button>
-              <Button size="lg" variant="outlineWhite">
+              <Button size="lg" variant="outlineWhite" as="link" href="/contact#contact-form">
                 Upload Resume
               </Button>
             </div>

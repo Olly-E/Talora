@@ -59,11 +59,11 @@ export default function RecruitmentCTASection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="primary">
+                <Button size="lg" variant="primary" as="link" href="/book-call">
                   Start Hiring Now
                   <ArrowRight className="size-5" />
                 </Button>
-                <Button size="lg" variant="outlineWhite" className="border-2">
+                <Button size="lg" variant="outlineWhite" className="border-2" as="link" href="/contact#contact-form">
                   Download Our Brochure
                 </Button>
               </div>

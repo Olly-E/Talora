@@ -3,6 +3,7 @@ import React from "react";
 import { Wallet, Users, Mail } from "lucide-react";
 import clsx from "clsx";
 import { Button } from "../elements/Button";
+import Link from "next/link";
 
 const SERVICES = [
   {
@@ -11,6 +12,7 @@ const SERVICES = [
     title: "Automated Payroll Management",
     desc: "Streamline salary calculations, tax compliance, and payslip distribution — all in just a few clicks.",
     testimonials: "99+ Testimonials",
+    link: "/services/hr-automation",
   },
   {
     icon: <Users className="size-5 text-white" />,
@@ -18,6 +20,7 @@ const SERVICES = [
     title: "Recruitment & Applicant Tracking",
     desc: "Streamline salary calculations, tax compliance, and payslip distribution — all in just a few clicks.",
     testimonials: "99+ Testimonials",
+    link: "/services/recruitment",
   },
   {
     icon: <Mail className="size-5 text-white" />,
@@ -25,6 +28,7 @@ const SERVICES = [
     title: "Employee Performance Monitoring",
     desc: "Streamline salary calculations, tax compliance, and payslip distribution — all in just a few clicks.",
     testimonials: "99+ Testimonials",
+    link: "/services",
   },
 ];
 
@@ -44,7 +48,7 @@ const FutureReady = () => {
               HR Services Platform
             </h2>
           </div>
-          <Button className="bg-secondary! !mt-4" variant="secondary">
+          <Button className="bg-secondary! !mt-4" variant="secondary" as="link" href="/services">
             See More <span className="text-xl">→</span>
           </Button>
         </div>
@@ -72,9 +76,11 @@ const FutureReady = () => {
                   {service.title}
                 </h3>
                 <p className="text-secondary/70 text-sm mb-6">{service.desc}</p>
-                <button className="bg-secondary text-white w-full py-3 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-black/80 transition-all">
-                  See Detail <span className="text-lg">→</span>
-                </button>
+                <Link href={service.link}>
+                  <button className="bg-secondary text-white w-full py-3 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-black/80 transition-all">
+                    See Detail <span className="text-lg">→</span>
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

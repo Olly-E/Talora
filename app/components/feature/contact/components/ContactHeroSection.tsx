@@ -110,12 +110,12 @@ export default function ContactHeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Button size="md">
-                Schedule a Call
+              <Button size="md" as="link" href="/book-call">
+                Book Appointment
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="md" variant="outlineWhite">
-                View FAQs
+              <Button size="md" variant="outlineWhite" as="link" href="#contact-form">
+                Send Message
               </Button>
             </div>
           </div>

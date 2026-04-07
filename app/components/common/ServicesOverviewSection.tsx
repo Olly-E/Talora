@@ -27,7 +27,7 @@ const services: Service[] = [
     icon: UserPlus,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
-    link: "/recruitment",
+    link: "/services/recruitment",
     features: [
       "Job Posting",
       "Applicant Tracking",
@@ -42,7 +42,7 @@ const services: Service[] = [
     icon: Cog,
     color: "text-secondary",
     bgColor: "bg-secondary/10",
-    link: "/hr-automation",
+    link: "/services/hr-automation",
     features: [
       "Automated Workflows",
       "Digital Onboarding",

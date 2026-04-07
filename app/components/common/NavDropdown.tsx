@@ -98,7 +98,6 @@ export default function NavDropdown({
         />
       </Link>
 
-      {/* Dropdown Menu */}
       <div
         className={clsx(
           "absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200",
