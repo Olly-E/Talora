@@ -7,6 +7,7 @@ export interface ErrorResponseData {
   message: string | string[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const transformError = (error: any): string => {
   if (error?.response?.data?.message) {
     const msg = error.response.data.message;
