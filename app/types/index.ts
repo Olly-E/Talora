@@ -28,6 +28,16 @@ export interface CurrencyType {
   symbol: string;
 }
 
+export interface AxiosErrorResponse {
+  response?: {
+    data?: {
+      message?: string | string[];
+      error?: string;
+    };
+  };
+  message?: string;
+}
+
 export type DateRangeKeyword =
   | "this_month"
   | "last_month"
@@ -36,7 +46,7 @@ export type DateRangeKeyword =
   | "this_year"
   | "last_year";
 
-  export interface DateRange {
+export interface DateRange {
   startDate: string;
   endDate: string;
-} 
+}

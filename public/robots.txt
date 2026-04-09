@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Hide admin routes from search engines
+Disallow: /godmode
+Disallow: /api/auth
+
+# Sitemap location (change domain to your actual domain)
+Sitemap: https://talora.com/sitemap.xml

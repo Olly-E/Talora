@@ -68,7 +68,13 @@ export default function HRAutomationCTASection() {
                   Start Free Trial
                   <ArrowRight className="size-5" />
                 </Button>
-                <Button size="lg" variant="outlineWhite" className="border-2" as="link" href="/contact#contact-form">
+                <Button
+                  size="lg"
+                  variant="outlineWhite"
+                  className="border-2"
+                  as="link"
+                  href="/contact#contact-form"
+                >
                   Schedule a Demo
                 </Button>
               </div>

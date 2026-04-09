@@ -4,6 +4,8 @@ import "./globals.css";
 
 import Footer from "./components/common/Footer";
 import Navbar from "./layout/Navbar";
+import ReactQueryProvider from "./lib/react-query";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +32,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <ReactQueryProvider>
+          {children}
+          <Toaster position="top-right" />
+        </ReactQueryProvider>
       </body>
     </html>
   );

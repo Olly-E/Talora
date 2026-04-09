@@ -24,7 +24,7 @@ export default function JobHeroSection() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold! text-white leading-tight">
               Find Your <span className="text-primary">Dream Career</span>
             </h1>
 

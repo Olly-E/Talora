@@ -63,7 +63,13 @@ export default function RecruitmentCTASection() {
                   Start Hiring Now
                   <ArrowRight className="size-5" />
                 </Button>
-                <Button size="lg" variant="outlineWhite" className="border-2" as="link" href="/contact#contact-form">
+                <Button
+                  size="lg"
+                  variant="outlineWhite"
+                  className="border-2"
+                  as="link"
+                  href="/contact#contact-form"
+                >
                   Download Our Brochure
                 </Button>
               </div>

@@ -7,7 +7,7 @@ export interface Job {
   salary: string;
   category: string;
   openings: number;
-  posted: string;
+  posted?: string;
   description: string;
   tags: string[];
   isUrgent: boolean;

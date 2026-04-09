@@ -115,7 +115,12 @@ export default function RecruitmentHeroSection() {
                 Start Hiring
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="md" variant="outlineWhite" as="link" href="/case-studies">
+              <Button
+                size="md"
+                variant="outlineWhite"
+                as="link"
+                href="/case-studies"
+              >
                 View Success Stories
               </Button>
             </div>

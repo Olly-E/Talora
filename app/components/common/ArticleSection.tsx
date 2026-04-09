@@ -1,73 +1,77 @@
 "use client";
 
-import React, { useState } from "react";
-import ArticleCard, { ArticleCardProps } from "./ArticleCard";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import ArticleCard from "./ArticleCard";
 import { Button } from "../elements/Button";
-import article1 from "../../../public/images/article1.webp";
-import article2 from "../../../public/images/article2.webp";
-import article3 from "../../../public/images/article3.webp";
-import article4 from "../../../public/images/article4.webp";
+import { Article } from "@/app/data/articlesData";
+import { Filter, X } from "lucide-react";
 import writerThumb from "../../../public/images/writer.webp";
+import { getFormattedDate } from "@/app/utils/utils";
 
 const categories = [
-  "All",
-  "Talent Acquisition Strategies",
-  "Employee Engagement & Retention",
-  "HR Law Updates",
-  "Performance Management",
+  "All Articles",
+  "HR Automation",
+  "Recruitment",
+  "Industry Insights",
+  "Best Practices",
+  "Technology",
 ];
 
 const popularTopics = ["Retention", "Automation", "Feedback", "Hiring"];
 
-const articles: ArticleCardProps[] = [
-  {
-    image: article1,
-    author: {
-      name: "Nadia Prasetya",
-      avatar: writerThumb,
-    },
-    date: "June 13, 2025",
-    readTime: "6 Min read",
-    title: "How Automation Is Reshaping the Role of HR Management",
-    category: "Automation",
-  },
-  {
-    image: article2,
-    author: {
-      name: "Nadia Prasetya",
-      avatar: writerThumb,
-    },
-    date: "June 13, 2025",
-    readTime: "6 Min read",
-    title: "How Automation Is Reshaping the Role of HR Management",
-    category: "Talent Acquisition Strategies",
-  },
-  {
-    image: article3,
-    author: {
-      name: "Nadia Prasetya",
-      avatar: writerThumb,
-    },
-    date: "June 13, 2025",
-    readTime: "6 Min read",
-    title: "How Automation Is Reshaping the Role of HR Management",
-    category: "Employee Engagement & Retention",
-  },
-  {
-    image: article4,
-    author: {
-      name: "Nadia Prasetya",
-      avatar: writerThumb,
-    },
-    date: "June 13, 2025",
-    readTime: "6 Min read",
-    title: "How Automation Is Reshaping the Role of HR Management",
-    category: "HR Law Updates",
-  },
-];
-
 const ArticleSection = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("All Articles");
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch("/api/articles");
+        if (!response.ok) throw new Error("Failed to fetch articles");
+        const data = await response.json();
+        setArticles(data);
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  const filteredArticles =
+    activeCategory === "All Articles"
+      ? articles
+      : articles.filter((article) => article.category === activeCategory);
+
+  const handleCategorySelect = useCallback((category: string) => {
+    setActiveCategory(category);
+    setIsDrawerOpen(false);
+  }, []);
+
+  const categoryButtons = useMemo(
+    () => (
+      <div className="flex flex-col md:flex-row gap-2">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => handleCategorySelect(category)}
+            className={`px-6 py-2 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-300 ${
+              activeCategory === category
+                ? "bg-secondary text-white"
+                : "bg-transparent text-gray-700 hover:bg-gray-100"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+    ),
+    [activeCategory, handleCategorySelect],
+  );
 
   return (
     <section className="py-20 bg-gray-50 container">
@@ -81,11 +85,24 @@ const ArticleSection = () => {
               </div>
               <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-8">
                 Explore Insights That Shape
-                <br  className="hidden sm:block"/>
+                <br className="hidden sm:block" />
                 Modern HR Practices
               </h2>
             </div>
-            <div className="flex-1 border-2 border-gray-200 rounded-full p-2 overflow-x-auto scrollbar-hide lg:max-w-175 w-full">
+
+            {/* Mobile Filter Button */}
+            <div className="md:hidden mb-4">
+              <Button
+                onClick={() => setIsDrawerOpen(true)}
+                className="w-full bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-200 flex items-center justify-center gap-2"
+              >
+                <Filter className="size-4" />
+                Category: {activeCategory}
+              </Button>
+            </div>
+
+            {/* Desktop Category Filter */}
+            <div className="hidden md:block flex-1 border-2 border-gray-200 rounded-full p-2 overflow-x-auto scrollbar-hide lg:max-w-175 w-full">
               <div className="flex gap-2">
                 {categories.map((category) => (
                   <button
@@ -120,9 +137,32 @@ const ArticleSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {articles.map((article, idx) => (
-            <ArticleCard key={idx} {...article} />
-          ))}
+          {isLoading ? (
+            <div className="col-span-full flex items-center justify-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
+            </div>
+          ) : filteredArticles.length > 0 ? (
+            filteredArticles.slice(0, 4).map((article) => (
+              <ArticleCard
+                key={article.id}
+                image={article.coverImage || "/images/article-placeholder.webp"}
+                author={{
+                  name: article.author,
+                  avatar: writerThumb,
+                }}
+                date={getFormattedDate(article.publishedAt)}
+                readTime={article.readTime}
+                title={article.title}
+                category={article.category}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <p className="text-gray-500">
+                No articles found in this category.
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="flex items-center gap-4 flex-wrap">
@@ -139,6 +179,35 @@ const ArticleSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Category Drawer */}
+      {isDrawerOpen && (
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            onClick={() => setIsDrawerOpen(false)}
+          />
+          {/* Drawer */}
+          <div className="fixed inset-x-0 bottom-0 bg-white rounded-t-3xl p-6 z-50 md:hidden max-h-[80vh] overflow-y-auto shadow-2xl animate-slide-up">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Filter className="size-5 text-secondary" />
+                <h3 className="text-lg font-bold text-gray-900">
+                  Select Category
+                </h3>
+              </div>
+              <button
+                onClick={() => setIsDrawerOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <X className="size-5 text-gray-600" />
+              </button>
+            </div>
+            {categoryButtons}
+          </div>
+        </>
+      )}
     </section>
   );
 };

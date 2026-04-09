@@ -3,7 +3,7 @@ import {
   RecruitmentServicesSection,
   RecruitmentProcessSection,
   RecruitmentCTASection,
-} from "@/app/components/feature/recruitment/components";
+} from "@/app/(outer)/feature/recruitment/components";
 
 export default function RecruitmentPage() {
   return (

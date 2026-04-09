@@ -7,7 +7,7 @@ export interface Job {
   salary: string;
   category: string;
   openings: number;
-  posted: string;
+  posted?: string;
   description: string;
   tags: string[];
   isUrgent: boolean;
@@ -20,96 +20,4 @@ export const jobCategories = [
   "Marketing",
   "Sales",
   "Design",
-];
-
-export const jobs: Job[] = [
-  {
-    id: 1,
-    title: "Senior Software Engineer",
-    company: "Tech Innovations Inc.",
-    location: "Remote",
-    type: "Full-time",
-    salary: "$120k - $150k",
-    category: "Engineering",
-    openings: 3,
-    posted: "2 days ago",
-    description:
-      "Join our innovative team building next-generation SaaS solutions",
-    tags: ["React", "Node.js", "TypeScript"],
-    isUrgent: true,
-  },
-  {
-    id: 2,
-    title: "HR Manager",
-    company: "Global Solutions Corp",
-    location: "New York, NY",
-    type: "Full-time",
-    salary: "$90k - $110k",
-    category: "Human Resources",
-    openings: 1,
-    posted: "5 days ago",
-    description:
-      "Lead HR initiatives and build a culture of excellence in our growing organization",
-    tags: ["Leadership", "Recruiting", "Compliance"],
-    isUrgent: false,
-  },
-  {
-    id: 3,
-    title: "Marketing Coordinator",
-    company: "Creative Minds Agency",
-    location: "Los Angeles, CA",
-    type: "Full-time",
-    salary: "$60k - $75k",
-    category: "Marketing",
-    openings: 2,
-    posted: "1 week ago",
-    description:
-      "Drive brand awareness and execute multi-channel marketing campaigns",
-    tags: ["Digital Marketing", "Content", "Analytics"],
-    isUrgent: false,
-  },
-  {
-    id: 4,
-    title: "Product Designer",
-    company: "Design Studio Pro",
-    location: "San Francisco, CA",
-    type: "Full-time",
-    salary: "$95k - $125k",
-    category: "Design",
-    openings: 1,
-    posted: "3 days ago",
-    description:
-      "Create beautiful, user-centered designs for cutting-edge products",
-    tags: ["Figma", "UI/UX", "Prototyping"],
-    isUrgent: true,
-  },
-  {
-    id: 5,
-    title: "Sales Development Representative",
-    company: "Growth Partners LLC",
-    location: "Austin, TX",
-    type: "Full-time",
-    salary: "$55k - $70k + Commission",
-    category: "Sales",
-    openings: 5,
-    posted: "4 days ago",
-    description:
-      "Drive revenue growth through strategic outbound prospecting and relationship building",
-    tags: ["B2B Sales", "CRM", "Communication"],
-    isUrgent: false,
-  },
-  {
-    id: 6,
-    title: "Junior Full Stack Developer",
-    company: "StartUp Ventures",
-    location: "Remote",
-    type: "Full-time",
-    salary: "$70k - $90k",
-    category: "Engineering",
-    openings: 2,
-    posted: "1 day ago",
-    description: "Grow your skills while building impactful web applications",
-    tags: ["JavaScript", "Python", "AWS"],
-    isUrgent: true,
-  },
 ];

@@ -1,4 +1,4 @@
-import { ContactHeroSection } from "@/app/components/feature/contact/components";
+import { ContactHeroSection } from "@/app/(outer)/feature/contact/components";
 import ContactSection from "@/app/components/common/ContactSection";
 
 export default function ContactPage() {

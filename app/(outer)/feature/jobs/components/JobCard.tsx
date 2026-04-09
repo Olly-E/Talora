@@ -58,10 +58,12 @@ export default function JobCard({ job }: JobCardProps) {
           <DollarSign className="size-4 text-primary" />
           {job.salary}
         </div>
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <Calendar className="size-4 text-primary" />
-          {job.posted}
-        </div>
+        {job.posted && (
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Calendar className="size-4 text-primary" />
+            {job.posted}
+          </div>
+        )}
       </div>
 
       {/* Tags */}

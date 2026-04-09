@@ -48,7 +48,12 @@ const FutureReady = () => {
               HR Services Platform
             </h2>
           </div>
-          <Button className="bg-secondary! !mt-4" variant="secondary" as="link" href="/services">
+          <Button
+            className="bg-secondary! !mt-4"
+            variant="secondary"
+            as="link"
+            href="/services"
+          >
             See More <span className="text-xl">→</span>
           </Button>
         </div>

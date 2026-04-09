@@ -3,7 +3,7 @@ import {
   HRAutomationFeaturesSection,
   HRAutomationProcessSection,
   HRAutomationCTASection,
-} from "@/app/components/feature/hr-automation/components";
+} from "@/app/(outer)/feature/hr-automation/components";
 
 export default function HRAutomationPage() {
   return (

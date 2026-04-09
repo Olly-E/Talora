@@ -1,0 +1,1 @@
+export { useAuthProtection } from "./useAuthProtection";

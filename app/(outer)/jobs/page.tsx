@@ -1,5 +1,5 @@
-import JobHeroSection from "@/app/components/feature/jobs/components/JobHeroSection";
-import JobListingsSection from "@/app/components/feature/jobs/components/JobListingsSection";
+import JobHeroSection from "@/app/(outer)/feature/jobs/components/JobHeroSection";
+import JobListingsSection from "@/app/(outer)/feature/jobs/components/JobListingsSection";
 
 export default function JobsPage() {
   return (

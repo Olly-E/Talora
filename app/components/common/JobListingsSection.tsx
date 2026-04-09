@@ -11,15 +11,37 @@ import {
   Building2,
   Calendar,
   ChevronRight,
+  Filter,
+  X,
 } from "lucide-react";
 import { Button } from "../elements/Button";
-import { useState } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
-import { jobs, jobCategories } from "@/app/data/jobsData";
+import { Job, jobCategories } from "@/app/data/jobsData";
 
 export default function JobListingsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All Positions");
   const [searchQuery, setSearchQuery] = useState("");
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch("/api/jobs");
+        if (!response.ok) throw new Error("Failed to fetch jobs");
+        const data = await response.json();
+        setJobs(data);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
 
   const filteredJobs = jobs.filter((job) => {
     const matchesCategory =
@@ -31,6 +53,32 @@ export default function JobListingsSection() {
       job.location.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  const handleCategorySelect = useCallback((category: string) => {
+    setSelectedCategory(category);
+    setIsDrawerOpen(false);
+  }, []);
+
+  const categoryButtons = useMemo(
+    () => (
+      <div className="flex flex-col md:flex-row flex-wrap gap-3">
+        {jobCategories.map((category) => (
+          <button
+            key={category}
+            onClick={() => handleCategorySelect(category)}
+            className={`px-6 py-2.5 rounded-full font-medium transition-all ${
+              selectedCategory === category
+                ? "bg-secondary text-white shadow-lg scale-105"
+                : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+    ),
+    [selectedCategory, handleCategorySelect],
+  );
 
   return (
     <section className="py-16 bg-gray-50">
@@ -58,8 +106,19 @@ export default function JobListingsSection() {
           </div>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-3 mb-12 justify-center">
+        {/* Mobile Category Filter Button */}
+        <div className="md:hidden mb-8">
+          <Button
+            onClick={() => setIsDrawerOpen(true)}
+            className="w-full bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-200 flex items-center justify-center gap-2"
+          >
+            <Filter className="size-4" />
+            Category: {selectedCategory}
+          </Button>
+        </div>
+
+        {/* Desktop Category Filter */}
+        <div className="hidden md:flex flex-wrap gap-3 mb-12 justify-center">
           {jobCategories.map((category) => (
             <button
               key={category}
@@ -77,96 +136,109 @@ export default function JobListingsSection() {
 
         {/* Results Count */}
         <div className="mb-8 text-center">
-          <p className="text-gray-600">
-            Showing{" "}
-            <span className="font-semibold text-secondary">
-              {filteredJobs.length}
-            </span>{" "}
-            {filteredJobs.length === 1 ? "position" : "positions"}
-          </p>
+          {isLoading ? (
+            <p className="text-gray-600">Loading positions...</p>
+          ) : (
+            <p className="text-gray-600">
+              Showing{" "}
+              <span className="font-semibold text-secondary">
+                {filteredJobs.length}
+              </span>{" "}
+              {filteredJobs.length === 1 ? "position" : "positions"}
+            </p>
+          )}
         </div>
 
         {/* Job Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
-          {filteredJobs.map((job) => (
-            <Link
-              key={job.id}
-              href={`/jobs/${job.id}`}
-              className="group bg-white rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary/20 relative overflow-hidden"
-            >
-              {/* Company & Openings */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="bg-primary/10 rounded-2xl p-3">
-                  <Building2 className="size-6 text-primary" />
-                </div>
-                <div className="text-right">
-                  <div className="text-sm text-gray-500 flex items-center gap-1">
-                    <Users className="size-4" />
-                    {job.openings} {job.openings === 1 ? "opening" : "openings"}
+        {isLoading ? (
+          <div className="flex items-center justify-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
+            {filteredJobs.map((job) => (
+              <Link
+                key={job.id}
+                href={`/jobs/${job.id}`}
+                className="group bg-white rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary/20 relative overflow-hidden"
+              >
+                {/* Company & Openings */}
+                <div className="flex items-start justify-between mb-4">
+                  <div className="bg-primary/10 rounded-2xl p-3">
+                    <Building2 className="size-6 text-primary" />
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-500 flex items-center gap-1">
+                      <Users className="size-4" />
+                      {job.openings}{" "}
+                      {job.openings === 1 ? "opening" : "openings"}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Job Title */}
-              <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-secondary transition-colors">
-                {job.title}
-              </h3>
+                {/* Job Title */}
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-secondary transition-colors">
+                  {job.title}
+                </h3>
 
-              <p className="text-gray-600 font-medium mb-3">{job.company}</p>
+                <p className="text-gray-600 font-medium mb-3">{job.company}</p>
 
-              <p className="text-gray-600 text-sm mb-6 line-clamp-2">
-                {job.description}
-              </p>
+                <p className="text-gray-600 text-sm mb-6 line-clamp-2">
+                  {job.description}
+                </p>
 
-              {/* Job Details */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <MapPin className="size-4 text-primary" />
-                  {job.location}
+                {/* Job Details */}
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <MapPin className="size-4 text-primary" />
+                    {job.location}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Briefcase className="size-4 text-primary" />
+                    {job.type}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <DollarSign className="size-4 text-primary" />
+                    {job.salary}
+                  </div>
+                  {job.posted && (
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <Calendar className="size-4 text-primary" />
+                      {job.posted}
+                    </div>
+                  )}
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <Briefcase className="size-4 text-primary" />
-                  {job.type}
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <DollarSign className="size-4 text-primary" />
-                  {job.salary}
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <Calendar className="size-4 text-primary" />
-                  {job.posted}
-                </div>
-              </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {job.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="bg-secondary/10 text-secondary text-xs font-medium px-3 py-1 rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* View Details */}
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                <span className="text-sm text-gray-500">{job.category}</span>
-                <div className="flex items-center gap-2 text-secondary font-semibold group-hover:gap-3 transition-all">
-                  View Details
-                  <ChevronRight className="size-5" />
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {job.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="bg-secondary/10 text-secondary text-xs font-medium px-3 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              </div>
 
-              {/* Hover Gradient */}
-              <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-3xl"></div>
-            </Link>
-          ))}
-        </div>
+                {/* View Details */}
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <span className="text-sm text-gray-500">{job.category}</span>
+                  <div className="flex items-center gap-2 text-secondary font-semibold group-hover:gap-3 transition-all">
+                    View Details
+                    <ChevronRight className="size-5" />
+                  </div>
+                </div>
+
+                {/* Hover Gradient */}
+                <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-3xl"></div>
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* No Results */}
-        {filteredJobs.length === 0 && (
+        {!isLoading && filteredJobs.length === 0 && (
           <div className="text-center py-16">
             <div className="bg-gray-200 rounded-full size-20 flex items-center justify-center mx-auto mb-4">
               <Search className="size-10 text-gray-400" />
@@ -211,6 +283,35 @@ export default function JobListingsSection() {
           </div>
         </div>
       </div>
+
+      {/* Mobile Category Drawer */}
+      {isDrawerOpen && (
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            onClick={() => setIsDrawerOpen(false)}
+          />
+          {/* Drawer */}
+          <div className="fixed inset-x-0 bottom-0 bg-white rounded-t-3xl p-6 z-50 md:hidden max-h-[80vh] overflow-y-auto shadow-2xl animate-slide-up">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Filter className="size-5 text-secondary" />
+                <h3 className="text-lg font-bold text-gray-900">
+                  Select Category
+                </h3>
+              </div>
+              <button
+                onClick={() => setIsDrawerOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <X className="size-5 text-gray-600" />
+              </button>
+            </div>
+            {categoryButtons}
+          </div>
+        </>
+      )}
     </section>
   );
 }

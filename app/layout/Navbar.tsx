@@ -46,8 +46,10 @@ export default function Navbar() {
 
   const pathIsActive = (href: string) => {
     // Strip hash from href for comparison
-    const pathWithoutHash = href.split('#')[0];
-    return pathname === pathWithoutHash || pathname.startsWith(pathWithoutHash + "/");
+    const pathWithoutHash = href.split("#")[0];
+    return (
+      pathname === pathWithoutHash || pathname.startsWith(pathWithoutHash + "/")
+    );
   };
 
   const servicesIsActive =
@@ -114,9 +116,7 @@ export default function Navbar() {
         ref={ref}
         className={clsx(
           "fixed z-40 pb-10 right-0 top-0 text-base flex flex-col justify-between box-border transition-all overflow-y-auto overflow-x-hidden bg-white border-l border-gray-2 h-screen lg:hidden items-start pt-20",
-          openSideNav
-            ? "w-70 opacity-100 shadow-xl"
-            : "w-0 px-0 opacity-0",
+          openSideNav ? "w-70 opacity-100 shadow-xl" : "w-0 px-0 opacity-0",
         )}
       >
         <div className="w-full flex flex-col items-start">

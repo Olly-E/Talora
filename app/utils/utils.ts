@@ -7,6 +7,20 @@ export interface ErrorResponseData {
   message: string | string[];
 }
 
+export const transformError = (error: any): string => {
+  if (error?.response?.data?.message) {
+    const msg = error.response.data.message;
+    return Array.isArray(msg) ? msg[0] : msg;
+  }
+  if (error?.response?.data?.error) {
+    return error.response.data.error;
+  }
+  if (error?.message) {
+    return error.message;
+  }
+  return "An error occurred";
+};
+
 export const formatAmount = (number: number): string => {
   return new Intl.NumberFormat("en-NG", {
     style: "currency",

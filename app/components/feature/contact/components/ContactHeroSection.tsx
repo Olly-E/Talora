@@ -114,7 +114,12 @@ export default function ContactHeroSection() {
                 Book Appointment
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="md" variant="outlineWhite" as="link" href="#contact-form">
+              <Button
+                size="md"
+                variant="outlineWhite"
+                as="link"
+                href="#contact-form"
+              >
                 Send Message
               </Button>
             </div>

@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 
-const STORAGE_PREFIX = "RMTT_";
+const STORAGE_PREFIX = "TALORA_";
 
 export const tokenStorage = {
   getToken: () => {
@@ -44,10 +44,28 @@ export const roleStorage = {
   },
 };
 
+export const adminStorage = {
+  getAdminEmail: () => {
+    return Cookies.get(`${STORAGE_PREFIX}ADMIN_EMAIL`) as string;
+  },
+
+  setAdminEmail: (email: string) => {
+    Cookies.set(`${STORAGE_PREFIX}ADMIN_EMAIL`, email);
+  },
+
+  clearAdminEmail: () => {
+    Cookies.remove(`${STORAGE_PREFIX}ADMIN_EMAIL`);
+  },
+};
+
 export const storage = {
   clear: () => {
     tokenStorage.clearToken();
     userIDStorage.clearUserID();
     roleStorage.clearRole();
+  },
+
+  clearAdmin: () => {
+    adminStorage.clearAdminEmail();
   },
 };

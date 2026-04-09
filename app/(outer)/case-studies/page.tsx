@@ -1,7 +1,7 @@
 import {
   CaseStudyHeroSection,
   CaseStudyListingsSection,
-} from "@/app/components/feature/case-study/components";
+} from "@/app/(outer)/feature/case-study/components";
 
 export default function CaseStudiesPage() {
   return (

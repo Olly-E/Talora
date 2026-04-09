@@ -9,7 +9,7 @@ export const API_BASE_URL =
 
 export const axiosInstance = Axios.create({
   baseURL: API_BASE_URL,
-  // withCredentials: true,
+  withCredentials: true,
 });
 
 axiosInstance.interceptors.request.use(
@@ -22,12 +22,12 @@ axiosInstance.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 export const setAxiosDefaultToken = (
   token: string,
-  axiosInstance: AxiosInstance
+  axiosInstance: AxiosInstance,
 ) => {
   localStorage.setItem("token", token);
   axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;

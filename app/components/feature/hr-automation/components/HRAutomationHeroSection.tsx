@@ -119,7 +119,12 @@ export default function HRAutomationHeroSection() {
                 Get Started
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="md" variant="outlineWhite" as="link" href="/contact#contact-form">
+              <Button
+                size="md"
+                variant="outlineWhite"
+                as="link"
+                href="/contact#contact-form"
+              >
                 Watch Demo
               </Button>
             </div>

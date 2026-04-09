@@ -116,7 +116,12 @@ export default function CaseStudyHeroSection() {
                 View Success Stories
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="md" variant="outlineWhite" as="link" href="/book-call">
+              <Button
+                size="md"
+                variant="outlineWhite"
+                as="link"
+                href="/book-call"
+              >
                 Get Your Story
               </Button>
             </div>
