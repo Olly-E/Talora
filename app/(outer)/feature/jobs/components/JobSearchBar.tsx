@@ -12,7 +12,7 @@ export default function JobSearchBar({
 }: JobSearchBarProps) {
   return (
     <div className="max-w-3xl mx-auto mb-12">
-      <div className="bg-white rounded-2xl p-2 shadow-lg flex flex-col sm:flex-row gap-2">
+      <div className="bg-white rounded-2xl p-2 shadow-lg flex flex-row gap-2">
         <div className="flex-1 flex items-center gap-3 px-4 py-3 bg-gray-50 rounded-xl">
           <Search className="size-5 text-gray-400" />
           <input
@@ -25,9 +25,9 @@ export default function JobSearchBar({
         </div>
         <Button
           size="md"
-          className="bg-secondary rounded-xl! hover:bg-secondary/90 text-white! whitespace-nowrap"
+          className="bg-secondary rounded-xl! hover:bg-secondary/90 text-white! px-3 sm:px-8"
         >
-          Search Jobs
+          <span className="hidden sm:inline">Search Jobs</span>
           <Search className="size-4" />
         </Button>
       </div>

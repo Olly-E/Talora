@@ -39,7 +39,7 @@ const ContactSection = () => {
               Get In Touch
             </div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-6">
-              Let&apos;s Transform Your
+              Let's Transform Your
               <br />
               HR Operations Together
             </h2>

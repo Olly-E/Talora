@@ -39,6 +39,7 @@ export const JobForm: React.FC<JobFormProps> = ({
       setValue("description", editingJob.description);
       setValue("tags", editingJob.tags.join(", "));
       setValue("isUrgent", editingJob.isUrgent);
+      setValue("applicationLink", editingJob.applicationLink || "");
     }
   }, [editingJob, setValue]);
 
@@ -169,6 +170,19 @@ export const JobForm: React.FC<JobFormProps> = ({
             isRequired
           />
         </div>
+
+        <InputField
+          label="Application Link (Google Form or External URL)"
+          placeholder="e.g. https://forms.google.com/..."
+          registration={register("applicationLink", {
+            pattern: {
+              value: /^https?:\/\/.+/,
+              message:
+                "Please enter a valid URL starting with http:// or https://",
+            },
+          })}
+          hasError={errors.applicationLink}
+        />
 
         <WysiwygInput
           value={descriptionValue}

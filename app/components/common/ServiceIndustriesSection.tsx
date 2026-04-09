@@ -117,8 +117,7 @@ export default function ServiceIndustriesSection() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <p className="text-gray-600 mb-4">
-            Don&apos;t see your industry? We work with businesses across all
-            sectors.
+            Don't see your industry? We work with businesses across all sectors.
           </p>
           <Link href="/contact#contact-form">
             <button className="bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary/90 transition-all">

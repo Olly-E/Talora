@@ -91,7 +91,7 @@ export default function Home() {
           </div>
           <h2 className=" max-w-5xl text-[28px] sm:text-end">
             At our core, we believe that great companies are built by empowered
-            people. That&apos;s why we created a powerful, intuitive HRM SaaS
+            people. That's why we created a powerful, intuitive HRM SaaS
             platform{" "}
             <span className="text-secondary/60">
               designed to simplify every stage of the employee lifecycle — from

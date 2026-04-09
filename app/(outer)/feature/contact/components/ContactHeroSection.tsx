@@ -50,7 +50,7 @@ export default function ContactHeroSection() {
               </div>
 
               <h1 className="text-white leading-tight font-semibold!">
-                Let&apos;s Transform Your{" "}
+                Let's Transform Your{" "}
                 <span className="text-primary">HR Together</span>
               </h1>
 
@@ -114,7 +114,12 @@ export default function ContactHeroSection() {
                 Book Appointment
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="md" variant="outlineWhite" as="link" href="#contact-form">
+              <Button
+                size="md"
+                variant="outlineWhite"
+                as="link"
+                href="#contact-form"
+              >
                 Send Message
               </Button>
             </div>

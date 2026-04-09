@@ -32,7 +32,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
     >
       <div className="flex flex-col h-full">
         <div className="flex items-center justify-between h-16 px-6 border-b border-secondary/20">
-          <h1 className="text-[24px]! font-semibold! text-white">Talora</h1>
+          <Link
+            href="/"
+            className="text-[24px]! font-semibold! text-white hover:text-white/90 transition-colors"
+          >
+            Talora
+          </Link>
           <Button
             onClick={onClose}
             className="lg:hidden text-gray-400 hover:text-white bg-transparent hover:bg-transparent p-0"

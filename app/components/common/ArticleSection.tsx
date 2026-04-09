@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import ArticleCard from "./ArticleCard";
 import { Button } from "../elements/Button";
-import { Article } from "@/app/data/articlesData";
 import { Filter, X } from "lucide-react";
 import writerThumb from "../../../public/images/writer.webp";
 import { getFormattedDate } from "@/app/utils/utils";
+import { usePublicArticles } from "@/app/hooks/usePublicArticles";
 
 const categories = [
   "All Articles",
@@ -21,26 +21,9 @@ const popularTopics = ["Retention", "Automation", "Feedback", "Hiring"];
 
 const ArticleSection = () => {
   const [activeCategory, setActiveCategory] = useState("All Articles");
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const response = await fetch("/api/articles");
-        if (!response.ok) throw new Error("Failed to fetch articles");
-        const data = await response.json();
-        setArticles(data);
-      } catch (error) {
-        console.error("Error fetching articles:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchArticles();
-  }, []);
+  const { data: articles = [], isLoading } = usePublicArticles();
 
   const filteredArticles =
     activeCategory === "All Articles"

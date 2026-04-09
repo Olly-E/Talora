@@ -56,8 +56,8 @@ export default function ServiceBenefitsSection() {
             </h2>
 
             <p className="text-white/90 text-lg mb-8 leading-relaxed">
-              Our services don&apos;t just solve problems — they transform how
-              you manage people, optimize operations, and drive strategic growth
+              Our services don't just solve problems — they transform how you
+              manage people, optimize operations, and drive strategic growth
               across your entire organization.
             </p>
 

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
-import { Job } from "@/app/data/jobsData";
+import { useState, useMemo } from "react";
 import JobSearchBar from "./JobSearchBar";
 import JobCategoryFilter from "./JobCategoryFilter";
 import JobFilterBar, { JobFilters } from "./JobFilterBar";
 import JobCard from "./JobCard";
 import JobEmptyState from "./JobEmptyState";
 import JobResumeSubmitCTA from "./JobResumeSubmitCTA";
+import { usePublicJobs } from "@/app/hooks/usePublicJobs";
 
 const initialFilters: JobFilters = {
   search: "",
@@ -18,25 +18,8 @@ const initialFilters: JobFilters = {
 
 export default function JobListingsSection() {
   const [filters, setFilters] = useState<JobFilters>(initialFilters);
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await fetch("/api/jobs");
-        if (!response.ok) throw new Error("Failed to fetch jobs");
-        const data = await response.json();
-        setJobs(data);
-      } catch (error) {
-        console.error("Error fetching jobs:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchJobs();
-  }, []);
+  const { data: jobs = [], isLoading } = usePublicJobs();
 
   const filteredJobs = useMemo(() => {
     return jobs.filter((job) => {

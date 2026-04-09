@@ -56,7 +56,7 @@ export default function RecruitmentHeroSection() {
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Connect with the best candidates who don&apos;t just meet your
+                Connect with the best candidates who don't just meet your
                 requirements, but align with your culture and drive your
                 business forward.
               </p>
@@ -115,7 +115,12 @@ export default function RecruitmentHeroSection() {
                 Start Hiring
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="md" variant="outlineWhite" as="link" href="/case-studies">
+              <Button
+                size="md"
+                variant="outlineWhite"
+                as="link"
+                href="/case-studies"
+              >
                 View Success Stories
               </Button>
             </div>

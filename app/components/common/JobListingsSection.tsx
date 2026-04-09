@@ -15,33 +15,17 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "../elements/Button";
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
-import { Job, jobCategories } from "@/app/data/jobsData";
+import { jobCategories } from "@/app/data/jobsData";
+import { usePublicJobs } from "@/app/hooks/usePublicJobs";
 
 export default function JobListingsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All Positions");
   const [searchQuery, setSearchQuery] = useState("");
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await fetch("/api/jobs");
-        if (!response.ok) throw new Error("Failed to fetch jobs");
-        const data = await response.json();
-        setJobs(data);
-      } catch (error) {
-        console.error("Error fetching jobs:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchJobs();
-  }, []);
+  const { data: jobs = [], isLoading } = usePublicJobs();
 
   const filteredJobs = jobs.filter((job) => {
     const matchesCategory =
@@ -85,7 +69,7 @@ export default function JobListingsSection() {
       <div className="container">
         {/* Search Bar */}
         <div className="max-w-3xl mx-auto mb-12">
-          <div className="bg-white rounded-2xl p-2 shadow-lg flex flex-col sm:flex-row gap-2">
+          <div className="bg-white rounded-2xl p-2 shadow-lg flex flex-row gap-2">
             <div className="flex-1 flex items-center gap-3 px-4 py-3 bg-gray-50 rounded-xl">
               <Search className="size-5 text-gray-400" />
               <input
@@ -98,9 +82,9 @@ export default function JobListingsSection() {
             </div>
             <Button
               size="md"
-              className="bg-secondary rounded-xl! hover:bg-secondary/90 text-white! whitespace-nowrap"
+              className="bg-secondary rounded-xl! hover:bg-secondary/90 text-white! px-3 sm:px-8"
             >
-              Search Jobs
+              <span className="hidden sm:inline">Search Jobs</span>
               <Search className="size-4" />
             </Button>
           </div>
@@ -265,10 +249,10 @@ export default function JobListingsSection() {
         <div className="mt-20 bg-linear-to-r from-secondary to-secondary/90 rounded-3xl p-12 text-center text-white relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Don&apos;t See the Right Fit?
+              Don't See the Right Fit?
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Send us your resume and we&apos;ll notify you when new positions
+              Send us your resume and we'll notify you when new positions
               matching your profile become available.
             </p>
             <div className="flex justify-center">

@@ -50,7 +50,7 @@ export default function ContactHeroSection() {
               </div>
 
               <h1 className="text-white leading-tight font-semibold!">
-                Let&apos;s Transform Your{" "}
+                Let's Transform Your{" "}
                 <span className="text-primary">HR Together</span>
               </h1>
 

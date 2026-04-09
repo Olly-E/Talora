@@ -2,10 +2,11 @@
 
 import React, { useState, useMemo, useCallback } from "react";
 import { X, Filter } from "lucide-react";
+
 import { Button } from "@/app/components/elements/Button";
+import { JobFilters, JobFilterProps } from "../types";
 import { jobCategories } from "@/app/data/jobsData";
 import { JOB_TYPES } from "../utils/validation";
-import { JobFilters, JobFilterProps } from "../types";
 
 export type { JobFilters };
 

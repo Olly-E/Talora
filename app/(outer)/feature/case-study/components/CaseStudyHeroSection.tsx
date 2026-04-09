@@ -55,7 +55,7 @@ export default function CaseStudyHeroSection() {
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Explore how we&apos;ve helped businesses transform their HR
+                Explore how we've helped businesses transform their HR
                 operations and achieve remarkable growth through innovative
                 solutions.
               </p>
@@ -116,7 +116,12 @@ export default function CaseStudyHeroSection() {
                 View Success Stories
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="md" variant="outlineWhite" as="link" href="/book-call">
+              <Button
+                size="md"
+                variant="outlineWhite"
+                as="link"
+                href="/book-call"
+              >
                 Get Your Story
               </Button>
             </div>

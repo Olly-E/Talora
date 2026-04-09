@@ -55,7 +55,7 @@ export default function CaseStudyHeroSection() {
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Explore how we&apos;ve helped businesses transform their HR
+                Explore how we've helped businesses transform their HR
                 operations and achieve remarkable growth through innovative
                 solutions.
               </p>

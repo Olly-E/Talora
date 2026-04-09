@@ -11,6 +11,7 @@ export interface Job {
   description: string;
   tags: string[];
   isUrgent: boolean;
+  applicationLink?: string;
 }
 
 export const jobCategories = [

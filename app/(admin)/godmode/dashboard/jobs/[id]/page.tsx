@@ -64,7 +64,7 @@ export default function JobDetailPage() {
             Job Not Found
           </h2>
           <p className="text-gray-600 mb-6">
-            The job you&apos;re looking for doesn&apos;t exist.
+            The job you're looking for doesn't exist.
           </p>
           <Button onClick={() => router.back()}>Go Back</Button>
         </div>
@@ -209,9 +209,23 @@ export default function JobDetailPage() {
               {job?.posted ? getFormattedDate(job.posted) : "N/A"}
             </p>
           </div>
-          <Button className="bg-secondary hover:bg-secondary/90 text-white">
-            Apply Now
-          </Button>
+          {job?.applicationLink ? (
+            <Button
+              as="link"
+              href={job.applicationLink}
+              target="_blank"
+              className="bg-secondary hover:bg-secondary/90 text-white"
+            >
+              Apply Now
+            </Button>
+          ) : (
+            <Button
+              className="bg-gray-400 text-white cursor-not-allowed"
+              disabled
+            >
+              No Application Link
+            </Button>
+          )}
         </div>
       </div>
     </div>
