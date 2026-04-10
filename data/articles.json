@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Best Practices for Remote Recruitment",
+    "slug": "best-practices-remote-recruitment",
+    "author": "Michael Chen",
+    "category": "Recruitment",
+    "coverImage": "https://res.cloudinary.com/dreprhbdv/image/upload/v1775714810/talora/articles/gl8nkvw6ebjvrjuoc9h6.webp",
+    "readTime": "7 min read",
+    "tags": [
+      "Remote Work",
+      "Hiring",
+      "Recruitment"
+    ],
+    "excerpt": "Learn effective strategies for hiring top talent in a remote-first world.",
+    "featured": false,
+    "content": "<p>Full article content here...</p>",
+    "id": 2
+  },
+  {
+    "title": "Article title test 2",
+    "slug": "article-title-test",
+    "author": "Adlaide",
+    "category": "HR Automation",
+    "coverImage": "https://res.cloudinary.com/dreprhbdv/image/upload/v1775714810/talora/articles/gl8nkvw6ebjvrjuoc9h6.webp",
+    "readTime": "5 mins read",
+    "tags": [
+      "AI",
+      "Automation"
+    ],
+    "excerpt": "excerpt test",
+    "featured": true,
+    "content": "<p>New article <strong>bold description<em> ittlaic bold description </em></strong>ittalic description</p>",
+    "id": 1775719793439
+  },
+  {
+    "title": "The Project of Haniwa",
+    "slug": "the-project-of-haniwa",
+    "author": "Emmanuel",
+    "category": "Industry Insights",
+    "coverImage": "https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-63460.jpg",
+    "readTime": "5 mins read",
+    "excerpt": "The project of haniwa started as a normal expedition...",
+    "featured": true,
+    "tags": [
+      "Recruitment",
+      "HR Tech"
+    ],
+    "content": "<p>New ways have been created to ehance creativity <strong>No one works hard anymore </strong><em>they just want to break up attention into lots of fragment</em><strong> </strong></p>",
+    "id": 1775797563144
+  }
+]
