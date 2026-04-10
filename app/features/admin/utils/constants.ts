@@ -1,4 +1,10 @@
-import { Briefcase, FileText, LayoutDashboard, LucideIcon } from "lucide-react";
+import {
+  Briefcase,
+  FileText,
+  LayoutDashboard,
+  LucideIcon,
+  BookOpen,
+} from "lucide-react";
 
 export interface NavItem {
   href: string;
@@ -23,5 +29,10 @@ export const NAV_ITEMS: NavItem[] = [
     href: "/godmode/dashboard/articles",
     label: "Articles",
     icon: FileText,
+  },
+  {
+    href: "/godmode/dashboard/case-studies",
+    label: "Case Studies",
+    icon: BookOpen,
   },
 ];

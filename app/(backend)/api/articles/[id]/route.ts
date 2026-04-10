@@ -28,7 +28,11 @@ export async function PUT(
 
     // Preserve the existing slug
     const existingSlug = articles[articleIndex].slug;
-    articles[articleIndex] = { ...updatedArticleData, id: articleId, slug: existingSlug };
+    articles[articleIndex] = {
+      ...updatedArticleData,
+      id: articleId,
+      slug: existingSlug,
+    };
     await writeArticlesFile(articles);
 
     return NextResponse.json(articles[articleIndex]);

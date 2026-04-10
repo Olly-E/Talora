@@ -2,17 +2,21 @@
 
 import React from "react";
 import Link from "next/link";
-import { Briefcase, FileText } from "lucide-react";
+import { Briefcase, FileText, BookOpen } from "lucide-react";
 import { useGetJobs } from "@/app/features/admin/jobs/api";
 import { useGetArticles } from "@/app/features/admin/article/api";
+import { useGetCaseStudies } from "@/app/features/admin/case-study/api";
 
 export default function DashboardPage() {
   const { data: jobs = [], isLoading: jobsLoading } = useGetJobs();
   const { data: articles = [], isLoading: articlesLoading } = useGetArticles();
+  const { data: caseStudies = [], isLoading: caseStudiesLoading } =
+    useGetCaseStudies();
 
   const stats = {
     totalJobs: jobs.length,
     totalArticles: articles.length,
+    totalCaseStudies: caseStudies.length,
   };
 
   const cards = [
@@ -30,9 +34,16 @@ export default function DashboardPage() {
       href: "/godmode/dashboard/articles",
       color: "bg-green-500",
     },
+    {
+      title: "Total Case Studies",
+      value: stats.totalCaseStudies,
+      icon: BookOpen,
+      href: "/godmode/dashboard/case-studies",
+      color: "bg-purple-500",
+    },
   ];
 
-  if (jobsLoading || articlesLoading) {
+  if (jobsLoading || articlesLoading || caseStudiesLoading) {
     return (
       <div className="space-y-6">
         <div>
@@ -81,7 +92,7 @@ export default function DashboardPage() {
         <h2 className="text-lg font-semibold text-gray-900 mb-4">
           Quick Actions
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <Link
             href="/godmode/dashboard/jobs"
             className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-colors"
@@ -103,6 +114,20 @@ export default function DashboardPage() {
               <h3 className="font-semibold text-gray-900">Manage Articles</h3>
               <p className="text-sm text-gray-600">
                 Write and publish new articles
+              </p>
+            </div>
+          </Link>
+          <Link
+            href="/godmode/dashboard/case-studies"
+            className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg hover:border-purple-500 hover:bg-purple-50 transition-colors"
+          >
+            <BookOpen className="text-purple-500" size={24} />
+            <div>
+              <h3 className="font-semibold text-gray-900">
+                Manage Case Studies
+              </h3>
+              <p className="text-sm text-gray-600">
+                Showcase client success stories
               </p>
             </div>
           </Link>

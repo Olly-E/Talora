@@ -142,7 +142,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="w-full space-y-3">
+        <div className="w-full space-y-3 px-4">
           <Button
             href="/book-call"
             as="link"

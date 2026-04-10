@@ -1,22 +1,31 @@
-import { CaseStudy } from "../types";
+import { CaseStudy } from "@/app/data/caseStudiesData";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { ArrowRight, TrendingUp, Star } from "lucide-react";
+
+const CASE_STUDY_PLACEHOLDER_IMAGE =
+  "https://img.freepik.com/free-photo/business-people-working-together_23-2148388768.jpg";
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
 }
 
 export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
+  const coverImage = caseStudy.coverImage?.trim();
+  const isValidUrl =
+    coverImage &&
+    (coverImage.startsWith("http://") || coverImage.startsWith("https://"));
+  const imageSrc = isValidUrl ? coverImage : CASE_STUDY_PLACEHOLDER_IMAGE;
+
   return (
     <Link
-      href={`/case-studies/${caseStudy.id}`}
+      href={`/case-studies/${caseStudy.slug}`}
       className="group block bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
     >
       {/* Image */}
       <div className="relative h-56 overflow-hidden">
         <Image
-          src={caseStudy.image}
+          src={imageSrc}
           alt={caseStudy.title}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -24,7 +33,13 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent"></div>
 
         {/* Industry Badge */}
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 left-4 flex gap-2">
+          {caseStudy.featured && (
+            <span className=" inline-flex items-center gap-1 bg-yellow-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+              <Star className="size-3 fill-current" />
+              Featured
+            </span>
+          )}
           <span className="bg-white/95 backdrop-blur-sm text-secondary text-xs font-semibold px-3 py-1.5 rounded-full">
             {caseStudy.industry}
           </span>
