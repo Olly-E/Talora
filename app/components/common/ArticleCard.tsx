@@ -24,7 +24,10 @@ const ArticleCard = ({
   title,
 }: ArticleCardProps) => {
   return (
-    <Link href={`/insights/${id}`} className="group bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-all duration-400 ease-in cursor-pointer block">
+    <Link
+      href={`/insights/${id}`}
+      className="group bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-all duration-400 ease-in cursor-pointer block"
+    >
       <div className="relative w-full h-64 overflow-hidden">
         <Image
           src={image}

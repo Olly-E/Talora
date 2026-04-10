@@ -28,7 +28,8 @@ export default function JobListingsSection() {
 
   const filteredJobs = jobs.filter((job) => {
     const matchesCategory =
-      selectedCategory === "All Positions" || job.category.includes(selectedCategory);
+      selectedCategory === "All Positions" ||
+      job.category.includes(selectedCategory);
     const matchesSearch =
       searchQuery === "" ||
       job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -206,7 +207,9 @@ export default function JobListingsSection() {
 
                 {/* View Details */}
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-sm text-gray-500">{job.category.join(", ")}</span>
+                  <span className="text-sm text-gray-500">
+                    {job.category.join(", ")}
+                  </span>
                   <div className="flex items-center gap-2 text-secondary font-semibold group-hover:gap-3 transition-all">
                     View Details
                     <ChevronRight className="size-5" />
