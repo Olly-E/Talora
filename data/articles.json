@@ -23,13 +23,13 @@
     "category": "HR Automation",
     "coverImage": "https://res.cloudinary.com/dreprhbdv/image/upload/v1775714810/talora/articles/gl8nkvw6ebjvrjuoc9h6.webp",
     "readTime": "5 mins read",
+    "excerpt": "excerpt test",
+    "featured": true,
     "tags": [
       "AI",
       "Automation"
     ],
-    "excerpt": "excerpt test",
-    "featured": true,
-    "content": "<p>New article <strong>bold description<em> ittlaic bold description </em></strong>ittalic description</p>",
+    "content": "<p>New article <strong>bold description<em> ittlaic bold description </em></strong>ittalic description</p><p></p><ul><li><p>xvxv</p></li><li><p>zczc</p></li></ul><p></p>",
     "id": 1775719793439
   },
   {

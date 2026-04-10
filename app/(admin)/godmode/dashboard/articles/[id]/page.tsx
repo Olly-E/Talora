@@ -177,8 +177,61 @@ export default function ArticleDetailPage() {
           </div>
 
           <div className="max-w-3xl mx-auto">
+            <style jsx global>{`
+              .admin-article-content ul {
+                list-style-type: disc !important;
+                padding-left: 1.5rem !important;
+                margin: 1rem 0 !important;
+              }
+              .admin-article-content ol {
+                list-style-type: decimal !important;
+                padding-left: 1.5rem !important;
+                margin: 1rem 0 !important;
+              }
+              .admin-article-content ul li,
+              .admin-article-content ol li {
+                margin: 0.5rem 0 !important;
+                padding-left: 0.25rem !important;
+                display: list-item !important;
+              }
+              .admin-article-content ul ul {
+                list-style-type: circle !important;
+                margin: 0.5rem 0 !important;
+              }
+              .admin-article-content ol ol {
+                list-style-type: lower-alpha !important;
+                margin: 0.5rem 0 !important;
+              }
+              .admin-article-content h2 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin: 1.5rem 0 1rem 0;
+                line-height: 1.3;
+              }
+              .admin-article-content h3 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin: 1.25rem 0 0.75rem 0;
+                line-height: 1.3;
+              }
+              .admin-article-content blockquote {
+                border-left: 3px solid #e5e7eb;
+                padding-left: 1rem;
+                margin: 1rem 0;
+                color: #6b7280;
+                font-style: italic;
+              }
+              .admin-article-content p {
+                margin: 0.75rem 0;
+                line-height: 1.75;
+              }
+              .admin-article-content strong {
+                font-weight: 700;
+                color: #1f2937;
+              }
+            `}</style>
             <div
-              className="prose prose-lg max-w-none text-gray-800 leading-relaxed"
+              className="admin-article-content text-gray-800 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
           </div>

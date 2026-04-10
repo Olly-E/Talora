@@ -132,12 +132,55 @@ export default function JobPostPage() {
       )}
 
       <div className="space-y-8 bg-white rounded-2xl p-8 border border-gray-200">
+        <style jsx global>{`
+          .job-description ul {
+            list-style-type: disc !important;
+            padding-left: 1.5rem !important;
+            margin: 1rem 0 !important;
+          }
+          .job-description ol {
+            list-style-type: decimal !important;
+            padding-left: 1.5rem !important;
+            margin: 1rem 0 !important;
+          }
+          .job-description ul li,
+          .job-description ol li {
+            margin: 0.5rem 0 !important;
+            padding-left: 0.25rem !important;
+            display: list-item !important;
+          }
+          .job-description ul ul {
+            list-style-type: circle !important;
+            margin: 0.5rem 0 !important;
+          }
+          .job-description ol ol {
+            list-style-type: lower-alpha !important;
+            margin: 0.5rem 0 !important;
+          }
+          .job-description h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem 0;
+          }
+          .job-description h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1.25rem 0 0.75rem 0;
+          }
+          .job-description p {
+            margin: 0.75rem 0;
+            line-height: 1.75;
+          }
+          .job-description strong {
+            font-weight: 700;
+          }
+        `}</style>
         <section>
           <h2 className="text-2xl font-bold mb-4 text-gray-900">
             Job Description
           </h2>
           <div
-            className="prose max-w-none text-gray-600"
+            className="job-description text-gray-600"
             dangerouslySetInnerHTML={{ __html: job.description }}
           />
         </section>

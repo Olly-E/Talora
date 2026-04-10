@@ -101,7 +101,7 @@ export default function JobDetailPage() {
         />
       )}
 
-      <div className="relative bg-gradient-to-br from-primary/10 via-white to-tertiary/10 rounded-3xl p-8 border-2 border-primary/20 overflow-hidden">
+      <div className="relative bg-linear-to-br from-primary/10 via-white to-tertiary/10 rounded-3xl p-8 border-2 border-primary/20 overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full -mr-32 -mt-32" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-tertiary/10 rounded-full -ml-24 -mb-24" />
 
@@ -194,8 +194,51 @@ export default function JobDetailPage() {
         <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
           Job Description
         </h2>
+        <style jsx global>{`
+          .admin-job-description ul {
+            list-style-type: disc !important;
+            padding-left: 1.5rem !important;
+            margin: 1rem 0 !important;
+          }
+          .admin-job-description ol {
+            list-style-type: decimal !important;
+            padding-left: 1.5rem !important;
+            margin: 1rem 0 !important;
+          }
+          .admin-job-description ul li,
+          .admin-job-description ol li {
+            margin: 0.5rem 0 !important;
+            padding-left: 0.25rem !important;
+            display: list-item !important;
+          }
+          .admin-job-description ul ul {
+            list-style-type: circle !important;
+            margin: 0.5rem 0 !important;
+          }
+          .admin-job-description ol ol {
+            list-style-type: lower-alpha !important;
+            margin: 0.5rem 0 !important;
+          }
+          .admin-job-description h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem 0;
+          }
+          .admin-job-description h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1.25rem 0 0.75rem 0;
+          }
+          .admin-job-description p {
+            margin: 0.75rem 0;
+            line-height: 1.75;
+          }
+          .admin-job-description strong {
+            font-weight: 700;
+          }
+        `}</style>
         <div
-          className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+          className="admin-job-description text-gray-700 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: job.description }}
         />
       </div>
@@ -208,7 +251,7 @@ export default function JobDetailPage() {
           {job.tags.map((tag, index) => (
             <span
               key={index}
-              className="px-4 py-2 bg-gradient-to-r from-primary/20 to-tertiary/20 text-secondary text-sm font-semibold rounded-xl border border-primary/30"
+              className="px-4 py-2 bg-linear-to-r from-primary/20 to-tertiary/20 text-secondary text-sm font-semibold rounded-xl border border-primary/30"
             >
               {tag}
             </span>
@@ -216,7 +259,7 @@ export default function JobDetailPage() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-secondary/5 to-tertiary/5 rounded-2xl p-6 border border-gray-200">
+      <div className="bg-linear-to-r from-secondary/5 to-tertiary/5 rounded-2xl p-6 border border-gray-200">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm text-gray-600 mb-1">Posted on</p>

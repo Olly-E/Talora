@@ -157,18 +157,68 @@ export default function ArticleDetailPage() {
         {/* Article Content */}
         <div className="max-w-4xl mx-auto mb-12">
           <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-200">
+            <style jsx global>{`
+              .article-content ul {
+                list-style-type: disc !important;
+                padding-left: 1.5rem !important;
+                margin: 1rem 0 !important;
+              }
+              .article-content ol {
+                list-style-type: decimal !important;
+                padding-left: 1.5rem !important;
+                margin: 1rem 0 !important;
+              }
+              .article-content ul li,
+              .article-content ol li {
+                margin: 0.5rem 0 !important;
+                padding-left: 0.25rem !important;
+                display: list-item !important;
+              }
+              .article-content ul ul {
+                list-style-type: circle !important;
+                margin: 0.5rem 0 !important;
+              }
+              .article-content ol ol {
+                list-style-type: lower-alpha !important;
+                margin: 0.5rem 0 !important;
+              }
+              .article-content h2 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin: 1.5rem 0 1rem 0;
+                line-height: 1.3;
+              }
+              .article-content h3 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin: 1.25rem 0 0.75rem 0;
+                line-height: 1.3;
+              }
+              .article-content blockquote {
+                border-left: 3px solid #e5e7eb;
+                padding-left: 1rem;
+                margin: 1rem 0;
+                color: #6b7280;
+                font-style: italic;
+              }
+              .article-content p {
+                margin: 0.75rem 0;
+                line-height: 1.75;
+              }
+              .article-content strong {
+                font-weight: 700;
+                color: #1f2937;
+              }
+              .article-content a {
+                color: #665d56;
+                text-decoration: underline;
+              }
+              .article-content a:hover {
+                color: #4b4641;
+              }
+            `}</style>
             <div
-              className="prose prose-lg max-w-none text-gray-800 leading-relaxed
-                prose-headings:font-bold prose-headings:text-gray-900
-                prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
-                prose-p:mb-4 prose-p:leading-relaxed
-                prose-a:text-secondary prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-gray-900 prose-strong:font-semibold
-                prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4
-                prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-4
-                prose-li:mb-2
-                prose-img:rounded-xl prose-img:shadow-md"
+              className="article-content text-gray-800 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
           </div>

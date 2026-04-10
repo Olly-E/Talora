@@ -49,7 +49,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
     editorProps: {
       attributes: {
         className:
-          "prose prose-sm max-w-none focus:outline-none min-h-[350px] px-4 py-3",
+          "prose prose-sm max-w-none focus:outline-none min-h-87.5 px-4 py-3",
       },
     },
   });
@@ -164,7 +164,7 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
         </div>
 
         {/* Editor */}
-        <div className="min-h-[400px] p-4">
+        <div className="min-h-100 p-4">
           <style jsx global>{`
             .ProseMirror p.is-editor-empty:first-child::before {
               color: #9ca3af;
@@ -175,6 +175,49 @@ export const WysiwygInput: React.FC<WysiwygInputProps> = ({
             }
             .ProseMirror:focus {
               outline: none;
+            }
+            .ProseMirror ul {
+              list-style-type: disc;
+              padding-left: 1.5rem;
+              margin: 1rem 0;
+            }
+            .ProseMirror ol {
+              list-style-type: decimal;
+              padding-left: 1.5rem;
+              margin: 1rem 0;
+            }
+            .ProseMirror ul li,
+            .ProseMirror ol li {
+              margin: 0.25rem 0;
+              padding-left: 0.25rem;
+            }
+            .ProseMirror ul ul {
+              list-style-type: circle;
+              margin: 0.5rem 0;
+            }
+            .ProseMirror ol ol {
+              list-style-type: lower-alpha;
+              margin: 0.5rem 0;
+            }
+            .ProseMirror h2 {
+              font-size: 1.5rem;
+              font-weight: 700;
+              margin: 1.5rem 0 1rem 0;
+              line-height: 1.3;
+            }
+            .ProseMirror blockquote {
+              border-left: 3px solid #e5e7eb;
+              padding-left: 1rem;
+              margin: 1rem 0;
+              color: #6b7280;
+              font-style: italic;
+            }
+            .ProseMirror p {
+              margin: 0.75rem 0;
+              line-height: 1.6;
+            }
+            .ProseMirror p:first-child {
+              margin-top: 0;
             }
           `}</style>
           <EditorContent editor={editor} />
