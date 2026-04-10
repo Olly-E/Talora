@@ -21,7 +21,9 @@ export async function PUT(
       return NextResponse.json({ error: "Job not found" }, { status: 404 });
     }
 
-    jobs[jobIndex] = { ...updatedJobData, id: jobId };
+    // Preserve the existing slug
+    const existingSlug = jobs[jobIndex].slug;
+    jobs[jobIndex] = { ...updatedJobData, id: jobId, slug: existingSlug };
     await writeJobsFile(jobs);
 
     return NextResponse.json(jobs[jobIndex]);

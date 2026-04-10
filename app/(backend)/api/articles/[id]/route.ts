@@ -26,7 +26,9 @@ export async function PUT(
       return NextResponse.json({ error: "Article not found" }, { status: 404 });
     }
 
-    articles[articleIndex] = { ...updatedArticleData, id: articleId };
+    // Preserve the existing slug
+    const existingSlug = articles[articleIndex].slug;
+    articles[articleIndex] = { ...updatedArticleData, id: articleId, slug: existingSlug };
     await writeArticlesFile(articles);
 
     return NextResponse.json(articles[articleIndex]);

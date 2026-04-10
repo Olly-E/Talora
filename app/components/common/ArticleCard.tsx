@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 export interface ArticleCardProps {
-  id: number;
+  slug: string;
   image: StaticImageData | string;
   author: {
     name: string;
@@ -16,7 +16,7 @@ export interface ArticleCardProps {
 }
 
 const ArticleCard = ({
-  id,
+  slug,
   image,
   author,
   date,
@@ -25,7 +25,7 @@ const ArticleCard = ({
 }: ArticleCardProps) => {
   return (
     <Link
-      href={`/insights/${id}`}
+      href={`/insights/${slug}`}
       className="group bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-all duration-400 ease-in cursor-pointer block"
     >
       <div className="relative w-full h-64 overflow-hidden">

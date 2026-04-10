@@ -20,13 +20,13 @@ import { getFormattedDate } from "@/app/utils/utils";
 
 export default function ArticleDetailPage() {
   const params = useParams();
-  const articleId = params.id;
+  const articleSlug = params.id as string;
 
   const { data: articles = [], isLoading } = usePublicArticles();
 
   const article = useMemo(() => {
-    return articles.find((a) => a.id === Number(articleId)) || null;
-  }, [articles, articleId]);
+    return articles.find((a) => a.slug === articleSlug) || null;
+  }, [articles, articleSlug]);
 
   const coverImage = article?.coverImage?.trim();
   const isValidUrl =

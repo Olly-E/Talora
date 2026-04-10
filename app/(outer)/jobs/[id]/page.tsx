@@ -15,13 +15,13 @@ import { usePublicJobs } from "@/app/hooks/usePublicJobs";
 
 export default function JobPostPage() {
   const params = useParams();
-  const jobId = params.id;
+  const jobSlug = params.id as string;
 
   const { data: jobs = [], isLoading } = usePublicJobs();
 
   const job = useMemo(() => {
-    return jobs.find((j) => j.id === Number(jobId)) || null;
-  }, [jobs, jobId]);
+    return jobs.find((j) => j.slug === jobSlug) || null;
+  }, [jobs, jobSlug]);
 
   if (isLoading) {
     return (

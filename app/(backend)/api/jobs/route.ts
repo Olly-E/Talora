@@ -65,9 +65,24 @@ export async function POST(request: NextRequest) {
 
     const jobs = await readJobsFile();
 
+    // Generate slug from title
+    const slug = jobData.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    // Check if slug already exists and append number if needed
+    let finalSlug = slug;
+    let counter = 1;
+    while (jobs.some((job) => job.slug === finalSlug)) {
+      finalSlug = `${slug}-${counter}`;
+      counter++;
+    }
+
     const newJob = {
       ...jobData,
       id: Date.now(), // Generate a unique ID
+      slug: finalSlug,
       posted: "Just posted", // Add posted date
     };
 

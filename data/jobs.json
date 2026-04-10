@@ -2,6 +2,7 @@
   {
     "id": 2,
     "title": "HR Manager",
+    "slug": "hr-manager",
     "company": "Global Solutions Corp",
     "location": "New York, NY",
     "type": "Full-time",
@@ -23,6 +24,7 @@
   {
     "id": 3,
     "title": "Marketing Coordinator",
+    "slug": "marketing-coordinator",
     "company": "Creative Minds Agency",
     "location": "Los Angeles, CA",
     "type": "Full-time",
@@ -44,6 +46,7 @@
   {
     "id": 4,
     "title": "Product Designer",
+    "slug": "product-designer",
     "company": "Design Studio Pro",
     "location": "San Francisco, CA",
     "type": "Full-time",
@@ -65,6 +68,7 @@
   {
     "id": 5,
     "title": "Sales Development Representative",
+    "slug": "sales-development-representative",
     "company": "Growth Partners LLC",
     "location": "Austin, TX",
     "type": "Full-time",
@@ -86,6 +90,7 @@
   {
     "id": 6,
     "title": "Junior Full Stack Developer",
+    "slug": "junior-full-stack-developer",
     "company": "StartUp Ventures",
     "location": "Remote",
     "type": "Full-time",
@@ -106,6 +111,7 @@
   },
   {
     "title": "Pastor",
+    "slug": "pastor",
     "company": "Gospel",
     "location": "Lagos",
     "type": "Full-time",

@@ -28,7 +28,6 @@ export async function POST(request: NextRequest) {
     // Validate required fields
     const requiredFields = [
       { field: "title", name: "Title" },
-      { field: "slug", name: "Slug" },
       { field: "author", name: "Author" },
       { field: "category", name: "Category" },
       { field: "excerpt", name: "Excerpt" },
@@ -55,23 +54,24 @@ export async function POST(request: NextRequest) {
 
     const articles = await readArticlesFile();
 
-    // Check for duplicate slug
-    const existingArticle = articles.find(
-      (article) => article.slug === articleData.slug,
-    );
-    if (existingArticle) {
-      return NextResponse.json(
-        {
-          error:
-            "An article with this slug already exists. Please use a different title.",
-        },
-        { status: 409 },
-      );
+    // Generate slug from title
+    const slug = articleData.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    // Check if slug already exists and append number if needed
+    let finalSlug = slug;
+    let counter = 1;
+    while (articles.some((article) => article.slug === finalSlug)) {
+      finalSlug = `${slug}-${counter}`;
+      counter++;
     }
 
     const newArticle = {
       ...articleData,
       id: Date.now(), // Generate a unique ID
+      slug: finalSlug,
     };
 
     articles.push(newArticle);

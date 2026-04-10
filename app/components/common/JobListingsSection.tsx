@@ -144,7 +144,7 @@ export default function JobListingsSection() {
             {filteredJobs.map((job) => (
               <Link
                 key={job.id}
-                href={`/jobs/${job.id}`}
+                href={`/jobs/${job.slug}`}
                 className="group bg-white rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary/20 relative overflow-hidden"
               >
                 {/* Company & Openings */}
