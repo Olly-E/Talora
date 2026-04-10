@@ -38,7 +38,7 @@ export default function ArticleDetailPage() {
     const articleData = {
       ...data,
       coverImage: data.coverImage?.trim() || ARTICLE_PLACEHOLDER_IMAGE,
-      tags: data.tags.split(",").map((tag) => tag.trim()),
+      tags: data.tags.map((tag) => tag.name),
     };
 
     updateArticle(

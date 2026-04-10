@@ -1,12 +1,14 @@
 import { Job } from "@/app/data/jobsData";
+import { Option } from "@/app/types";
 
 export interface JobFormPayload {
   title: string;
   company: string;
   location: string;
   type: string;
+  modeOfWork: string;
   salary: string;
-  category: string;
+  category: string[];
   openings: number;
   description: string;
   tags: string[];
@@ -40,11 +42,12 @@ export interface JobFormData {
   company: string;
   location: string;
   type: string;
+  modeOfWork: string;
   salary: string;
-  category: string;
+  category: Option[];
   openings: number;
   description: string;
-  tags: string;
+  tags: Option[];
   isUrgent: boolean;
   applicationLink?: string;
 }
@@ -65,7 +68,7 @@ export interface JobCardProps {
 
 export interface JobFilters {
   search: string;
-  category: string;
+  category: string[];
   type: string;
   isUrgent: boolean | null;
 }

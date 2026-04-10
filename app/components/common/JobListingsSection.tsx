@@ -3,7 +3,6 @@
 import {
   Briefcase,
   MapPin,
-  Clock,
   DollarSign,
   Users,
   Search,
@@ -29,7 +28,7 @@ export default function JobListingsSection() {
 
   const filteredJobs = jobs.filter((job) => {
     const matchesCategory =
-      selectedCategory === "All Positions" || job.category === selectedCategory;
+      selectedCategory === "All Positions" || job.category.includes(selectedCategory);
     const matchesSearch =
       searchQuery === "" ||
       job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -207,7 +206,7 @@ export default function JobListingsSection() {
 
                 {/* View Details */}
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-sm text-gray-500">{job.category}</span>
+                  <span className="text-sm text-gray-500">{job.category.join(", ")}</span>
                   <div className="flex items-center gap-2 text-secondary font-semibold group-hover:gap-3 transition-all">
                     View Details
                     <ChevronRight className="size-5" />
@@ -249,10 +248,10 @@ export default function JobListingsSection() {
         <div className="mt-20 bg-linear-to-r from-secondary to-secondary/90 rounded-3xl p-12 text-center text-white relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Don't See the Right Fit?
+              Don&apos;t See the Right Fit?
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-              Send us your resume and we'll notify you when new positions
+              Send us your resume and we&apos;ll notify you when new positions
               matching your profile become available.
             </p>
             <div className="flex justify-center">

@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from "react";
 import JobSearchBar from "./JobSearchBar";
-import JobCategoryFilter from "./JobCategoryFilter";
 import JobFilterBar, { JobFilters } from "./JobFilterBar";
 import JobCard from "./JobCard";
 import JobEmptyState from "./JobEmptyState";
@@ -30,7 +29,7 @@ export default function JobListingsSection() {
         job.description.toLowerCase().includes(filters.search.toLowerCase());
 
       const matchesCategory =
-        filters.category === "" || job.category === filters.category;
+        filters.category === "" || job.category.includes(filters.category);
 
       const matchesType = filters.type === "" || job.type === filters.type;
 

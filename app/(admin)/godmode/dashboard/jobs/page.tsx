@@ -21,7 +21,7 @@ import { JobFormData } from "@/app/features/admin/jobs/types";
 
 const initialFilters: JobFilters = {
   search: "",
-  category: "",
+  category: [],
   type: "",
   isUrgent: null,
 };
@@ -46,7 +46,8 @@ export default function JobsPage() {
         job.description.toLowerCase().includes(filters.search.toLowerCase());
 
       const matchesCategory =
-        filters.category === "" || job.category === filters.category;
+        filters.category.length === 0 ||
+        filters.category.some((filterCat) => job.category.includes(filterCat));
 
       const matchesType = filters.type === "" || job.type === filters.type;
 
@@ -60,7 +61,8 @@ export default function JobsPage() {
   const handleFormSubmit = (data: JobFormData) => {
     const jobData = {
       ...data,
-      tags: data.tags.split(",").map((tag) => tag.trim()),
+      category: data.category.map((cat) => cat.name),
+      tags: data.tags.map((tag) => tag.name),
       openings: Number(data.openings),
     };
 

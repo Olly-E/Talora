@@ -4,8 +4,9 @@ export interface Job {
   company: string;
   location: string;
   type: string;
+  modeOfWork: string;
   salary: string;
-  category: string;
+  category: string[];
   openings: number;
   posted?: string;
   description: string;

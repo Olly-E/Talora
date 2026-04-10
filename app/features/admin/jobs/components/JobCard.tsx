@@ -52,9 +52,14 @@ export const JobCard: React.FC<JobCardProps> = ({
                 Urgent
               </span>
             )}
-            <span className="inline-flex items-center px-3 py-1 bg-primary/10 text-secondary text-xs font-semibold rounded-full">
-              {job.category}
-            </span>
+            {job.category.map((cat, idx) => (
+              <span
+                key={idx}
+                className="inline-flex items-center px-3 py-1 bg-primary/10 text-secondary text-xs font-semibold rounded-full"
+              >
+                {cat}
+              </span>
+            ))}
           </div>
           <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-secondary transition-colors">
             {job.title}
@@ -86,7 +91,7 @@ export const JobCard: React.FC<JobCardProps> = ({
         {stripHtml(job.description)}
       </p>
 
-      <div className="grid grid-cols-2 gap-3 mb-6">
+      <div className="grid grid-cols-2 gap-3 mb-4">
         <div className="flex items-center gap-2 text-sm">
           <div className="p-2 bg-tertiary/10 rounded-lg">
             <MapPin className="size-4 text-tertiary" />
@@ -111,6 +116,12 @@ export const JobCard: React.FC<JobCardProps> = ({
           </div>
           <span className="text-gray-700">{job.openings} openings</span>
         </div>
+      </div>
+
+      <div className="mb-4">
+        <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+          {job.modeOfWork}
+        </span>
       </div>
 
       <div className="flex flex-wrap gap-2 mb-4">

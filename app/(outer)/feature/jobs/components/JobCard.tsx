@@ -80,7 +80,7 @@ export default function JobCard({ job }: JobCardProps) {
 
       {/* View Details */}
       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        <span className="text-sm text-gray-500">{job.category}</span>
+        <span className="text-sm text-gray-500">{job.category.join(", ")}</span>
         <div className="flex items-center gap-2 text-secondary font-semibold group-hover:gap-3 transition-all">
           View Details
           <ChevronRight className="size-5" />

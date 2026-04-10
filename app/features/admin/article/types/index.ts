@@ -1,4 +1,5 @@
 import { Article } from "@/app/data/articlesData";
+import { Option } from "@/app/types";
 
 export interface ArticleFormPayload {
   title: string;
@@ -43,7 +44,7 @@ export interface ArticleFormData {
   content: string;
   coverImage: string;
   readTime: string;
-  tags: string;
+  tags: Option[];
   featured: boolean;
 }
 

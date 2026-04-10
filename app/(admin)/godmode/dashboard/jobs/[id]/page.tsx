@@ -31,7 +31,8 @@ export default function JobDetailPage() {
   const handleFormSubmit = (data: JobFormData) => {
     const jobData = {
       ...data,
-      tags: data.tags.split(",").map((tag) => tag.trim()),
+      category: data.category.map((cat) => cat.name),
+      tags: data.tags.map((tag) => tag.name),
       openings: Number(data.openings),
     };
 
@@ -64,7 +65,7 @@ export default function JobDetailPage() {
             Job Not Found
           </h2>
           <p className="text-gray-600 mb-6">
-            The job you're looking for doesn't exist.
+            The job you&apos;re looking for doesn&apos;t exist.
           </p>
           <Button onClick={() => router.back()}>Go Back</Button>
         </div>
@@ -107,25 +108,30 @@ export default function JobDetailPage() {
         <div className="relative z-10">
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center gap-4">
-              <div className="p-4 bg-secondary rounded-2xl">
-                <Building2 className="size-8 text-white" />
+              <div className="p-3 bg-secondary rounded-2xl">
+                <Building2 className="size-6 text-white" />
               </div>
               <div>
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
                   {job.isUrgent && (
                     <span className="inline-flex items-center gap-1 px-3 py-1 bg-red-500 text-white text-xs font-semibold rounded-full">
                       <AlertCircle className="size-3" />
                       Urgent Hiring
                     </span>
                   )}
-                  <span className="px-3 py-1 bg-primary text-secondary text-xs font-semibold rounded-full">
-                    {job.category}
-                  </span>
+                  {job.category.map((cat, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 bg-primary text-secondary text-xs font-semibold rounded-full"
+                    >
+                      {cat}
+                    </span>
+                  ))}
                 </div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-2">
+                <h1 className="text-xl font-bold text-gray-900 mb-2">
                   {job.title}
                 </h1>
-                <p className="text-base text-gray-700 font-medium">
+                <p className="text-sm text-gray-700 font-medium">
                   {job.company}
                 </p>
               </div>
@@ -150,6 +156,15 @@ export default function JobDetailPage() {
                 </span>
               </div>
               <p className="text-gray-900 font-semibold">{job.type}</p>
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-gray-200">
+              <div className="flex items-center gap-2 mb-2">
+                <Briefcase className="size-5 text-blue-600" />
+                <span className="text-xs text-gray-500 font-medium">
+                  Mode of Work
+                </span>
+              </div>
+              <p className="text-gray-900 font-semibold">{job.modeOfWork}</p>
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-200">
               <div className="flex items-center gap-2 mb-2">

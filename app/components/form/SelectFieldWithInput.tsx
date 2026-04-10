@@ -14,7 +14,7 @@ import {
   UseControllerProps,
 } from "react-hook-form";
 import { CloseCircle } from "iconsax-react";
-import React, { useEffect } from "react";
+import React from "react";
 import clsx from "clsx";
 
 import { CommonData, Option } from "@/app/types";
@@ -67,7 +67,6 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
   } = props;
 
   const [query, setQuery] = React.useState("");
-  const [multiFilterValue, setMultiFilterValue] = React.useState<Option[]>([]);
 
   const isNew = onCreateNew && isNewChecker ? isNewChecker(query) : false;
 
@@ -79,17 +78,13 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
     }
   };
 
-  useEffect(() => {
-    if (isMultiple) {
-      setMultiFilterValue(value || []);
-    }
-  }, [value]);
+  const multiFilterValue: Option[] = isMultiple ? (value || []) : [];
 
   const filteredArr =
     query === ""
       ? arr.filter(
           (item) =>
-            !multiFilterValue.some((selected) => selected.id === item.id)
+            !multiFilterValue.some((selected: Option) => selected.id === item.id)
         )
       : arr.filter(
           (obj) =>
@@ -97,7 +92,7 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
               ?.toLowerCase()
               ?.replace(/\s+/g, "")
               ?.includes(query.toLowerCase().replace(/\s+/g, "")) &&
-            !multiFilterValue.some((selected) => selected.id === obj.id)
+            !multiFilterValue.some((selected: Option) => selected.id === obj.id)
         );
 
   const handleInputFocus = (
@@ -113,8 +108,7 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
   const hasMultipleOption = isMultiple && multiFilterValue.length > 0;
 
   const handleRemoveOptionFromMultiple = (id: string) => {
-    const newValue = multiFilterValue.filter((option) => option?.id !== id);
-    setMultiFilterValue(newValue);
+    const newValue = multiFilterValue.filter((option: Option) => option?.id !== id);
     onChange(newValue); // Update form control value
   };
 
@@ -123,9 +117,6 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
       <Combobox
         value={isMultiple ? multiFilterValue : value}
         onChange={(newVal) => {
-          if (isMultiple) {
-            setMultiFilterValue(newVal);
-          }
           onChange(newVal);
         }}
         multiple={isMultiple}
@@ -159,7 +150,7 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
             <ComboboxButton
               className={clsx(
                 "absolute top-2 justify-center flex items-center px-2 right-1 rounded-full min-w-[20px] min-h-[24px] mx-auto bg-white-state ",
-                hasError ? "text-primary" : "text-gray-250"
+                hasError ? "text-white" : "text-gray-250"
               )}
               disabled={disabled}
             >
@@ -171,9 +162,9 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
             {hasMultipleOption && (
               <div className="mt-2 flex flex-wrap gap-2">
                 {multiFilterValue.length > 0 &&
-                  multiFilterValue.map((option) => (
+                  multiFilterValue.map((option: Option) => (
                     <div
-                      className="flex py-1 bg-primary/10 border border-[#DADFE7] rounded-[3px] hover:text-black/80 gap-1 px-2 items-center space-x-1 bg-secondary/20 pl-2 text-sm"
+                      className="flex py-1 bg-primary/10 border border-[#DADFE7] rounded-[3px] hover:text-black/80 gap-1 px-2 items-center space-x-1 text-sm"
                       key={option?.id}
                     >
                       {option?.name}
@@ -235,9 +226,9 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
                           className={clsx(
                             "group relative cursor-pointer py-3 px-4 flex items-center",
                             focus
-                              ? "bg-black/50 text-primary"
+                              ? "bg-black/50 text-white"
                               : "text-black-state",
-                            selected && "bg-black text-primary",
+                            selected && "bg-black text-white",
                             !(filteredArr.length - 1 === index) &&
                               "border-b border-[#9EA4AC]"
                           )}

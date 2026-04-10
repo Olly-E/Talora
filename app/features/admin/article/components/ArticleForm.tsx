@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Control, useForm } from "react-hook-form";
 import Image from "next/image";
 import { Upload, X } from "lucide-react";
 import { InputField } from "@/app/components/form/InputField";
 import { TextAreaField } from "@/app/components/form/TextAreaField";
 import { WysiwygInput } from "@/app/components/form/WysiwygInput";
+import { SelectFieldWithInput } from "@/app/components/form/SelectFieldWithInput";
 import { Button } from "@/app/components/elements/Button";
 import { Label } from "@/app/components/elements/Label";
 import { articleCategories } from "@/app/data/articlesData";
@@ -14,7 +15,11 @@ import { generateSlug } from "../utils/helpers";
 import { useUploadImage } from "../api";
 import toast from "react-hot-toast";
 import { ArticleFormData, ArticleFormProps } from "../types";
-import { ARTICLE_PLACEHOLDER_IMAGE } from "../utils/constants";
+import {
+  ARTICLE_PLACEHOLDER_IMAGE,
+  COMMON_ARTICLE_TAGS,
+} from "../utils/constants";
+import { Option } from "@/app/types";
 
 export const ArticleForm: React.FC<ArticleFormProps> = ({
   editingArticle,
@@ -28,6 +33,7 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
     reset,
@@ -38,6 +44,12 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
   const titleValue = watch("title");
   const coverImageValue = watch("coverImage");
   const contentValue = watch("content") || "";
+
+  // Convert tags to Option format
+  const tagOptions: Option[] = COMMON_ARTICLE_TAGS.map((tag) => ({
+    id: tag.toLowerCase().replace(/\s+/g, "-"),
+    name: tag,
+  }));
 
   useEffect(() => {
     if (titleValue && !editingArticle) {
@@ -61,7 +73,14 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
       setValue("content", editingArticle.content);
       setValue("coverImage", editingArticle.coverImage);
       setValue("readTime", editingArticle.readTime);
-      setValue("tags", editingArticle.tags.join(", "));
+
+      // Convert tags array to Option[]
+      const tagValues: Option[] = editingArticle.tags.map((tag) => ({
+        id: tag.toLowerCase().replace(/\s+/g, "-"),
+        name: tag,
+      }));
+      setValue("tags", tagValues);
+
       setValue("featured", editingArticle.featured);
       setUploadedImageUrl(editingArticle.coverImage);
     }
@@ -139,14 +158,11 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
             hasError={errors.title}
             isRequired
           />
-          <InputField
-            label="URL Slug"
-            placeholder="e.g. future-of-hr-automation"
-            registration={register("slug", {
+          <input
+            type="hidden"
+            {...register("slug", {
               required: "Slug is required",
             })}
-            hasError={errors.slug}
-            isRequired
           />
           <InputField
             label="Author"
@@ -257,15 +273,34 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
           </div>
         </div>
 
-        <InputField
-          label="Tags (comma-separated)"
-          placeholder="e.g. AI, Automation, HR Tech"
-          registration={register("tags", {
-            required: "Tags are required",
-          })}
-          hasError={errors.tags}
-          isRequired
-        />
+        <div className="w-full">
+          <Label>Tags</Label>
+          <SelectFieldWithInput
+            name="tags"
+            control={control as unknown as Control}
+            arr={tagOptions}
+            placeholder="Select or type to add tags"
+            isMultiple={true}
+            hasError={errors.tags}
+            onCreateNew={(query) => {
+              const currentTags = watch("tags") || [];
+              const newTag: Option = {
+                id: query.toLowerCase().replace(/\s+/g, "-"),
+                name: query,
+              };
+              setValue("tags", [...currentTags, newTag]);
+            }}
+            isNewChecker={(query) => {
+              const currentOptions = [...tagOptions, ...(watch("tags") || [])];
+              return !currentOptions.some(
+                (opt) => opt.name.toLowerCase() === query.toLowerCase(),
+              );
+            }}
+          />
+          {errors.tags && (
+            <p className="text-red-500 text-xs mt-1">{errors.tags.message}</p>
+          )}
+        </div>
 
         <TextAreaField
           id="excerpt"

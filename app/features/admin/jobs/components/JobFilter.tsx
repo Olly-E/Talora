@@ -1,7 +1,13 @@
 "use client";
 
-import React, { useState, useMemo, useCallback } from "react";
-import { X, Filter } from "lucide-react";
+import React, {
+  useState,
+  useMemo,
+  useCallback,
+  useRef,
+  useEffect,
+} from "react";
+import { X, Filter, ChevronDown } from "lucide-react";
 
 import { Button } from "@/app/components/elements/Button";
 import { JobFilters, JobFilterProps } from "../types";
@@ -16,6 +22,23 @@ export const JobFilter: React.FC<JobFilterProps> = ({
   onClearFilters,
 }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+  const categoryDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        categoryDropdownRef.current &&
+        !categoryDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsCategoryDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,9 +47,12 @@ export const JobFilter: React.FC<JobFilterProps> = ({
     [filters, onFilterChange],
   );
 
-  const handleCategoryChange = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      onFilterChange({ ...filters, category: e.target.value });
+  const handleCategoryToggle = useCallback(
+    (category: string) => {
+      const newCategories = filters.category.includes(category)
+        ? filters.category.filter((c) => c !== category)
+        : [...filters.category, category];
+      onFilterChange({ ...filters, category: newCategories });
     },
     [filters, onFilterChange],
   );
@@ -47,7 +73,7 @@ export const JobFilter: React.FC<JobFilterProps> = ({
 
   const hasActiveFilters =
     filters.search !== "" ||
-    filters.category !== "" ||
+    filters.category.length > 0 ||
     filters.type !== "" ||
     filters.isUrgent !== null;
 
@@ -84,31 +110,86 @@ export const JobFilter: React.FC<JobFilterProps> = ({
             </label>
             <input
               type="text"
-              placeholder="Job title, company..."
+              placeholder="Job title, industry..."
               value={filters.search}
               onChange={handleSearchChange}
               className="h-9.5 rounded-[5px] w-full border border-[#444444]/20 font-WorkSans px-4 bg-white outline-none text-sm text-black placeholder:text-gray-400"
             />
           </div>
 
-          <div className="w-full">
+          <div className="w-full" ref={categoryDropdownRef}>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Category
+              Categories
             </label>
-            <select
-              value={filters.category}
-              onChange={handleCategoryChange}
-              className="h-9.5 rounded-[5px] w-full border border-[#444444]/20 font-WorkSans px-4 bg-white outline-none text-sm text-black"
-            >
-              <option value="">All Categories</option>
-              {jobCategories
-                .filter((cat) => cat !== "All Positions")
-                .map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
-                  </option>
-                ))}
-            </select>
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() =>
+                  setIsCategoryDropdownOpen(!isCategoryDropdownOpen)
+                }
+                className="h-9.5 rounded-[5px] w-full border border-[#444444]/20 bg-white px-4 outline-none text-sm text-black text-left flex items-center justify-between hover:border-[#444444]/40 transition-colors"
+              >
+                <span
+                  className={
+                    filters.category.length === 0
+                      ? "text-gray-400"
+                      : "text-black"
+                  }
+                >
+                  {filters.category.length === 0
+                    ? "All Categories"
+                    : `${filters.category.length} selected`}
+                </span>
+                <ChevronDown
+                  className={`size-4 text-gray-500 transition-transform ${
+                    isCategoryDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {isCategoryDropdownOpen && (
+                <div className="absolute z-20 mt-1 w-full bg-white border border-[#444444]/20 rounded-[5px] shadow-lg max-h-60 overflow-auto">
+                  <div className="p-2 space-y-1">
+                    {jobCategories
+                      .filter((cat) => cat !== "All Positions")
+                      .map((cat) => (
+                        <label
+                          key={cat}
+                          className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-2 rounded transition-colors"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={filters.category.includes(cat)}
+                            onChange={() => handleCategoryToggle(cat)}
+                            className="h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary"
+                          />
+                          <span className="text-sm text-gray-700">{cat}</span>
+                        </label>
+                      ))}
+                  </div>
+                </div>
+              )}
+
+              {filters.category.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {filters.category.map((cat) => (
+                    <span
+                      key={cat}
+                      className="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-secondary text-xs font-medium rounded-full border border-primary/30"
+                    >
+                      {cat}
+                      <button
+                        type="button"
+                        onClick={() => handleCategoryToggle(cat)}
+                        className="hover:text-red-600 transition-colors"
+                      >
+                        <X className="size-3" />
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="w-full">
@@ -160,10 +241,12 @@ export const JobFilter: React.FC<JobFilterProps> = ({
       filters,
       hasActiveFilters,
       handleSearchChange,
-      handleCategoryChange,
+      handleCategoryToggle,
       handleTypeChange,
       handleUrgentChange,
       onClearFilters,
+      isCategoryDropdownOpen,
+      setIsCategoryDropdownOpen,
     ],
   );
 
@@ -182,7 +265,7 @@ export const JobFilter: React.FC<JobFilterProps> = ({
               {
                 [
                   filters.search !== "",
-                  filters.category !== "",
+                  filters.category.length > 0,
                   filters.type !== "",
                   filters.isUrgent !== null,
                 ].filter(Boolean).length

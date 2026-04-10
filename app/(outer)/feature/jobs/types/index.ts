@@ -4,13 +4,15 @@ export interface Job {
   company: string;
   location: string;
   type: string;
+  modeOfWork: string;
   salary: string;
-  category: string;
+  category: string[];
   openings: number;
   posted?: string;
   description: string;
   tags: string[];
   isUrgent: boolean;
+  applicationLink?: string;
 }
 
 export type JobCategory =

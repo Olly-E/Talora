@@ -128,6 +128,7 @@ const ArticleSection = () => {
             filteredArticles.slice(0, 4).map((article) => (
               <ArticleCard
                 key={article.id}
+                id={article.id}
                 image={article.coverImage || "/images/article-placeholder.webp"}
                 author={{
                   name: article.author,

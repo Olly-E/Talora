@@ -1,7 +1,9 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 export interface ArticleCardProps {
+  id: number;
   image: StaticImageData | string;
   author: {
     name: string;
@@ -14,6 +16,7 @@ export interface ArticleCardProps {
 }
 
 const ArticleCard = ({
+  id,
   image,
   author,
   date,
@@ -21,7 +24,7 @@ const ArticleCard = ({
   title,
 }: ArticleCardProps) => {
   return (
-    <div className="group bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-all duration-400 ease-in cursor-pointer">
+    <Link href={`/insights/${id}`} className="group bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-all duration-400 ease-in cursor-pointer block">
       <div className="relative w-full h-64 overflow-hidden">
         <Image
           src={image}
@@ -55,11 +58,11 @@ const ArticleCard = ({
           {title}
         </h3>
 
-        <button className="text-primary font-medium text-sm hover:underline">
+        <span className="text-primary font-medium text-sm hover:underline">
           See More
-        </button>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 };
 

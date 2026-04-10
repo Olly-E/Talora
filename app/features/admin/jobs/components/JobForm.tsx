@@ -1,14 +1,16 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { Control, useForm } from "react-hook-form";
 import { InputField } from "@/app/components/form/InputField";
 import { WysiwygInput } from "@/app/components/form/WysiwygInput";
+import { SelectFieldWithInput } from "@/app/components/form/SelectFieldWithInput";
 import { Button } from "@/app/components/elements/Button";
 import { Label } from "@/app/components/elements/Label";
 import { jobCategories } from "@/app/data/jobsData";
-import { JOB_TYPES } from "../utils/validation";
+import { JOB_TYPES, MODE_OF_WORK, COMMON_JOB_TAGS } from "../utils/validation";
 import { JobFormData, JobFormProps } from "../types";
+import { Option } from "@/app/types";
 
 export const JobForm: React.FC<JobFormProps> = ({
   editingJob,
@@ -18,6 +20,7 @@ export const JobForm: React.FC<JobFormProps> = ({
 }) => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
     reset,
@@ -27,17 +30,46 @@ export const JobForm: React.FC<JobFormProps> = ({
 
   const descriptionValue = watch("description") || "";
 
+  // Convert categories to Option format
+  const categoryOptions: Option[] = jobCategories
+    .filter((cat) => cat !== "All Positions")
+    .map((cat) => ({
+      id: cat.toLowerCase().replace(/\s+/g, "-"),
+      name: cat,
+    }));
+
+  // Convert tags to Option format
+  const tagOptions: Option[] = COMMON_JOB_TAGS.map((tag) => ({
+    id: tag.toLowerCase().replace(/\s+/g, "-"),
+    name: tag,
+  }));
+
   useEffect(() => {
     if (editingJob) {
       setValue("title", editingJob.title);
       setValue("company", editingJob.company);
       setValue("location", editingJob.location);
       setValue("type", editingJob.type);
+      setValue("modeOfWork", editingJob.modeOfWork);
       setValue("salary", editingJob.salary);
-      setValue("category", editingJob.category);
+
+      // Convert category array to Option[]
+      const categoryValues: Option[] = editingJob.category.map((cat) => ({
+        id: cat.toLowerCase().replace(/\s+/g, "-"),
+        name: cat,
+      }));
+      setValue("category", categoryValues);
+
       setValue("openings", editingJob.openings);
       setValue("description", editingJob.description);
-      setValue("tags", editingJob.tags.join(", "));
+
+      // Convert tags array to Option[]
+      const tagValues: Option[] = editingJob.tags.map((tag) => ({
+        id: tag.toLowerCase().replace(/\s+/g, "-"),
+        name: tag,
+      }));
+      setValue("tags", tagValues);
+
       setValue("isUrgent", editingJob.isUrgent);
       setValue("applicationLink", editingJob.applicationLink || "");
     }
@@ -80,10 +112,10 @@ export const JobForm: React.FC<JobFormProps> = ({
             isRequired
           />
           <InputField
-            label="Company"
-            placeholder="e.g. Tech Innovations Inc."
+            label="Industry"
+            placeholder="e.g. Technology, Healthcare, Finance"
             registration={register("company", {
-              required: "Company is required",
+              required: "Industry is required",
             })}
             hasError={errors.company}
             isRequired
@@ -116,6 +148,29 @@ export const JobForm: React.FC<JobFormProps> = ({
               <p className="text-red-500 text-xs mt-1">{errors.type.message}</p>
             )}
           </div>
+          <div className="w-full">
+            <Label htmlFor="modeOfWork" isRequired>
+              Mode of Work
+            </Label>
+            <select
+              {...register("modeOfWork", {
+                required: "Mode of work is required",
+              })}
+              className="h-[38px] rounded-[5px] w-full border border-[#444444]/20 font-WorkSans px-4 bg-white outline-none text-sm text-black disabled:bg-gray-100"
+            >
+              <option value="">Select mode of work</option>
+              {MODE_OF_WORK.map((mode) => (
+                <option key={mode} value={mode}>
+                  {mode}
+                </option>
+              ))}
+            </select>
+            {errors.modeOfWork && (
+              <p className="text-red-500 text-xs mt-1">
+                {errors.modeOfWork.message}
+              </p>
+            )}
+          </div>
           <InputField
             label="Salary Range"
             placeholder="e.g. $120k - $150k"
@@ -126,22 +181,16 @@ export const JobForm: React.FC<JobFormProps> = ({
             isRequired
           />
           <div className="w-full">
-            <Label htmlFor="category" isRequired>
-              Category
-            </Label>
-            <select
-              {...register("category", { required: "Category is required" })}
-              className="h-[38px] rounded-[5px] w-full border border-[#444444]/20 font-WorkSans px-4 bg-white outline-none text-sm text-black disabled:bg-gray-100"
-            >
-              <option value="">Select category</option>
-              {jobCategories
-                .filter((cat) => cat !== "All Positions")
-                .map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
-                  </option>
-                ))}
-            </select>
+            <Label isRequired>Category</Label>
+            <SelectFieldWithInput
+              name="category"
+              control={control as unknown as Control}
+              arr={categoryOptions}
+              placeholder="Select categories"
+              isMultiple={true}
+              hasError={errors.category}
+              rules={{ required: "At least one category is required" }}
+            />
             {errors.category && (
               <p className="text-red-500 text-xs mt-1">
                 {errors.category.message}
@@ -160,15 +209,35 @@ export const JobForm: React.FC<JobFormProps> = ({
             hasError={errors.openings}
             isRequired
           />
-          <InputField
-            label="Tags (comma-separated)"
-            placeholder="e.g. React, Node.js, TypeScript"
-            registration={register("tags", {
-              required: "Tags are required",
-            })}
+        </div>
+
+        <div className="w-full">
+          <Label>Tags/Skills</Label>
+          <SelectFieldWithInput
+            name="tags"
+            control={control as unknown as Control}
+            arr={tagOptions}
+            placeholder="Select or type to add tags"
+            isMultiple={true}
             hasError={errors.tags}
-            isRequired
+            onCreateNew={(query) => {
+              const currentTags = watch("tags") || [];
+              const newTag: Option = {
+                id: query.toLowerCase().replace(/\s+/g, "-"),
+                name: query,
+              };
+              setValue("tags", [...currentTags, newTag]);
+            }}
+            isNewChecker={(query) => {
+              const currentOptions = [...tagOptions, ...(watch("tags") || [])];
+              return !currentOptions.some(
+                (opt) => opt.name.toLowerCase() === query.toLowerCase(),
+              );
+            }}
           />
+          {errors.tags && (
+            <p className="text-red-500 text-xs mt-1">{errors.tags.message}</p>
+          )}
         </div>
 
         <InputField
