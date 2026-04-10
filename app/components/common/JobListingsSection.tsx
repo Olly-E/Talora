@@ -13,11 +13,12 @@ import {
   Filter,
   X,
 } from "lucide-react";
-import { Button } from "../elements/Button";
 import { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
-import { jobCategories } from "@/app/data/jobsData";
+
 import { usePublicJobs } from "@/app/hooks/usePublicJobs";
+import { jobCategories } from "@/app/data/jobsData";
+import { Button } from "../elements/Button";
 
 export default function JobListingsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All Positions");
