@@ -1,9 +1,34 @@
+import type { Metadata } from "next";
 import {
   RecruitmentHeroSection,
   RecruitmentServicesSection,
   RecruitmentProcessSection,
   RecruitmentCTASection,
 } from "@/app/(outer)/feature/recruitment/components";
+
+export const metadata: Metadata = {
+  title: "Recruitment Services - Expert Talent Acquisition & Hiring Solutions",
+  description:
+    "Transform your hiring process with Talora's recruitment services. Expert talent acquisition, candidate sourcing, interview optimization, and recruitment process outsourcing (RPO) to build exceptional teams.",
+  keywords: [
+    "recruitment services",
+    "talent acquisition",
+    "hiring solutions",
+    "recruitment process outsourcing",
+    "RPO services",
+    "candidate sourcing",
+    "executive search",
+    "recruitment consulting",
+    "talent sourcing",
+  ],
+  openGraph: {
+    title: "Recruitment Services - Expert Talent Acquisition & Hiring",
+    description:
+      "Expert recruitment services to help you find, attract, and hire top talent. Transform your hiring process with Talora's proven strategies.",
+    url: "https://taloraagency.com/services/recruitment",
+    type: "website",
+  },
+};
 
 export default function RecruitmentPage() {
   return (

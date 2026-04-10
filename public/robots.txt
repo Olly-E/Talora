@@ -1,10 +1,22 @@
 # https://www.robotstxt.org/robotstxt.html
+# Talora HR Solutions - Robots Configuration
+
 User-agent: *
 Allow: /
 
-# Hide admin routes from search engines
+# Block admin routes from search engines
+Disallow: /godmode/
 Disallow: /godmode
+Disallow: /api/auth/
 Disallow: /api/auth
 
-# Sitemap location (change domain to your actual domain)
-Sitemap: https://talora.com/sitemap.xml
+# Allow API routes that provide public data
+Allow: /api/jobs
+Allow: /api/articles
+Allow: /api/case-studies
+
+# Crawl delay (optional, helps prevent overloading)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://talora-psi.vercel.app/sitemap.xml

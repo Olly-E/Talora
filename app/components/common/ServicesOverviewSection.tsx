@@ -114,7 +114,7 @@ const services: Service[] = [
 
 export default function ServicesOverviewSection() {
   return (
-    <section className="py-20 bg-primary/50">
+    <section className="py-20 bg-primary/50 mt-10 sm:mt-0">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="bg-secondary flex items-center gap-2 text-white text-sm font-medium w-fit shadow-sm px-4 py-2 rounded-full mb-6 mx-auto">
@@ -130,7 +130,7 @@ export default function ServicesOverviewSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
           {services.map((service) => {
             const Icon = service.icon;
             return (

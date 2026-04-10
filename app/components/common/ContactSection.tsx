@@ -2,9 +2,11 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { InputField } from "../form/InputField";
 import { TextAreaField } from "../form/TextAreaField";
 import { Button } from "../elements/Button";
+import { useContact } from "@/app/hooks/useContact";
 
 interface ContactFormData {
   name: string;
@@ -12,6 +14,14 @@ interface ContactFormData {
   phone: string;
   company: string;
   message: string;
+}
+
+interface ApiError {
+  response?: {
+    data?: {
+      error?: string;
+    };
+  };
 }
 
 const ContactSection = () => {
@@ -22,10 +32,24 @@ const ContactSection = () => {
     reset,
   } = useForm<ContactFormData>();
 
+  const { mutate: submitContact, isPending } = useContact();
+
   const onSubmit = (data: ContactFormData) => {
-    console.log("Contact Form Data:", data);
-    // Handle form submission here
-    reset();
+    submitContact(data, {
+      onSuccess: () => {
+        toast.success(
+          "Thank you for contacting us! We'll get back to you shortly.",
+        );
+        reset();
+      },
+      onError: (error: Error) => {
+        const apiError = error as unknown as ApiError;
+        toast.error(
+          apiError?.response?.data?.error ||
+            "Failed to send message. Please try again.",
+        );
+      },
+    });
   };
 
   return (
@@ -39,7 +63,7 @@ const ContactSection = () => {
               Get In Touch
             </div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-6">
-              Let's Transform Your
+              Let&apos;s Transform Your
               <br />
               HR Operations Together
             </h2>
@@ -68,7 +92,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Email Us</h3>
-                  <p className="text-gray-600">contact@talora.com</p>
+                  <p className="text-gray-600">contact@taloraagency.com</p>
                 </div>
               </div>
 
@@ -190,8 +214,9 @@ const ContactSection = () => {
                 type="submit"
                 size="lg"
                 className="w-full bg-secondary hover:bg-secondary/90 text-white"
+                disabled={isPending}
               >
-                Send Message
+                {isPending ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </div>

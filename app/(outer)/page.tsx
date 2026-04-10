@@ -1,6 +1,30 @@
+import type { Metadata } from "next";
 import { Play } from "lucide-react";
 import { Button } from "../components/elements/Button";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Home - HR Solutions & Workforce Management Consulting",
+  description:
+    "Optimize your workforce management with Talora's all-in-one HR solutions. Expert consulting in recruitment, HR automation, employee engagement, and talent management to drive business success.",
+  keywords: [
+    "HR solutions",
+    "workforce management",
+    "HR consulting",
+    "recruitment",
+    "HR automation",
+    "talent management",
+    "employee engagement",
+    "workforce optimization",
+  ],
+  openGraph: {
+    title: "Talora - Optimize Workforce Management with HR Solutions",
+    description:
+      "Transform your HR operations with expert consulting and automation. Streamline recruitment, enhance employee engagement, and optimize workforce management.",
+    url: "https://taloraagency.com",
+    type: "website",
+  },
+};
 
 import SmarterHRSection from "../components/common/SmarterHRSection";
 import AboutTaloraGrid from "../components/common/AboutTaloraGrid";
@@ -91,7 +115,7 @@ export default function Home() {
           </div>
           <h2 className=" max-w-5xl text-[28px] sm:text-end">
             At our core, we believe that great companies are built by empowered
-            people. That's why we created a powerful, intuitive HRM SaaS
+            people. That&apos;s why we created a powerful, intuitive HRM SaaS
             platform{" "}
             <span className="text-secondary/60">
               designed to simplify every stage of the employee lifecycle — from
