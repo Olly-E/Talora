@@ -1,9 +1,10 @@
-import { MetadataRoute } from "next";
 import { Job } from "./data/jobsData";
-import { Article } from "./data/articlesData";
-import { CaseStudy } from "./data/caseStudiesData";
+import { MetadataRoute } from "next";
 import { readFileSync } from "fs";
 import { join } from "path";
+
+import { CaseStudy } from "./data/caseStudiesData";
+import { Article } from "./data/articlesData";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://talora-psi.vercel.app";
