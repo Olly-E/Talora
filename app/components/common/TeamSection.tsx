@@ -152,9 +152,7 @@ const TeamSection = () => {
               Our Team
             </div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900">
-              People Behind the
-              <br />
-              HR Innovation
+              The Team Behind Your <br /> Hiring Systems
             </h2>
           </div>
 

@@ -62,15 +62,16 @@ const ContactSection = () => {
               <div className="size-2 rounded-full min-w-2 bg-primary" />
               Get In Touch
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-6">
-              Let&apos;s Transform Your
-              <br />
-              HR Operations Together
+            <h2 className="text-4xl md:text-4xl font-bold leading-tight text-gray-900 mb-6">
+              Build a Hiring System That <br />
+              Works for Your Business
             </h2>
-            <p className="text-gray-600 text-lg mb-8">
-              Have questions about how our platform can streamline your HR
-              processes? Our team is here to help you find the perfect solution
-              for your business needs.
+            <p className="text-gray-600 text-base mb-8">
+              Tell us about your hiring needs, and we will design a structured
+              approach to help you source the right talent, streamline your
+              recruitment process, and hire with confidence. “We work with
+              founders and growing companies looking to build structured,
+              scalable hiring systems.”
             </p>
 
             <div className="space-y-6">
@@ -108,28 +109,6 @@ const ContactSection = () => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Call Us</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                  <svg
-                    className="w-6 h-6 text-secondary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
                     />
                     <path
@@ -141,12 +120,10 @@ const ContactSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Visit Us</h3>
-                  <p className="text-gray-600">
-                    123 Business Ave, Suite 100
-                    <br />
-                    San Francisco, CA 94105
-                  </p>
+                  <h3 className="font-semibold text-gray-900 mb-1">
+                    Availability
+                  </h3>
+                  <p className="text-gray-600">We work with clients globally</p>
                 </div>
               </div>
             </div>
@@ -216,7 +193,7 @@ const ContactSection = () => {
                 className="w-full bg-secondary hover:bg-secondary/90 text-white"
                 disabled={isPending}
               >
-                {isPending ? "Sending..." : "Send Message"}
+                {isPending ? "Sending..." : "Start Your Hiring Process"}
               </Button>
             </form>
           </div>

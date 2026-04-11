@@ -13,7 +13,7 @@ const customerAvatars = [
 
 export default function AboutHeroSection() {
   return (
-    <section className="relative w-full sm:h-150 md:h-175 sm:px-6">
+    <section className="relative w-full sm:h-150 md:h-175 sm:px-6 ">
       <div className="relative sm:rounded-3xl overflow-hidden sm:mt-10 py-24">
         <div className="absolute inset-0">
           <Image
@@ -45,17 +45,17 @@ export default function AboutHeroSection() {
               <div className="flex items-center gap-2 bg-white relative z-2 text-black -ml-4.5 rounded-full px-4 py-1.5">
                 <div className="w-2 h-2 rounded-full bg-primary" />
                 <span className="text-sm font-semibold whitespace-nowrap text-black">
-                  26k Happy Customers
+                  Built for scaling teams
                 </span>
               </div>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold! text-white mb-6 leading-tight">
-              Transforming HR Through Innovation & Excellence
+              Build a Structured Hiring System That Scales With Your Business
             </h1>
             <p className="text-sm sm:text-lg md:text-xl text-white/90 mb-8 leading-relaxed lg:w-125">
-              We empower organizations to build stronger teams and streamline HR
-              processes with cutting-edge solutions designed for the modern
-              workplace.
+              Talora helps growing companies source global talent, automate
+              recruitment processes, and hire efficiently without operational
+              bottlenecks.
             </p>
             <Button
               variant="secondary"

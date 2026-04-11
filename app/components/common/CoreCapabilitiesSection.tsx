@@ -16,40 +16,40 @@ interface Capability {
 
 const capabilities: Capability[] = [
   {
-    title: "Strategic HR Solutions",
+    title: "Proactive Talent Sourcing",
     description:
-      "Transform your HR operations with solutions designed to align with your business goals and drive organizational success.",
-    icon: Database,
-  },
-  {
-    title: "Tailored Approach",
-    description:
-      "Every organization is unique. We customize our services to fit your specific needs, culture, and industry requirements.",
+      "We identify and engage high quality candidates globally, including African professionals and international contractors, so you are not dependent on inbound applications.",
     icon: Users,
   },
   {
-    title: "Proven Expertise",
+    title: "Structured Hiring Systems",
     description:
-      "Backed by years of experience and industry knowledge, we deliver solutions that consistently exceed expectations.",
-    icon: Shield,
+      "We design clear, repeatable recruitment processes that improve consistency, reduce hiring errors, and support long term team growth",
+    icon: Database,
   },
   {
-    title: "Innovation-Driven",
+    title: "Recruitment Automation",
     description:
-      "Stay ahead with cutting-edge HR technology and best practices that keep your organization competitive and agile.",
+      "We build end to end workflows that streamline sourcing, screening and interview coordination, reducing manual effort and saving time.",
+    icon: Calendar,
+  },
+  {
+    title: "Candidate Experience",
+    description:
+      "We ensure every candidate receives clear communication, timely updates, and a professional hiring experience that reflects your company.",
     icon: FileText,
   },
   {
-    title: "End-to-End Support",
+    title: "Strategic Hiring Support",
     description:
-      "From initial consultation to ongoing optimization, we partner with you at every stage of your HR transformation journey.",
-    icon: UserPlus,
+      "We work closely with you or your leadership team to define roles, evaluate candidates effectively, and make confident hiring decisions.",
+    icon: Shield,
   },
   {
-    title: "Results-Focused",
+    title: "Onboarding Systems",
     description:
-      "We measure success by your success. Our commitment is to deliver measurable outcomes that drive real business impact.",
-    icon: Calendar,
+      "We design structured onboarding processes that help new hires integrate quickly and start contributing from day one.",
+    icon: UserPlus,
   },
 ];
 
@@ -59,11 +59,12 @@ export default function CoreCapabilitiesSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Empowering Organizations, Transforming HR
+            Hiring Should Not Slow Down Your Growth
           </h2>
           <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
-            Partner with us to modernize your HR operations with comprehensive
-            solutions built on expertise, innovation, and commitment
+            Talora helps growing companies build structured recruitment systems,
+            source high quality global talent, and automate hiring workflows so
+            you can scale your team without operational complexity.
           </p>
         </div>
 

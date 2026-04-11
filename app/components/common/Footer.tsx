@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "../elements/Button";
-import footerImg from "@/public/images/footer.webp";
+import footerImg from "@/public/images/footerImg.webp";
 
 const Footer = () => {
   const footerLinks = {
@@ -33,21 +33,18 @@ const Footer = () => {
 
   return (
     <footer className="bg-secondary">
-      {/* CTA Section */}
       <div className="container mx-auto px-4 lg:px-8 py-12">
         <div className="bg-primary rounded-3xl overflow-hidden px-8 lg:px-16 py-12 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left Content */}
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-secondary mb-4">
-                Empowering HR Teams to
+                Build a Hiring System That Scales With Your Business{" "}
                 <br className="hidden sm:block" />
-                Work Smarter Everyday
               </h2>
               <p className="text-secondary/80 mb-8 max-w-lg">
-                Join thousands of businesses simplifying HR tasks, improving
-                employee experience, and scaling faster with our all-in-one
-                management platform
+                Talora helps you source high quality global talent, streamline
+                your recruitment process, and implement structured hiring
+                systems that support long term growth.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button
@@ -57,7 +54,7 @@ const Footer = () => {
                   href="/book-call"
                   as="link"
                 >
-                  Get Started Now
+                  Book a Consultation{" "}
                 </Button>
                 <Button
                   variant="outline"
