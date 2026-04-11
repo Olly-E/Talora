@@ -5,29 +5,24 @@ import footerImg from "@/public/images/footerImg.webp";
 
 const Footer = () => {
   const footerLinks = {
-    Home: [
-      { label: "Vision & Mission", href: "/about" },
-      { label: "Our Services", href: "/services" },
-      { label: "Case Studies", href: "/case-studies" },
-      { label: "Industries", href: "/services" },
+    Company: [
+      { label: "About Talora", href: "/about" },
+      { label: "How It Works", href: "/services" },
+      { label: "Contact", href: "/contact" },
     ],
-    "About us": [
-      { label: "Our Story", href: "/about" },
-      { label: "Leadership Team", href: "/about" },
-      { label: "Careers", href: "/jobs" },
-      { label: "Contact Us", href: "/contact#contact-form" },
-    ],
-    Service: [
-      { label: "Recruitment", href: "/services/recruitment" },
-      { label: "HR Automation", href: "/services/hr-automation" },
-      { label: "All Services", href: "/services" },
-      { label: "Insights", href: "/insights" },
+    Services: [
+      { label: "Recruitment Automation", href: "/services/recruitment" },
+      { label: "Strategic Hiring", href: "/services" },
+      { label: "Onboarding Systems", href: "/services" },
     ],
     Resources: [
       { label: "Case Studies", href: "/case-studies" },
-      { label: "Blog & Insights", href: "/insights" },
-      { label: "Open Positions", href: "/jobs" },
-      { label: "Book a Call", href: "/book-call" },
+      { label: "Insights", href: "/insights" },
+      { label: "Open Roles", href: "/jobs" },
+    ],
+    Contact: [
+      { label: "contact@talora.com", href: "mailto:contact@talora.com" },
+      { label: "Global Remote Service", href: "/contact" },
     ],
   };
 
