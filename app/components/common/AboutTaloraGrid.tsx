@@ -1,7 +1,8 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import clsx from "clsx";
-import gridImg2 from "../../../public/images/gridImg2.webp";
+
+import gridImg2 from "../../../public/images/gridImg2.jpg";
 import gridImg1 from "../../../public/images/gridImg1.webp";
 
 type GridItem =

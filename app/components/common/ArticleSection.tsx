@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState, useMemo, useCallback } from "react";
-import ArticleCard from "./ArticleCard";
-import { Button } from "../elements/Button";
 import { Filter, X } from "lucide-react";
-import writerThumb from "../../../public/images/writer.webp";
-import { getFormattedDate } from "@/app/utils/utils";
+import ArticleCard from "./ArticleCard";
+
 import { usePublicArticles } from "@/app/hooks/usePublicArticles";
+import { getFormattedDate } from "@/app/utils/utils";
+import { Button } from "../elements/Button";
+
+import writerThumb from "../../../public/images/writer.webp";
 
 const categories = [
   "All Articles",
@@ -67,9 +69,9 @@ const ArticleSection = () => {
                 Our Blog
               </div>
               <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-8">
-                Explore Insights That Shape
+                Explore Insights on
                 <br className="hidden sm:block" />
-                Modern HR Practices
+                Hiring and Talent
               </h2>
             </div>
 
@@ -106,15 +108,21 @@ const ArticleSection = () => {
 
           <div className="">
             <p className="text-gray-600 text-sm max-w-xs">
-              Stay updated with expert tips, trends, and HR technology
-              innovations. Updates and analysis on the latest innovations
+              Practical insights on structured hiring systems, talent sourcing,
+              and building efficient recruitment processes as your team grows.
+            </p>
+            <p className="text-gray-600 text-sm max-w-xs mt-3">
+              Stay updated with insights on hiring strategy, recruitment
+              workflows, and building scalable teams.
             </p>
             <Button
               variant="secondary"
               size="md"
               className="bg-black text-white mt-4 xl:mt-10 px-6"
+              as="link"
+              href="/insights"
             >
-              See More <span className="text-lg">→</span>
+              Explore Insights <span className="text-lg">→</span>
             </Button>
           </div>
         </div>

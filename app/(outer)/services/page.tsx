@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import ServicesHeroSection from "@/app/components/common/ServicesHeroSection";
-import ServicesOverviewSection from "@/app/components/common/ServicesOverviewSection";
-import ServiceProcessSection from "@/app/components/common/ServiceProcessSection";
-import ServiceBenefitsSection from "@/app/components/common/ServiceBenefitsSection";
+
 import ServiceIndustriesSection from "@/app/components/common/ServiceIndustriesSection";
+import ServicesOverviewSection from "@/app/components/common/ServicesOverviewSection";
+import ServiceBenefitsSection from "@/app/components/common/ServiceBenefitsSection";
+import ServiceProcessSection from "@/app/components/common/ServiceProcessSection";
+import ServicesHeroSection from "@/app/components/common/ServicesHeroSection";
 import ContactSection from "@/app/components/common/ContactSection";
 
 export const metadata: Metadata = {

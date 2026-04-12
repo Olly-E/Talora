@@ -43,40 +43,40 @@ const leftBenefits: BenefitCardProps[] = [
     icon: <Rocket size={24} />,
     title: "Faster Hiring Process",
     description:
-      "Reduce time-to-hire with automated job posting and streamlined applicant tracking. Enhance satisfaction with self-service tools",
+      "Reduce time-to-hire through structured workflows, proactive sourcing, and streamlined coordination.",
   },
   {
     icon: <Users size={24} />,
-    title: "Improved Employee Experience",
+    title: "Improved Candidate Experience",
     description:
-      "Reduce time-to-hire with automated job posting and streamlined applicant tracking. Enhance satisfaction with self-service tools",
+      "Deliver clear communication and personalized feedback, ensuring every candidate has a professional experience.",
   },
   {
     icon: <BarChart3 size={24} />,
-    title: "Data-Driven Decision Making",
+    title: "Better Hiring Decisions",
     description:
-      "Reduce time-to-hire with automated job posting and streamlined applicant tracking. Enhance satisfaction with self-service tools",
+      "Use structured evaluation frameworks to identify the right candidates with confidence and consistency.",
   },
 ];
 
 const rightBenefits: BenefitCardProps[] = [
   {
     icon: <TrendingUp size={24} />,
-    title: "Scalable HR Operations",
+    title: "Scalable Hiring Systems",
     description:
-      "Reduce time-to-hire with automated job posting and streamlined applicant tracking. Enhance satisfaction with self-service tools",
+      "Implement processes that remain efficient and consistent as your team grows.",
   },
   {
     icon: <ShieldCheck size={24} />,
-    title: "Compliance and Accuracy",
+    title: "Structured Recruitment Workflows",
     description:
-      "Reduce time-to-hire with automated job posting and streamlined applicant tracking. Enhance satisfaction with self-service tools",
+      "Replace ad hoc hiring with clear, repeatable systems that improve efficiency and reduce errors.",
   },
   {
     icon: <Handshake size={24} />,
-    title: "Seamless Team Collaboration",
+    title: "Aligned Team Collaboration",
     description:
-      "Reduce time-to-hire with automated job posting and streamlined applicant tracking. Enhance satisfaction with self-service tools",
+      "Ensure hiring managers and stakeholders are aligned through clear processes and communication.",
   },
 ];
 
@@ -91,11 +91,12 @@ const SmarterHRSection = () => {
             Benefits
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-4">
-            Smarter HR, Better Business Outcomes
+            Build a Better Hiring Process, Achieve Stronger Results
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-            Drive efficiency, engagement, and growth with intelligent, automated
-            HR management tools.
+            Talora helps you improve hiring speed, candidate quality, and
+            overall recruitment efficiency through structured automations,
+            systems and proactive talent sourcing.
           </p>
         </div>
 

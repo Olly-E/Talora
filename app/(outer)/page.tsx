@@ -43,24 +43,24 @@ export default function Home() {
       <section className="container sm:pt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="">
-            <div className="rounded-3xl py-24 bg-secondary px-10">
+            <div className="rounded-3xl py-24 bg-secondary px-6 sm:px-10">
               <div className="bg-white/15 border border-white/10 text-white rounded-full px-4 py-1 w-fit mx-auto flex items-center gap-2">
                 <div className="size-2 rounded-full min-w-2 bg-primary" />
-                <p className=" text-sm">All in one Efficiency</p>
+                <p className=" text-sm">Structured Hiring for Growth</p>
               </div>
               <h1 className="text-center font-semibold! leading-1 mt-4 text-white">
-                <span className="text-primary">Optimize </span>Workforce
-                Management with <br /> HR solutions
+                Build a Hiring System That{" "}
+                <span className="text-primary">Scales</span> With Your Business
               </h1>
               <p className="text-center text-white/90 mt-4 text-sm ">
-                Simplify every aspect of HR — from recruitment and onboarding to
-                payroll, performance reviews, and employee analytics — with a
-                secure, <br /> scalable, and user-friendly platform built for
-                modern businesses
+                Talora helps you source high quality global talent, streamline
+                your recruitment process, and implement structured hiring
+                systems so you can scale your team without operational
+                bottlenecks.
               </p>
               <div className="flex items-center gap-4 mt-10 justify-center">
                 <Button size="md" as="link" href="/book-call">
-                  Get Started Now
+                  Book a Strategy Call
                 </Button>
                 <Button
                   size="md"
@@ -86,10 +86,10 @@ export default function Home() {
             <div className="bg-black/20 flex justify-between gap-6 backdrop-blur-lg rounded-2xl w-full border border-white/20 bottom-6 left-6 absolute p-6">
               <div className="">
                 <div className="text-xs text-white/80 font-semibold tracking-widest">
-                  TOTAL MANAGEMENT
+                  END-TO-END HIRING
                 </div>
                 <div className="mt-1 text-xl text-white font-bold">
-                  Smart Onboarding
+                  Talent Sourcing & Selection
                 </div>
               </div>
               <div

@@ -1,10 +1,4 @@
-import {
-  ArrowRight,
-  MessageCircle,
-  CheckCircle2,
-  Phone,
-  Mail,
-} from "lucide-react";
+import { ArrowRight, MessageCircle, CheckCircle2 } from "lucide-react";
 import { Button } from "@/app/components/elements/Button";
 import Image from "next/image";
 import contactHeroImg from "@/public/images/contactHero.webp";
@@ -12,25 +6,25 @@ import contactHeroImg from "@/public/images/contactHero.webp";
 export default function ContactHeroSection() {
   const stats = [
     {
-      icon: Phone,
-      value: "24/7",
-      label: "Support Available",
+      icon: CheckCircle2,
+      value: "",
+      label: "Global Talent Access",
       position: "top-4 right-4 lg:top-6 lg:right-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
-      icon: Mail,
-      value: "<24hr",
-      label: "Response Time",
+      icon: CheckCircle2,
+      value: "",
+      label: "Structured Hiring Systems",
       position: "bottom-4 left-4 lg:bottom-6 lg:left-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
-      icon: MessageCircle,
-      value: "100%",
-      label: "Client Satisfaction",
+      icon: CheckCircle2,
+      value: "",
+      label: "Built for Growing Teams",
       position: "top-4 left-4 lg:top-1/2 lg:right-6 lg:-translate-y-1/2",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
@@ -50,14 +44,16 @@ export default function ContactHeroSection() {
               </div>
 
               <h1 className="text-white leading-tight font-semibold!">
-                Let's Transform Your{" "}
-                <span className="text-primary">HR Together</span>
+                Let&apos;s Build a Better{" "}
+                <span className="text-primary">Hiring System</span> for Your
+                Business
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Have questions about our services? Need expert HR advice? Our
-                team is ready to help you find the perfect solution for your
-                business needs.
+                Whether you are hiring your first team members or scaling your
+                operations, Talora helps you source the right talent, streamline
+                your recruitment process, and implement structured hiring
+                systems that support long term growth.
               </p>
 
               {/* Feature List */}
@@ -68,9 +64,12 @@ export default function ContactHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Fast Response
+                      Structured Hiring Approach
                     </h3>
-                    <p className="text-xs text-white/70">Within 24 hours</p>
+                    <p className="text-xs text-white/70">
+                      Clear, repeatable systems designed for consistent and
+                      efficient recruitment
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -79,9 +78,12 @@ export default function ContactHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Expert Guidance
+                      Proactive Talent Sourcing
                     </h3>
-                    <p className="text-xs text-white/70">Professional advice</p>
+                    <p className="text-xs text-white/70">
+                      We identify and engage high quality global candidates, not
+                      just applicants
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -90,9 +92,12 @@ export default function ContactHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Free Consultation
+                      Process Automation
                     </h3>
-                    <p className="text-xs text-white/70">No obligation</p>
+                    <p className="text-xs text-white/70">
+                      Streamlined workflows that reduce manual effort and
+                      improve hiring speed
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -101,9 +106,12 @@ export default function ContactHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Custom Solutions
+                      Strategic Support
                     </h3>
-                    <p className="text-xs text-white/70">Tailored for you</p>
+                    <p className="text-xs text-white/70">
+                      Guidance on role definition, candidate evaluation, and
+                      hiring decisions
+                    </p>
                   </div>
                 </div>
               </div>
@@ -111,7 +119,7 @@ export default function ContactHeroSection() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Button size="md" as="link" href="/book-call">
-                Book Appointment
+                Book a Strategy Call
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button
@@ -120,7 +128,7 @@ export default function ContactHeroSection() {
                 as="link"
                 href="#contact-form"
               >
-                Send Message
+                Send an Inquiry
               </Button>
             </div>
           </div>
@@ -154,10 +162,14 @@ export default function ContactHeroSection() {
                         />
                       </div>
                     </div>
-                    <div className="text-xl lg:text-2xl font-bold text-gray-900 mb-0.5 lg:mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-gray-600 leading-tight">
+                    {stat.value && (
+                      <div className="text-xl lg:text-2xl font-bold text-gray-900 mb-0.5 lg:mb-1">
+                        {stat.value}
+                      </div>
+                    )}
+                    <div
+                      className={`text-xs text-gray-600 leading-tight ${!stat.value ? "font-semibold text-sm" : ""}`}
+                    >
                       {stat.label}
                     </div>
                   </div>

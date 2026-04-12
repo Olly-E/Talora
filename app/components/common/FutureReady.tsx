@@ -9,24 +9,24 @@ const SERVICES = [
   {
     icon: <Wallet className="size-5 text-white" />,
     color: "bg-blue-500",
-    title: "Automated Payroll Management",
-    desc: "Streamline salary calculations, tax compliance, and payslip distribution — all in just a few clicks.",
+    title: "End-to-End Recruitment Automation",
+    desc: "We design and implement structured hiring workflows that streamline sourcing, screening, and interview coordination from start to finish.",
     testimonials: "99+ Testimonials",
-    link: "/services/hr-automation",
+    link: "/services/recruitment",
   },
   {
     icon: <Users className="size-5 text-white" />,
     color: "bg-purple-500",
-    title: "Recruitment & Applicant Tracking",
-    desc: "Streamline salary calculations, tax compliance, and payslip distribution — all in just a few clicks.",
+    title: "Strategic Talent Sourcing",
+    desc: "We proactively identify and engage high quality global candidates, ensuring you have access to strong, well-matched talent.",
     testimonials: "99+ Testimonials",
     link: "/services/recruitment",
   },
   {
     icon: <Mail className="size-5 text-white" />,
     color: "bg-teal-600",
-    title: "Employee Performance Monitoring",
-    desc: "Streamline salary calculations, tax compliance, and payslip distribution — all in just a few clicks.",
+    title: "Onboarding Systems",
+    desc: "We build structured onboarding processes that help new hires integrate quickly and perform effectively from day one.",
     testimonials: "99+ Testimonials",
     link: "/services",
   },
@@ -43,9 +43,9 @@ const FutureReady = () => {
               Our Service
             </div>
             <h2 className="text-[34px] sm:text-5xl font-extrabold leading-tight text-secondary mb-2">
-              Future-Ready
+              Structured Hiring Solutions
               <br />
-              HR Services Platform
+              for Growing Teams
             </h2>
           </div>
           <Button
@@ -54,7 +54,7 @@ const FutureReady = () => {
             as="link"
             href="/services"
           >
-            See More <span className="text-xl">→</span>
+            Explore Our Services <span className="text-xl">→</span>
           </Button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

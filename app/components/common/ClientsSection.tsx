@@ -12,11 +12,11 @@ export default function ClientsSection({
       <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
         <div className="flex-1">
           <h3 className="text-xl font-bold text-black mb-2">
-            Clients across industries
+            Trusted by Growing Companies
           </h3>
           <p className="text-black/90 text-sm">
-            Many of our clients report better hiring processes and better
-            employee engagement after switching to our system
+            Companies working with Talora improve hiring efficiency, candidate
+            quality, and overall recruitment consistency.
           </p>
         </div>
 

@@ -11,13 +11,13 @@ import calc3 from "../../../public/images/calc3.webp";
 
 const automateCards: AutomateCardProps[] = [
   {
-    title: "Automated Payroll Calculation",
+    title: "Talent Sourcing",
     description:
-      "Accurately process salaries, deductions, and taxes with minimal manual input",
+      "We proactively identify and engage high quality candidates across global talent pools.",
     image: (
       <Image
         src={calc1}
-        alt="Automated Payroll Calculation"
+        alt="Talent Sourcing"
         width={200}
         height={200}
         className="w-full h-full object-cover"
@@ -25,13 +25,13 @@ const automateCards: AutomateCardProps[] = [
     ),
   },
   {
-    title: "Digital Payslip Distribution",
+    title: "Candidate Screening",
     description:
-      "Accurately process salaries, deductions, and taxes with minimal manual input",
+      "We assess applicants using structured criteria to ensure alignment with role requirements.",
     image: (
       <Image
         src={calc2}
-        alt="Digital Payslip Distribution"
+        alt="Candidate Screening"
         width={200}
         height={200}
         className="w-full h-full object-cover"
@@ -39,13 +39,13 @@ const automateCards: AutomateCardProps[] = [
     ),
   },
   {
-    title: "Automated Benefits Calculation",
+    title: "Interview Coordination",
     description:
-      "Accurately process salaries, deductions, and taxes with minimal manual input",
+      "We manage scheduling and communication to keep your hiring process efficient and organized.",
     image: (
       <Image
         src={calc3}
-        alt="Automated Benefits Calculation"
+        alt="Interview Coordination"
         width={200}
         height={200}
         className="w-full h-full object-cover"
@@ -53,13 +53,55 @@ const automateCards: AutomateCardProps[] = [
     ),
   },
   {
-    title: "Automated Tax Compliance",
+    title: "Hiring Workflow Design",
     description:
-      "Accurately process salaries, deductions, and taxes with minimal manual input",
+      "We build clear, repeatable processes that improve consistency and reduce hiring delays.",
     image: (
       <Image
         src={calc4}
-        alt="Automated Tax Compliance"
+        alt="Hiring Workflow Design"
+        width={200}
+        height={200}
+        className="w-full h-full object-cover"
+      />
+    ),
+  },
+  {
+    title: "Candidate Experience",
+    description:
+      "We ensure timely communication and a professional experience for every applicant.",
+    image: (
+      <Image
+        src={calc1}
+        alt="Candidate Experience"
+        width={200}
+        height={200}
+        className="w-full h-full object-cover"
+      />
+    ),
+  },
+  {
+    title: "Candidate Communication & Feedback",
+    description:
+      "We provide personalized communication and tailored feedback to every candidate, ensuring clarity, transparency, and a professional hiring experience at every stage.",
+    image: (
+      <Image
+        src={calc2}
+        alt="Candidate Communication & Feedback"
+        width={200}
+        height={200}
+        className="w-full h-full object-cover"
+      />
+    ),
+  },
+  {
+    title: "Onboarding Support",
+    description:
+      "We structure onboarding processes that help new hires integrate and perform quickly.",
+    image: (
+      <Image
+        src={calc3}
+        alt="Onboarding Support"
         width={200}
         height={200}
         className="w-full h-full object-cover"
@@ -77,23 +119,21 @@ const AutomateSection = () => {
             <div className="flex-1">
               <div className="bg-primary flex items-center gap-2 text-black/80 text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-4">
                 <div className="size-2 rounded-full min-w-2 bg-black" />
-                Core Features
+                Core Capabilities
               </div>
               <h2 className="text-4xl md:text-5xl font-m leading-tight text-white mb-4">
-                Automate Payroll,{" "}
-                <span className="text-primary">Simplify Benefits,</span> Empower
-                <br className="hidden md:block" />
-                Your People
+                Build a{" "}
+                <span className="text-primary">Structured Hiring System</span>{" "}
+                That Works
               </h2>
               <p className="text-white/90 text-base mb-6 max-w-xl">
-                Key features designed to streamline pay, manage benefits, and
-                ensure total compliance every cycle. Key features designed to
-                streamline pay, manage benefits, and ensure total compliance
-                every cycle.
+                We design and implement recruitment systems that streamline
+                sourcing, improve candidate evaluation, and support efficient,
+                scalable hiring from start to onboarding.
               </p>
-              <Link href="/services/hr-automation">
+              <Link href="/services">
                 <button className="bg-white text-secondary! font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition-all">
-                  Get Started Now
+                  Start Hiring Smarter
                 </button>
               </Link>
             </div>
@@ -107,9 +147,6 @@ const AutomateSection = () => {
                 />
               </div>
             </div>
-          </div>
-          <div className="text-white text-2xl font-bold mb-6">
-            $0 in Payroll Errors Last 12 Months
           </div>
         </div>
         <div className="overflow-x-auto scrollbar-hide pb-2">
