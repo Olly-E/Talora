@@ -23,6 +23,14 @@ export const metadata: Metadata = {
       "Expert insights, articles, and best practices for recruitment, HR automation, and workforce management from Talora's consulting team.",
     url: "https://taloraagency.com/insights",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+        width: 1200,
+        height: 630,
+        alt: "Talora HR Insights & Articles",
+      },
+    ],
   },
 };
 

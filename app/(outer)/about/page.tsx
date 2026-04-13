@@ -23,6 +23,14 @@ export const metadata: Metadata = {
       "Meet our expert team dedicated to transforming HR operations and workforce management for modern businesses.",
     url: "https://taloraagency.com/about",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+        width: 1200,
+        height: 630,
+        alt: "About Talora - HR Consulting Experts",
+      },
+    ],
   },
 };
 

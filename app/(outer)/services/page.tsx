@@ -28,6 +28,14 @@ export const metadata: Metadata = {
       "Comprehensive HR services to streamline your recruitment, automate processes, and optimize workforce management.",
     url: "https://taloraagency.com/services",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+        width: 1200,
+        height: 630,
+        alt: "Talora HR Services",
+      },
+    ],
   },
 };
 

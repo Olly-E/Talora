@@ -18,6 +18,14 @@ export const metadata: Metadata = {
       "Schedule your free 30-minute consultation with our HR experts. Get personalized advice on recruitment, automation, and workforce management.",
     url: "https://talora-psi.vercel.app/book-call",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+        width: 1200,
+        height: 630,
+        alt: "Book a Free HR Consultation with Talora",
+      },
+    ],
   },
 };
 

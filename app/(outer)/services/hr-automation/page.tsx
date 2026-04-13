@@ -27,6 +27,14 @@ export const metadata: Metadata = {
       "Transform your HR operations with automation. Streamline onboarding, payroll, and employee management with Talora's expert solutions.",
     url: "https://taloraagency.com/services/hr-automation",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+        width: 1200,
+        height: 630,
+        alt: "Talora HR Automation Services",
+      },
+    ],
   },
 };
 

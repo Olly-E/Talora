@@ -20,6 +20,14 @@ export const metadata: Metadata = {
       "Get in touch with our HR consulting team. Contact us for personalized HR solutions and workforce management services.",
     url: "https://taloraagency.com/contact",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact Talora - HR Consulting Experts",
+      },
+    ],
   },
 };
 

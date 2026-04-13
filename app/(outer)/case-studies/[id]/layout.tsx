@@ -47,7 +47,14 @@ export async function generateMetadata({
               alt: `${caseStudy.title} - ${caseStudy.client}`,
             },
           ]
-        : undefined,
+        : [
+            {
+              url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+              width: 1200,
+              height: 630,
+              alt: `${caseStudy.title} - ${caseStudy.client}`,
+            },
+          ],
     },
   };
 }

@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     siteName: "Talora",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
         width: 1200,
         height: 630,
         alt: "Talora HR Solutions",
@@ -73,7 +73,9 @@ export const metadata: Metadata = {
     title: "Talora - HR Solutions & Workforce Management Consulting",
     description:
       "Transform your HR operations with expert consulting and automation solutions from Talora.",
-    images: ["/images/twitter-image.jpg"],
+    images: [
+      "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+    ],
     creator: "@taloraagency",
   },
   robots: {

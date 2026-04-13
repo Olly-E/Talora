@@ -22,6 +22,14 @@ export const metadata: Metadata = {
       "Explore exciting career opportunities at Talora. Join our team of HR experts and shape the future of workforce management.",
     url: "https://taloraagency.com/jobs",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+        width: 1200,
+        height: 630,
+        alt: "Careers at Talora",
+      },
+    ],
   },
 };
 

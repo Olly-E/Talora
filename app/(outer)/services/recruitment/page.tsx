@@ -27,6 +27,14 @@ export const metadata: Metadata = {
       "Expert recruitment services to help you find, attract, and hire top talent. Transform your hiring process with Talora's proven strategies.",
     url: "https://taloraagency.com/services/recruitment",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+        width: 1200,
+        height: 630,
+        alt: "Talora Recruitment Services",
+      },
+    ],
   },
 };
 

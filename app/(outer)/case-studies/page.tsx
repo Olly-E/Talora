@@ -23,6 +23,14 @@ export const metadata: Metadata = {
       "Real-world success stories showcasing how Talora's HR solutions have transformed recruitment, automation, and workforce management for businesses.",
     url: "https://taloraagency.com/case-studies",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+        width: 1200,
+        height: 630,
+        alt: "Talora Case Studies & Success Stories",
+      },
+    ],
   },
 };
 
