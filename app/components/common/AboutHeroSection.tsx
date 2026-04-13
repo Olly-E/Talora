@@ -14,7 +14,7 @@ const customerAvatars = [
 export default function AboutHeroSection() {
   return (
     <section className="relative w-full sm:h-150 md:h-175 sm:px-6 ">
-      <div className="relative sm:rounded-3xl overflow-hidden sm:mt-10 py-24">
+      <div className="relative sm:rounded-3xl overflow-hidden sm:mt-5 py-24">
         <div className="absolute inset-0">
           <Image
             src={aboutUsBig}

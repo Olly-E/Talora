@@ -39,7 +39,7 @@ export default function CaseStudyHeroSection() {
 
   return (
     <section className="relative w-full overflow-hidden bg-gray-50">
-      <div className="container sm:py-10">
+      <div className="container sm:pb-10 sm:pt-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Left Content */}
           <div className="order-2 lg:order-1 space-y-8 bg-secondary rounded-3xl p-8 lg:p-10 flex flex-col justify-between">
@@ -55,12 +55,10 @@ export default function CaseStudyHeroSection() {
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Explore how we've helped businesses transform their HR
+                Explore how we&apos;ve helped businesses transform their HR
                 operations and achieve remarkable growth through innovative
                 solutions.
               </p>
-
-              {/* Feature List */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 <div className="flex items-start gap-3">
                   <div className="rounded-full bg-primary/20 p-1 mt-1">

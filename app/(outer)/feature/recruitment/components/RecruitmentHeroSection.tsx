@@ -39,8 +39,8 @@ export default function RecruitmentHeroSection() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-gray-50">
-      <div className="container sm:py-10">
+    <section className="relative w-full overflow-hidden bg-gray-50 container">
+      <div className="sm:pt-5 sm:pb-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Left Content */}
           <div className="order-2 lg:order-1 space-y-8 bg-secondary rounded-3xl p-8 lg:p-10 flex flex-col justify-between">
@@ -56,7 +56,7 @@ export default function RecruitmentHeroSection() {
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Connect with the best candidates who don't just meet your
+                Connect with the best candidates who don&apos;t just meet your
                 requirements, but align with your culture and drive your
                 business forward.
               </p>

@@ -65,7 +65,7 @@ export default function Navbar() {
             <Image
               src={taloraLogo}
               alt="Talora logo"
-              width={80}
+              width={70}
               height={50}
               className="object-contain"
               priority
