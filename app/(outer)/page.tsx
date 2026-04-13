@@ -114,12 +114,13 @@ export default function Home() {
             About Talora
           </div>
           <h2 className=" max-w-5xl text-[28px] sm:text-end">
-            At our core, we believe that great companies are built by empowered
-            people. That&apos;s why we created a powerful, intuitive HRM SaaS
-            platform{" "}
+            At Talora, we believe hiring should be structured, efficient, and
+            built for growth.{" "}
             <span className="text-secondary/60">
-              designed to simplify every stage of the employee lifecycle — from
-              recruitment and onboarding to performance tracking and payroll.
+              We help companies move away from reactive recruitment by designing
+              clear hiring systems, sourcing high quality global talent, and
+              streamlining the entire recruitment process from sourcing to
+              onboarding.
             </span>
           </h2>
         </div>

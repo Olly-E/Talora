@@ -3,8 +3,7 @@
 import { useEffect } from "react";
 import { CheckCircle, Clock, Video, Mail } from "lucide-react";
 
-const CALENDLY_URL =
-  "https://calendly.com/adlaide-taloraagency/discovery-call";
+const CALENDLY_URL = "https://calendly.com/adlaide-taloraagency/discovery-call";
 
 export default function CalendlySection() {
   useEffect(() => {

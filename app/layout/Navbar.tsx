@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Hamburger from "hamburger-react";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import clsx from "clsx";
 import { Zap, Users } from "lucide-react";
@@ -11,6 +12,7 @@ import { useComponentVisible } from "../hooks/useComponentVisible";
 import { Button } from "../components/elements/Button";
 import { NavLink } from "../components/common/NavLink";
 import NavDropdown from "../components/common/NavDropdown";
+import taloraLogo from "@/public/images/taloraLogo.png";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -59,9 +61,15 @@ export default function Navbar() {
     <nav className="w-full relative z-50">
       <div className="container mx-auto px-6 lg:px-20 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-linear-to-br from-black to-gray-600 rounded-lg"></div>
-            <span className="text-xl font-bold text-black">Talora</span>
+          <Link href="/">
+            <Image
+              src={taloraLogo}
+              alt="Talora logo"
+              width={80}
+              height={50}
+              className="object-contain"
+              priority
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-8">

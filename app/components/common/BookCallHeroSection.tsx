@@ -73,9 +73,7 @@ export default function BookCallHeroSection() {
                     <h3 className="font-semibold text-white text-sm mb-1">
                       Personalized Advice
                     </h3>
-                    <p className="text-xs text-white/70">
-                      Custom HR solutions
-                    </p>
+                    <p className="text-xs text-white/70">Custom HR solutions</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -121,16 +119,16 @@ export default function BookCallHeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Button
-                size="md"
-                className=""
-                as="link"
-                href="#calendly-section"
-              >
+              <Button size="md" className="" as="link" href="#calendly-section">
                 Schedule Now
                 <Calendar className="w-5 h-5" />
               </Button>
-              <Button size="md" variant="outlineWhite" as="link" href="/contact">
+              <Button
+                size="md"
+                variant="outlineWhite"
+                as="link"
+                href="/contact"
+              >
                 Send Message Instead
               </Button>
             </div>
@@ -158,9 +156,7 @@ export default function BookCallHeroSection() {
                   >
                     <div className="flex items-center gap-3">
                       <div className={`${stat.iconBg} p-2 rounded-xl`}>
-                        <IconComponent
-                          className={`size-5 ${stat.iconColor}`}
-                        />
+                        <IconComponent className={`size-5 ${stat.iconColor}`} />
                       </div>
                       <div>
                         <p className="text-2xl font-bold text-gray-900">
