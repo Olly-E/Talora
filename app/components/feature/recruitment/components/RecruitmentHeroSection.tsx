@@ -6,9 +6,10 @@ import {
   Award,
   TrendingUp,
 } from "lucide-react";
-import { Button } from "@/app/components/elements/Button";
 import Image from "next/image";
+
 import recruitmentHeroImg from "@/public/images/recruitmentHero.webp";
+import { Button } from "@/app/components/elements/Button";
 
 export default function RecruitmentHeroSection() {
   const stats = [

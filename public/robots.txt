@@ -18,5 +18,5 @@ Allow: /api/case-studies
 # Crawl delay (optional, helps prevent overloading)
 Crawl-delay: 1
 
-# Sitemap location
+# Sitemap location - UPDATE THIS WHEN CHANGING DOMAINS
 Sitemap: https://talora-psi.vercel.app/sitemap.xml

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import ReactQueryProvider from "./lib/react-query";
 import { Toaster } from "react-hot-toast";
 import {
@@ -22,7 +23,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://talora-psi.vercel.app"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://talora-psi.vercel.app",
+  ),
   title: {
     default: "Talora - HR Solutions & Workforce Management Consulting",
     template: "%s | Talora",
@@ -54,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://talora-psi.vercel.app",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://talora-psi.vercel.app",
     title: "Talora - HR Solutions & Workforce Management Consulting",
     description:
       "Transform your HR operations with Talora's expert consulting and automation solutions. Specializing in recruitment, HR automation, and workforce optimization.",
@@ -130,6 +133,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <GoogleAnalytics />
         <ReactQueryProvider>
           {children}
           <Toaster position="top-right" />

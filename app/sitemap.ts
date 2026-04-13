@@ -7,7 +7,8 @@ import { CaseStudy } from "./data/caseStudiesData";
 import { Article } from "./data/articlesData";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://talora-psi.vercel.app";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://talora-psi.vercel.app";
 
   const routes = [
     {

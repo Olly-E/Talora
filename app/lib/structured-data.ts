@@ -1,12 +1,15 @@
 // Structured Data (JSON-LD) for SEO
 
+const getSiteUrl = () =>
+  process.env.NEXT_PUBLIC_SITE_URL || "https://talora-psi.vercel.app";
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Talora",
   alternateName: "Talora Agency",
-  url: "https://talora-psi.vercel.app",
-  logo: "https://talora-psi.vercel.app/images/logo.png",
+  url: getSiteUrl(),
+  logo: `${getSiteUrl()}/images/logoOnly.png`,
   description:
     "Expert HR consulting and workforce management solutions. Specializing in recruitment, HR automation, and talent management.",
   contactPoint: {
@@ -36,15 +39,14 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Talora",
-  url: "https://talora-psi.vercel.app",
+  url: getSiteUrl(),
   description:
     "Transform your HR operations with expert consulting and automation solutions.",
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate:
-        "https://talora-psi.vercel.app/search?q={search_term_string}",
+      urlTemplate: `${getSiteUrl()}/search?q={search_term_string}`,
     },
     "query-input": "required name=search_term_string",
   },
@@ -54,7 +56,7 @@ export const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Talora HR Solutions",
-  url: "https://talora-psi.vercel.app",
+  url: getSiteUrl(),
   description:
     "Expert HR consulting, recruitment services, and workforce management solutions.",
   priceRange: "$$$",
@@ -105,14 +107,14 @@ export const articleSchema = (article: {
     name: "Talora",
     logo: {
       "@type": "ImageObject",
-      url: "https://talora-psi.vercel.app/images/logo.png",
+      url: `${getSiteUrl()}/images/logoOnly.png`,
     },
   },
   datePublished: article.publishedAt,
   dateModified: article.publishedAt,
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `https://talora-psi.vercel.app/insights/${article.slug}`,
+    "@id": `${getSiteUrl()}/insights/${article.slug}`,
   },
 });
 
@@ -139,8 +141,8 @@ export const jobPostingSchema = (job: {
   hiringOrganization: {
     "@type": "Organization",
     name: "Talora",
-    sameAs: "https://talora-psi.vercel.app",
-    logo: "https://talora-psi.vercel.app/images/logo.png",
+    sameAs: getSiteUrl(),
+    logo: `${getSiteUrl()}/images/logoOnly.png`,
   },
   jobLocation: {
     "@type": "Place",
