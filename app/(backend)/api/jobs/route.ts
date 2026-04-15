@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "@/app/lib/auth";
-import { readJobsFile, writeJobsFile } from "@/app/lib/jobsFileManager";
-import { Job } from "@/app/data/jobsData";
+import { prisma } from "@/app/lib/prisma";
 
 export async function GET() {
   try {
-    const jobs = await readJobsFile();
+    const jobs = await prisma.job.findMany({
+      orderBy: { createdAt: "desc" },
+    });
     return NextResponse.json(jobs);
   } catch (error) {
     console.error("Error fetching jobs:", error);
@@ -17,7 +18,7 @@ export async function POST(request: NextRequest) {
   try {
     await requireAuth();
 
-    const jobData: Job = await request.json();
+    const jobData = await request.json();
 
     // Validate required fields
     const requiredFields = [
@@ -31,7 +32,7 @@ export async function POST(request: NextRequest) {
     ];
 
     for (const { field, name } of requiredFields) {
-      if (!jobData[field as keyof Job]) {
+      if (!jobData[field]) {
         return NextResponse.json(
           { error: `${name} is required` },
           { status: 400 },
@@ -63,8 +64,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const jobs = await readJobsFile();
-
     // Generate slug from title
     const slug = jobData.title
       .toLowerCase()
@@ -74,20 +73,29 @@ export async function POST(request: NextRequest) {
     // Check if slug already exists and append number if needed
     let finalSlug = slug;
     let counter = 1;
-    while (jobs.some((job) => job.slug === finalSlug)) {
+    while (await prisma.job.findUnique({ where: { slug: finalSlug } })) {
       finalSlug = `${slug}-${counter}`;
       counter++;
     }
 
-    const newJob = {
-      ...jobData,
-      id: Date.now(), // Generate a unique ID
-      slug: finalSlug,
-      posted: "Just posted", // Add posted date
-    };
-
-    jobs.push(newJob);
-    await writeJobsFile(jobs);
+    const newJob = await prisma.job.create({
+      data: {
+        title: jobData.title,
+        slug: finalSlug,
+        company: jobData.company,
+        location: jobData.location,
+        type: jobData.type,
+        modeOfWork: jobData.modeOfWork,
+        salary: jobData.salary,
+        category: jobData.category,
+        openings: jobData.openings,
+        posted: "Just posted",
+        description: jobData.description,
+        tags: jobData.tags || [],
+        isUrgent: jobData.isUrgent || false,
+        applicationLink: jobData.applicationLink || null,
+      },
+    });
 
     return NextResponse.json(newJob, { status: 201 });
   } catch (error: unknown) {

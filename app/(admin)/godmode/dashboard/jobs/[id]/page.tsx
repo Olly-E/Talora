@@ -264,7 +264,7 @@ export default function JobDetailPage() {
           <div>
             <p className="text-sm text-gray-600 mb-1">Posted on</p>
             <p className="text-gray-900 font-semibold">
-              {job?.posted ? getFormattedDate(job.posted) : "N/A"}
+              {job?.posted || "N/A"}
             </p>
           </div>
           {job?.applicationLink ? (

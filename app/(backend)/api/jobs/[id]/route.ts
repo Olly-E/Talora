@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "@/app/lib/auth";
-import { readJobsFile, writeJobsFile } from "@/app/lib/jobsFileManager";
-import { Job } from "@/app/data/jobsData";
+import { prisma } from "@/app/lib/prisma";
 
 export async function PUT(
   request: NextRequest,
@@ -12,21 +11,37 @@ export async function PUT(
     const { id } = await params;
     const jobId = parseInt(id);
 
-    const updatedJobData: Job = await request.json();
-    const jobs = await readJobsFile();
+    const updatedJobData = await request.json();
 
-    const jobIndex = jobs.findIndex((job) => job.id === jobId);
+    // Check if job exists
+    const existingJob = await prisma.job.findUnique({
+      where: { id: jobId },
+    });
 
-    if (jobIndex === -1) {
+    if (!existingJob) {
       return NextResponse.json({ error: "Job not found" }, { status: 404 });
     }
 
-    // Preserve the existing slug
-    const existingSlug = jobs[jobIndex].slug;
-    jobs[jobIndex] = { ...updatedJobData, id: jobId, slug: existingSlug };
-    await writeJobsFile(jobs);
+    // Update the job
+    const updatedJob = await prisma.job.update({
+      where: { id: jobId },
+      data: {
+        title: updatedJobData.title,
+        company: updatedJobData.company,
+        location: updatedJobData.location,
+        type: updatedJobData.type,
+        modeOfWork: updatedJobData.modeOfWork,
+        salary: updatedJobData.salary,
+        category: updatedJobData.category,
+        openings: updatedJobData.openings,
+        description: updatedJobData.description,
+        tags: updatedJobData.tags || [],
+        isUrgent: updatedJobData.isUrgent || false,
+        applicationLink: updatedJobData.applicationLink || null,
+      },
+    });
 
-    return NextResponse.json(jobs[jobIndex]);
+    return NextResponse.json(updatedJob);
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -45,16 +60,16 @@ export async function DELETE(
     const { id } = await params;
     const jobId = parseInt(id);
 
-    const jobs = await readJobsFile();
-    const filteredJobs = jobs.filter((job) => job.id !== jobId);
-
-    if (filteredJobs.length === jobs.length) {
+    // Try to delete the job
+    try {
+      await prisma.job.delete({
+        where: { id: jobId },
+      });
+      return NextResponse.json({ success: true });
+    } catch (error) {
+      // If job not found, Prisma will throw an error
       return NextResponse.json({ error: "Job not found" }, { status: 404 });
     }
-
-    await writeJobsFile(filteredJobs);
-
-    return NextResponse.json({ success: true });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

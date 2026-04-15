@@ -1,14 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "@/app/lib/auth";
-import {
-  readArticlesFile,
-  writeArticlesFile,
-} from "@/app/lib/articlesFileManager";
-import { Article } from "@/app/data/articlesData";
+import { prisma } from "@/app/lib/prisma";
 
 export async function GET() {
   try {
-    const articles = await readArticlesFile();
+    const articles = await prisma.article.findMany({
+      orderBy: { createdAt: "desc" },
+    });
     return NextResponse.json(articles);
   } catch (error) {
     console.error("Error fetching articles:", error);
@@ -23,7 +21,7 @@ export async function POST(request: NextRequest) {
   try {
     await requireAuth();
 
-    const articleData: Article = await request.json();
+    const articleData = await request.json();
 
     // Validate required fields
     const requiredFields = [
@@ -36,7 +34,7 @@ export async function POST(request: NextRequest) {
     ];
 
     for (const { field, name } of requiredFields) {
-      if (!articleData[field as keyof Article]) {
+      if (!articleData[field]) {
         return NextResponse.json(
           { error: `${name} is required` },
           { status: 400 },
@@ -52,8 +50,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const articles = await readArticlesFile();
-
     // Generate slug from title
     const slug = articleData.title
       .toLowerCase()
@@ -63,19 +59,25 @@ export async function POST(request: NextRequest) {
     // Check if slug already exists and append number if needed
     let finalSlug = slug;
     let counter = 1;
-    while (articles.some((article) => article.slug === finalSlug)) {
+    while (await prisma.article.findUnique({ where: { slug: finalSlug } })) {
       finalSlug = `${slug}-${counter}`;
       counter++;
     }
 
-    const newArticle = {
-      ...articleData,
-      id: Date.now(), // Generate a unique ID
-      slug: finalSlug,
-    };
-
-    articles.push(newArticle);
-    await writeArticlesFile(articles);
+    const newArticle = await prisma.article.create({
+      data: {
+        title: articleData.title,
+        slug: finalSlug,
+        author: articleData.author,
+        category: articleData.category,
+        coverImage: articleData.coverImage,
+        readTime: articleData.readTime,
+        tags: articleData.tags || [],
+        excerpt: articleData.excerpt,
+        featured: articleData.featured || false,
+        content: articleData.content,
+      },
+    });
 
     return NextResponse.json(newArticle, { status: 201 });
   } catch (error: unknown) {

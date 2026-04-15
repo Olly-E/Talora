@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "@/app/lib/auth";
-import {
-  readCaseStudiesFile,
-  writeCaseStudiesFile,
-} from "@/app/lib/caseStudiesFileManager";
-import { CaseStudy } from "@/app/data/caseStudiesData";
+import { prisma } from "@/app/lib/prisma";
 
 export async function PUT(
   request: NextRequest,
@@ -15,30 +11,38 @@ export async function PUT(
     const { id } = await params;
     const caseStudyId = parseInt(id);
 
-    const updatedCaseStudyData: CaseStudy = await request.json();
-    const caseStudies = await readCaseStudiesFile();
+    const updatedCaseStudyData = await request.json();
 
-    const caseStudyIndex = caseStudies.findIndex((cs) => cs.id === caseStudyId);
+    // Check if case study exists
+    const existingCaseStudy = await prisma.caseStudy.findUnique({
+      where: { id: caseStudyId },
+    });
 
-    if (caseStudyIndex === -1) {
+    if (!existingCaseStudy) {
       return NextResponse.json(
         { error: "Case study not found" },
         { status: 404 },
       );
     }
 
-    // Preserve the existing slug and publishedAt
-    const existingSlug = caseStudies[caseStudyIndex].slug;
-    const existingPublishedAt = caseStudies[caseStudyIndex].publishedAt;
-    caseStudies[caseStudyIndex] = {
-      ...updatedCaseStudyData,
-      id: caseStudyId,
-      slug: existingSlug,
-      publishedAt: existingPublishedAt,
-    };
-    await writeCaseStudiesFile(caseStudies);
+    // Update the case study
+    const updatedCaseStudy = await prisma.caseStudy.update({
+      where: { id: caseStudyId },
+      data: {
+        title: updatedCaseStudyData.title,
+        client: updatedCaseStudyData.client,
+        industry: updatedCaseStudyData.industry,
+        description: updatedCaseStudyData.description,
+        challenge: updatedCaseStudyData.challenge,
+        solution: updatedCaseStudyData.solution,
+        results: updatedCaseStudyData.results,
+        coverImage: updatedCaseStudyData.coverImage,
+        tags: updatedCaseStudyData.tags || [],
+        featured: updatedCaseStudyData.featured || false,
+      },
+    });
 
-    return NextResponse.json(caseStudies[caseStudyIndex]);
+    return NextResponse.json(updatedCaseStudy);
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -60,24 +64,21 @@ export async function DELETE(
     const { id } = await params;
     const caseStudyId = parseInt(id);
 
-    const caseStudies = await readCaseStudiesFile();
-    const filteredCaseStudies = caseStudies.filter(
-      (cs) => cs.id !== caseStudyId,
-    );
-
-    if (filteredCaseStudies.length === caseStudies.length) {
+    // Try to delete the case study
+    try {
+      await prisma.caseStudy.delete({
+        where: { id: caseStudyId },
+      });
+      return NextResponse.json({
+        success: true,
+        message: "Case study deleted successfully",
+      });
+    } catch {
       return NextResponse.json(
         { error: "Case study not found" },
         { status: 404 },
       );
     }
-
-    await writeCaseStudiesFile(filteredCaseStudies);
-
-    return NextResponse.json({
-      success: true,
-      message: "Case study deleted successfully",
-    });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

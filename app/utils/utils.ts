@@ -67,14 +67,24 @@ export const getFormattedTimeAgoText = (date: string | undefined) => {
   return dayjs().to(dayjs(date));
 };
 
-export const getFormattedDate = (date: Date | string) => {
-  return dayjs(date ? date : new Date()).format("DD MMM, YYYY");
+export const getFormattedDate = (date: Date | string | undefined | null) => {
+  if (!date) return "N/A";
+  const formatted = dayjs(date).format("DD MMM, YYYY");
+  return formatted === "Invalid Date" ? "N/A" : formatted;
 };
-export const getFormattedDateWithoutYear = (date: Date | string) => {
-  return dayjs(date ? date : new Date()).format("dddd, DD MMM");
+export const getFormattedDateWithoutYear = (
+  date: Date | string | undefined | null,
+) => {
+  if (!date) return "N/A";
+  const formatted = dayjs(date).format("dddd, DD MMM");
+  return formatted === "Invalid Date" ? "N/A" : formatted;
 };
-export const getFormattedDateWithoutYearShortDay = (date: Date | string) => {
-  return dayjs(date ? date : new Date()).format("ddd, DD MMM");
+export const getFormattedDateWithoutYearShortDay = (
+  date: Date | string | undefined | null,
+) => {
+  if (!date) return "N/A";
+  const formatted = dayjs(date).format("ddd, DD MMM");
+  return formatted === "Invalid Date" ? "N/A" : formatted;
 };
 
 export const getFormattedDayAlone = (date: Date | string) => {

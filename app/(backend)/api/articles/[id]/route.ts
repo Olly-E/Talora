@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAuth } from "@/app/lib/auth";
-import {
-  readArticlesFile,
-  writeArticlesFile,
-} from "@/app/lib/articlesFileManager";
-import { Article } from "@/app/data/articlesData";
+import { prisma } from "@/app/lib/prisma";
 
 export async function PUT(
   request: NextRequest,
@@ -15,27 +11,34 @@ export async function PUT(
     const { id } = await params;
     const articleId = parseInt(id);
 
-    const updatedArticleData: Article = await request.json();
-    const articles = await readArticlesFile();
+    const updatedArticleData = await request.json();
 
-    const articleIndex = articles.findIndex(
-      (article) => article.id === articleId,
-    );
+    // Check if article exists
+    const existingArticle = await prisma.article.findUnique({
+      where: { id: articleId },
+    });
 
-    if (articleIndex === -1) {
+    if (!existingArticle) {
       return NextResponse.json({ error: "Article not found" }, { status: 404 });
     }
 
-    // Preserve the existing slug
-    const existingSlug = articles[articleIndex].slug;
-    articles[articleIndex] = {
-      ...updatedArticleData,
-      id: articleId,
-      slug: existingSlug,
-    };
-    await writeArticlesFile(articles);
+    // Update the article
+    const updatedArticle = await prisma.article.update({
+      where: { id: articleId },
+      data: {
+        title: updatedArticleData.title,
+        author: updatedArticleData.author,
+        category: updatedArticleData.category,
+        coverImage: updatedArticleData.coverImage,
+        readTime: updatedArticleData.readTime,
+        tags: updatedArticleData.tags || [],
+        excerpt: updatedArticleData.excerpt,
+        featured: updatedArticleData.featured || false,
+        content: updatedArticleData.content,
+      },
+    });
 
-    return NextResponse.json(articles[articleIndex]);
+    return NextResponse.json(updatedArticle);
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -57,18 +60,15 @@ export async function DELETE(
     const { id } = await params;
     const articleId = parseInt(id);
 
-    const articles = await readArticlesFile();
-    const filteredArticles = articles.filter(
-      (article) => article.id !== articleId,
-    );
-
-    if (filteredArticles.length === articles.length) {
+    // Try to delete the article
+    try {
+      await prisma.article.delete({
+        where: { id: articleId },
+      });
+      return NextResponse.json({ success: true });
+    } catch {
       return NextResponse.json({ error: "Article not found" }, { status: 404 });
     }
-
-    await writeArticlesFile(filteredArticles);
-
-    return NextResponse.json({ success: true });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
