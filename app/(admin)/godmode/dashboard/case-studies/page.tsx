@@ -39,7 +39,7 @@ export default function CaseStudiesPage() {
   const handleCreateCaseStudy = (data: CaseStudyFormData) => {
     const payload = {
       ...data,
-      tags: data.tags.map((tag) => tag.name),
+      tags: data.tags?.map((tag) => tag.name) || [],
     };
 
     createCaseStudy(payload, {

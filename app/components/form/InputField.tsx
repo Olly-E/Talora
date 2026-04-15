@@ -79,7 +79,7 @@ export const InputField: React.FC<InputFieldProps> = ({
           className={clsx(
             "h-[38px] rounded-[5px] disabled:cursor-not-allowed w-full border border-[#444444]/20 font-WorkSans px-4 bg-white-2 outline-none placeholder:text-sm text-black placeholder:text-gray-4/50 placeholder:font-light disabled:bg-gray-100",
             hasError ? "border-red-500" : "",
-            className
+            className,
           )}
           type={type}
           disabled={isDisabled}
@@ -96,7 +96,7 @@ export const InputField: React.FC<InputFieldProps> = ({
           <span
             className={clsx(
               "absolute inset-y-0 flex items-center",
-              iconPosition === "start" ? "left-0" : "right-0"
+              iconPosition === "start" ? "left-0" : "right-0",
             )}
           >
             {handleShowPassword ? (
@@ -124,7 +124,7 @@ export const InputField: React.FC<InputFieldProps> = ({
           </span>
         )}
       </div>
-      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+      {hasError && <ErrorMessage>{hasError.message}</ErrorMessage>}
     </div>
   );
 };

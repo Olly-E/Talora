@@ -47,7 +47,7 @@ export interface JobFormData {
   category: Option[];
   openings: number;
   description: string;
-  tags: Option[];
+  tags?: Option[];
   isUrgent: boolean;
   applicationLink?: string;
 }

@@ -44,7 +44,7 @@ export interface CaseStudyFormData {
   solution: string;
   results: string[];
   coverImage: string;
-  tags: Option[];
+  tags?: Option[];
   featured: boolean;
 }
 

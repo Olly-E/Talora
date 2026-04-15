@@ -78,13 +78,15 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
     }
   };
 
-  const multiFilterValue: Option[] = isMultiple ? (value || []) : [];
+  const multiFilterValue: Option[] = isMultiple ? value || [] : [];
 
   const filteredArr =
     query === ""
       ? arr.filter(
           (item) =>
-            !multiFilterValue.some((selected: Option) => selected.id === item.id)
+            !multiFilterValue.some(
+              (selected: Option) => selected.id === item.id,
+            ),
         )
       : arr.filter(
           (obj) =>
@@ -92,12 +94,14 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
               ?.toLowerCase()
               ?.replace(/\s+/g, "")
               ?.includes(query.toLowerCase().replace(/\s+/g, "")) &&
-            !multiFilterValue.some((selected: Option) => selected.id === obj.id)
+            !multiFilterValue.some(
+              (selected: Option) => selected.id === obj.id,
+            ),
         );
 
   const handleInputFocus = (
     event: React.FocusEvent<HTMLInputElement, Element>,
-    open: boolean
+    open: boolean,
   ) => {
     if (event.relatedTarget?.id?.includes("headlessui-combobox-button")) return;
     if (!open) {
@@ -108,7 +112,9 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
   const hasMultipleOption = isMultiple && multiFilterValue.length > 0;
 
   const handleRemoveOptionFromMultiple = (id: string) => {
-    const newValue = multiFilterValue.filter((option: Option) => option?.id !== id);
+    const newValue = multiFilterValue.filter(
+      (option: Option) => option?.id !== id,
+    );
     onChange(newValue); // Update form control value
   };
 
@@ -132,7 +138,7 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
                 !hasBorder &&
                   "border-transparent px-0 focus:border-transparent",
                 className,
-                disabled && "cursor-not-allowed"
+                disabled && "cursor-not-allowed",
               )}
               placeholder={placeholder}
               displayValue={(option: Option | Option[]) => {
@@ -150,7 +156,7 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
             <ComboboxButton
               className={clsx(
                 "absolute top-2 justify-center flex items-center px-2 right-1 rounded-full min-w-[20px] min-h-[24px] mx-auto bg-white-state ",
-                hasError ? "text-white" : "text-gray-250"
+                hasError ? "text-white" : "text-gray-250",
               )}
               disabled={disabled}
             >
@@ -230,7 +236,7 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
                               : "text-black-state",
                             selected && "bg-black text-white",
                             !(filteredArr.length - 1 === index) &&
-                              "border-b border-[#9EA4AC]"
+                              "border-b border-[#9EA4AC]",
                           )}
                         >
                           {selected && (
@@ -238,7 +244,7 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
                               className={clsx(
                                 "absolute inset-y-0 right-2 flex items-center pl-3 text-gray-900",
                                 focus ? "text-primary" : "text-black-state",
-                                selected && "text-primary"
+                                selected && "text-primary",
                               )}
                             >
                               <svg
@@ -286,6 +292,13 @@ export const SelectFieldWithInput: React.FC<SelectFieldProps> = (props) => {
           </div>
         )}
       </Combobox>
+      {hasError && (
+        <p className="text-red-500 text-xs mt-1">
+          {typeof hasError === "object" && "message" in hasError
+            ? hasError.message
+            : "This field is required"}
+        </p>
+      )}
     </div>
   );
 };

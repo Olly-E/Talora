@@ -129,5 +129,24 @@
     "description": "<p>This is the job desciption<strong> the job description formatted in bold</strong></p>",
     "id": 1775797307756,
     "posted": "Just posted"
+  },
+  {
+    "title": "senior engineer",
+    "company": "Paybuymax",
+    "location": "Lagos",
+    "type": "Full-time",
+    "modeOfWork": "Remote",
+    "salary": "120000",
+    "openings": 12,
+    "applicationLink": "www.link.com",
+    "isUrgent": true,
+    "category": [
+      "Sales"
+    ],
+    "tags": [],
+    "description": "<p>desciprion</p>",
+    "id": 1776246183676,
+    "slug": "senior-engineer",
+    "posted": "Just posted"
   }
 ]

@@ -41,7 +41,7 @@ export default function CaseStudyDetailPage() {
   const handleFormSubmit = (data: CaseStudyFormData) => {
     const payload = {
       ...data,
-      tags: data.tags.map((tag) => tag.name),
+      tags: data.tags?.map((tag) => tag.name) || [],
       id: caseStudyId,
     };
 

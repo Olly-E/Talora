@@ -32,7 +32,7 @@ export default function JobDetailPage() {
     const jobData = {
       ...data,
       category: data.category.map((cat) => cat.name),
-      tags: data.tags.map((tag) => tag.name),
+      tags: data.tags?.map((tag) => tag.name) || [],
       openings: Number(data.openings),
     };
 

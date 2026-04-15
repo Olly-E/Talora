@@ -44,7 +44,7 @@ export interface ArticleFormData {
   content: string;
   coverImage: string;
   readTime: string;
-  tags: Option[];
+  tags?: Option[];
   featured: boolean;
 }
 

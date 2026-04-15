@@ -191,11 +191,6 @@ export const JobForm: React.FC<JobFormProps> = ({
               hasError={errors.category}
               rules={{ required: "At least one category is required" }}
             />
-            {errors.category && (
-              <p className="text-red-500 text-xs mt-1">
-                {errors.category.message}
-              </p>
-            )}
           </div>
           <InputField
             label="Number of Openings"
@@ -235,20 +230,13 @@ export const JobForm: React.FC<JobFormProps> = ({
               );
             }}
           />
-          {errors.tags && (
-            <p className="text-red-500 text-xs mt-1">{errors.tags.message}</p>
-          )}
         </div>
 
         <InputField
           label="Application Link (Google Form or External URL)"
           placeholder="e.g. https://forms.google.com/..."
           registration={register("applicationLink", {
-            pattern: {
-              value: /^https?:\/\/.+/,
-              message:
-                "Please enter a valid URL starting with http:// or https://",
-            },
+            required: "Application link is required",
           })}
           hasError={errors.applicationLink}
         />
