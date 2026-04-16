@@ -17,6 +17,7 @@ import { Button } from "@/app/components/elements/Button";
 import { JobForm } from "@/app/features/admin/jobs/components";
 import { JobFormData } from "@/app/features/admin/jobs/types";
 import { getFormattedDate } from "@/app/utils/utils";
+import { formatSalaryWithCurrency } from "@/app/utils/currency";
 
 export default function JobDetailPage() {
   const params = useParams();
@@ -173,7 +174,9 @@ export default function JobDetailPage() {
                   Salary Range
                 </span>
               </div>
-              <p className="text-gray-900 font-semibold">{job.salary}</p>
+              <p className="text-gray-900 font-semibold">
+                {formatSalaryWithCurrency(job.salary, job.currency)}
+              </p>
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-200">
               <div className="flex items-center gap-2 mb-2">

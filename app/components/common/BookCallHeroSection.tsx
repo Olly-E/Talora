@@ -39,7 +39,7 @@ export default function BookCallHeroSection() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-gray-50">
+    <section className="relative w-full container overflow-hidden bg-gray-50">
       <div className="sm:pt-5 sm:pb-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Left Content */}

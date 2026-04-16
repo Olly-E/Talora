@@ -20,6 +20,13 @@ const categories = [
 ];
 
 const popularTopics = ["Retention", "Automation", "Feedback", "Hiring"];
+const moreTopics = [
+  "Hiring Systems",
+  "Talent Sourcing",
+  "Candidate Experience",
+  "Recruitment Automation",
+  "Team Growth",
+];
 
 const ArticleSection = () => {
   const [activeCategory, setActiveCategory] = useState("All Articles");

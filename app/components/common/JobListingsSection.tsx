@@ -19,6 +19,7 @@ import Link from "next/link";
 import { usePublicJobs } from "@/app/hooks/usePublicJobs";
 import { jobCategories } from "@/app/data/jobsData";
 import { Button } from "../elements/Button";
+import { formatSalaryWithCurrency } from "@/app/utils/currency";
 
 export default function JobListingsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All Positions");
@@ -184,7 +185,7 @@ export default function JobListingsSection() {
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <DollarSign className="size-4 text-primary" />
-                    {job.salary}
+                    {formatSalaryWithCurrency(job.salary, job.currency)}
                   </div>
                   {job.posted && (
                     <div className="flex items-center gap-2 text-sm text-gray-600">

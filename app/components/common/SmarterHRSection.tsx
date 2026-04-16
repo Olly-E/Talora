@@ -123,6 +123,7 @@ const SmarterHRSection = () => {
                 alt="Professional HR Manager"
                 fill
                 className="object-cover rounded-2xl"
+                style={{ objectPosition: "-300px center" }}
               />
             </div>
           </div>

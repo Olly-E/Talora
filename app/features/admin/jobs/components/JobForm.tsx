@@ -8,7 +8,12 @@ import { SelectFieldWithInput } from "@/app/components/form/SelectFieldWithInput
 import { Button } from "@/app/components/elements/Button";
 import { Label } from "@/app/components/elements/Label";
 import { jobCategories } from "@/app/data/jobsData";
-import { JOB_TYPES, MODE_OF_WORK, COMMON_JOB_TAGS } from "../utils/validation";
+import {
+  JOB_TYPES,
+  MODE_OF_WORK,
+  CURRENCIES,
+  COMMON_JOB_TAGS,
+} from "../utils/validation";
 import { JobFormData, JobFormProps } from "../types";
 import { Option } from "@/app/types";
 
@@ -52,6 +57,7 @@ export const JobForm: React.FC<JobFormProps> = ({
       setValue("type", editingJob.type);
       setValue("modeOfWork", editingJob.modeOfWork);
       setValue("salary", editingJob.salary);
+      setValue("currency", editingJob.currency || "USD");
 
       // Convert category array to Option[]
       const categoryValues: Option[] = editingJob.category.map((cat) => ({
@@ -173,13 +179,36 @@ export const JobForm: React.FC<JobFormProps> = ({
           </div>
           <InputField
             label="Salary Range"
-            placeholder="e.g. $120k - $150k"
+            placeholder="e.g. 120k - 150k"
             registration={register("salary", {
               required: "Salary is required",
             })}
             hasError={errors.salary}
             isRequired
           />
+          <div className="w-full">
+            <Label htmlFor="currency" isRequired>
+              Currency
+            </Label>
+            <select
+              {...register("currency", {
+                required: "Currency is required",
+              })}
+              className="h-[38px] rounded-[5px] w-full border border-[#444444]/20 font-WorkSans px-4 bg-white outline-none text-sm text-black disabled:bg-gray-100"
+            >
+              <option value="">Select currency</option>
+              {CURRENCIES.map((currency) => (
+                <option key={currency.code} value={currency.code}>
+                  {currency.code} - {currency.name} ({currency.symbol})
+                </option>
+              ))}
+            </select>
+            {errors.currency && (
+              <p className="text-red-500 text-xs mt-1">
+                {errors.currency.message}
+              </p>
+            )}
+          </div>
           <div className="w-full">
             <Label isRequired>Category</Label>
             <SelectFieldWithInput
@@ -204,32 +233,34 @@ export const JobForm: React.FC<JobFormProps> = ({
             hasError={errors.openings}
             isRequired
           />
-        </div>
-
-        <div className="w-full">
-          <Label>Tags/Skills</Label>
-          <SelectFieldWithInput
-            name="tags"
-            control={control as unknown as Control}
-            arr={tagOptions}
-            placeholder="Select or type to add tags"
-            isMultiple={true}
-            hasError={errors.tags}
-            onCreateNew={(query) => {
-              const currentTags = watch("tags") || [];
-              const newTag: Option = {
-                id: query.toLowerCase().replace(/\s+/g, "-"),
-                name: query,
-              };
-              setValue("tags", [...currentTags, newTag]);
-            }}
-            isNewChecker={(query) => {
-              const currentOptions = [...tagOptions, ...(watch("tags") || [])];
-              return !currentOptions.some(
-                (opt) => opt.name.toLowerCase() === query.toLowerCase(),
-              );
-            }}
-          />
+          <div className="w-full">
+            <Label>Tags/Skills</Label>
+            <SelectFieldWithInput
+              name="tags"
+              control={control as unknown as Control}
+              arr={tagOptions}
+              placeholder="Select or type to add tags"
+              isMultiple={true}
+              hasError={errors.tags}
+              onCreateNew={(query) => {
+                const currentTags = watch("tags") || [];
+                const newTag: Option = {
+                  id: query.toLowerCase().replace(/\s+/g, "-"),
+                  name: query,
+                };
+                setValue("tags", [...currentTags, newTag]);
+              }}
+              isNewChecker={(query) => {
+                const currentOptions = [
+                  ...tagOptions,
+                  ...(watch("tags") || []),
+                ];
+                return !currentOptions.some(
+                  (opt) => opt.name.toLowerCase() === query.toLowerCase(),
+                );
+              }}
+            />
+          </div>
         </div>
 
         <InputField

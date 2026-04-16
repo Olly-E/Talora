@@ -7,7 +7,8 @@
     "location": "New York, NY",
     "type": "Full-time",
     "modeOfWork": "Hybrid",
-    "salary": "$90k - $110k",
+    "salary": "90k - 110k",
+    "currency": "USD",
     "category": [
       "Human Resources"
     ],
@@ -29,7 +30,8 @@
     "location": "Los Angeles, CA",
     "type": "Full-time",
     "modeOfWork": "Hybrid",
-    "salary": "$60k - $75k",
+    "salary": "60k - 75k",
+    "currency": "USD",
     "category": [
       "Marketing"
     ],
@@ -51,7 +53,8 @@
     "location": "San Francisco, CA",
     "type": "Full-time",
     "modeOfWork": "Hybrid",
-    "salary": "$95k - $125k",
+    "salary": "95k - 125k",
+    "currency": "USD",
     "category": [
       "Design"
     ],
@@ -73,7 +76,8 @@
     "location": "Austin, TX",
     "type": "Full-time",
     "modeOfWork": "Hybrid",
-    "salary": "$55k - $70k + Commission",
+    "salary": "55k - 70k + Commission",
+    "currency": "USD",
     "category": [
       "Sales"
     ],
@@ -95,7 +99,8 @@
     "location": "Remote",
     "type": "Full-time",
     "modeOfWork": "Remote",
-    "salary": "$70k - $90k",
+    "salary": "70k - 90k",
+    "currency": "USD",
     "category": [
       "Engineering"
     ],
@@ -117,6 +122,7 @@
     "type": "Full-time",
     "modeOfWork": "Remote",
     "salary": "120000",
+    "currency": "USD",
     "openings": 2,
     "applicationLink": "",
     "isUrgent": false,
@@ -137,6 +143,7 @@
     "type": "Full-time",
     "modeOfWork": "Remote",
     "salary": "120000",
+    "currency": "USD",
     "openings": 12,
     "applicationLink": "www.link.com",
     "isUrgent": true,

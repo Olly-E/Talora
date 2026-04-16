@@ -14,9 +14,11 @@ import {
 } from "lucide-react";
 import { Button } from "@/app/components/elements/Button";
 import { JobCardProps } from "../types";
+import { formatSalaryWithCurrency } from "@/app/utils/currency";
 
 // Helper function to strip HTML tags from WYSIWYG content
 const stripHtml = (html: string): string => {
+  if (typeof window === "undefined") return html;
   const tmp = document.createElement("DIV");
   tmp.innerHTML = html;
   return tmp.textContent || tmp.innerText || "";
@@ -108,7 +110,9 @@ export const JobCard: React.FC<JobCardProps> = ({
           <div className="p-2 bg-secondary/10 rounded-lg">
             <DollarSign className="size-4 text-secondary" />
           </div>
-          <span className="text-gray-700">{job.salary}</span>
+          <span className="text-gray-700">
+            {formatSalaryWithCurrency(job.salary, job.currency)}
+          </span>
         </div>
         <div className="flex items-center gap-2 text-sm">
           <div className="p-2 bg-secondary/10 rounded-lg">

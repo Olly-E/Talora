@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Briefcase,
   MapPin,
@@ -9,10 +11,19 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Job } from "../types";
+import { formatSalaryWithCurrency } from "@/app/utils/currency";
 
 interface JobCardProps {
   job: Job;
 }
+
+// Helper function to strip HTML tags from WYSIWYG content
+const stripHtml = (html: string): string => {
+  if (typeof window === "undefined") return html;
+  const tmp = document.createElement("DIV");
+  tmp.innerHTML = html;
+  return tmp.textContent || tmp.innerText || "";
+};
 
 export default function JobCard({ job }: JobCardProps) {
   return (
@@ -41,7 +52,7 @@ export default function JobCard({ job }: JobCardProps) {
       <p className="text-gray-600 font-medium mb-3">{job.company}</p>
 
       <p className="text-gray-600 text-sm mb-6 line-clamp-2">
-        {job.description}
+        {stripHtml(job.description)}
       </p>
 
       {/* Job Details */}
@@ -56,7 +67,7 @@ export default function JobCard({ job }: JobCardProps) {
         </div>
         <div className="flex items-center gap-2 text-sm text-gray-600">
           <DollarSign className="size-4 text-primary" />
-          {job.salary}
+          {formatSalaryWithCurrency(job.salary, job.currency)}
         </div>
         {job.posted && (
           <div className="flex items-center gap-2 text-sm text-gray-600">

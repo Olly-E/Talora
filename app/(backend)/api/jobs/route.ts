@@ -28,6 +28,7 @@ export async function POST(request: NextRequest) {
       { field: "type", name: "Job Type" },
       { field: "modeOfWork", name: "Mode of Work" },
       { field: "salary", name: "Salary" },
+      { field: "currency", name: "Currency" },
       { field: "description", name: "Description" },
     ];
 
@@ -87,6 +88,7 @@ export async function POST(request: NextRequest) {
         type: jobData.type,
         modeOfWork: jobData.modeOfWork,
         salary: jobData.salary,
+        currency: jobData.currency || "USD",
         category: jobData.category,
         openings: jobData.openings,
         posted: "Just posted",

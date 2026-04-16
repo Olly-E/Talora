@@ -32,6 +32,7 @@ export async function PUT(
         type: updatedJobData.type,
         modeOfWork: updatedJobData.modeOfWork,
         salary: updatedJobData.salary,
+        currency: updatedJobData.currency || "USD",
         category: updatedJobData.category,
         openings: updatedJobData.openings,
         description: updatedJobData.description,

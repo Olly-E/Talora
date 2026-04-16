@@ -32,6 +32,21 @@ export const MODE_OF_WORK = [
   "Flexible",
 ] as const;
 
+export const CURRENCIES = [
+  { code: "USD", name: "US Dollar", symbol: "$" },
+  { code: "EUR", name: "Euro", symbol: "€" },
+  { code: "GBP", name: "British Pound", symbol: "£" },
+  { code: "CAD", name: "Canadian Dollar", symbol: "C$" },
+  { code: "AUD", name: "Australian Dollar", symbol: "A$" },
+  { code: "JPY", name: "Japanese Yen", symbol: "¥" },
+  { code: "CNY", name: "Chinese Yuan", symbol: "¥" },
+  { code: "INR", name: "Indian Rupee", symbol: "₹" },
+  { code: "SGD", name: "Singapore Dollar", symbol: "S$" },
+  { code: "AED", name: "UAE Dirham", symbol: "د.إ" },
+  { code: "NGN", name: "Nigerian Naira", symbol: "₦" },
+  { code: "ZAR", name: "South African Rand", symbol: "R" },
+] as const;
+
 // Common job tags/skills
 export const COMMON_JOB_TAGS = [
   "React",

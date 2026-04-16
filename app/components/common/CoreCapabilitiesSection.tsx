@@ -62,7 +62,7 @@ export default function CoreCapabilitiesSection() {
             Hiring Should Not Slow Down Your Growth
           </h2>
           <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
-            Talora helps growing companies build structured recruitment systems,
+            We helps growing companies build structured recruitment systems,
             source high quality global talent, and automate hiring workflows so
             you can scale your team without operational complexity.
           </p>

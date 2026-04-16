@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/app/components/elements/Button";
 import { usePublicJobs } from "@/app/hooks/usePublicJobs";
+import { formatSalaryWithCurrency } from "@/app/utils/currency";
 
 export default function JobPostPage() {
   const params = useParams();
@@ -82,7 +83,7 @@ export default function JobPostPage() {
           </div>
           <div className="flex items-center gap-2">
             <DollarSign className="size-5" />
-            <span>{job.salary}</span>
+            <span>{formatSalaryWithCurrency(job.salary, job.currency)}</span>
           </div>
           {job.posted && (
             <div className="flex items-center gap-2">

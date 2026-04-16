@@ -1,33 +1,33 @@
 import React from "react";
 
-import { Wallet, Users, Mail } from "lucide-react";
+import { Settings, Target, ClipboardCheck } from "lucide-react";
 import clsx from "clsx";
 import { Button } from "../elements/Button";
 import Link from "next/link";
 
 const SERVICES = [
   {
-    icon: <Wallet className="size-5 text-white" />,
-    color: "bg-blue-500",
+    icon: <Settings className="size-5 text-white" />,
+    color: "bg-primary",
     title: "End-to-End Recruitment Automation",
     desc: "We design and implement structured hiring workflows that streamline sourcing, screening, and interview coordination from start to finish.",
-    testimonials: "99+ Testimonials",
+    metric: "20+ Companies",
     link: "/services/recruitment",
   },
   {
-    icon: <Users className="size-5 text-white" />,
-    color: "bg-purple-500",
+    icon: <Target className="size-5 text-white" />,
+    color: "bg-primary",
     title: "Strategic Talent Sourcing",
     desc: "We proactively identify and engage high quality global candidates, ensuring you have access to strong, well-matched talent.",
-    testimonials: "99+ Testimonials",
+    metric: "50+ Placements",
     link: "/services/recruitment",
   },
   {
-    icon: <Mail className="size-5 text-white" />,
-    color: "bg-teal-600",
+    icon: <ClipboardCheck className="size-5 text-white" />,
+    color: "bg-primary",
     title: "Onboarding Systems",
     desc: "We build structured onboarding processes that help new hires integrate quickly and perform effectively from day one.",
-    testimonials: "99+ Testimonials",
+    metric: "20+ Systems Built",
     link: "/services",
   },
 ];
@@ -49,7 +49,7 @@ const FutureReady = () => {
             </h2>
           </div>
           <Button
-            className="bg-secondary! !mt-4"
+            className="bg-secondary! mt-4!"
             variant="secondary"
             as="link"
             href="/services"
@@ -73,7 +73,7 @@ const FutureReady = () => {
                   {service.icon}
                 </div>
                 <span className="border border-gray-400 text-gray-700 text-xs px-3 py-1 rounded-full bg-white/80 font-medium">
-                  {service.testimonials}
+                  {service.metric}
                 </span>
               </div>
               <div className="flex-1 flex flex-col justify-end">

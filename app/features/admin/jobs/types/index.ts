@@ -8,6 +8,7 @@ export interface JobFormPayload {
   type: string;
   modeOfWork: string;
   salary: string;
+  currency: string;
   category: string[];
   openings: number;
   description: string;
@@ -44,6 +45,7 @@ export interface JobFormData {
   type: string;
   modeOfWork: string;
   salary: string;
+  currency: string;
   category: Option[];
   openings: number;
   description: string;

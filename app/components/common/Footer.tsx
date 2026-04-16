@@ -21,7 +21,7 @@ const Footer = () => {
       { label: "Open Roles", href: "/jobs" },
     ],
     Contact: [
-      { label: "contact@talora.com", href: "mailto:contact@talora.com" },
+      { label: "contact@taloraagency.com", href: "mailto:contact@taloraagency.com" },
       { label: "Global Remote Service", href: "/contact" },
     ],
   };

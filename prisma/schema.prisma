@@ -59,6 +59,7 @@ model Job {
   type            String
   modeOfWork      String
   salary          String
+  currency        String   @default("USD")
   category        String[]
   openings        Int
   posted          String

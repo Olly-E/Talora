@@ -109,8 +109,11 @@ export default function CalendlySection() {
               </p>
             </div>
             <p className="text-gray-600 mb-4">
-              No worries! You can reach out to us directly via email or our
-              contact form.
+              No worries! You can reach out to us directly via{" "}
+              <a href="mailto:contact@taloraagency.com" className="text-primary hover:underline font-medium">
+                email
+              </a>{" "}
+              or our contact form.
             </p>
             <a
               href="/contact"
