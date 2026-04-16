@@ -38,7 +38,7 @@ const FutureReady = () => {
       <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
           <div>
-            <div className="bg-white text-secondary/80 whitespace-nowrap text-sm mb-4 font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-2 flex items-center gap-2">
+            <div className="bg-white text-secondary/80 whitespace-nowrap text-sm mb-4 font-medium w-fit shadow-sm px-4 py-1 rounded-full flex items-center gap-2">
               <div className="size-2 rounded-full min-w-2 bg-secondary" />
               Our Service
             </div>

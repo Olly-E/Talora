@@ -1,5 +1,5 @@
 import {
-  Database,
+  Workflow,
   Calendar,
   FileText,
   Shield,
@@ -18,14 +18,14 @@ const capabilities: Capability[] = [
   {
     title: "Proactive Talent Sourcing",
     description:
-      "We identify and engage high quality candidates globally, including African professionals and international contractors, so you are not dependent on inbound applications.",
+      "We identify and engage high quality candidates globally, including African, Asia, LATAM, Eastern Europe professionals and contractors, so you are not dependent on inbound applications.",
     icon: Users,
   },
   {
     title: "Structured Hiring Systems",
     description:
       "We design clear, repeatable recruitment processes that improve consistency, reduce hiring errors, and support long term team growth",
-    icon: Database,
+    icon: Workflow,
   },
   {
     title: "Recruitment Automation",

@@ -7,6 +7,7 @@ export interface Job {
   type: string;
   modeOfWork: string;
   salary: string;
+  currency?: string;
   category: string[];
   openings: number;
   posted?: string;

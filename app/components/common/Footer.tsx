@@ -11,7 +11,8 @@ const Footer = () => {
       { label: "Contact", href: "/contact" },
     ],
     Services: [
-      { label: "Recruitment Automation", href: "/services/recruitment" },
+      { label: "Recruitment Automation", href: "/services/hr-automation" },
+      { label: "Recruitment Services", href: "/services/recruitment" },
       { label: "Strategic Hiring", href: "/services" },
       { label: "Onboarding Systems", href: "/services" },
     ],
@@ -21,7 +22,10 @@ const Footer = () => {
       { label: "Open Roles", href: "/jobs" },
     ],
     Contact: [
-      { label: "contact@taloraagency.com", href: "mailto:contact@taloraagency.com" },
+      {
+        label: "contact@taloraagency.com",
+        href: "mailto:contact@taloraagency.com",
+      },
       { label: "Global Remote Service", href: "/contact" },
     ],
   };

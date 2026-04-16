@@ -15,8 +15,8 @@ export interface Article {
 
 export const articleCategories = [
   "All Articles",
-  "HR Automation",
-  "Recruitment",
+  "Recruitment Automation",
+  "Recruitment Services",
   "Industry Insights",
   "Best Practices",
   "Technology",

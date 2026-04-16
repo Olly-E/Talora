@@ -12,15 +12,14 @@ import writerThumb from "../../../public/images/writer.webp";
 
 const categories = [
   "All Articles",
-  "HR Automation",
-  "Recruitment",
+  "Recruitment Automation",
+  "Recruitment Services",
   "Industry Insights",
   "Best Practices",
   "Technology",
 ];
 
-const popularTopics = ["Retention", "Automation", "Feedback", "Hiring"];
-const moreTopics = [
+const popularTopics = [
   "Hiring Systems",
   "Talent Sourcing",
   "Candidate Experience",

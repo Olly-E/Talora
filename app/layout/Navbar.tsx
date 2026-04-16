@@ -25,15 +25,15 @@ export default function Navbar() {
 
   const servicesDropdownItems = [
     {
-      name: "HR Automation",
+      name: "Recruitment Automation",
       href: "/services/hr-automation",
-      description: "Intelligent automation solutions for HR operations",
+      description: "Structured workflows to streamline your hiring process",
       icon: <Zap className="size-5" />,
     },
     {
-      name: "Recruitment",
+      name: "Recruitment Services",
       href: "/services/recruitment",
-      description: "Find and hire top talent for your organization",
+      description: "End-to-end support to source and hire top talent",
       icon: <Users className="size-5" />,
     },
   ];

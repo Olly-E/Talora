@@ -1,12 +1,12 @@
 import {
+  Boxes,
   Target,
-  Lightbulb,
-  Shield,
-  Users,
-  Heart,
+  Zap,
+  MessageSquare,
+  FileSearch,
+  Award,
   TrendingUp,
-  Globe,
-  BookOpen,
+  Handshake,
   LucideIcon,
 } from "lucide-react";
 
@@ -18,52 +18,52 @@ interface Value {
 
 const values: Value[] = [
   {
-    title: "Excellence",
+    title: "Structured Over Reactive",
     description:
-      "We strive for excellence in everything we do, delivering quality solutions that exceed expectations.",
+      "We replace ad hoc hiring with clear, repeatable systems that improve consistency and decision making.",
+    icon: Boxes,
+  },
+  {
+    title: "Proactive, Not Passive",
+    description:
+      "We actively source and engage talent rather than waiting for applications, ensuring access to stronger candidates.",
     icon: Target,
   },
   {
-    title: "Innovation",
+    title: "Efficiency Through Automation",
     description:
-      "We continuously innovate to stay ahead, embracing new ideas and technologies.",
-    icon: Lightbulb,
+      "We design workflows that reduce manual work, speed up hiring, and eliminate operational bottlenecks.",
+    icon: Zap,
   },
   {
-    title: "Integrity",
+    title: "Clear Candidate Communication",
     description:
-      "We operate with transparency and honesty, building trust through ethical practices.",
-    icon: Shield,
+      "We ensure candidates are informed, respected, and guided throughout the hiring process.",
+    icon: MessageSquare,
   },
   {
-    title: "Collaboration",
+    title: "Role Clarity First",
     description:
-      "We believe in the power of teamwork, working together to achieve shared goals.",
-    icon: Users,
+      "We help define roles properly before hiring begins, reducing mismatches and improving long term success.",
+    icon: FileSearch,
   },
   {
-    title: "Customer Focus",
+    title: "Quality Over Volume",
     description:
-      "Your success is our success. We prioritize understanding and meeting your needs.",
-    icon: Heart,
+      "We focus on presenting well evaluated candidates rather than overwhelming you with options.",
+    icon: Award,
   },
   {
-    title: "Growth Mindset",
+    title: "Built for Scaling Teams",
     description:
-      "We embrace challenges and view them as opportunities to learn and improve.",
+      "Our systems are designed to grow with your company, not break as hiring demand increases.",
     icon: TrendingUp,
   },
   {
-    title: "Diversity & Inclusion",
+    title: "Partnership Approach",
     description:
-      "We celebrate diverse perspectives and create an inclusive environment for all.",
-    icon: Globe,
-  },
-  {
-    title: "Continuous Learning",
-    description:
-      "We invest in ongoing development, staying current with industry trends and best practices.",
-    icon: BookOpen,
+      "We work closely with your team, aligning hiring decisions with your business goals and growth plans.",
+    icon: Handshake,
   },
 ];
 
@@ -73,16 +73,17 @@ export default function ResourceCategoriesSection() {
       <div className="max-w-7xl mx-auto">
         <div className="bg-primary flex items-center gap-2 text-black/80 text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-4">
           <div className="size-2 rounded-full min-w-2 bg-black" />
-          Our Core Values
+          What You Can Expect Working With Us
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-white font-bold leading-tight max-w-2xl">
-            Values That Drive Our Mission
+            How We Approach Hiring
           </h2>
           <p className="text-white/80 max-w-md md:text-right text-sm sm:text-base">
-            These principles guide everything we do and shape how we serve our
-            clients and build lasting partnerships
+            Our work is built on structured systems, clear communication, and a
+            commitment to helping companies hire efficiently without unnecessary
+            complexity.
           </p>
         </div>
 

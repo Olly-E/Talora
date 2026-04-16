@@ -13,8 +13,8 @@ export const CASE_STUDY_INDUSTRIES = [
 ];
 
 export const COMMON_CASE_STUDY_TAGS = [
-  "Recruitment",
-  "HR Automation",
+  "Recruitment Services",
+  "Recruitment Automation",
   "Employee Engagement",
   "Retention",
   "Compliance",
