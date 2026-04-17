@@ -13,12 +13,14 @@ export default function InsightsHeroSection() {
 
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-            Expert Insights for <span className="text-primary">Modern HR</span>
+            Insights That Improve How You{" "}
+            <span className="text-primary">Hire, Scale, and Operate</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            Stay ahead with the latest trends, best practices, and expert advice
-            on HR automation, recruitment, and workforce management.
+            Practical perspectives on recruitment automation, hiring systems,
+            and talent strategy, designed to help you build more efficient,
+            scalable teams.
           </p>
         </div>
       </div>

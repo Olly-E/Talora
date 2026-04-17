@@ -61,7 +61,7 @@ export default function AboutHeroSection() {
               variant="secondary"
               className="bg-secondary!"
               as="link"
-              href="/about"
+              href="/case-studies"
             >
               Discover Our Story{" "}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

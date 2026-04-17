@@ -4,34 +4,46 @@ export default function HRAutomationProcessSection() {
   const steps = [
     {
       number: "01",
-      title: "Assess & Plan",
+      title: "Discovery & Process Assessment",
       description:
-        "We analyze your current HR processes, identify bottlenecks, and create a customized automation roadmap.",
-      highlights: ["Process audit", "Requirement analysis", "Custom roadmap"],
+        "We assess your current recruitment process, identify bottlenecks, and understand your hiring volume, challenges, and operational gaps.",
+      highlights: [
+        "Recruitment process review",
+        "Pain point identification",
+        "Hiring volume and workflow analysis",
+      ],
     },
     {
       number: "02",
-      title: "Configure & Customize",
+      title: "Workflow Design & System Planning",
       description:
-        "Our team configures the automation system to match your workflows, policies, and organizational structure.",
-      highlights: ["System setup", "Workflow design", "Integration setup"],
+        "We design a customized recruitment workflow aligned with your process, defining how candidates are screened, communicated with, and progressed.",
+      highlights: [
+        "Workflow mapping",
+        "Screening criteria setup",
+        "Communication structure design",
+      ],
     },
     {
       number: "03",
-      title: "Train & Launch",
+      title: "Automation Setup & Integration",
       description:
-        "Comprehensive training for your team, followed by a phased rollout to ensure smooth adoption.",
-      highlights: ["User training", "Phased rollout", "Go-live support"],
+        "We implement and configure your automation system, ensuring all stages from application to interview are streamlined and connected.",
+      highlights: [
+        "Automation configuration",
+        "Tool and system integration",
+        "End-to-end workflow setup",
+      ],
     },
     {
       number: "04",
-      title: "Optimize & Scale",
+      title: "Testing, Optimization & Support",
       description:
-        "Continuous monitoring, optimization, and scaling as your organization grows and evolves.",
+        "We test the system, refine workflows, and provide ongoing support to ensure your recruitment process runs efficiently at scale.",
       highlights: [
-        "Performance tracking",
-        "Ongoing support",
-        "Feature updates",
+        "Workflow testing and refinement",
+        "Performance optimization",
+        "Ongoing system support",
       ],
     },
   ];
@@ -44,10 +56,15 @@ export default function HRAutomationProcessSection() {
             <span className="text-sm font-semibold">Our Process</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            How We <span className="text-secondary">Transform Your HR</span>
+            How We{" "}
+            <span className="text-secondary">
+              Build Your Recruitment Automation System
+            </span>
           </h2>
           <p className="text-lg text-gray-600">
-            A proven 4-step process to automate your HR operations seamlessly
+            A structured approach to identifying inefficiencies, designing
+            tailored workflows, and implementing automation that streamlines
+            your entire recruitment process.
           </p>
         </div>
 

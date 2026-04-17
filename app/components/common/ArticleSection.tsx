@@ -11,12 +11,11 @@ import { Button } from "../elements/Button";
 import writerThumb from "../../../public/images/writer.webp";
 
 const categories = [
-  "All Articles",
+  "All",
   "Recruitment Automation",
-  "Recruitment Services",
-  "Industry Insights",
-  "Best Practices",
-  "Technology",
+  "Recruitment Strategy",
+  "Candidate Experience",
+  "Hiring Systems",
 ];
 
 const popularTopics = [
@@ -28,13 +27,13 @@ const popularTopics = [
 ];
 
 const ArticleSection = () => {
-  const [activeCategory, setActiveCategory] = useState("All Articles");
+  const [activeCategory, setActiveCategory] = useState("All");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const { data: articles = [], isLoading } = usePublicArticles();
 
   const filteredArticles =
-    activeCategory === "All Articles"
+    activeCategory === "All"
       ? articles
       : articles.filter((article) => article.category === activeCategory);
 
@@ -75,9 +74,7 @@ const ArticleSection = () => {
                 Our Blog
               </div>
               <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-8">
-                Explore Insights on
-                <br className="hidden sm:block" />
-                Hiring and Talent
+                Practical Insights for Smarter Hiring and Scalable Teams
               </h2>
             </div>
 
@@ -114,12 +111,10 @@ const ArticleSection = () => {
 
           <div className="">
             <p className="text-gray-600 text-sm max-w-xs">
-              Practical insights on structured hiring systems, talent sourcing,
-              and building efficient recruitment processes as your team grows.
-            </p>
-            <p className="text-gray-600 text-sm max-w-xs mt-3">
-              Stay updated with insights on hiring strategy, recruitment
-              workflows, and building scalable teams.
+              Gain clarity on how to design hiring processes that actually
+              scale. From structuring your recruitment workflows to improving
+              candidate experience, these insights are built to help you make
+              better hiring decisions with less friction.
             </p>
             <Button
               variant="secondary"
@@ -128,7 +123,7 @@ const ArticleSection = () => {
               as="link"
               href="/insights"
             >
-              Explore Insights <span className="text-lg">→</span>
+              Browse Insights <span className="text-lg">→</span>
             </Button>
           </div>
         </div>

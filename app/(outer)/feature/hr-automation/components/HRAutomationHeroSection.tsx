@@ -21,17 +21,17 @@ export default function HRAutomationHeroSection() {
       iconColor: "text-primary",
     },
     {
-      icon: TrendingUp,
-      value: "3x",
-      label: "Efficiency Boost",
+      icon: Shield,
+      value: "100%",
+      label: "Structured Communication",
       position: "bottom-4 left-4 lg:bottom-6 lg:left-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
-      icon: Shield,
-      value: "100%",
-      label: "Compliance Ready",
+      icon: TrendingUp,
+      value: "3x",
+      label: "Hiring Efficiency",
       position: "top-4 left-4 lg:top-1/2 lg:right-6 lg:-translate-y-1/2",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
@@ -47,18 +47,20 @@ export default function HRAutomationHeroSection() {
             <div className="space-y-6">
               <div className="bg-white/10 border border-white/20 text-white rounded-full px-4 py-2 w-fit flex items-center gap-2">
                 <Zap className="size-4 text-primary" />
-                <span className="text-sm font-medium">Smart Automation</span>
+                <span className="text-sm font-medium">
+                  Recruitment Automation
+                </span>
               </div>
 
               <h1 className="text-white leading-tight font-semibold!">
-                Automate Your HR,{" "}
-                <span className="text-primary">Elevate Your Business</span>
+                Automate Your Hiring Process,{" "}
+                <span className="text-primary">Not Just Tasks</span>
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Transform manual HR processes into intelligent automated
-                workflows. Save time, reduce errors, and empower your team with
-                cutting-edge automation solutions.
+                We design and implement end-to-end recruitment automation that
+                screens candidates, manages communication, and ensures only
+                qualified candidates move forward.
               </p>
 
               {/* Feature List */}
@@ -69,10 +71,10 @@ export default function HRAutomationHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Payroll Automation
+                      Automated Candidate Screening
                     </h3>
                     <p className="text-xs text-white/70">
-                      Error-free processing
+                      Pre-qualified candidates based on defined criteria
                     </p>
                   </div>
                 </div>
@@ -82,32 +84,36 @@ export default function HRAutomationHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Smart Onboarding
-                    </h3>
-                    <p className="text-xs text-white/70">Seamless experience</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-primary/20 p-1 mt-1">
-                    <CheckCircle2 className="size-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white text-sm mb-1">
-                      Leave Management
-                    </h3>
-                    <p className="text-xs text-white/70">Automated tracking</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-primary/20 p-1 mt-1">
-                    <CheckCircle2 className="size-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white text-sm mb-1">
-                      Performance Reviews
+                      Structured Candidate Communication
                     </h3>
                     <p className="text-xs text-white/70">
-                      Data-driven insights
+                      Personalized updates at every stage, no generic emails
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-full bg-primary/20 p-1 mt-1">
+                    <CheckCircle2 className="size-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white text-sm mb-1">
+                      Interview Scheduling Automation
+                    </h3>
+                    <p className="text-xs text-white/70">
+                      Qualified candidates book directly into your calendar
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-full bg-primary/20 p-1 mt-1">
+                    <CheckCircle2 className="size-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white text-sm mb-1">
+                      End-to-End Workflow Automation
+                    </h3>
+                    <p className="text-xs text-white/70">
+                      From application to interview, fully streamlined
                     </p>
                   </div>
                 </div>
@@ -116,10 +122,15 @@ export default function HRAutomationHeroSection() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Button size="md" as="link" href="/book-call">
-                Get Started
+                Book a Consultation
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="md" variant="outlineWhite" as="link" href="/contact#contact-form">
+              <Button
+                size="md"
+                variant="outlineWhite"
+                as="link"
+                href="/contact#contact-form"
+              >
                 Watch Demo
               </Button>
             </div>

@@ -3,39 +3,39 @@ import { Clock, DollarSign, Shield, Zap, Heart, Globe } from "lucide-react";
 const benefits = [
   {
     icon: Clock,
-    title: "Save Time",
+    title: "Faster Hiring Process",
     stat: "70%",
-    description: "Reduction in administrative tasks",
+    description: "Reduced time spent on manual screening and coordination",
   },
   {
     icon: DollarSign,
-    title: "Cut Costs",
+    title: "Reduced Hiring Waste",
     stat: "40%",
-    description: "Lower HR operational expenses",
+    description: "Fewer unqualified candidates, better selection accuracy",
   },
   {
     icon: Shield,
-    title: "Stay Compliant",
+    title: "Structured Communication",
     stat: "100%",
-    description: "Compliance with regulations",
+    description: "Consistent, personalized communication across every stage",
   },
   {
     icon: Zap,
-    title: "Boost Efficiency",
+    title: "Improved Efficiency",
     stat: "3x",
-    description: "Faster employee onboarding",
+    description: "Streamlined workflows from application to interview",
   },
   {
     icon: Heart,
-    title: "Improve Satisfaction",
+    title: "Improved Hiring Confidence",
     stat: "92%",
-    description: "Employee satisfaction rate",
+    description: "Clear insights and structured candidate evaluation",
   },
   {
     icon: Globe,
-    title: "Scale Globally",
-    stat: "50+",
-    description: "Countries supported",
+    title: "Countries Sourced",
+    stat: "20+",
+    description: "Access to qualified international professionals",
   },
 ];
 
@@ -52,13 +52,13 @@ export default function ServiceBenefitsSection() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white">
-              Measurable Impact on Your Business
+              Measurable Impact on Your Hiring Process
             </h2>
 
             <p className="text-white/90 text-lg mb-8 leading-relaxed">
-              Our services don't just solve problems — they transform how you
-              manage people, optimize operations, and drive strategic growth
-              across your entire organization.
+              We help you reduce hiring inefficiencies, improve candidate
+              quality, and build structured recruitment systems that scale with
+              your business.
             </p>
 
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
@@ -68,11 +68,12 @@ export default function ServiceBenefitsSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-white mb-2">
-                    Trusted by Industry Leaders
+                    Trusted by Growing Companies
                   </h4>
                   <p className="text-white/80 text-sm">
-                    Join hundreds of companies that have transformed their HR
-                    operations with our proven solutions and expert guidance
+                    We partner with teams to build structured hiring processes,
+                    improve candidate experience, and deliver consistent,
+                    high-quality hiring outcomes.
                   </p>
                 </div>
               </div>

@@ -19,9 +19,18 @@ export interface Job {
 
 export const jobCategories = [
   "All Positions",
-  "Engineering",
-  "Human Resources",
+  "Technology & Engineering",
+  "Product Management",
+  "Data & Analytics",
+  "Design & Creative",
   "Marketing",
   "Sales",
-  "Design",
+  "Business Development",
+  "Operations",
+  "Human Resources",
+  "Finance & Accounting",
+  "Customer Support & Success",
+  "Legal & Compliance",
+  "Supply Chain & Logistics",
+  "Education & Training",
 ];

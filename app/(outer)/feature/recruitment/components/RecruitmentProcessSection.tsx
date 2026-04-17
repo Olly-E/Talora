@@ -5,53 +5,53 @@ export default function RecruitmentProcessSection() {
     {
       number: "01",
       icon: FileText,
-      title: "Understand Requirements",
+      title: "Define Your Hiring Needs",
       description:
-        "Deep dive into your hiring needs, company culture, and ideal candidate profile to ensure perfect alignment.",
+        "We work closely with you to understand the role, expectations, and the type of candidate that will succeed in your team.",
       details: [
-        "Detailed job analysis",
-        "Culture assessment",
-        "Success criteria definition",
-        "Timeline planning",
+        "Role and requirement alignment",
+        "Candidate profile definition",
+        "Success criteria clarity",
+        "Hiring timeline planning",
       ],
     },
     {
       number: "02",
       icon: Search,
-      title: "Source & Screen",
+      title: "Source and Shortlist Candidates",
       description:
-        "Leverage our extensive network, AI-powered tools, and multi-channel approach to find the best candidates.",
+        "We identify and engage strong candidates, ensuring you receive only qualified profiles aligned with your requirements.",
       details: [
-        "Active candidate sourcing",
-        "Passive talent outreach",
-        "Initial screening calls",
-        "Skills assessment",
+        "Targeted talent sourcing",
+        "Access to passive candidates",
+        "Initial screening and filtering",
+        "Qualified candidate shortlisting",
       ],
     },
     {
       number: "03",
       icon: UserCheck,
-      title: "Evaluate & Interview",
+      title: "Evaluate with Structure and Clarity",
       description:
-        "Rigorous evaluation process including technical assessments, behavioral interviews, and reference checks.",
+        "Candidates are assessed through a consistent process so you can make confident and informed hiring decisions.",
       details: [
-        "Technical evaluations",
-        "Behavioral interviews",
-        "Culture fit assessment",
-        "Reference verification",
+        "Structured candidate evaluation",
+        "Role-based assessments",
+        "Fit and alignment checks",
+        "Clear candidate insights",
       ],
     },
     {
       number: "04",
       icon: Handshake,
-      title: "Present & Onboard",
+      title: "Select and Secure the Right Hire",
       description:
-        "Present top candidates, negotiate offers, and support smooth onboarding for long-term success.",
+        "We support you through final selection and ensure a smooth transition from offer to onboarding.",
       details: [
         "Candidate presentation",
-        "Offer negotiation",
-        "Onboarding support",
-        "Follow-up & retention",
+        "Offer coordination",
+        "Candidate communication",
+        "Smooth onboarding support",
       ],
     },
   ];
@@ -65,11 +65,10 @@ export default function RecruitmentProcessSection() {
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             How We{" "}
-            <span className="text-secondary">Find Your Perfect Match</span>
+            <span className="text-secondary">Deliver the Right Candidates for Your Team</span>
           </h2>
           <p className="text-lg text-gray-600">
-            A systematic 4-step approach ensuring the best candidates for your
-            organization
+            A structured hiring approach designed to help you identify, evaluate, and secure the right talent with clarity and confidence.
           </p>
         </div>
 

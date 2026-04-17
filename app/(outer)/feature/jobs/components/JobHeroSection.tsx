@@ -20,27 +20,33 @@ export default function JobHeroSection() {
             <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary rounded-full px-4 py-2 backdrop-blur-sm">
               <Sparkles className="size-4" />
               <span className="text-sm font-medium text-white">
-                Join Our Talent Pool
+                Join Our Talent Network
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold! text-white leading-tight">
-              Find Your <span className="text-primary">Dream Career</span>
+              Find Opportunities That{" "}
+              <span className="text-primary">Match Your Skills</span>
             </h1>
 
             <p className="text-lg text-white/80 leading-relaxed max-w-xl">
-              Discover exciting opportunities with innovative companies. Connect
-              with roles that match your ambitions and unlock your full
-              potential.
+              Access roles with growing companies through a structured hiring
+              process that values your experience, communicates clearly, and
+              helps you move forward with confidence.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" variant="primary" as="link" href="/jobs">
-                Browse Positions
+                Browse Open Roles
                 <Search className="size-5" />
               </Button>
-              <Button size="lg" variant="outlineWhite" as="link" href="/contact#contact-form">
+              <Button
+                size="lg"
+                variant="outlineWhite"
+                as="link"
+                href="/contact#contact-form"
+              >
                 Upload Resume
               </Button>
             </div>
@@ -68,11 +74,14 @@ export default function JobHeroSection() {
                     <Star className="size-5 text-green-600" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-gray-900">4.9</div>
-                    <div className="text-xs text-gray-600">Rating</div>
+                    <div className="text-2xl font-bold text-gray-900">
+                      4.8/5
+                    </div>
+                    <div className="text-xs text-gray-600">
+                      Candidate Satisfaction
+                    </div>
                   </div>
                 </div>
-                <p className="text-xs text-gray-600">200+ Happy Placements</p>
               </div>
 
               {/* Floating Card - Bottom Left */}
@@ -82,7 +91,7 @@ export default function JobHeroSection() {
                     <Users className="size-6 text-primary" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-white">2,500+</div>
+                    <div className="text-2xl font-bold text-white">2,000+</div>
                     <div className="text-xs text-white/80">
                       Active Candidates
                     </div>

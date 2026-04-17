@@ -13,11 +13,12 @@ export default function JobResumeSubmitCTA() {
       </div>
       <div className="relative z-10">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-          Don't See the Right Fit?
+          Stay Considered for the Right Opportunities
         </h2>
         <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-          Send us your resume and we'll notify you when new positions matching
-          your profile become available.
+          Submit your profile to be considered for roles that match your
+          experience. We review every candidate carefully and reach out when
+          relevant opportunities arise.
         </p>
         <div className="flex justify-center">
           <Button

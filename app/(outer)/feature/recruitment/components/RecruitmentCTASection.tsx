@@ -11,32 +11,32 @@ import {
 export default function RecruitmentCTASection() {
   const achievements = [
     {
-      icon: Users,
-      value: "2500+",
-      label: "Successful placements annually",
+      icon: Target,
+      value: "80%+",
+      label: "Qualified Candidates Presented",
     },
     {
       icon: Clock,
-      value: "18 Days",
-      label: "Average time to hire",
+      value: "7–14 Days",
+      label: "Initial Candidate Shortlist",
     },
     {
-      icon: Target,
-      value: "95%",
-      label: "Candidate retention rate",
+      icon: Users,
+      value: "3–5",
+      label: "Candidates Per Role",
     },
     {
       icon: Award,
-      value: "4.9/5",
-      label: "Client satisfaction score",
+      value: "90%",
+      label: "Process Consistency Rate",
     },
   ];
 
   const guarantees = [
-    "90-day replacement guarantee",
-    "Dedicated account manager",
-    "Regular progress updates",
-    "Post-placement support",
+    "Structured hiring approach",
+    "Dedicated recruitment support",
+    "Consistent progress updates",
+    "Ongoing post-hire support",
   ];
 
   return (
@@ -51,26 +51,18 @@ export default function RecruitmentCTASection() {
             {/* Main Content */}
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-                Ready to Build Your Dream Team?
+                Ready to Build a High-Performing Team?
               </h2>
               <p className="text-lg text-white/90 mb-8">
-                Partner with us to find exceptional talent that drives your
-                business forward. Let's start building together.
+                Hire with clarity and confidence through a structured
+                recruitment process designed to deliver qualified candidates and
+                consistent results.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button size="lg" variant="primary" as="link" href="/book-call">
-                  Start Hiring Now
+                  Schedule a Call
                   <ArrowRight className="size-5" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outlineWhite"
-                  className="border-2"
-                  as="link"
-                  href="/contact#contact-form"
-                >
-                  Download Our Brochure
                 </Button>
               </div>
 
@@ -110,7 +102,8 @@ export default function RecruitmentCTASection() {
             </div>
 
             <p className="text-center text-sm text-white/70 mt-8">
-              Join 500+ companies that trust us with their recruitment needs
+              Trusted by growing teams looking to hire with structure and
+              clarity
             </p>
           </div>
         </div>

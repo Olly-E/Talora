@@ -14,42 +14,42 @@ const industries = [
   {
     name: "Technology",
     icon: Building2,
-    description: "Fast-growing tech companies and startups",
+    description: "Startups and scaling tech teams",
     color: "from-purple-500/20 to-purple-600/20",
     iconBg: "bg-purple-500",
   },
   {
     name: "Healthcare",
     icon: Stethoscope,
-    description: "Hospitals, clinics, and medical facilities",
+    description: "Clinics, hospitals, and care providers",
     color: "from-red-500/20 to-pink-600/20",
     iconBg: "bg-red-500",
   },
   {
     name: "Education",
     icon: GraduationCap,
-    description: "Schools, universities, and training centers",
+    description: "Schools, institutions, and training organizations",
     color: "from-blue-500/20 to-blue-600/20",
     iconBg: "bg-blue-500",
   },
   {
     name: "Retail",
     icon: ShoppingBag,
-    description: "Retail chains and e-commerce businesses",
+    description: "Retail and e-commerce businesses",
     color: "from-orange-500/20 to-orange-600/20",
     iconBg: "bg-orange-500",
   },
   {
     name: "Manufacturing",
     icon: Factory,
-    description: "Production facilities and industrial plants",
+    description: "Industrial and production companies",
     color: "from-gray-500/20 to-gray-600/20",
     iconBg: "bg-gray-700",
   },
   {
     name: "Finance",
     icon: Landmark,
-    description: "Banks, insurance, and financial services",
+    description: "Financial services and institutions",
     color: "from-green-500/20 to-green-600/20",
     iconBg: "bg-green-600",
   },
@@ -65,11 +65,12 @@ export default function ServiceIndustriesSection() {
             Industries We Serve
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Specialized Solutions for Your Industry
+            Structured Hiring Across Key Industries
           </h2>
           <p className="text-gray-600 text-lg">
-            We understand that every industry has unique HR challenges. Our
-            solutions are tailored to meet the specific needs of your sector
+            We support growing companies across industries in building
+            structured hiring processes, sourcing strong talent, and improving
+            recruitment outcomes.
           </p>
         </div>
 
@@ -117,11 +118,12 @@ export default function ServiceIndustriesSection() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <p className="text-gray-600 mb-4">
-            Don't see your industry? We work with businesses across all sectors.
+            Don&apos;t see your industry? We work with growing teams across
+            multiple sectors.
           </p>
           <Link href="/contact#contact-form">
             <button className="bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary/90 transition-all">
-              Contact Us to Learn More
+              Speak With Us
             </button>
           </Link>
         </div>

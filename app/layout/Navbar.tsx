@@ -1,18 +1,17 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Hamburger from "hamburger-react";
-import Link from "next/link";
-import Image from "next/image";
-import React from "react";
-import clsx from "clsx";
 import { Zap, Users } from "lucide-react";
+import Hamburger from "hamburger-react";
+import Image from "next/image";
+import Link from "next/link";
+import clsx from "clsx";
 
 import { useComponentVisible } from "../hooks/useComponentVisible";
-import { Button } from "../components/elements/Button";
-import { NavLink } from "../components/common/NavLink";
 import NavDropdown from "../components/common/NavDropdown";
 import taloraLogo from "@/public/images/taloraLogo.png";
+import { Button } from "../components/elements/Button";
+import { NavLink } from "../components/common/NavLink";
 
 export default function Navbar() {
   const pathname = usePathname();

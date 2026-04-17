@@ -13,65 +13,65 @@ export default function HRAutomationFeaturesSection() {
   const features = [
     {
       icon: Workflow,
-      title: "Workflow Automation",
+      title: "Application & Workflow Automation",
       description:
-        "Automate repetitive tasks and approvals with intelligent workflow engine that adapts to your processes.",
+        "Automatically manage candidate applications through a structured workflow that ensures consistency, speed, and zero manual bottlenecks.",
       color: "bg-primary/10",
       iconColor: "text-primary",
-    },
-    {
-      icon: Users,
-      title: "Employee Self-Service",
-      description:
-        "Empower employees with a user-friendly portal to manage their own data, requests, and documents.",
-      color: "bg-secondary/10",
-      iconColor: "text-secondary",
     },
     {
       icon: FileCheck,
-      title: "Document Management",
+      title: "Automated Candidate Screening",
       description:
-        "Digitize and organize all HR documents with smart search, version control, and secure access.",
-      color: "bg-primary/10",
-      iconColor: "text-primary",
-    },
-    {
-      icon: Calendar,
-      title: "Time & Attendance",
-      description:
-        "Track work hours, manage shifts, and handle time-off requests automatically with real-time updates.",
-      color: "bg-secondary/10",
-      iconColor: "text-secondary",
-    },
-    {
-      icon: DollarSign,
-      title: "Payroll Processing",
-      description:
-        "Calculate salaries, deductions, and taxes automatically with zero errors and full compliance.",
-      color: "bg-primary/10",
-      iconColor: "text-primary",
-    },
-    {
-      icon: BarChart3,
-      title: "Analytics & Reports",
-      description:
-        "Generate comprehensive HR reports and dashboards with actionable insights at your fingertips.",
+        "Evaluate applicants against predefined criteria to quickly identify qualified candidates and filter out mismatches.",
       color: "bg-secondary/10",
       iconColor: "text-secondary",
     },
     {
       icon: Bell,
-      title: "Smart Notifications",
+      title: "Structured Candidate Communication",
       description:
-        "Stay informed with intelligent alerts for important deadlines, approvals, and updates.",
+        "Deliver personalized, stage-based communication so candidates receive clear updates, not generic messages.",
+      color: "bg-primary/10",
+      iconColor: "text-primary",
+    },
+    {
+      icon: Calendar,
+      title: "Interview Scheduling Automation",
+      description:
+        "Allow qualified candidates to automatically book interview slots, removing back-and-forth coordination.",
+      color: "bg-secondary/10",
+      iconColor: "text-secondary",
+    },
+    {
+      icon: BarChart3,
+      title: "Candidate Tracking & Visibility",
+      description:
+        "Track every candidate across stages with full visibility into progress, status, and evaluation outcomes.",
+      color: "bg-primary/10",
+      iconColor: "text-primary",
+    },
+    {
+      icon: Users,
+      title: "Evaluation & Feedback Frameworks",
+      description:
+        "Standardize how candidates are assessed to ensure consistent, objective, and well-documented hiring decisions.",
+      color: "bg-secondary/10",
+      iconColor: "text-secondary",
+    },
+    {
+      icon: DollarSign,
+      title: "Offer & Onboarding Coordination",
+      description:
+        "Streamline the transition from candidate selection to onboarding with structured workflows and clear communication.",
       color: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
       icon: Lock,
-      title: "Security & Compliance",
+      title: "End-to-End Recruitment Automation",
       description:
-        "Enterprise-grade security with role-based access, audit trails, and regulatory compliance.",
+        "Connect every stage into one seamless system, from application to hiring, reducing manual work and improving efficiency.",
       color: "bg-secondary/10",
       iconColor: "text-secondary",
     },
@@ -82,15 +82,16 @@ export default function HRAutomationFeaturesSection() {
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-2 mb-4">
-            <span className="text-sm font-semibold">Powerful Features</span>
+            <span className="text-sm font-semibold">What You Get</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Everything You Need to{" "}
-            <span className="text-primary">Automate HR</span>
+            <span className="text-primary">Automate Your Hiring Process</span>
           </h2>
           <p className="text-lg text-gray-600">
-            Comprehensive automation tools designed to streamline every aspect
-            of your HR operations
+            A complete recruitment automation system designed to screen
+            candidates, manage communication, and streamline every stage from
+            application to interview.
           </p>
         </div>
 

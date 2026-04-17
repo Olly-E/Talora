@@ -5,28 +5,28 @@ const steps = [
     number: "01",
     title: "Discovery & Assessment",
     description:
-      "We begin by understanding your unique business needs, challenges, and goals through comprehensive consultation and analysis",
+      "We begin with a consultation to understand your hiring needs, challenges, and whether you require recruitment support, automation, or both.",
     icon: Search,
   },
   {
     number: "02",
-    title: "Strategy & Planning",
+    title: "Strategy & Alignment",
     description:
-      "Our experts develop a customized HR strategy aligned with your objectives, complete with timelines and measurable outcomes",
+      "We define a tailored approach with clear role expectations, timelines, and measurable outcomes aligned with your business goals.",
     icon: Users,
   },
   {
     number: "03",
-    title: "Implementation & Integration",
+    title: "Execution & Ongoing Updates",
     description:
-      "Seamlessly deploy solutions with minimal disruption, ensuring smooth integration with your existing systems and workflows",
+      "We manage the hiring process or system implementation while keeping you consistently informed at every stage.",
     icon: Rocket,
   },
   {
     number: "04",
-    title: "Optimization & Support",
+    title: "Delivery & Continued Support",
     description:
-      "Continuous monitoring, refinement, and dedicated support to ensure sustained success and maximum ROI from your HR investments",
+      "We ensure successful hiring outcomes and provide ongoing support to help you maintain an efficient and scalable process.",
     icon: BarChart,
   },
 ];
@@ -44,8 +44,9 @@ export default function ServiceProcessSection() {
             How We Work With You
           </h2>
           <p className="text-gray-600 text-lg">
-            A proven, systematic approach that ensures successful outcomes at
-            every stage of your HR transformation journey
+            We begin with a consultation to understand your hiring needs,
+            challenges, and whether you require recruitment support, automation,
+            or both.
           </p>
         </div>
 

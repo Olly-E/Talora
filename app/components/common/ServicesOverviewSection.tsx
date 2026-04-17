@@ -1,12 +1,4 @@
-import {
-  UserPlus,
-  Cog,
-  TrendingUp,
-  Award,
-  FileText,
-  Calendar,
-  LucideIcon,
-} from "lucide-react";
+import { UserPlus, Cog, Calendar, LucideIcon } from "lucide-react";
 import Link from "next/link";
 
 interface Service {
@@ -21,93 +13,49 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: "Recruitment & Talent Acquisition",
+    title: "Recruitment Automation",
     description:
-      "Find, attract, and hire the best talent with our comprehensive recruitment solutions tailored to your industry needs",
+      "End-to-end automated hiring workflows. Automate screening, communication, and scheduling while maintaining a structured and transparent candidate experience across every stage.",
+    icon: Cog,
+    color: "text-secondary",
+    bgColor: "bg-secondary/10",
+    link: "/services/recruitment",
+    features: [
+      "Automated screening and candidate tracking",
+      "Personalized candidate communication at every stage",
+      "Clear, non-generic feedback for applicants",
+      "Interview scheduling with pre-qualified candidates",
+    ],
+  },
+  {
+    title: "Recruitment Services",
+    description:
+      "Hands-on support to source and hire the right talent. We manage sourcing and end-to-end candidate evaluation, ensuring you engage only with well-qualified candidates while maintaining clear, professional communication throughout the hiring process.",
     icon: UserPlus,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
     link: "/services/recruitment",
     features: [
-      "Job Posting",
-      "Applicant Tracking",
-      "Interview Scheduling",
-      "Candidate Assessment",
+      "Proactive candidate sourcing",
+      "End-to-end screening and evaluation",
+      "Qualified candidate shortlisting",
+      "Personalized candidate communication",
+      "Clear and consistent client communication",
     ],
   },
   {
-    title: "HR Process Automation",
+    title: "Onboarding Systems",
     description:
-      "Streamline repetitive HR tasks and boost efficiency with intelligent automation that saves time and reduces errors",
-    icon: Cog,
-    color: "text-secondary",
-    bgColor: "bg-secondary/10",
-    link: "/services/hr-automation",
-    features: [
-      "Automated Workflows",
-      "Digital Onboarding",
-      "Leave Management",
-      "Document Processing",
-    ],
-  },
-  {
-    title: "Performance Management",
-    description:
-      "Drive employee growth and organizational success with robust performance tracking and review systems",
-    icon: TrendingUp,
+      "Structured onboarding for seamless integration. Ensure new hires are properly integrated with clear processes, aligned expectations, and ongoing support from day one.",
+    icon: Calendar,
     color: "text-primary",
     bgColor: "bg-primary/20",
     link: "#",
     features: [
-      "Goal Setting",
-      "360° Feedback",
-      "Performance Reviews",
-      "Development Plans",
-    ],
-  },
-  {
-    title: "Payroll & Benefits Administration",
-    description:
-      "Ensure accurate, compliant payroll processing and comprehensive benefits management for your entire workforce",
-    icon: Award,
-    color: "text-tertiary",
-    bgColor: "bg-tertiary/10",
-    link: "#",
-    features: [
-      "Salary Processing",
-      "Tax Compliance",
-      "Benefits Enrollment",
-      "Expense Management",
-    ],
-  },
-  {
-    title: "Compliance & Risk Management",
-    description:
-      "Stay compliant with ever-changing regulations and minimize HR-related risks with expert guidance and tools",
-    icon: FileText,
-    color: "text-orange-state",
-    bgColor: "bg-orange-state/10",
-    link: "#",
-    features: [
-      "Legal Compliance",
-      "Policy Management",
-      "Audit Support",
-      "Risk Assessment",
-    ],
-  },
-  {
-    title: "Training & Development",
-    description:
-      "Empower your workforce with continuous learning opportunities and structured development programs",
-    icon: Calendar,
-    color: "text-purple-2",
-    bgColor: "bg-purple-light/50",
-    link: "#",
-    features: [
-      "Learning Management",
-      "Skill Development",
-      "Career Pathing",
-      "Certification Tracking",
+      "Onboarding workflow design",
+      "Contract and documentation setup",
+      "New hire coordination",
+      "Early-stage support",
     ],
   },
 ];
@@ -122,11 +70,11 @@ export default function ServicesOverviewSection() {
             What We Offer
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Complete HR Solutions for Every Need
+            Structured Hiring Solutions
           </h2>
           <p className="text-gray-600 text-lg">
-            Our comprehensive suite of services covers every aspect of human
-            resource management, designed to scale with your business
+            Clear, efficient systems to help you source, evaluate, and hire the
+            right talent.
           </p>
         </div>
 

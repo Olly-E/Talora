@@ -13,50 +13,66 @@ export default function RecruitmentServicesSection() {
   const services = [
     {
       icon: Search,
-      title: "Executive Search",
+      title: "Role-Based Hiring",
       description:
-        "Find C-suite and senior leadership talent through our extensive network and rigorous assessment process.",
+        "Hire across all levels, from entry-level roles to senior leadership and C-level positions.",
       features: [
-        "Confidential searches",
-        "Leadership assessment",
-        "Cultural fit analysis",
+        "Entry to executive hiring",
+        "Leadership and specialist roles",
+        "Role-specific candidate matching",
       ],
       color: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
       icon: Users,
-      title: "Volume Recruitment",
+      title: "High-Volume Recruitment",
       description:
-        "Scale your team rapidly with our proven high-volume hiring strategies and dedicated recruitment teams.",
-      features: ["Bulk hiring", "Fast turnaround", "Quality candidates"],
+        "Scale your team efficiently while maintaining quality and consistency at every stage",
+      features: [
+        "Structured high-volume sourcing",
+        "Consistent screening process",
+        "Quality-controlled shortlisting",
+      ],
       color: "bg-secondary/10",
       iconColor: "text-secondary",
     },
     {
-      icon: Briefcase,
-      title: "Specialized Hiring",
+      icon: Target,
+      title: "Specialized & Confidential Hiring",
       description:
-        "Access niche talent pools for technical, creative, and specialized roles across all industries.",
-      features: ["Tech recruitment", "Creative roles", "Industry experts"],
+        "Fill niche or sensitive roles through targeted and discreet search strategies.",
+      features: [
+        "Niche talent sourcing",
+        "Confidential searches",
+        "Direct market outreach",
+      ],
       color: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
       icon: TrendingUp,
-      title: "Talent Pipeline",
+      title: "Talent Pipeline Building",
       description:
-        "Build a continuous pipeline of qualified candidates ready to join when opportunities arise.",
-      features: ["Proactive sourcing", "Talent mapping", "Market insights"],
+        "Build a ready pool of qualified candidates for current and future hiring needs.",
+      features: [
+        "Proactive sourcing",
+        "Talent mapping",
+        "Ongoing candidate pipeline",
+      ],
       color: "bg-secondary/10",
       iconColor: "text-secondary",
     },
     {
-      icon: UserCheck,
-      title: "Contract Staffing",
+      icon: Briefcase,
+      title: "Contract & Permanent Hiring",
       description:
-        "Flexible staffing solutions for temporary, contract-to-hire, and project-based positions.",
-      features: ["Flexible terms", "Quick deployment", "Compliance handled"],
+        "Hire full-time employees or independent contractors based on your business needs.",
+      features: [
+        "Full-time placements",
+        "Independent contractors",
+        "Flexible hiring models",
+      ],
       color: "bg-primary/10",
       iconColor: "text-primary",
     },
@@ -64,29 +80,37 @@ export default function RecruitmentServicesSection() {
       icon: Globe,
       title: "Global Recruitment",
       description:
-        "Expand your talent search internationally with our global recruitment network and expertise.",
-      features: ["International reach", "Visa support", "Cultural integration"],
+        "Access qualified professionals across key global talent markets.",
+      features: [
+        "Africa, Asia, LATAM, Eastern Europe",
+        "Remote-ready candidates",
+        "Cross-border hiring support",
+      ],
       color: "bg-secondary/10",
       iconColor: "text-secondary",
     },
     {
-      icon: Target,
-      title: "Campus Hiring",
+      icon: Award,
+      title: "End-to-End Recruitment Support",
       description:
-        "Connect with fresh graduates and early-career professionals through our campus recruitment programs.",
-      features: ["University partnerships", "Graduate programs", "Internships"],
+        "Outsource your recruitment process or specific roles with structured execution and clear communication.",
+      features: [
+        "Full recruitment ownership",
+        "Role-specific support",
+        "Consistent client updates",
+      ],
       color: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
-      icon: Award,
-      title: "RPO Services",
+      icon: UserCheck,
+      title: "Candidate Screening & Shortlisting",
       description:
-        "Outsource your entire recruitment function or specific hiring needs to our dedicated team.",
+        "Receive only qualified candidates through a structured evaluation process.",
       features: [
-        "End-to-end recruitment",
-        "Scalable solutions",
-        "Cost effective",
+        "CV screening and assessment",
+        "Qualified shortlists only",
+        "Clear candidate insights",
       ],
       color: "bg-secondary/10",
       iconColor: "text-secondary",
@@ -105,8 +129,9 @@ export default function RecruitmentServicesSection() {
             <span className="text-primary">Recruitment Solutions</span>
           </h2>
           <p className="text-lg text-gray-600">
-            From executives to entry-level, from permanent to contract - we
-            cover all your hiring needs
+            Hire across roles, regions, and hiring models with a structured
+            recruitment process that delivers qualified candidates and
+            consistent results.
           </p>
         </div>
 

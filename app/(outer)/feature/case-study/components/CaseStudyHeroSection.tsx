@@ -12,25 +12,25 @@ import { Button } from "@/app/components/elements/Button";
 export default function CaseStudyHeroSection() {
   const stats = [
     {
-      icon: Award,
-      value: "50+",
-      label: "Success Stories",
+      icon: TrendingUp,
+      value: "40%",
+      label: "Faster Hiring Process",
       position: "top-4 right-4 lg:top-6 lg:right-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
-      icon: TrendingUp,
-      value: "200%",
-      label: "Avg Growth",
+      icon: Target,
+      value: "80%+",
+      label: "Qualified Candidates Presented",
       position: "bottom-4 left-4 lg:bottom-6 lg:left-6",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
     {
-      icon: Target,
-      value: "95%",
-      label: "Goal Achievement",
+      icon: Award,
+      value: "3x",
+      label: "Process Efficiency Improvement",
       position: "top-4 left-4 lg:top-1/2 lg:left-6 lg:-translate-y-1/2",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
@@ -50,14 +50,16 @@ export default function CaseStudyHeroSection() {
               </div>
 
               <h1 className="text-white leading-tight font-semibold!">
-                Real Solutions,{" "}
-                <span className="text-primary">Real Results</span>
+                Real Outcomes from{" "}
+                <span className="text-primary">
+                  Structured Hiring and Automation
+                </span>
               </h1>
 
               <p className="text-white/90 text-lg leading-relaxed max-w-xl">
-                Explore how we&apos;ve helped businesses transform their HR
-                operations and achieve remarkable growth through innovative
-                solutions.
+                See how teams have improved hiring efficiency, candidate
+                quality, and overall HR operations through structured
+                recruitment and automation.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 <div className="flex items-start gap-3">
@@ -66,9 +68,8 @@ export default function CaseStudyHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Tech Startups
+                      Recruitment Services
                     </h3>
-                    <p className="text-xs text-white/70">Rapid scaling</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -77,33 +78,8 @@ export default function CaseStudyHeroSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-white text-sm mb-1">
-                      Manufacturing
+                      Recruitment Automation
                     </h3>
-                    <p className="text-xs text-white/70">Process automation</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-primary/20 p-1 mt-1">
-                    <CheckCircle2 className="size-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white text-sm mb-1">
-                      Healthcare
-                    </h3>
-                    <p className="text-xs text-white/70">
-                      Compliance excellence
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-primary/20 p-1 mt-1">
-                    <CheckCircle2 className="size-4 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white text-sm mb-1">
-                      Retail & Finance
-                    </h3>
-                    <p className="text-xs text-white/70">Engagement growth</p>
                   </div>
                 </div>
               </div>
@@ -120,7 +96,7 @@ export default function CaseStudyHeroSection() {
                 as="link"
                 href="/book-call"
               >
-                Get Your Story
+                Discuss Your Hiring Needs
               </Button>
             </div>
           </div>
@@ -143,7 +119,7 @@ export default function CaseStudyHeroSection() {
                 return (
                   <div
                     key={index}
-                    className={`absolute ${stat.position} bg-white rounded-xl lg:rounded-2xl p-3 lg:p-4 shadow-lg backdrop-blur-sm w-32 lg:w-40`}
+                    className={`absolute ${stat.position} bg-white rounded-xl lg:rounded-2xl p-3 lg:p-4 shadow-lg backdrop-blur-sm w-40 lg:w-52`}
                   >
                     <div className="flex items-center gap-2 lg:gap-3 mb-1 lg:mb-2">
                       <div
@@ -154,10 +130,10 @@ export default function CaseStudyHeroSection() {
                         />
                       </div>
                     </div>
-                    <div className="text-xl lg:text-2xl font-bold text-gray-900 mb-0.5 lg:mb-1">
+                    <div className="text-lg lg:text-xl font-bold text-gray-900 mb-0.5 lg:mb-1">
                       {stat.value}
                     </div>
-                    <div className="text-xs text-gray-600 leading-tight">
+                    <div className="text-[10px] lg:text-xs text-gray-600 leading-tight">
                       {stat.label}
                     </div>
                   </div>

@@ -6,22 +6,26 @@ export default function HRAutomationCTASection() {
     {
       icon: Clock,
       value: "70%",
-      label: "Reduction in admin time",
+      label: "Less Manual Work",
+      description: "Reduced time spent on screening and coordination",
     },
     {
-      icon: Users,
-      value: "500+",
-      label: "Companies automated",
+      icon: Rocket,
+      value: "End-to-End",
+      label: "Automated Workflow",
+      description: "From application to interview, fully streamlined",
     },
     {
       icon: TrendingUp,
       value: "3x",
-      label: "ROI within 12 months",
+      label: "Faster Candidate Progression",
+      description: "Quicker movement through each hiring stage",
     },
     {
-      icon: Rocket,
-      value: "24/7",
-      label: "System uptime",
+      icon: Users,
+      value: "Consistent",
+      label: "Structured Communication",
+      description: "Personalized updates across every stage",
     },
   ];
 
@@ -47,7 +51,12 @@ export default function HRAutomationCTASection() {
                     <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
                       {benefit.value}
                     </div>
-                    <div className="text-sm text-white/80">{benefit.label}</div>
+                    <div className="text-sm font-semibold text-white mb-1">
+                      {benefit.label}
+                    </div>
+                    <div className="text-xs text-white/70">
+                      {benefit.description}
+                    </div>
                   </div>
                 );
               })}
@@ -56,26 +65,29 @@ export default function HRAutomationCTASection() {
             {/* CTA Content */}
             <div className="text-center max-w-2xl mx-auto">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-                Ready to Automate Your HR?
+                A Recruitment System That Works Without Constant Oversight
               </h2>
               <p className="text-lg text-white/90 mb-8">
-                Join hundreds of companies that have transformed their HR
-                operations with our automation solutions
+                Once implemented, your recruitment automation system runs with
+                structure and consistency, reducing manual effort while ensuring
+                every candidate is properly screened and communicated with.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="primary" as="link" href="/book-call">
-                  Start Free Trial
+                  Speak With Our Team
                   <ArrowRight className="size-5" />
                 </Button>
-                <Button size="lg" variant="outlineWhite" className="border-2" as="link" href="/contact#contact-form">
+                <Button
+                  size="lg"
+                  variant="outlineWhite"
+                  className="border-2"
+                  as="link"
+                  href="/contact#contact-form"
+                >
                   Schedule a Demo
                 </Button>
               </div>
-
-              <p className="text-sm text-white/70 mt-6">
-                No credit card required • Free 14-day trial • Cancel anytime
-              </p>
             </div>
           </div>
         </div>
