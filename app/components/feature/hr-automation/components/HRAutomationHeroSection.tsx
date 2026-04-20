@@ -6,8 +6,10 @@ import {
   TrendingUp,
   Shield,
 } from "lucide-react";
-import { Button } from "@/app/components/elements/Button";
 import Image from "next/image";
+
+import { Button } from "@/app/components/elements/Button";
+
 import automationImg from "@/public/images/automationImg.webp";
 
 export default function HRAutomationHeroSection() {
@@ -119,14 +121,7 @@ export default function HRAutomationHeroSection() {
                 Get Started
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button
-                size="md"
-                variant="outlineWhite"
-                as="link"
-                href="/contact#contact-form"
-              >
-                Watch Demo
-              </Button>
+           
             </div>
           </div>
 

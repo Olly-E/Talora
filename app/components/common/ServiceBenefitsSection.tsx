@@ -4,13 +4,13 @@ const benefits = [
   {
     icon: Clock,
     title: "Faster Hiring Process",
-    stat: "70%",
+    stat: "60%",
     description: "Reduced time spent on manual screening and coordination",
   },
   {
     icon: DollarSign,
     title: "Reduced Hiring Waste",
-    stat: "40%",
+    stat: "60%",
     description: "Fewer unqualified candidates, better selection accuracy",
   },
   {

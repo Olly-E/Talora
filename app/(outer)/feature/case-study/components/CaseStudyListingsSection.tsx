@@ -20,7 +20,7 @@ export default function CaseStudyListingsSection() {
         );
 
   return (
-    <section className="bg-gray-50 py-16 lg:py-24">
+    <section id="success-stories" className="bg-gray-50 py-16 lg:py-24">
       <div className="container">
         <CaseStudyIndustryFilter
           industries={caseStudyIndustries}

@@ -13,7 +13,7 @@ export default function CaseStudyHeroSection() {
   const stats = [
     {
       icon: TrendingUp,
-      value: "40%",
+      value: "60%",
       label: "Faster Hiring Process",
       position: "top-4 right-4 lg:top-6 lg:right-6",
       iconBg: "bg-primary/10",
@@ -62,8 +62,8 @@ export default function CaseStudyHeroSection() {
                 recruitment and automation.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-primary/20 p-1 mt-1">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-full bg-primary/20 p-1">
                     <CheckCircle2 className="size-4 text-primary" />
                   </div>
                   <div>
@@ -72,8 +72,8 @@ export default function CaseStudyHeroSection() {
                     </h3>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="rounded-full bg-primary/20 p-1 mt-1">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-full bg-primary/20 p-1">
                     <CheckCircle2 className="size-4 text-primary" />
                   </div>
                   <div>

@@ -50,7 +50,7 @@ const services: Service[] = [
     icon: Calendar,
     color: "text-primary",
     bgColor: "bg-primary/20",
-    link: "#",
+    link: "/about",
     features: [
       "Onboarding workflow design",
       "Contract and documentation setup",
@@ -82,9 +82,10 @@ export default function ServicesOverviewSection() {
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <div
+              <Link
                 key={service.title}
-                className="group bg-secondary rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-white/20"
+                href={service.link}
+                className="group bg-secondary rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-white/20 block"
               >
                 <div className="bg-white rounded-2xl p-4 w-fit mb-6 group-hover:scale-110 transition-transform">
                   <Icon className="size-8 text-secondary" strokeWidth={2} />
@@ -110,14 +111,11 @@ export default function ServicesOverviewSection() {
                   ))}
                 </ul>
 
-                <Link
-                  href={service.link}
-                  className="inline-flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all"
-                >
+                <div className="inline-flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all">
                   Learn More
                   <span className="text-lg">→</span>
-                </Link>
-              </div>
+                </div>
+              </Link>
             );
           })}
         </div>

@@ -121,17 +121,9 @@ export default function ServicesHeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Button size="md" className="" as="link" href="/services">
-                View Services
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="md"
-                variant="outlineWhite"
-                as="link"
-                href="/book-call"
-              >
+              <Button size="md" className="" as="link" href="/book-call">
                 Book a Strategy Call
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
           </div>

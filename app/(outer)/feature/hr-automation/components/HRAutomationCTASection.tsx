@@ -78,15 +78,7 @@ export default function HRAutomationCTASection() {
                   Speak With Our Team
                   <ArrowRight className="size-5" />
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outlineWhite"
-                  className="border-2"
-                  as="link"
-                  href="/contact#contact-form"
-                >
-                  Schedule a Demo
-                </Button>
+               
               </div>
             </div>
           </div>
