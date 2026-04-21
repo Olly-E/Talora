@@ -22,9 +22,9 @@ const gridData: GridItem[] = [
   {
     type: "stat",
     value: "98%",
-    title: "Customer Satisfaction",
+    title: "Structured Hiring Systems",
     description:
-      "Our clients love our intuitive interface, responsive support, and continuous feature updates",
+      "We design clear, repeatable recruitment processes that improve consistency and reduce hiring inefficiencies.",
     bgColor: "bg-primary",
     textColor: "text-black",
   },

@@ -38,10 +38,10 @@ export default function Navbar() {
   ];
 
   const NAV_LINKS = [
-    { name: "Jobs", href: "/jobs", id: "3" },
     { name: "Case Studies", href: "/case-studies", id: "4" },
     { name: "Insights", href: "/insights", id: "5" },
     { name: "About", href: "/about", id: "6" },
+    { name: "Jobs", href: "/jobs", id: "3" },
     { name: "Contact", href: "/contact#contact-form", id: "7" },
   ];
 

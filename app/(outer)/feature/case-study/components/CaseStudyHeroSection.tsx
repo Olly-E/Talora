@@ -86,7 +86,7 @@ export default function CaseStudyHeroSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Button size="md" as="link" href="/case-studies">
+              <Button size="md" as="link" href="#success-stories">
                 View Success Stories
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>

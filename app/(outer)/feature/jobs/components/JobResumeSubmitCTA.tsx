@@ -1,7 +1,12 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/app/components/elements/Button";
+import { CVUploadModal } from "@/app/components/CVUploadModal";
+import { useState } from "react";
 
 export default function JobResumeSubmitCTA() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="mt-20 bg-secondary rounded-3xl p-12 text-center text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
@@ -24,12 +29,18 @@ export default function JobResumeSubmitCTA() {
           <Button
             size="lg"
             className="bg-white text-secondary hover:bg-gray-100"
+            onClick={() => setIsModalOpen(true)}
           >
             Submit Your Resume
             <ArrowRight className="size-5" />
           </Button>
         </div>
       </div>
+      {/* CV Upload Modal */}
+      <CVUploadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

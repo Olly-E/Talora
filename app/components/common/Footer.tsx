@@ -13,8 +13,6 @@ const Footer = () => {
     Services: [
       { label: "Recruitment Automation", href: "/services/hr-automation" },
       { label: "Recruitment Services", href: "/services/recruitment" },
-      { label: "Strategic Hiring", href: "/services" },
-      { label: "Onboarding Systems", href: "/services" },
     ],
     Resources: [
       { label: "Case Studies", href: "/case-studies" },

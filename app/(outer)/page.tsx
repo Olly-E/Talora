@@ -42,6 +42,7 @@ import ArticleSection from "../components/common/ArticleSection";
 import ClientsSection from "../components/common/ClientsSection";
 import FutureReady from "../components/common/FutureReady";
 import TeamSection from "../components/common/TeamSection";
+import TestimonialsSection from "../components/common/TestimonialsSection";
 
 import heroImg from "../../public/images/heroImg.jpg";
 
@@ -145,6 +146,9 @@ export default function Home() {
       </section>
       <section>
         <TeamSection />
+      </section>
+      <section>
+        <TestimonialsSection />
       </section>
       <section>
         <ContactSection />

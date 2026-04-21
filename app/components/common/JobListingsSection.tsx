@@ -20,11 +20,13 @@ import { usePublicJobs } from "@/app/hooks/usePublicJobs";
 import { jobCategories } from "@/app/data/jobsData";
 import { Button } from "../elements/Button";
 import { formatSalaryWithCurrency } from "@/app/utils/currency";
+import { CVUploadModal } from "../CVUploadModal";
 
 export default function JobListingsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All Positions");
   const [searchQuery, setSearchQuery] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data: jobs = [], isLoading } = usePublicJobs();
 
@@ -263,6 +265,7 @@ export default function JobListingsSection() {
               <Button
                 size="lg"
                 className="bg-white text-secondary hover:bg-gray-100"
+                onClick={() => setIsModalOpen(true)}
               >
                 Submit Your Resume
                 <ArrowRight className="size-5" />
@@ -271,6 +274,12 @@ export default function JobListingsSection() {
           </div>
         </div>
       </div>
+
+      {/* CV Upload Modal */}
+      <CVUploadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
 
       {/* Mobile Category Drawer */}
       {isDrawerOpen && (
