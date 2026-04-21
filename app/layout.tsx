@@ -138,6 +138,7 @@ export default function RootLayout({
           {children}
           <Toaster position="top-right" />
         </ReactQueryProvider>
+        <div id="modal-root"></div>
       </body>
     </html>
   );

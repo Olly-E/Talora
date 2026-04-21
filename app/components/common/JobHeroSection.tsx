@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sparkles,
   Search,
@@ -7,10 +9,13 @@ import {
   Star,
 } from "lucide-react";
 import { Button } from "../elements/Button";
+import { CVUploadModal } from "../CVUploadModal";
 import Image from "next/image";
+import { useState } from "react";
 import careerImg from "@/public/images/careerImg.webp";
 
 export default function JobHeroSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <section className="relative overflow-hidden bg-secondary min-h-150 lg:min-h-175">
       {/* Grid Pattern Overlay */}
@@ -47,7 +52,11 @@ export default function JobHeroSection() {
                 Browse Positions
                 <Search className="size-5" />
               </Button>
-              <Button size="lg" variant="outlineWhite">
+              <Button
+                size="lg"
+                variant="outlineWhite"
+                onClick={() => setIsModalOpen(true)}
+              >
                 Upload Resume
               </Button>
             </div>
@@ -104,6 +113,12 @@ export default function JobHeroSection() {
           </div>
         </div>
       </div>
+
+      {/* CV Upload Modal */}
+      <CVUploadModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }

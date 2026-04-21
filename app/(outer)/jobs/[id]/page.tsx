@@ -106,7 +106,7 @@ export default function JobPostPage() {
             </Button>
           ) : (
             <Button
-              className="bg-gray-400 text-white cursor-not-allowed"
+              className=" text-black! cursor-not-allowed"
               size="lg"
               disabled
             >

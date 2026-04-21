@@ -21,3 +21,11 @@ export const adminJobKey = {
   details: () => [...adminJobKey.all, "detail"] as const,
   detail: (id: string) => [...adminJobKey.details(), id] as const,
 };
+
+export const talentPoolKey = {
+  all: ["talentPool"] as const,
+  lists: () => [...talentPoolKey.all, "list"] as const,
+  list: (params?: unknown) => [...talentPoolKey.all, "list", params] as const,
+  details: () => [...talentPoolKey.all, "detail"] as const,
+  detail: (id: string) => [...talentPoolKey.details(), id] as const,
+};

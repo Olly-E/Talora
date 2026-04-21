@@ -2,21 +2,25 @@
 
 import React from "react";
 import Link from "next/link";
-import { Briefcase, FileText, BookOpen } from "lucide-react";
+import { Briefcase, FileText, BookOpen, Users } from "lucide-react";
 import { useGetJobs } from "@/app/features/admin/jobs/api";
 import { useGetArticles } from "@/app/features/admin/article/api";
 import { useGetCaseStudies } from "@/app/features/admin/case-study/api";
+import { useGetTalentPool } from "@/app/features/admin/talent-pool/api";
 
 export default function DashboardPage() {
   const { data: jobs = [], isLoading: jobsLoading } = useGetJobs();
   const { data: articles = [], isLoading: articlesLoading } = useGetArticles();
   const { data: caseStudies = [], isLoading: caseStudiesLoading } =
     useGetCaseStudies();
+  const { data: talentPoolData, isLoading: talentPoolLoading } =
+    useGetTalentPool({ page: 1, limit: 1 });
 
   const stats = {
     totalJobs: jobs.length,
     totalArticles: articles.length,
     totalCaseStudies: caseStudies.length,
+    totalCandidates: talentPoolData?.pagination?.total || 0,
   };
 
   const cards = [
@@ -41,9 +45,21 @@ export default function DashboardPage() {
       href: "/godmode/dashboard/case-studies",
       color: "bg-purple-500",
     },
+    {
+      title: "Talent Pool",
+      value: stats.totalCandidates,
+      icon: Users,
+      href: "/godmode/dashboard/talent-pool",
+      color: "bg-orange-500",
+    },
   ];
 
-  if (jobsLoading || articlesLoading || caseStudiesLoading) {
+  if (
+    jobsLoading ||
+    articlesLoading ||
+    caseStudiesLoading ||
+    talentPoolLoading
+  ) {
     return (
       <div className="space-y-6">
         <div>
@@ -128,6 +144,18 @@ export default function DashboardPage() {
               </h3>
               <p className="text-sm text-gray-600">
                 Showcase client success stories
+              </p>
+            </div>
+          </Link>
+          <Link
+            href="/godmode/dashboard/talent-pool"
+            className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg hover:border-orange-500 hover:bg-orange-50 transition-colors"
+          >
+            <Users className="text-orange-500" size={24} />
+            <div>
+              <h3 className="font-semibold text-gray-900">Talent Pool</h3>
+              <p className="text-sm text-gray-600">
+                View and manage CV submissions
               </p>
             </div>
           </Link>

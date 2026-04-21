@@ -74,3 +74,17 @@ model Job {
   @@index([slug])
   @@index([type])
 }
+
+model TalentPool {
+  id              Int      @id @default(autoincrement())
+  name            String
+  email           String
+  desiredJobTitle String
+  importantInfo   String?
+  cvUrl           String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([createdAt])
+  @@index([email])
+}

@@ -4,6 +4,7 @@ import {
   LayoutDashboard,
   LucideIcon,
   BookOpen,
+  Users,
 } from "lucide-react";
 
 export interface NavItem {
@@ -34,5 +35,10 @@ export const NAV_ITEMS: NavItem[] = [
     href: "/godmode/dashboard/case-studies",
     label: "Case Studies",
     icon: BookOpen,
+  },
+  {
+    href: "/godmode/dashboard/talent-pool",
+    label: "Talent Pool",
+    icon: Users,
   },
 ];
