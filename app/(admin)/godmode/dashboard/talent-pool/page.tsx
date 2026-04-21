@@ -1,18 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { Search, User } from "lucide-react";
+import { Search, User, FileSpreadsheet } from "lucide-react";
 import {
   useGetTalentPool,
   useDeleteTalentPool,
 } from "@/app/features/admin/talent-pool/api";
 import { TalentCard } from "@/app/features/admin/talent-pool/components";
 import { Button } from "@/app/components/elements/Button";
+import { fetchData } from "@/app/utils/fetchData";
+import toast from "react-hot-toast";
 
 export default function TalentPoolPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const limit = 10;
+  const [isExporting, setIsExporting] = useState(false);
 
   const { data, isLoading } = useGetTalentPool({ page, limit, search });
   const { mutate: deleteEntry } = useDeleteTalentPool();
@@ -24,6 +27,92 @@ export default function TalentPoolPage() {
 
   const handleDownloadCV = (cvUrl: string) => {
     window.open(cvUrl, "_blank");
+  };
+
+  const handleExport = async () => {
+    try {
+      setIsExporting(true);
+      // Fetch all entries
+      const response = await fetchData<{
+        entries: Array<{
+          id: number;
+          name: string;
+          email: string;
+          desiredJobTitle: string;
+          importantInfo: string | null;
+          cvUrl: string;
+          createdAt: string;
+        }>;
+      }>("/api/talent-pool?limit=1000", "GET");
+
+      const entries = response.entries;
+
+      // Convert to CSV for Google Sheets compatibility
+      const headers = [
+        "ID",
+        "Name",
+        "Email",
+        "Desired Job Title",
+        "Additional Notes",
+        "CV URL",
+        "Submitted Date",
+      ];
+
+      const escapeCsvValue = (value: string | number) => {
+        const stringValue = String(value);
+        // Escape quotes and wrap in quotes if contains comma, quote, or newline
+        if (
+          stringValue.includes(",") ||
+          stringValue.includes('"') ||
+          stringValue.includes("\n")
+        ) {
+          return `"${stringValue.replace(/"/g, '""')}"`;
+        }
+        return stringValue;
+      };
+
+      const csvContent = [
+        headers.join(","),
+        ...entries.map((entry: (typeof entries)[0]) =>
+          [
+            entry.id,
+            escapeCsvValue(entry.name),
+            escapeCsvValue(entry.email),
+            escapeCsvValue(entry.desiredJobTitle),
+            escapeCsvValue(entry.importantInfo || ""),
+            escapeCsvValue(entry.cvUrl),
+            escapeCsvValue(new Date(entry.createdAt).toLocaleString()),
+          ].join(","),
+        ),
+      ].join("\n");
+
+      // Add UTF-8 BOM for proper encoding in Google Sheets
+      const BOM = "\uFEFF";
+      const csvWithBom = BOM + csvContent;
+
+      // Create and download file
+      const blob = new Blob([csvWithBom], {
+        type: "text/csv;charset=utf-8;",
+      });
+      const link = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute(
+        "download",
+        `talent-pool-${new Date().toISOString().split("T")[0]}.csv`,
+      );
+      link.style.visibility = "hidden";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      toast.success("Talent pool exported successfully");
+    } catch (error) {
+      console.error("Export error:", error);
+      toast.error("Failed to export talent pool");
+    } finally {
+      setIsExporting(false);
+    }
   };
 
   if (isLoading) {
@@ -54,6 +143,16 @@ export default function TalentPoolPage() {
           <p className="text-base text-gray-600 mt-1">
             Manage CV submissions from potential candidates
           </p>
+        </div>
+        <div className="flex justify-end md:justify-start">
+          <Button
+            onClick={handleExport}
+            disabled={isExporting || !pagination?.total}
+            className="bg-secondary hover:bg-secondary/90 text-white flex items-center whitespace-nowrap"
+          >
+            <FileSpreadsheet className="size-4 mr-2" />
+            {isExporting ? "Exporting..." : "Export Spreadsheet"}
+          </Button>
         </div>
       </div>
 
