@@ -11,7 +11,7 @@ const SERVICES = [
     color: "bg-primary",
     title: "End-to-End Recruitment Automation",
     desc: "We design and implement structured hiring workflows that streamline sourcing, screening, and interview coordination from start to finish.",
-    metric: "20+ Companies",
+
     link: "/services/recruitment",
   },
   {
@@ -19,7 +19,7 @@ const SERVICES = [
     color: "bg-primary",
     title: "Strategic Talent Sourcing",
     desc: "We proactively identify and engage high quality global candidates, ensuring you have access to strong, well-matched talent.",
-    metric: "50+ Placements",
+
     link: "/services/recruitment",
   },
   {
@@ -27,7 +27,7 @@ const SERVICES = [
     color: "bg-primary",
     title: "Onboarding Systems",
     desc: "We build structured onboarding processes that help new hires integrate quickly and perform effectively from day one.",
-    metric: "20+ Systems Built",
+
     link: "/services",
   },
 ];
@@ -72,9 +72,6 @@ const FutureReady = () => {
                 >
                   {service.icon}
                 </div>
-                <span className="border border-gray-400 text-gray-700 text-xs px-3 py-1 rounded-full bg-white/80 font-medium">
-                  {service.metric}
-                </span>
               </div>
               <div className="flex-1 flex flex-col justify-end">
                 <h3 className="text-2xl font-bold text-secondary mb-2">
