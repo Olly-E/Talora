@@ -2,14 +2,13 @@
 
 import { useState } from "react";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
-import Image from "next/image";
 
 interface Testimonial {
   id: number;
   name: string;
   role: string;
   company: string;
-  image: string;
+
   content: string;
   rating: number;
 }
@@ -20,7 +19,7 @@ const testimonials: Testimonial[] = [
     name: "Insight Matters",
     role: "Hiring Manager",
     company: "Technology Company",
-    image: "https://i.pravatar.cc/150?img=47",
+
     content:
       "Talora was professional, structured, and transparent throughout the engagement. They delivered well-documented sourcing and prescreen work and communicated clearly at every stage. We appreciated their flexibility in aligning with our timeline constraints. Would be open to working together again.",
     rating: 5,
@@ -30,7 +29,7 @@ const testimonials: Testimonial[] = [
     name: "Gallery Company - Sabina",
     role: "Hiring Manager",
     company: "Technology Company",
-    image: "https://i.pravatar.cc/150?img=12",
+
     content:
       "Great working with Talora, we will rehire them to work again with us, their work ethic is great and they're super organized.",
     rating: 5,
@@ -40,7 +39,7 @@ const testimonials: Testimonial[] = [
     name: "Danny - USA",
     role: "Hiring Manager",
     company: "Technology Company",
-    image: "https://i.pravatar.cc/150?img=45",
+
     content:
       "Had a great experience working with Adlaide! Super responsive and genuinely helpful throughout the process. Made everything much easier. Would happily work with them again for our next sourcing need.",
     rating: 5,
@@ -50,7 +49,7 @@ const testimonials: Testimonial[] = [
     name: "James Anderson",
     role: "COO",
     company: "HealthCore Systems",
-    image: "https://i.pravatar.cc/150?img=33",
+
     content:
       "Working with Talora was a game-changer. They understood our industry's unique challenges and delivered candidates who were not just qualified, but truly aligned with our mission and values.",
     rating: 5,
@@ -60,7 +59,7 @@ const testimonials: Testimonial[] = [
     name: "Lisa Thompson",
     role: "Founder",
     company: "GrowthLab",
-    image: "https://i.pravatar.cc/150?img=26",
+
     content:
       "As a startup, we needed to hire fast without compromising quality. Talora's structured approach and global talent network helped us build our dream team in record time.",
     rating: 5,
@@ -70,7 +69,7 @@ const testimonials: Testimonial[] = [
     name: "Marcus Johnson",
     role: "HR Director",
     company: "Retail Innovations",
-    image: "https://i.pravatar.cc/150?img=14",
+
     content:
       "The clarity and transparency Talora brought to our hiring process was remarkable. Candidates actually thank us for the experience, and our time-to-hire has been cut in half.",
     rating: 5,
@@ -234,14 +233,6 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
       {/* Author */}
       <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-        <div className="relative size-12 rounded-full overflow-hidden bg-gray-200 shrink-0">
-          <Image
-            src={testimonial.image}
-            alt={testimonial.name}
-            fill
-            className="object-cover"
-          />
-        </div>
         <div>
           <div className="font-semibold text-gray-900">{testimonial.name}</div>
           <div className="text-sm text-gray-600">
