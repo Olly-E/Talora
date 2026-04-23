@@ -17,32 +17,32 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Sarah Mitchell",
-    role: "VP of People Operations",
-    company: "TechVision Inc.",
+    name: "Insight Matters",
+    role: "Hiring Manager",
+    company: "Technology Company",
     image: "https://i.pravatar.cc/150?img=47",
     content:
-      "Talora transformed our hiring process completely. What used to take us 8 weeks now takes 3, and the quality of candidates has improved dramatically. Their structured approach gave us clarity we didn't know we needed.",
+      "Talora was professional, structured, and transparent throughout the engagement. They delivered well-documented sourcing and prescreen work and communicated clearly at every stage. We appreciated their flexibility in aligning with our timeline constraints. Would be open to working together again.",
     rating: 5,
   },
   {
     id: 2,
-    name: "David Chen",
-    role: "CEO",
-    company: "BuildRight Solutions",
+    name: "Gallery Company - Sabina",
+    role: "Hiring Manager",
+    company: "Technology Company",
     image: "https://i.pravatar.cc/150?img=12",
     content:
-      "We went from chaotic, reactive hiring to a streamlined system that scales with our growth. The automation saves us countless hours while maintaining the personal touch our candidates appreciate.",
+      "Great working with Talora, we will rehire them to work again with us, their work ethic is great and they're super organized.",
     rating: 5,
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    role: "Head of Talent",
-    company: "FinTech Global",
+    name: "Danny - USA",
+    role: "Hiring Manager",
+    company: "Technology Company",
     image: "https://i.pravatar.cc/150?img=45",
     content:
-      "The team at Talora doesn't just fill positions—they build hiring systems. Their insights into recruitment automation helped us scale from 50 to 200 employees without losing our culture or quality standards.",
+      "Had a great experience working with Adlaide! Super responsive and genuinely helpful throughout the process. Made everything much easier. Would happily work with them again for our next sourcing need.",
     rating: 5,
   },
   {
