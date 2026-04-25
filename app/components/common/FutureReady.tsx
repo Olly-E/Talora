@@ -12,7 +12,7 @@ const SERVICES = [
     title: "End-to-End Recruitment Automation",
     desc: "We design and implement structured hiring workflows that streamline sourcing, screening, and interview coordination from start to finish.",
 
-    link: "/services/recruitment",
+    link: "/services/hr-automation",
   },
   {
     icon: <Target className="size-5 text-white" />,
@@ -61,7 +61,7 @@ const FutureReady = () => {
           {SERVICES.map((service) => (
             <div
               key={service.title}
-              className="bg-white rounded-3xl p-8 flex flex-col gap-6 shadow-sm min-h-90 relative"
+              className="bg-white rounded-3xl p-8 flex flex-col shadow-sm relative"
             >
               <div className="flex items-center justify-between">
                 <div
@@ -73,16 +73,18 @@ const FutureReady = () => {
                   {service.icon}
                 </div>
               </div>
-              <div className="flex-1 flex flex-col justify-end">
-                <h3 className="text-2xl font-bold text-secondary mb-2">
+              <div className="flex-1 flex justify-between flex-col">
+                <h3 className="text-2xl font-bold text-secondary my-2">
                   {service.title}
                 </h3>
-                <p className="text-secondary/70 text-sm mb-6">{service.desc}</p>
-                <Link href={service.link}>
-                  <button className="bg-secondary text-white w-full py-3 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-black/80 transition-all">
-                    Learn more <span className="text-lg">→</span>
-                  </button>
-                </Link>
+                <div className="">
+                  <p className="text-secondary/70 text-sm mb-6">{service.desc}</p>
+                  <Link href={service.link}>
+                    <button className="bg-secondary text-white w-full py-3 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-black/80 transition-all">
+                      Learn more <span className="text-lg">→</span>
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

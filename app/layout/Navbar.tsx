@@ -42,7 +42,7 @@ export default function Navbar() {
     { name: "Insights", href: "/insights", id: "5" },
     { name: "About", href: "/about", id: "6" },
     { name: "Jobs", href: "/jobs", id: "3" },
-    { name: "Contact", href: "/contact#contact-form", id: "7" },
+    { name: "Contact", href: "/contact", id: "7" },
   ];
 
   const pathIsActive = (href: string) => {
