@@ -30,11 +30,6 @@ const AutomateCard: React.FC<AutomateCardProps> = ({
       <div className="">
         <h4 className="text-lg font-semibold! text-black mb-1">{title}</h4>
         <p className="text-black/70 text-xs flex-1">{description}</p>
-        <div className="flex justify-end mt-2">
-          <span className="text-black/60 group-hover:text-primary transition text-xl mr-4">
-            ↗
-          </span>
-        </div>
       </div>
     </div>
   );

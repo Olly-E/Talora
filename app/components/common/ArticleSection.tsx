@@ -74,7 +74,7 @@ const ArticleSection = () => {
                 Our Blog
               </div>
               <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-8">
-                Practical Insights for Smarter Hiring and Scalable Teams
+                Explore Insights on Hiring and Talent{" "}
               </h2>
             </div>
 
@@ -111,10 +111,11 @@ const ArticleSection = () => {
 
           <div className="">
             <p className="text-gray-600 text-sm max-w-xs">
-              Gain clarity on how to design hiring processes that actually
-              scale. From structuring your recruitment workflows to improving
-              candidate experience, these insights are built to help you make
-              better hiring decisions with less friction.
+              Practical insights on structured hiring systems, talent sourcing,
+              and building efficient recruitment processes as your team grows.{" "}
+              <br />
+              Stay updated with insights on hiring strategy, recruitment
+              workflows, and building scalable teams.
             </p>
             <Button
               variant="secondary"
@@ -123,7 +124,7 @@ const ArticleSection = () => {
               as="link"
               href="/insights"
             >
-              Browse Insights <span className="text-lg">→</span>
+              Explore Insights <span className="text-lg">→</span>
             </Button>
           </div>
         </div>

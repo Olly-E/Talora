@@ -36,7 +36,7 @@ const capabilities: Capability[] = [
   {
     title: "Candidate Experience",
     description:
-      "We ensure every candidate receives clear communication, timely updates, and a professional hiring experience that reflects your company.",
+      "We ensure every candidate receives clear customized communication, timely updates, and a professional hiring experience that reflects your company.",
     icon: FileText,
   },
   {
@@ -62,7 +62,7 @@ export default function CoreCapabilitiesSection() {
             Hiring Should Not Slow Down Your Growth
           </h2>
           <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
-            We helps growing companies build structured recruitment systems,
+            Talora helps growing companies build structured recruitment systems,
             source high quality global talent, and automate hiring workflows so
             you can scale your team without operational complexity.
           </p>

@@ -33,7 +33,7 @@ export default function ClientsSection({
               <Image src="/images/logo3.jpeg" alt="Client logo" width={32} height={32} className="object-cover" />
             </div>
           </div>
-          <span className="text-black font-bold text-sm ml-2">80+</span>
+          <span className="text-black font-bold text-sm ml-2">40+</span>
         </div>
       </div>
     </div>

@@ -80,7 +80,7 @@ const FutureReady = () => {
                 <p className="text-secondary/70 text-sm mb-6">{service.desc}</p>
                 <Link href={service.link}>
                   <button className="bg-secondary text-white w-full py-3 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-black/80 transition-all">
-                    See Detail <span className="text-lg">→</span>
+                    Learn more <span className="text-lg">→</span>
                   </button>
                 </Link>
               </div>
