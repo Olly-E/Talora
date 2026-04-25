@@ -1,10 +1,11 @@
 "use client";
 
 import { Sparkles, Search, Users, Star } from "lucide-react";
-import { Button } from "@/app/components/elements/Button";
-import { CVUploadModal } from "@/app/components/CVUploadModal";
-import Image from "next/image";
 import { useState } from "react";
+import Image from "next/image";
+
+import { CVUploadModal } from "@/app/components/CVUploadModal";
+import { Button } from "@/app/components/elements/Button";
 import careerImg from "@/public/images/careerImg.webp";
 
 export default function JobHeroSection() {
