@@ -32,9 +32,9 @@ const gridData: GridItem[] = [
   {
     type: "stat",
     value: "25+",
-    title: "Industries Served",
+    title: "Global Talent Access",
     description:
-      "Companies across industries rely on our platform to manage their HR operations daily",
+      "We source and engage high quality candidates across international markets, including top African professionals.",
     bgColor: "bg-secondary",
     textColor: "text-white",
   },
@@ -42,9 +42,9 @@ const gridData: GridItem[] = [
   {
     type: "stat",
     value: "10,000+",
-    title: "Active Users",
+    title: "Recruitment Automation",
     description:
-      "Companies across industries rely on our platform to manage their HR operations daily",
+      "We streamline sourcing, screening, and interview coordination to reduce manual work and speed up hiring.",
     bgColor: "bg-secondary",
     textColor: "text-white",
   },
@@ -52,9 +52,9 @@ const gridData: GridItem[] = [
   {
     type: "stat",
     value: "5 M",
-    title: "Minutes to Onboard",
+    title: "Onboarding Systems",
     description:
-      "Companies across industries rely on our platform to manage their HR operations daily",
+      "We build structured onboarding processes that help new hires integrate quickly and perform effectively.",
     bgColor: "bg-primary",
     textColor: "text-black",
   },
