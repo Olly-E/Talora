@@ -41,7 +41,7 @@ const gridData: GridItem[] = [
 
   {
     type: "stat",
-    value: "10,000+",
+    value: "50+",
     title: "Recruitment Automation",
     description:
       "We streamline sourcing, screening, and interview coordination to reduce manual work and speed up hiring.",
@@ -51,7 +51,7 @@ const gridData: GridItem[] = [
   { type: "empty" },
   {
     type: "stat",
-    value: "5 M",
+    value: "40+",
     title: "Onboarding Systems",
     description:
       "We build structured onboarding processes that help new hires integrate quickly and perform effectively.",
