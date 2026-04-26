@@ -120,7 +120,7 @@ export default function CaseStudyHeroSection() {
                 size="md"
                 variant="outlineWhite"
                 as="link"
-                href="/book-call"
+                href="/book-call#calendly-section"
               >
                 Get Your Story
               </Button>

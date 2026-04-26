@@ -60,7 +60,7 @@ export default function RecruitmentCTASection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="primary" as="link" href="/book-call">
+                <Button size="lg" variant="primary" as="link" href="/book-call#calendly-section">
                   Schedule a Call
                   <ArrowRight className="size-5" />
                 </Button>

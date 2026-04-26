@@ -5,10 +5,10 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import team1 from "../../../public/images/team1.webp";
-import team2 from "../../../public/images/team2.webp";
-import team3 from "../../../public/images/team3.webp";
-import team4 from "../../../public/images/team4.webp";
+import team1 from "../../../public/images/team1.png";
+import team2 from "../../../public/images/team2.jpeg";
+import team3 from "../../../public/images/team3.png";
+import team4 from "../../../public/images/team4.png";
 
 interface TeamMember {
   name: string;

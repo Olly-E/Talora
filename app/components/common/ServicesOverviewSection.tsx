@@ -19,7 +19,7 @@ const services: Service[] = [
     icon: Cog,
     color: "text-secondary",
     bgColor: "bg-secondary/10",
-    link: "/services/recruitment",
+    link: "/services/hr-automation",
     features: [
       "Automated screening and candidate tracking",
       "Personalized candidate communication at every stage",
@@ -50,7 +50,7 @@ const services: Service[] = [
     icon: Calendar,
     color: "text-primary",
     bgColor: "bg-primary/20",
-    link: "/about",
+    link: "/services/recruitment",
     features: [
       "Onboarding workflow design",
       "Contract and documentation setup",

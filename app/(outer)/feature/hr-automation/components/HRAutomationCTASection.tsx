@@ -74,7 +74,7 @@ export default function HRAutomationCTASection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="primary" as="link" href="/book-call">
+                <Button size="lg" variant="primary" as="link" href="/book-call#calendly-section">
                   Speak With Our Team
                   <ArrowRight className="size-5" />
                 </Button>

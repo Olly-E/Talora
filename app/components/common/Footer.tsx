@@ -48,7 +48,7 @@ const Footer = () => {
                   variant="secondary"
                   size="lg"
                   className="bg-secondary text-white hover:bg-secondary/90"
-                  href="/book-call"
+                  href="/book-call#calendly-section"
                   as="link"
                 >
                   Book a Consultation{" "}

@@ -68,7 +68,7 @@ export default function Home() {
                 bottlenecks.
               </p>
               <div className="flex items-center gap-4 mt-10 justify-center">
-                <Button size="md" as="link" href="/book-call">
+                <Button size="md" as="link" href="/book-call#calendly-section">
                   Book a Strategy Call
                 </Button>
                 <Button

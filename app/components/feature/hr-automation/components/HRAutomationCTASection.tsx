@@ -10,7 +10,7 @@ export default function HRAutomationCTASection() {
     },
     {
       icon: Users,
-      value: "500+",
+      value: "40+",
       label: "Companies automated",
     },
     {
@@ -64,7 +64,7 @@ export default function HRAutomationCTASection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="primary" as="link" href="/book-call">
+                <Button size="lg" variant="primary" as="link" href="/book-call#calendly-section">
                   Start Free Trial
                   <ArrowRight className="size-5" />
                 </Button>

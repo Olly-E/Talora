@@ -55,11 +55,11 @@ export default function RecruitmentCTASection() {
               </h2>
               <p className="text-lg text-white/90 mb-8">
                 Partner with us to find exceptional talent that drives your
-                business forward. Let's start building together.
+                business forward. Let&pos;s start building together.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" variant="primary" as="link" href="/book-call">
+                <Button size="lg" variant="primary" as="link" href="/book-call#calendly-section">
                   Start Hiring Now
                   <ArrowRight className="size-5" />
                 </Button>

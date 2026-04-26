@@ -22,7 +22,7 @@ export default function BookCallHeroSection() {
     },
     {
       icon: Users,
-      value: "500+",
+      value: "50+",
       label: "Happy Clients",
       position: "bottom-4 left-4 lg:bottom-6 lg:left-6",
       iconBg: "bg-primary/10",

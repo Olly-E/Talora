@@ -91,7 +91,7 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-4">
             <Button
-              href="/book-call"
+              href="/book-call#calendly-section"
               as="link"
               variant="secondary"
               className="bg-secondary!"
@@ -151,7 +151,7 @@ export default function Navbar() {
 
         <div className="w-full space-y-3 px-4">
           <Button
-            href="/book-call"
+            href="/book-call#calendly-section"
             as="link"
             variant="secondary"
             className="w-full"

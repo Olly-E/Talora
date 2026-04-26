@@ -94,7 +94,7 @@ export default function CaseStudyHeroSection() {
                 size="md"
                 variant="outlineWhite"
                 as="link"
-                href="/book-call"
+                href="/book-call#calendly-section"
               >
                 Discuss Your Hiring Needs
               </Button>
