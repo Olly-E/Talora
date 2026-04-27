@@ -26,8 +26,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Sarah Omini",
-    title: "Chief Technology Officer",
-    bio: "Michael brings 15 years of software engineering expertise to our platform. He architects scalable solutions that handle enterprise-level demands while maintaining lightning-fast performance. His passion for clean code and robust infrastructure ensures our platform remains reliable and secure for all our clients.",
+    title: "Senior Talent Acquisition Specialist",
+    bio: "A dedicated Senior Talent Acquisition Specialist and one of Talora Agency’s founding team members, Sarah brings a strong background in end to end recruitment with a specialisation in proactive talent sourcing, candidate engagement and building quality pipelines across multiple industries. With a sharp eye for talent and a deep understanding of what it takes to identify and attract the right candidates, her experience and dedication have been foundational to how Talora approaches hiring today.",
     image: team2,
   },
   {
