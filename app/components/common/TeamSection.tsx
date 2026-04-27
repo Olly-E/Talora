@@ -32,8 +32,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Chinedu C. Duru",
-    title: "Senior Talent Acquisition Specialist",
-    bio: "A dedicated Senior Talent Acquisition Specialist and one of Talora Agency’s founding team members, Sarah brings a strong background in end to end recruitment with a specialisation in proactive talent sourcing, candidate engagement and building quality pipelines across multiple industries. With a sharp eye for talent and a deep understanding of what it takes to identify and attract the right candidates, her experience and dedication have been foundational to how Talora approaches hiring today.",
+    title: "Strategic Recruitment Partner & Advisor",
+    bio: "A seasoned HR and recruitment executive with over two decades of experience leading talent acquisition and executive search operations across Africa and internationally. His expertise spans executive search, recruitment strategy, HR systems, leadership development and outsourcing across multiple industries. Having built and led recruitment operations at both boutique and global firms, Chinedu brings deep industry relationships and unparalleled expertise to Talora Agency. As Strategic Recruitment Partner and Advisor, he strengthens Talora’s ability to deliver structured, high quality hiring solutions for growing companies.",
     image: team3,
   },
   {
