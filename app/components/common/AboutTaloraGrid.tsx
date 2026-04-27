@@ -2,8 +2,8 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import clsx from "clsx";
 
-import team1 from "../../../public/images/team1.png";
-import team2 from "../../../public/images/team2.jpeg";
+import gridImg2 from "../../../public/images/gridImg2.jpg";
+import gridImg1 from "../../../public/images/gridImg1.webp";
 
 type GridItem =
   | { type: "image"; image: StaticImageData; alt: string }
@@ -18,7 +18,7 @@ type GridItem =
   | { type: "empty" };
 
 const gridData: GridItem[] = [
-  { type: "image", image: team1, alt: "Team member" },
+  { type: "image", image: gridImg1, alt: "Team member" },
   {
     type: "stat",
     value: "98%",
@@ -59,7 +59,7 @@ const gridData: GridItem[] = [
     textColor: "text-black",
   },
 
-  { type: "image", image: team2, alt: "Team member" },
+  { type: "image", image: gridImg2, alt: "Team member" },
 ];
 
 const AboutTaloraGrid = () => {
