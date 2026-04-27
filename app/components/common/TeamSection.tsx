@@ -19,27 +19,27 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Jessica Tan",
-    title: "Head of Product & Innovation",
-    bio: "With over a decade of experience in HR technology, Jessica plays a pivotal role in shaping our product strategy and long-term vision. Her deep understanding of human resource challenges allows her to translate complex processes into intuitive, effective solutions. She leads with a strong focus on user experience, ensuring that every feature we build is not only functional but also truly helpful for HR teams. Jessica is committed to innovation that scales with growing businesses and makes work more efficient for everyone.",
+    name: "Esther Kunye",
+    title: "Talent Acquisition Specialist",
+    bio: "A dedicated Talent Acquisition Specialist with a strong eye for talent and a commitment to delivering quality candidate experiences. At Talora Agency, she plays a key role in managing the recruitment process, ensuring every candidate interaction is professional, structured and efficient. Esther is passionate about connecting the right people with the right opportunities while maintaining the high standards.",
     image: team1,
   },
   {
-    name: "Michael Chen",
+    name: "Sarah Omini",
     title: "Chief Technology Officer",
     bio: "Michael brings 15 years of software engineering expertise to our platform. He architects scalable solutions that handle enterprise-level demands while maintaining lightning-fast performance. His passion for clean code and robust infrastructure ensures our platform remains reliable and secure for all our clients.",
     image: team2,
   },
   {
-    name: "Sarah Williams",
-    title: "VP of Customer Success",
-    bio: "Sarah leads our customer success initiatives with a focus on delivering exceptional value. With her background in HR operations, she understands client needs deeply and ensures our team provides world-class support. Her dedication to customer satisfaction has earned us industry-leading retention rates.",
+    name: "Chinedu C. Duru",
+    title: "Senior Talent Acquisition Specialist",
+    bio: "A dedicated Senior Talent Acquisition Specialist and one of Talora Agency’s founding team members, Sarah brings a strong background in end to end recruitment with a specialisation in proactive talent sourcing, candidate engagement and building quality pipelines across multiple industries. With a sharp eye for talent and a deep understanding of what it takes to identify and attract the right candidates, her experience and dedication have been foundational to how Talora approaches hiring today.",
     image: team3,
   },
   {
-    name: "David Rodriguez",
-    title: "Director of Engineering",
-    bio: "David oversees our engineering teams with a focus on innovation and quality. His expertise in distributed systems and cloud architecture ensures our platform can scale to meet the demands of enterprises worldwide. He's passionate about building technology that empowers HR professionals.",
+    name: "Emmanuel Akinsiku",
+    title: "Software Engineer",
+    bio: "Emmanuel develops and maintains our platform's core features with a focus on innovation and quality. His work ensures our clients have a seamless, reliable experience while managing their recruitment processes. He's passionate about building technology that empowers HR professionals.",
     image: team4,
   },
 ];
