@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import team5 from "../../../public/images/team5.webp";
 import team1 from "../../../public/images/team1.png";
 import team2 from "../../../public/images/team2.jpeg";
 import team3 from "../../../public/images/team3.png";
@@ -41,6 +42,12 @@ const teamMembers: TeamMember[] = [
     title: "Software Engineer",
     bio: "Emmanuel develops and maintains our platform's core features with a focus on innovation and quality. His work ensures our clients have a seamless, reliable experience while managing their recruitment processes. He's passionate about building technology that empowers HR professionals.",
     image: team4,
+  },
+  {
+    name: "Victoria James",
+    title: "Social Media Manager",
+    bio: "Victoria is responsible for managing Talora Agency’s social media presence, creating engaging content and building our online community. With a background in digital marketing and a passion for storytelling, she helps share our mission and connect with our audience across various platforms.",
+    image: team5,
   },
 ];
 
