@@ -41,7 +41,7 @@ const testimonials: Testimonial[] = [
     company: "Technology Company",
 
     content:
-      "Had a great experience working with Adlaide! Super responsive and genuinely helpful throughout the process. Made everything much easier. Would happily work with them again for our next sourcing need.",
+      "Had a great experience working with Talora! Super responsive and genuinely helpful throughout the process. Made everything much easier. Would happily work with them again for our next sourcing need.",
     rating: 5,
   },
   {

@@ -6,8 +6,9 @@ import { useRef, useState } from "react";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import team5 from "../../../public/images/team5.webp";
-import team1 from "../../../public/images/team1.png";
+import team6 from "../../../public/images/team6.jpeg";
 import team2 from "../../../public/images/team2.jpeg";
+import team1 from "../../../public/images/team1.png";
 import team3 from "../../../public/images/team3.png";
 import team4 from "../../../public/images/team4.png";
 
@@ -20,10 +21,16 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Esther Kunye",
-    title: "Talent Acquisition Specialist",
-    bio: "A dedicated Talent Acquisition Specialist with a strong eye for talent and a commitment to delivering quality candidate experiences. At Talora Agency, she plays a key role in managing the recruitment process, ensuring every candidate interaction is professional, structured and efficient. Esther is passionate about connecting the right people with the right opportunities while maintaining the high standards.",
-    image: team1,
+    name: "Chinedu C. Duru",
+    title: "Strategic Recruitment Partner & Advisor",
+    bio: "A seasoned HR and recruitment executive with over two decades of experience leading talent acquisition and executive search operations across Africa and internationally. His expertise spans executive search, recruitment strategy, HR systems, leadership development and outsourcing across multiple industries. Having built and led recruitment operations at both boutique and global firms, Chinedu brings deep industry relationships and unparalleled expertise to Talora Agency. As Strategic Recruitment Partner and Advisor, he strengthens Talora’s ability to deliver structured, high quality hiring solutions for growing companies.",
+    image: team3,
+  },
+  {
+    name: "Adlaide O.J",
+    title: "HR Automation Strategist & Lead Recruiter",
+    bio: "An HR Automation Strategist and Recruiter with a strong passion for transforming how businesses hire, Adlaide leads Talora Agency’s automation and recruitment operations. Specialising in designing intelligent hiring workflows, she helps growing companies move from reactive, manual recruitment to structured, scalable systems that save time and deliver better results. With hands on expertise across HR process automation, workflow design, talent acquisition and HR technology integration, she brings both strategic thinking and practical execution to every client engagement.",
+    image: team6,
   },
   {
     name: "Sarah Omini",
@@ -32,10 +39,10 @@ const teamMembers: TeamMember[] = [
     image: team2,
   },
   {
-    name: "Chinedu C. Duru",
-    title: "Strategic Recruitment Partner & Advisor",
-    bio: "A seasoned HR and recruitment executive with over two decades of experience leading talent acquisition and executive search operations across Africa and internationally. His expertise spans executive search, recruitment strategy, HR systems, leadership development and outsourcing across multiple industries. Having built and led recruitment operations at both boutique and global firms, Chinedu brings deep industry relationships and unparalleled expertise to Talora Agency. As Strategic Recruitment Partner and Advisor, he strengthens Talora’s ability to deliver structured, high quality hiring solutions for growing companies.",
-    image: team3,
+    name: "Esther Kunye",
+    title: "Talent Acquisition Specialist",
+    bio: "A dedicated Talent Acquisition Specialist with a strong eye for talent and a commitment to delivering quality candidate experiences. At Talora Agency, she plays a key role in managing the recruitment process, ensuring every candidate interaction is professional, structured and efficient. Esther is passionate about connecting the right people with the right opportunities while maintaining the high standards.",
+    image: team1,
   },
   {
     name: "Emmanuel Akinsiku",
@@ -45,8 +52,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Victoria James",
-    title: "Social Media Manager",
-    bio: "Victoria is responsible for managing Talora Agency’s social media presence, creating engaging content and building our online community. With a background in digital marketing and a passion for storytelling, she helps share our mission and connect with our audience across various platforms.",
+    title: "Digital Content & Social Media Specialist",
+    bio: "A creative and detail oriented Digital Content and Social Media Specialist, Victoria plays a key role in shaping Talora Agency’s online presence across LinkedIn, TikTok and Instagram. From designing compelling graphics to crafting engaging copy and managing community interactions, she ensures Talora’s brand voice remains consistent, relevant and impactful. Her work keeps Talora connected to its audience and positioned as a thought leader in the recruitment and HR automation space.",
     image: team5,
   },
 ];
