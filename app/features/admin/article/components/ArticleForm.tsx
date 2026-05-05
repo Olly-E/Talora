@@ -21,6 +21,15 @@ import {
 } from "../utils/constants";
 import { Option } from "@/app/types";
 
+import team5 from "../../../../../public/images/team5.webp";
+import team6 from "../../../../../public/images/team6.jpeg";
+import { StaticImageData } from "next/image";
+
+const AUTHORS: { name: string; image: StaticImageData }[] = [
+  { name: "Adlaide O.J", image: team6 },
+  { name: "Victoria James", image: team5 },
+];
+
 export const ArticleForm: React.FC<ArticleFormProps> = ({
   editingArticle,
   onSubmit,
@@ -164,15 +173,29 @@ export const ArticleForm: React.FC<ArticleFormProps> = ({
               required: "Slug is required",
             })}
           />
-          <InputField
-            label="Author"
-            placeholder="e.g. Sarah Johnson"
-            registration={register("author", {
-              required: "Author is required",
-            })}
-            hasError={errors.author}
-            isRequired
-          />
+          <div className="w-full">
+            <Label htmlFor="author" isRequired>
+              Author
+            </Label>
+            <select
+              {...register("author", {
+                required: "Author is required",
+              })}
+              className="h-[38px] rounded-[5px] w-full border border-[#444444]/20 font-WorkSans px-4 bg-white outline-none text-sm text-black disabled:bg-gray-100"
+            >
+              <option value="">Select author</option>
+              {AUTHORS.map((author) => (
+                <option key={author.name} value={author.name}>
+                  {author.name}
+                </option>
+              ))}
+            </select>
+            {errors.author && (
+              <p className="text-red-500 text-xs mt-1">
+                {errors.author.message}
+              </p>
+            )}
+          </div>
           <div className="w-full">
             <Label htmlFor="category" isRequired>
               Category

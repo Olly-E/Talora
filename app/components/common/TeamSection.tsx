@@ -1,10 +1,10 @@
 "use client";
 
-import { StaticImageData } from "next/image";
-import Image from "next/image";
-import { useRef, useState } from "react";
-
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { StaticImageData } from "next/image";
+import { useRef, useState } from "react";
+import Image from "next/image";
+
 import team5 from "../../../public/images/team5.webp";
 import team6 from "../../../public/images/team6.jpeg";
 import team2 from "../../../public/images/team2.jpeg";
@@ -23,7 +23,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Chinedu C. Duru",
     title: "Strategic Recruitment Partner & Advisor",
-    bio: "A seasoned HR and recruitment executive with over two decades of experience leading talent acquisition and executive search operations across Africa and internationally. His expertise spans executive search, recruitment strategy, HR systems, leadership development and outsourcing across multiple industries. Having built and led recruitment operations at both boutique and global firms, Chinedu brings deep industry relationships and unparalleled expertise to Talora Agency. As Strategic Recruitment Partner and Advisor, he strengthens Talora’s ability to deliver structured, high quality hiring solutions for growing companies.",
+    bio: "A seasoned HR and recruitment executive with over two decades of experience leading talent acquisition and executive search operations across Africa and internationally. His expertise spans executive search, recruitment strategy, HR systems, leadership development and outsourcing across multiple industries. Having built and led recruitment operations at both boutique and global firms, Chinedu brings deep industry relationships and unparalleled expertise to Talora Agency. He strengthens Talora’s ability to deliver structured, high quality hiring solutions for growing companies.",
     image: team3,
   },
   {

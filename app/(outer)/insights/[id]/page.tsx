@@ -18,6 +18,17 @@ import { usePublicArticles } from "@/app/hooks/usePublicArticles";
 import { ARTICLE_PLACEHOLDER_IMAGE } from "@/app/features/admin/article/utils/constants";
 import { getFormattedDate } from "@/app/utils/utils";
 
+import writerThumb from "../../../../public/images/writer.webp";
+import team5 from "../../../../public/images/team5.webp";
+import team6 from "../../../../public/images/team6.jpeg";
+import { StaticImageData } from "next/image";
+
+const getAuthorAvatar = (authorName: string): StaticImageData => {
+  if (authorName === "Adlaide O.J") return team6;
+  if (authorName === "Victoria James") return team5;
+  return writerThumb;
+};
+
 export default function ArticleDetailPage() {
   const params = useParams();
   const articleSlug = params.id as string;

@@ -9,6 +9,15 @@ import { getFormattedDate } from "@/app/utils/utils";
 import { Button } from "../elements/Button";
 
 import writerThumb from "../../../public/images/writer.webp";
+import team5 from "../../../public/images/team5.webp";
+import team6 from "../../../public/images/team6.jpeg";
+import { StaticImageData } from "next/image";
+
+const getAuthorAvatar = (authorName: string): StaticImageData => {
+  if (authorName === "Adlaide O.J") return team6;
+  if (authorName === "Victoria James") return team5;
+  return writerThumb;
+};
 
 const categories = [
   "All",
@@ -142,7 +151,7 @@ const ArticleSection = () => {
                 image={article.coverImage || "/images/article-placeholder.webp"}
                 author={{
                   name: article.author,
-                  avatar: writerThumb,
+                  avatar: getAuthorAvatar(article.author),
                 }}
                 date={getFormattedDate(article.publishedAt)}
                 readTime={article.readTime}

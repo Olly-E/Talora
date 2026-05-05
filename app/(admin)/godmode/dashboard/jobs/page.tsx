@@ -61,7 +61,7 @@ export default function JobsPage() {
   const handleFormSubmit = (data: JobFormData) => {
     const jobData = {
       ...data,
-      category: data.category.map((cat) => cat.name),
+      category: data.category?.map((cat) => cat.name) || [],
       tags: data.tags?.map((tag) => tag.name) || [],
       openings: Number(data.openings),
     };
@@ -173,17 +173,21 @@ export default function JobsPage() {
         onClearFilters={handleClearFilters}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-linear-to-br from-primary/10 to-primary/5 rounded-2xl p-6 border border-primary/20">
           <p className="text-sm text-gray-600 font-medium mb-1">Total Jobs</p>
           <p className="text-3xl font-bold text-gray-900">{jobs.length}</p>
         </div>
-        <div className="bg-linear-to-br from-secondary/10 to-secondary/5 rounded-2xl p-6 border border-secondary/20">
-          <p className="text-sm text-gray-600 font-medium mb-1">
-            Filtered Results
-          </p>
+        <div className="bg-linear-to-br from-green-500/10 to-green-500/5 rounded-2xl p-6 border border-green-500/20">
+          <p className="text-sm text-gray-600 font-medium mb-1">Published</p>
           <p className="text-3xl font-bold text-gray-900">
-            {filteredJobs.length}
+            {jobs.filter((j) => j.status === "PUBLISHED").length}
+          </p>
+        </div>
+        <div className="bg-linear-to-br from-yellow-500/10 to-yellow-500/5 rounded-2xl p-6 border border-yellow-500/20">
+          <p className="text-sm text-gray-600 font-medium mb-1">Drafts</p>
+          <p className="text-3xl font-bold text-gray-900">
+            {jobs.filter((j) => j.status === "DRAFT").length}
           </p>
         </div>
         <div className="bg-linear-to-br from-tertiary/10 to-tertiary/5 rounded-2xl p-6 border border-tertiary/20">
@@ -210,7 +214,7 @@ export default function JobsPage() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {filteredJobs.map((job) => (
               <JobCard
                 key={job.id}

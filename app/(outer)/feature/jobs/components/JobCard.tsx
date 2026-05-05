@@ -51,10 +51,6 @@ export default function JobCard({ job }: JobCardProps) {
 
       <p className="text-gray-600 font-medium mb-3">{job.company}</p>
 
-      <p className="text-gray-600 text-sm mb-6 line-clamp-2">
-        {stripHtml(job.description)}
-      </p>
-
       {/* Job Details */}
       <div className="grid grid-cols-2 gap-3 mb-6">
         <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -79,7 +75,7 @@ export default function JobCard({ job }: JobCardProps) {
 
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {job.tags.map((tag, index) => (
+        {job.tags.slice(0, 3).map((tag, index) => (
           <span
             key={index}
             className="bg-secondary/10 text-secondary text-xs font-medium px-3 py-1 rounded-full"
@@ -87,6 +83,11 @@ export default function JobCard({ job }: JobCardProps) {
             {tag}
           </span>
         ))}
+        {job.tags.length > 3 && (
+          <span className="bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full">
+            +{job.tags.length - 3} more
+          </span>
+        )}
       </div>
 
       {/* View Details */}

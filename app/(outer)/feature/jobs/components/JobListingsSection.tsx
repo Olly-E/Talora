@@ -21,23 +21,25 @@ export default function JobListingsSection() {
   const { data: jobs = [], isLoading } = usePublicJobs();
 
   const filteredJobs = useMemo(() => {
-    return jobs.filter((job) => {
-      const matchesSearch =
-        filters.search === "" ||
-        job.title.toLowerCase().includes(filters.search.toLowerCase()) ||
-        job.company.toLowerCase().includes(filters.search.toLowerCase()) ||
-        job.description.toLowerCase().includes(filters.search.toLowerCase());
+    return jobs
+      .filter((job) => job.status === "PUBLISHED") // Only show published jobs
+      .filter((job) => {
+        const matchesSearch =
+          filters.search === "" ||
+          job.title.toLowerCase().includes(filters.search.toLowerCase()) ||
+          job.company.toLowerCase().includes(filters.search.toLowerCase()) ||
+          job.description.toLowerCase().includes(filters.search.toLowerCase());
 
-      const matchesCategory =
-        filters.category === "" || job.category.includes(filters.category);
+        const matchesCategory =
+          filters.category === "" || job.category.includes(filters.category);
 
-      const matchesType = filters.type === "" || job.type === filters.type;
+        const matchesType = filters.type === "" || job.type === filters.type;
 
-      const matchesUrgent =
-        filters.isUrgent === null || job.isUrgent === filters.isUrgent;
+        const matchesUrgent =
+          filters.isUrgent === null || job.isUrgent === filters.isUrgent;
 
-      return matchesSearch && matchesCategory && matchesType && matchesUrgent;
-    });
+        return matchesSearch && matchesCategory && matchesType && matchesUrgent;
+      });
   }, [filters, jobs]);
 
   const handleSearchChange = (search: string) => {

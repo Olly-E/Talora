@@ -92,15 +92,12 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
       </div>
 
       <div className="p-6">
-        <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
+        <div className="flex items-center justify-between gap-4 text-xs text-gray-500 mb-3">
           <div className="flex items-center gap-1">
             <User className="size-3" />
             <span>{article.author}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <Clock className="size-3" />
-            <span>{article.readTime}</span>
-          </div>
+
           <div className="flex items-center gap-1">
             <Calendar className="size-3" />
             <span>{getFormattedDate(article.publishedAt)}</span>
@@ -110,7 +107,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
         <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-secondary transition-colors">
           {article.title}
         </h3>
-        <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
           {stripHtml(article.excerpt)}
         </p>
 

@@ -21,7 +21,10 @@ export default function JobPostPage() {
   const { data: jobs = [], isLoading } = usePublicJobs();
 
   const job = useMemo(() => {
-    return jobs.find((j) => j.slug === jobSlug) || null;
+    // Only return published jobs on public page
+    return (
+      jobs.find((j) => j.slug === jobSlug && j.status === "PUBLISHED") || null
+    );
   }, [jobs, jobSlug]);
 
   if (isLoading) {

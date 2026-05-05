@@ -15,6 +15,7 @@ export interface JobFormPayload {
   tags: string[];
   isUrgent: boolean;
   applicationLink?: string;
+  status?: string;
 }
 
 export type CreateJobPayload = JobFormPayload;
@@ -52,6 +53,7 @@ export interface JobFormData {
   tags?: Option[];
   isUrgent: boolean;
   applicationLink?: string;
+  status?: string;
 }
 
 export interface JobFormProps {

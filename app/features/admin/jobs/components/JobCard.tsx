@@ -48,20 +48,17 @@ export const JobCard: React.FC<JobCardProps> = ({
       <div className="flex items-start justify-between mb-4">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
+            {job.status === "DRAFT" && (
+              <span className="inline-flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded-full">
+                Draft
+              </span>
+            )}
             {job.isUrgent && (
               <span className="inline-flex items-center gap-1 px-3 py-1 bg-red-100 text-red-700 text-xs font-semibold rounded-full">
                 <AlertCircle className="size-3" />
                 Urgent
               </span>
             )}
-            {job.category.map((cat, idx) => (
-              <span
-                key={idx}
-                className="inline-flex items-center px-3 py-1 bg-primary/10 text-secondary text-xs font-semibold rounded-full"
-              >
-                {cat}
-              </span>
-            ))}
           </div>
           <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-secondary transition-colors">
             {job.title}
@@ -88,10 +85,6 @@ export const JobCard: React.FC<JobCardProps> = ({
           </div>
         )}
       </div>
-
-      <p className="text-gray-600 text-sm mb-6 line-clamp-2">
-        {stripHtml(job.description)}
-      </p>
 
       <div className="grid grid-cols-2 gap-3 mb-4">
         <div className="flex items-center gap-2 text-sm">
@@ -126,22 +119,6 @@ export const JobCard: React.FC<JobCardProps> = ({
         <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
           {job.modeOfWork}
         </span>
-      </div>
-
-      <div className="flex flex-wrap gap-2 mb-4">
-        {job.tags.slice(0, 3).map((tag, index) => (
-          <span
-            key={index}
-            className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
-          >
-            {tag}
-          </span>
-        ))}
-        {job.tags.length > 3 && (
-          <span className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">
-            +{job.tags.length - 3} more
-          </span>
-        )}
       </div>
 
       {!isAdmin && (

@@ -51,28 +51,31 @@ model CaseStudy {
 }
 
 model Job {
-  id              Int      @id @default(autoincrement())
+  id              Int       @id @default(autoincrement())
   title           String
-  slug            String   @unique
+  slug            String    @unique
   company         String
   location        String
   type            String
   modeOfWork      String
   salary          String
-  currency        String   @default("USD")
+  currency        String    @default("USD")
   category        String[]
   openings        Int
   posted          String
   description     String
   tags            String[]
-  isUrgent        Boolean  @default(false)
+  isUrgent        Boolean   @default(false)
   applicationLink String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  status          String    @default("DRAFT")
+  publishedAt     DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 
   @@index([isUrgent])
   @@index([slug])
   @@index([type])
+  @@index([status])
 }
 
 model TalentPool {

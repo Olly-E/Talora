@@ -15,6 +15,10 @@ export interface Job {
   tags: string[];
   isUrgent: boolean;
   applicationLink?: string;
+  status: string;
+  publishedAt?: string | null;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export const jobCategories = [
