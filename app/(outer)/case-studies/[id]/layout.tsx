@@ -49,7 +49,7 @@ export async function generateMetadata({
           ]
         : [
             {
-              url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776082741/talora/articles/cisie0aj9kualyqkpvxc.png",
+              url: "https://res.cloudinary.com/dreprhbdv/image/upload/v1776253978/talora/articles/rdl1s1ddchehidderxie.jpg",
               width: 1200,
               height: 630,
               alt: `${caseStudy.title} - ${caseStudy.client}`,

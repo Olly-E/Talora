@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import {
   MapPin,
   Briefcase,
-  DollarSign,
+  Banknote,
   Users,
   AlertCircle,
   Edit,
@@ -101,7 +101,7 @@ export const JobCard: React.FC<JobCardProps> = ({
         </div>
         <div className="flex items-center gap-2 text-sm">
           <div className="p-2 bg-secondary/10 rounded-lg">
-            <DollarSign className="size-4 text-secondary" />
+            <Banknote className="size-4 text-secondary" />
           </div>
           <span className="text-gray-700">
             {formatSalaryWithCurrency(job.salary, job.currency)}

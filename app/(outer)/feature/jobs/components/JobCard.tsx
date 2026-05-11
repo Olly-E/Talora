@@ -3,7 +3,7 @@
 import {
   Briefcase,
   MapPin,
-  DollarSign,
+  Banknote,
   Users,
   Building2,
   Calendar,
@@ -62,7 +62,7 @@ export default function JobCard({ job }: JobCardProps) {
           {job.type}
         </div>
         <div className="flex items-center gap-2 text-sm text-gray-600">
-          <DollarSign className="size-4 text-primary" />
+          <Banknote className="size-4 text-primary" />
           {formatSalaryWithCurrency(job.salary, job.currency)}
         </div>
         {job.posted && (
