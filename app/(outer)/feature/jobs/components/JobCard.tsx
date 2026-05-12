@@ -49,7 +49,9 @@ export default function JobCard({ job }: JobCardProps) {
         {job.title}
       </h3>
 
-      <p className="text-sm md:text-base text-gray-600 font-medium mb-3">{job.company}</p>
+      <p className="text-sm md:text-base text-gray-600 font-medium mb-3">
+        {job.company}
+      </p>
 
       {/* Job Details */}
       <div className="grid grid-cols-2 gap-3 mb-6">
@@ -100,7 +102,9 @@ export default function JobCard({ job }: JobCardProps) {
 
       {/* View Details */}
       <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        <span className="text-xs md:text-sm text-gray-500">{job.category.join(", ")}</span>
+        <span className="text-xs md:text-sm text-gray-500">
+          {job.category.join(", ")}
+        </span>
         <div className="flex items-center gap-2 text-secondary font-semibold group-hover:gap-3 transition-all text-xs md:text-base">
           View Details
           <ChevronRight className="size-5" />

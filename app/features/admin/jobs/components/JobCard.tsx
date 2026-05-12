@@ -63,7 +63,9 @@ export const JobCard: React.FC<JobCardProps> = ({
           <h3 className="text-base md:text-xl font-bold text-gray-900 mb-1 group-hover:text-secondary transition-colors">
             {job.title}
           </h3>
-          <p className="text-sm md:text-base text-gray-600 font-medium">{job.company}</p>
+          <p className="text-sm md:text-base text-gray-600 font-medium">
+            {job.company}
+          </p>
         </div>
 
         {isAdmin && onEdit && onDelete && (
