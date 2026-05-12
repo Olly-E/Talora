@@ -42,7 +42,7 @@ export const JobCard: React.FC<JobCardProps> = ({
 
   return (
     <div
-      className="group relative bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-primary/30 transition-all duration-300 hover:shadow-xl cursor-pointer"
+      className="group relative bg-white rounded-2xl p-4 md:p-6 border border-primary/50 hover:border-primary/30 transition-all duration-300 hover:shadow-xl cursor-pointer"
       onClick={handleCardClick}
     >
       <div className="flex items-start justify-between mb-4">
@@ -60,10 +60,10 @@ export const JobCard: React.FC<JobCardProps> = ({
               </span>
             )}
           </div>
-          <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-secondary transition-colors">
+          <h3 className="text-base md:text-xl font-bold text-gray-900 mb-1 group-hover:text-secondary transition-colors">
             {job.title}
           </h3>
-          <p className="text-gray-600 font-medium">{job.company}</p>
+          <p className="text-sm md:text-base text-gray-600 font-medium">{job.company}</p>
         </div>
 
         {isAdmin && onEdit && onDelete && (
@@ -87,28 +87,28 @@ export const JobCard: React.FC<JobCardProps> = ({
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-4">
-        <div className="flex items-center gap-2 text-sm">
-          <div className="p-2 bg-tertiary/10 rounded-lg">
+        <div className="flex items-center gap-2 text-xs md:text-sm">
+          <div className="p-2 bg-tertiary/10 rounded-lg min-w-[32px]">
             <MapPin className="size-4 text-tertiary" />
           </div>
           <span className="text-gray-700">{job.location}</span>
         </div>
-        <div className="flex items-center gap-2 text-sm">
-          <div className="p-2 bg-tertiary/10 rounded-lg">
+        <div className="flex items-center gap-2 text-xs md:text-sm">
+          <div className="p-2 bg-tertiary/10 rounded-lg min-w-[32px]">
             <Briefcase className="size-4 text-tertiary" />
           </div>
           <span className="text-gray-700">{job.type}</span>
         </div>
-        <div className="flex items-center gap-2 text-sm">
-          <div className="p-2 bg-secondary/10 rounded-lg">
+        <div className="flex items-center gap-2 text-xs md:text-sm">
+          <div className="p-2 bg-secondary/10 rounded-lg min-w-[32px]">
             <Banknote className="size-4 text-secondary" />
           </div>
           <span className="text-gray-700">
             {formatSalaryWithCurrency(job.salary, job.currency)}
           </span>
         </div>
-        <div className="flex items-center gap-2 text-sm">
-          <div className="p-2 bg-secondary/10 rounded-lg">
+        <div className="flex items-center gap-2 text-xs md:text-sm">
+          <div className="p-2 bg-secondary/10 rounded-lg min-w-[32px]">
             <Users className="size-4 text-secondary" />
           </div>
           <span className="text-gray-700">{job.openings} openings</span>
@@ -124,7 +124,7 @@ export const JobCard: React.FC<JobCardProps> = ({
       {!isAdmin && (
         <div className="pt-4 border-t border-gray-100">
           <Link href={`/godmode/dashboard/jobs/${job.id}`}>
-            <Button className="w-full bg-secondary hover:bg-secondary/90 text-white">
+            <Button className="w-full bg-secondary hover:bg-secondary/90 text-white text-xs md:text-sm">
               View Details
             </Button>
           </Link>
