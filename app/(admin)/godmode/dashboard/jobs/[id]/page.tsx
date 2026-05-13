@@ -5,12 +5,12 @@ import { useParams, useRouter } from "next/navigation";
 import {
   MapPin,
   Briefcase,
-  DollarSign,
   Users,
   Building2,
   AlertCircle,
   ArrowLeft,
   Edit,
+  Banknote,
 } from "lucide-react";
 import { useGetJobs, useUpdateJob } from "@/app/features/admin/jobs/api";
 import { Button } from "@/app/components/elements/Button";
@@ -169,7 +169,7 @@ export default function JobDetailPage() {
             </div>
             <div className="bg-white rounded-xl p-4 border border-gray-200">
               <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="size-5 text-secondary" />
+                <Banknote className="size-5 text-secondary" />
                 <span className="text-xs text-gray-500 font-medium">
                   Salary Range
                 </span>

@@ -4,10 +4,11 @@ import { readJobsFile } from "@/app/lib/jobsFileManager";
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
+  const { id } = await params;
   const jobs = await readJobsFile();
-  const job = jobs.find((j) => j.slug === params.id);
+  const job = jobs.find((j) => j.slug === id);
 
   if (!job) {
     return {

@@ -5,10 +5,10 @@ import { useMemo } from "react";
 import {
   MapPin,
   Briefcase,
-  DollarSign,
   Calendar,
   AlertCircle,
   Building2,
+  Banknote,
 } from "lucide-react";
 import { Button } from "@/app/components/elements/Button";
 import { usePublicJobs } from "@/app/hooks/usePublicJobs";
@@ -85,7 +85,7 @@ export default function JobPostPage() {
             <span>{job.type}</span>
           </div>
           <div className="flex items-center gap-2">
-            <DollarSign className="size-5" />
+            <Banknote className="size-5" />
             <span>{formatSalaryWithCurrency(job.salary, job.currency)}</span>
           </div>
           {job.posted && (

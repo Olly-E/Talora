@@ -14,10 +14,10 @@ import {
   Trash2,
   ArrowRight,
 } from "lucide-react";
-import { Button } from "@/app/components/elements/Button";
-import { ArticleCardProps } from "../types";
 import { ARTICLE_PLACEHOLDER_IMAGE } from "../utils/constants";
+import { Button } from "@/app/components/elements/Button";
 import { getFormattedDate } from "@/app/utils/utils";
+import { ArticleCardProps } from "../types";
 
 // Helper function to strip HTML tags from WYSIWYG content
 const stripHtml = (html: string): string => {
