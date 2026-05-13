@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { readJobsFile } from "@/app/lib/jobsFileManager";
+import { prisma } from "@/app/lib/prisma";
 
 export async function generateMetadata({
   params,
@@ -7,8 +7,12 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const jobs = await readJobsFile();
-  const job = jobs.find((j) => j.slug === id);
+  const job = await prisma.job.findFirst({
+    where: {
+      slug: id,
+      status: "PUBLISHED",
+    },
+  });
 
   if (!job) {
     return {
@@ -17,9 +21,15 @@ export async function generateMetadata({
     };
   }
 
+  // Truncate description for SEO (max 160 characters)g
+  const metaDescription =
+    job.description.length > 160
+      ? job.description.substring(0, 157) + "..."
+      : job.description;
+
   return {
     title: `${job.title} in ${job.location} - Talora Careers`,
-    description: job.description,
+    description: metaDescription,
     keywords: [
       job.title,
       job.location,
@@ -31,7 +41,7 @@ export async function generateMetadata({
     ],
     openGraph: {
       title: `${job.title} - ${job.location}`,
-      description: job.description,
+      description: metaDescription,
       url: `https://talora-psi.vercel.app/jobs/${job.slug}`,
       type: "website",
       images: [
