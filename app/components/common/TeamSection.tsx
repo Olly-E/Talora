@@ -4,6 +4,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { StaticImageData } from "next/image";
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { motion, useInView } from "motion/react";
+import { ScrollTriggeredSplitText } from "../animation/SplitTextAnimation";
+import { blurFadeIn } from "../../utils/animation";
 
 import team5 from "../../../public/images/team5.webp";
 import team6 from "../../../public/images/team6.jpeg";
@@ -62,82 +65,104 @@ const TeamCard = ({
   member,
   isExpanded,
   onClick,
+  isInView,
+  delay,
 }: {
   member: TeamMember;
   isExpanded: boolean;
   onClick: () => void;
+  isInView: boolean;
+  delay: number;
 }) => {
+  const cardSlideIn = {
+    initial: { x: "-100%", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+  };
+
   return (
-    <div
-      onClick={onClick}
-      className={`group relative rounded-3xl overflow-hidden transition-all duration-400 ease-in cursor-pointer bg-secondary h-96 md:h-112.5 ${
-        isExpanded
-          ? "min-w-full md:min-w-150"
-          : "min-w-64 md:min-w-80 md:hover:min-w-150"
-      }`}
-    >
-      <div
-        className={`flex h-full transition-all duration-400 ease-in ${
+    <div className="overflow-hidden min-w-64 md:min-w-80 md:hover:min-w-150 transition-all duration-400 ease-in">
+      <motion.div
+        onClick={onClick}
+        className={`group relative rounded-3xl overflow-hidden transition-all duration-400 ease-in cursor-pointer bg-secondary h-96 md:h-112.5 ${
           isExpanded
-            ? "flex-row gap-4 md:gap-6 pt-3 pl-3 pb-3 pr-6 md:pt-4 md:pl-4 md:pb-4 md:pr-8"
-            : "flex-col md:flex-col md:group-hover:flex-row md:group-hover:gap-6 md:group-hover:pt-4 md:group-hover:pl-4 md:group-hover:pb-4 md:group-hover:pr-8"
+            ? "min-w-full md:min-w-150"
+            : "min-w-64 md:min-w-80 md:hover:min-w-150"
         }`}
+        initial="initial"
+        animate={isInView ? "animate" : "initial"}
+        variants={cardSlideIn}
+        transition={{ duration: 0.4, delay, ease: "easeOut" }}
       >
-        {/* Image */}
         <div
-          className={`relative overflow-hidden rounded-2xl transition-all duration-400 ease-in ${
+          className={`flex h-full transition-all duration-400 ease-in ${
             isExpanded
-              ? "w-40 md:w-48 h-64 md:h-80 shrink-0 my-auto"
-              : "w-full h-full md:group-hover:w-48 md:group-hover:h-80 md:group-hover:shrink-0 md:group-hover:my-auto"
+              ? "flex-row gap-4 md:gap-6 pt-3 pl-3 pb-3 pr-6 md:pt-4 md:pl-4 md:pb-4 md:pr-8"
+              : "flex-col md:flex-col md:group-hover:flex-row md:group-hover:gap-6 md:group-hover:pt-4 md:group-hover:pl-4 md:group-hover:pb-4 md:group-hover:pr-8"
           }`}
         >
-          <Image
-            src={member.image}
-            alt={member.name}
-            fill
-            className="object-cover"
-          />
-        </div>
-
-        <div
-          className={`flex flex-col justify-center transition-opacity duration-400 ease-in overflow-hidden ${
-            isExpanded
-              ? "opacity-100 pointer-events-auto w-auto flex-1 delay-400"
-              : "opacity-0 pointer-events-none w-0 h-0 delay-0 md:group-hover:delay-400 md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:group-hover:w-auto md:group-hover:h-auto md:group-hover:flex-1"
-          }`}
-        >
-          <h3 className="font-bold text-white text-xl md:text-2xl mb-2 whitespace-nowrap">
-            {member.name}
-          </h3>
-          <div className="text-white/80 text-xs md:text-sm mb-4 truncate">
-            {member.title}
+          {/* Image */}
+          <div
+            className={`relative overflow-hidden rounded-2xl transition-all duration-400 ease-in ${
+              isExpanded
+                ? "w-40 md:w-48 h-64 md:h-80 shrink-0 my-auto"
+                : "w-full h-full md:group-hover:w-48 md:group-hover:h-80 md:group-hover:shrink-0 md:group-hover:my-auto"
+            }`}
+          >
+            <Image
+              src={member.image}
+              alt={member.name}
+              fill
+              className="object-cover"
+            />
           </div>
-          <p className="text-white/90 text-xs md:text-sm leading-relaxed line-clamp-12">
-            {member.bio}
-          </p>
-        </div>
-      </div>
 
-      <div
-        className={`absolute bottom-3 left-3 right-4 transition-all duration-400 ease-in ${
-          isExpanded
-            ? "opacity-0 invisible"
-            : "opacity-100 md:group-hover:opacity-0 md:group-hover:invisible"
-        }`}
-      >
-        <div className="bg-secondary p-2 rounded-xl w-fit">
-          <h3 className="font-bold text-white text-sm text-left">
-            {member.name}
-          </h3>
+          <div
+            className={`flex flex-col justify-center transition-opacity duration-400 ease-in overflow-hidden ${
+              isExpanded
+                ? "opacity-100 pointer-events-auto w-auto flex-1 delay-400"
+                : "opacity-0 pointer-events-none w-0 h-0 delay-0 md:group-hover:delay-400 md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:group-hover:w-auto md:group-hover:h-auto md:group-hover:flex-1"
+            }`}
+          >
+            <h3 className="font-bold text-white text-xl md:text-2xl mb-2 whitespace-nowrap">
+              {member.name}
+            </h3>
+            <div className="text-white/80 text-xs md:text-sm mb-4 truncate">
+              {member.title}
+            </div>
+            <p className="text-white/90 text-xs md:text-sm leading-relaxed line-clamp-12">
+              {member.bio}
+            </p>
+          </div>
         </div>
-      </div>
+
+        <div
+          className={`absolute bottom-3 left-3 right-4 transition-all duration-400 ease-in ${
+            isExpanded
+              ? "opacity-0 invisible"
+              : "opacity-100 md:group-hover:opacity-0 md:group-hover:invisible"
+          }`}
+        >
+          <div className="bg-secondary p-2 rounded-xl w-fit">
+            <h3 className="font-bold text-white text-sm text-left">
+              {member.name}
+            </h3>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 };
 
 const TeamSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef(null);
+  const isSectionInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
+
+  const badgeSlideUp = {
+    initial: { y: 10, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+  };
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -157,40 +182,68 @@ const TeamSection = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-12">
           <div>
-            <div className="bg-primary flex items-center gap-2 text-black/80 text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-4">
+            <motion.div
+              className="bg-primary flex items-center gap-2 text-black/80 text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-4"
+              initial="initial"
+              animate={isSectionInView ? "animate" : "initial"}
+              variants={badgeSlideUp}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div className="size-2 rounded-full min-w-2 bg-black" />
               Our Team
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900">
-              The Team Behind Your <br /> Hiring Systems
-            </h2>
+            </motion.div>
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold leading-tight text-gray-900"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+            >
+              <ScrollTriggeredSplitText
+                direction="top"
+                delayPerWord={0.03}
+                initialDelay={0}
+                type="tween"
+                tweenDuration={0.5}
+              >
+                The Team Behind Your <br /> Hiring Systems
+              </ScrollTriggeredSplitText>
+            </motion.h2>
           </div>
 
           <div className="flex gap-3">
-            <button
+            <motion.button
               onClick={() => scroll("left")}
               className="group w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-transparent hover:bg-secondary transition-all duration-400"
               aria-label="Previous"
+              initial="initial"
+              animate={isSectionInView ? "animate" : "initial"}
+              variants={blurFadeIn}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             >
               <ChevronLeft
                 size={24}
                 className="text-gray-700 group-hover:text-white transition-colors duration-400"
               />
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               onClick={() => scroll("right")}
               className="group w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-transparent hover:bg-secondary transition-all duration-400"
               aria-label="Next"
+              initial="initial"
+              animate={isSectionInView ? "animate" : "initial"}
+              variants={blurFadeIn}
+              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
             >
               <ChevronRight
                 size={24}
                 className="text-gray-700 group-hover:text-white transition-colors duration-400"
               />
-            </button>
+            </motion.button>
           </div>
         </div>
 
@@ -203,6 +256,8 @@ const TeamSection = () => {
                 member={member}
                 isExpanded={expandedCard === idx}
                 onClick={() => handleCardClick(idx)}
+                isInView={isSectionInView}
+                delay={idx * 0.4}
               />
             ))}
             {teamMembers.map((member, idx) => (
@@ -211,6 +266,8 @@ const TeamSection = () => {
                 member={member}
                 isExpanded={expandedCard === teamMembers.length + idx}
                 onClick={() => handleCardClick(teamMembers.length + idx)}
+                isInView={isSectionInView}
+                delay={(teamMembers.length + idx) * 0.4}
               />
             ))}
           </div>

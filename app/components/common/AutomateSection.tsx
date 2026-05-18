@@ -1,5 +1,10 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useInView } from "motion/react";
+import { ScrollTriggeredSplitText } from "../animation/SplitTextAnimation";
 
 import AutomateCard, { AutomateCardProps } from "./AutomateCard";
 
@@ -58,20 +63,59 @@ const automateCards: AutomateCardProps[] = [
 ];
 
 const AutomateSection = () => {
+  const sectionRef = useRef(null);
+  const isSectionInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  const containerFadeIn = {
+    initial: { y: 100, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+  };
+
+  const badgeSlideUp = {
+    initial: { y: 20, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+  };
+
+  const scrollbarSlideUp = {
+    initial: { y: 100, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+  };
+
   return (
-    <section className=" sm:bg-secondary rounded-3xl my-20 pb-8 md:pb-10">
+    <motion.section
+      className=" sm:bg-secondary rounded-3xl my-20 pb-8 md:pb-10"
+      ref={sectionRef}
+      initial="initial"
+      animate={isSectionInView ? "animate" : "initial"}
+      variants={containerFadeIn}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="mx-auto">
         <div className="pt-8 sm:px-8 md:px-16">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-12">
             <div className="flex-1">
-              <div className="bg-primary flex items-center gap-2 text-black/80 text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-4">
+              <motion.div
+                className="bg-primary flex items-center gap-2 text-black/80 text-sm font-medium w-fit shadow-sm px-4 py-1 rounded-full mb-4"
+                initial="initial"
+                animate={isSectionInView ? "animate" : "initial"}
+                variants={badgeSlideUp}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              >
                 <div className="size-2 rounded-full min-w-2 bg-black" />
                 Core Capabilities
-              </div>
+              </motion.div>
               <h2 className="text-4xl md:text-5xl font-m leading-tight text-white mb-4">
-                Build a{" "}
-                <span className="text-primary">Structured Hiring System</span>{" "}
-                That Works
+                <ScrollTriggeredSplitText
+                  direction="bottom"
+                  delayPerWord={0.03}
+                  initialDelay={0.2}
+                  type="tween"
+                  tweenDuration={0.5}
+                >
+                  Build a{" "}
+                  <span className="text-primary">Structured Hiring System</span>{" "}
+                  That Works
+                </ScrollTriggeredSplitText>
               </h2>
               <p className="text-white/90 text-base mb-6 max-w-xl">
                 We design and implement recruitment systems that streamline
@@ -85,29 +129,44 @@ const AutomateSection = () => {
               </Link>
             </div>
             <div className="flex-1 flex items-center justify-center">
-              <div className="relative w-full h-100 rounded-2xl overflow-hidden">
-                <Image
-                  src={calcBig}
-                  alt="Payroll Automation"
-                  fill
-                  className="object-cover"
-                />
+              <div className="overflow-hidden rounded-2xl w-full h-100">
+                <motion.div
+                  className="relative w-full h-100"
+                  initial={{ x: "-100%" }}
+                  animate={isSectionInView ? { x: 0 } : { x: "-100%" }}
+                  transition={{ duration: 0.6, delay: 0.4, ease: [1, 0, 1, 1] }}
+                >
+                  <Image
+                    src={calcBig}
+                    alt="Payroll Automation"
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
               </div>
             </div>
           </div>
         </div>
-        <div className="overflow-x-auto scrollbar-hide">
-          <div className="flex gap-6 min-w-175 animate-[scroll-x_40s_linear_infinite] will-change-transform">
-            {automateCards.map((card, idx) => (
-              <AutomateCard key={card.title + idx} {...card} />
-            ))}
-            {automateCards.map((card, idx) => (
-              <AutomateCard key={"dup-" + card.title + idx} {...card} />
-            ))}
-          </div>
+        <div className="overflow-y-hidden">
+          <motion.div
+            className="overflow-x-auto scrollbar-hide"
+            initial="initial"
+            animate={isSectionInView ? "animate" : "initial"}
+            variants={scrollbarSlideUp}
+            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          >
+            <div className="flex gap-6 min-w-175 animate-[scroll-x_40s_linear_infinite] will-change-transform">
+              {automateCards.map((card, idx) => (
+                <AutomateCard key={card.title + idx} {...card} />
+              ))}
+              {automateCards.map((card, idx) => (
+                <AutomateCard key={"dup-" + card.title + idx} {...card} />
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
