@@ -1,12 +1,14 @@
 "use client";
 
-import { useRef } from "react";
 import { Settings, Target, ClipboardCheck } from "lucide-react";
+import { useRef } from "react";
+import Link from "next/link";
 import clsx from "clsx";
+
+import { ScrollTriggeredSplitText } from "../animation/SplitTextAnimation";
+import { badgeSlideUp } from "@/app/utils/animation";
 import { motion, useInView } from "motion/react";
 import { Button } from "../elements/Button";
-import Link from "next/link";
-import { ScrollTriggeredSplitText } from "../animation/SplitTextAnimation";
 
 const SERVICES = [
   {
@@ -38,11 +40,6 @@ const SERVICES = [
 const FutureReady = () => {
   const gridRef = useRef(null);
   const isGridInView = useInView(gridRef, { once: true, amount: 0.3 });
-
-  const badgeSlideUp = {
-    initial: { y: 10, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-  };
 
   const cardSlideUp = {
     initial: { y: 200, opacity: 0 },

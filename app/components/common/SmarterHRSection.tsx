@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import { ScrollTriggeredSplitText } from "../animation/SplitTextAnimation";
+import { badgeSlideUp } from "@/app/utils/animation";
 import {
   Rocket,
   Users,

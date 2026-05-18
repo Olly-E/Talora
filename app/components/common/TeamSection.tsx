@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import { ScrollTriggeredSplitText } from "../animation/SplitTextAnimation";
-import { blurFadeIn } from "../../utils/animation";
+import { blurFadeIn, badgeSlideUp } from "@/app/utils/animation";
 
 import team5 from "../../../public/images/team5.webp";
 import team6 from "../../../public/images/team6.jpeg";
@@ -158,11 +158,6 @@ const TeamSection = () => {
   const sectionRef = useRef(null);
   const isSectionInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
-
-  const badgeSlideUp = {
-    initial: { y: 10, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-  };
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {

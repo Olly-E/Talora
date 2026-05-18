@@ -151,6 +151,7 @@ export const JobForm: React.FC<JobFormProps> = ({
 
       setValue("isUrgent", editingJob.isUrgent);
       setValue("applicationLink", editingJob.applicationLink || "");
+      setValue("status", editingJob.status || "DRAFT");
     }
   }, [editingJob, setValue, categoryOptions, tagOptions]);
 
@@ -162,7 +163,12 @@ export const JobForm: React.FC<JobFormProps> = ({
   const handleFormSubmit = (data: JobFormData) => {
     onSubmit({
       ...data,
-      status: submitType === "publish" ? "PUBLISHED" : "DRAFT",
+      status:
+        editingJob && data.status
+          ? data.status
+          : submitType === "publish"
+            ? "PUBLISHED"
+            : "DRAFT",
     } as JobFormData);
     if (!editingJob && submitType === "publish") {
       reset();
@@ -399,6 +405,25 @@ export const JobForm: React.FC<JobFormProps> = ({
           hasError={errors.description}
         />
 
+        {editingJob && (
+          <div className="w-full">
+            <Label htmlFor="status">Job Status</Label>
+            <select
+              {...register("status")}
+              className="h-[38px] rounded-[5px] w-full border border-[#444444]/20 font-WorkSans px-4 bg-white outline-none text-sm text-black disabled:bg-gray-100"
+            >
+              <option value="DRAFT">Draft</option>
+              <option value="PUBLISHED">Published</option>
+            </select>
+            <p className="text-gray-500 text-xs mt-1">
+              Current status:{" "}
+              <span className="font-semibold text-gray-700">
+                {editingJob.status}
+              </span>
+            </p>
+          </div>
+        )}
+
         <div className="flex items-center gap-2 p-4 bg-gray-50 rounded-lg">
           <input
             type="checkbox"
@@ -415,7 +440,26 @@ export const JobForm: React.FC<JobFormProps> = ({
         </div>
 
         <div className="flex gap-4 pt-4 border-t border-gray-200">
-          {isDraft || !editingJob ? (
+          {editingJob ? (
+            <>
+              <Button
+                type="button"
+                disabled={isLoading}
+                onClick={onCancel}
+                variant="outline"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50"
+              >
+                Cancel
+              </Button>
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="bg-secondary hover:bg-secondary/90 text-white"
+              >
+                {isLoading ? "Saving..." : "Save Changes"}
+              </Button>
+            </>
+          ) : isDraft || !editingJob ? (
             <>
               <Button
                 type="button"
@@ -459,14 +503,6 @@ export const JobForm: React.FC<JobFormProps> = ({
               {isLoading ? "Updating..." : "Update Job"}
             </Button>
           )}
-          <Button
-            type="button"
-            variant="outline"
-            onClick={onCancel}
-            disabled={isLoading}
-          >
-            Cancel
-          </Button>
         </div>
       </form>
     </div>

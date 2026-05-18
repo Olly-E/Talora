@@ -1,7 +1,10 @@
 "use client";
-
-import { useState } from "react";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { motion, useInView } from "motion/react";
+import { useState, useRef } from "react";
+
+import { ScrollTriggeredSplitText } from "../animation/SplitTextAnimation";
+import { badgeSlideUp } from "@/app/utils/animation";
 
 interface Testimonial {
   id: number;
@@ -78,6 +81,8 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sectionRef = useRef(null);
+  const isSectionInView = useInView(sectionRef, { once: true, amount: 0.3 });
   const testimonialsPerView = 3;
   const maxIndex = testimonials.length - testimonialsPerView;
 
@@ -95,27 +100,54 @@ export default function TestimonialsSection() {
   );
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50" ref={sectionRef}>
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="bg-secondary flex items-center gap-2 text-white text-sm font-medium w-fit shadow-sm px-4 py-2 rounded-full mb-6 mx-auto">
+          <motion.div
+            className="bg-secondary flex items-center gap-2 text-white text-sm font-medium w-fit shadow-sm px-4 py-2 rounded-full mb-6 mx-auto"
+            initial="initial"
+            animate={isSectionInView ? "animate" : "initial"}
+            variants={badgeSlideUp}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <div className="size-2 rounded-full min-w-2 bg-primary" />
             Client Success Stories
-          </div>
+          </motion.div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Trusted by Growing Companies
+            <ScrollTriggeredSplitText
+              direction="top"
+              delayPerWord={0.03}
+              initialDelay={0}
+              type="tween"
+              tweenDuration={0.5}
+            >
+              Trusted by Growing Companies
+            </ScrollTriggeredSplitText>
           </h2>
           <p className="text-gray-600 text-lg">
-            See how we&apos;ve helped businesses transform their hiring systems
-            and build exceptional teams.
+            <ScrollTriggeredSplitText
+              direction="bottom"
+              delayPerWord={0.03}
+              initialDelay={0.3}
+              type="tween"
+              tweenDuration={0.5}
+            >
+              See how we&apos;ve helped businesses transform their hiring
+              systems and build exceptional teams.
+            </ScrollTriggeredSplitText>
           </p>
         </div>
 
         {/* Desktop View - 3 Cards */}
         <div className="hidden lg:block">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {visibleTestimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            {visibleTestimonials.map((testimonial, idx) => (
+              <TestimonialCard
+                key={testimonial.id}
+                testimonial={testimonial}
+                isInView={isSectionInView}
+                delay={idx * 0.2}
+              />
             ))}
           </div>
 
@@ -157,7 +189,11 @@ export default function TestimonialsSection() {
         {/* Mobile/Tablet View - 1 Card */}
         <div className="lg:hidden">
           <div className="mb-8">
-            <TestimonialCard testimonial={testimonials[currentIndex]} />
+            <TestimonialCard
+              testimonial={testimonials[currentIndex]}
+              isInView={isSectionInView}
+              delay={0}
+            />
           </div>
 
           {/* Navigation */}
@@ -207,16 +243,47 @@ export default function TestimonialsSection() {
   );
 }
 
-function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+function TestimonialCard({
+  testimonial,
+  isInView,
+  delay,
+}: {
+  testimonial: Testimonial;
+  isInView: boolean;
+  delay: number;
+}) {
+  const cardSlideUp = {
+    initial: { y: 100, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+  };
+
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full">
+    <motion.div
+      className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full"
+      initial="initial"
+      animate={isInView ? "animate" : "initial"}
+      variants={cardSlideUp}
+      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+    >
       {/* Quote Icon */}
-      <div className="bg-secondary/10 rounded-2xl p-3 w-fit mb-6">
+      <motion.div
+        className="bg-secondary/10 rounded-2xl p-3 w-fit mb-6"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={
+          isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+        }
+        transition={{ duration: 0.4, delay: delay + 0.2, ease: "easeOut" }}
+      >
         <Quote className="size-6 text-secondary" />
-      </div>
+      </motion.div>
 
       {/* Rating */}
-      <div className="flex gap-1 mb-4">
+      <motion.div
+        className="flex gap-1 mb-4"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.4, delay: delay + 0.3, ease: "easeOut" }}
+      >
         {Array.from({ length: testimonial.rating }).map((_, index) => (
           <Star
             key={index}
@@ -224,22 +291,39 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
             strokeWidth={0}
           />
         ))}
-      </div>
+      </motion.div>
 
       {/* Content */}
-      <p className="text-gray-700 leading-relaxed mb-6 grow">
+      <motion.p
+        className="text-gray-700 leading-relaxed mb-6 grow"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.5, delay: delay + 0.4, ease: "easeOut" }}
+      >
         &quot;{testimonial.content}&quot;
-      </p>
+      </motion.p>
 
       {/* Author */}
       <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
         <div>
-          <div className="font-semibold text-gray-900">{testimonial.name}</div>
-          <div className="text-sm text-gray-600">
+          <motion.div
+            className="font-semibold text-gray-900"
+            initial={{ opacity: 0, x: -10 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+            transition={{ duration: 0.4, delay: delay + 0.5, ease: "easeOut" }}
+          >
+            {testimonial.name}
+          </motion.div>
+          <motion.div
+            className="text-sm text-gray-600"
+            initial={{ opacity: 0, x: -10 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+            transition={{ duration: 0.4, delay: delay + 0.6, ease: "easeOut" }}
+          >
             {testimonial.role}, {testimonial.company}
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
