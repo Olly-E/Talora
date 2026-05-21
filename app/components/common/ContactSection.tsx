@@ -188,9 +188,9 @@ const ContactSection = () => {
           {/* Right Column - Form */}
           <motion.div
             className="bg-primary/10 rounded-3xl p-8 lg:p-10"
-            initial={{ x: 100, opacity: 0 }}
+            initial={{ y: 100, opacity: 0 }}
             animate={
-              isSectionInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }
+              isSectionInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }
             }
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
