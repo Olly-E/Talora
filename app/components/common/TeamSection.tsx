@@ -75,9 +75,21 @@ const TeamCard = ({
   isInView: boolean;
   delay: number;
 }) => {
+  const [isFullTextMode, setIsFullTextMode] = useState(false);
+
   const cardSlideIn = {
     initial: { x: "-100%", opacity: 0 },
     animate: { x: 0, opacity: 1 },
+  };
+
+  const handleReadAll = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsFullTextMode(true);
+  };
+
+  const handleShowLess = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsFullTextMode(false);
   };
 
   return (
@@ -96,30 +108,36 @@ const TeamCard = ({
       >
         <div
           className={`flex h-full transition-all duration-400 ease-in ${
-            isExpanded
+            isExpanded && !isFullTextMode
               ? "flex-row gap-4 md:gap-6 pt-3 pl-3 pb-3 pr-6 md:pt-4 md:pl-4 md:pb-4 md:pr-8"
               : "flex-col md:flex-col md:group-hover:flex-row md:group-hover:gap-6 md:group-hover:pt-4 md:group-hover:pl-4 md:group-hover:pb-4 md:group-hover:pr-8"
+          } ${
+            isFullTextMode
+              ? "pt-6 pl-6 pb-6 pr-6 md:pt-8 md:pl-8 md:pb-8 md:pr-8 flex-col"
+              : ""
           }`}
         >
           {/* Image */}
-          <div
-            className={`relative overflow-hidden rounded-2xl transition-all duration-400 ease-in ${
-              isExpanded
-                ? "w-40 md:w-48 h-64 md:h-80 shrink-0 my-auto"
-                : "w-full h-full md:group-hover:w-48 md:group-hover:h-80 md:group-hover:shrink-0 md:group-hover:my-auto"
-            }`}
-          >
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              className="object-cover"
-            />
-          </div>
+          {!isFullTextMode && (
+            <div
+              className={`relative overflow-hidden rounded-2xl transition-all duration-400 ease-in ${
+                isExpanded
+                  ? "w-40 md:w-48 h-64 md:h-80 shrink-0 my-auto"
+                  : "w-full h-full md:group-hover:w-48 md:group-hover:h-80 md:group-hover:shrink-0 md:group-hover:my-auto"
+              }`}
+            >
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+          )}
 
           <div
             className={`flex flex-col justify-center transition-opacity duration-400 ease-in overflow-hidden ${
-              isExpanded
+              isExpanded || isFullTextMode
                 ? "opacity-100 pointer-events-auto w-auto flex-1 delay-400"
                 : "opacity-0 pointer-events-none w-0 h-0 delay-0 md:group-hover:delay-400 md:group-hover:opacity-100 md:group-hover:pointer-events-auto md:group-hover:w-auto md:group-hover:h-auto md:group-hover:flex-1"
             }`}
@@ -130,15 +148,38 @@ const TeamCard = ({
             <div className="text-white/80 text-xs md:text-sm mb-4 truncate">
               {member.title}
             </div>
-            <p className="text-white/90 text-xs md:text-sm leading-relaxed line-clamp-12">
+            <p
+              className={`text-white/90 text-xs md:text-sm leading-relaxed ${
+                isFullTextMode ? "" : "line-clamp-12"
+              }`}
+            >
               {member.bio}
             </p>
+
+            {/* Read All / Show Less Button */}
+            {isExpanded && !isFullTextMode && (
+              <button
+                onClick={handleReadAll}
+                className="mt-4 text-primary font-semibold text-xs md:text-sm hover:text-primary/80 transition-colors w-fit"
+              >
+                Read all →
+              </button>
+            )}
+
+            {isExpanded && isFullTextMode && (
+              <button
+                onClick={handleShowLess}
+                className="mt-4 text-primary font-semibold text-xs md:text-sm hover:text-primary/80 transition-colors w-fit"
+              >
+                Show less
+              </button>
+            )}
           </div>
         </div>
 
         <div
           className={`absolute bottom-3 left-3 right-4 transition-all duration-400 ease-in ${
-            isExpanded
+            isExpanded || isFullTextMode
               ? "opacity-0 invisible"
               : "opacity-100 md:group-hover:opacity-0 md:group-hover:invisible"
           }`}
