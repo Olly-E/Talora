@@ -4,9 +4,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { StaticImageData } from "next/image";
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useInView } from "motion/react";
+
 import { ScrollTriggeredSplitText } from "../animation/SplitTextAnimation";
 import { blurFadeIn, badgeSlideUp } from "@/app/utils/animation";
+import { motion, useInView } from "motion/react";
 
 import team5 from "../../../public/images/team5.webp";
 import team6 from "../../../public/images/team6.jpeg";
@@ -80,7 +81,7 @@ const TeamCard = ({
   };
 
   return (
-    <div className="overflow-hidden min-w-64 md:min-w-80 md:hover:min-w-150 transition-all duration-400 ease-in">
+    <div className="overflow-hidden min-w-full sm:min-w-80 md:hover:min-w-150 transition-all duration-400 ease-in">
       <motion.div
         onClick={onClick}
         className={`group relative rounded-3xl overflow-hidden transition-all duration-400 ease-in cursor-pointer bg-secondary h-96 md:h-112.5 ${
