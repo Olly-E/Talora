@@ -4,12 +4,24 @@ import { sendContactEmail } from "@/app/lib/email";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, phone, company, message } = body;
+    const {
+      helpNeeded,
+      urgency,
+      rolesCount,
+      hiringLocation,
+      company,
+      name,
+      email,
+      additionalInfo,
+    } = body;
 
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!name || !email || !helpNeeded || !urgency || !rolesCount) {
       return NextResponse.json(
-        { error: "Name, email, and message are required" },
+        {
+          error:
+            "Name, email, what you need help with, urgency, and number of roles are required",
+        },
         { status: 400 },
       );
     }
@@ -25,11 +37,16 @@ export async function POST(request: NextRequest) {
 
     // Send email
     const result = await sendContactEmail({
+      helpNeeded: Array.isArray(helpNeeded) ? helpNeeded : [helpNeeded],
+      urgency,
+      rolesCount,
+      hiringLocation: Array.isArray(hiringLocation)
+        ? hiringLocation
+        : [hiringLocation],
+      company: company || "",
       name,
       email,
-      phone: phone || "",
-      company: company || "",
-      message,
+      additionalInfo: additionalInfo || "",
     });
 
     if (!result.success) {

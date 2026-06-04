@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import toast from "react-hot-toast";
 import { InputField } from "../form/InputField";
 import { TextAreaField } from "../form/TextAreaField";
@@ -11,13 +11,23 @@ import { Button } from "../elements/Button";
 import { useContact } from "@/app/hooks/useContact";
 import { ScrollTriggeredSplitText } from "../animation/SplitTextAnimation";
 import { badgeSlideUp } from "@/app/utils/animation";
+import CustomRadioGroup from "../form/CustomRadioGroup";
+import {
+  HELP_NEEDED_OPTIONS,
+  URGENCY_OPTIONS,
+  ROLES_COUNT_OPTIONS,
+  HIRING_LOCATION_OPTIONS,
+} from "@/app/utils/constants";
 
 interface ContactFormData {
+  helpNeeded: string[];
+  urgency: string;
+  rolesCount: string;
+  hiringLocation: string[];
+  company: string;
   name: string;
   email: string;
-  phone: string;
-  company: string;
-  message: string;
+  additionalInfo?: string;
 }
 
 interface ApiError {
@@ -37,7 +47,19 @@ const ContactSection = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<ContactFormData>();
+    control,
+  } = useForm<ContactFormData>({
+    defaultValues: {
+      helpNeeded: [],
+      urgency: "",
+      rolesCount: "",
+      hiringLocation: [],
+      company: "",
+      name: "",
+      email: "",
+      additionalInfo: "",
+    },
+  });
 
   const { mutate: submitContact, isPending } = useContact();
 
@@ -209,6 +231,183 @@ const ContactSection = () => {
               initial="hidden"
               animate={isSectionInView ? "visible" : "hidden"}
             >
+              {/* How can we help today? */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5 },
+                  },
+                }}
+              >
+                <label className="block text-sm font-semibold text-gray-900 mb-3">
+                  How can we help today?
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  {HELP_NEEDED_OPTIONS.map((option) => (
+                    <Controller
+                      key={option}
+                      name="helpNeeded"
+                      control={control}
+                      render={({ field: { value, onChange } }) => (
+                        <label className="flex items-center gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={value?.includes(option) || false}
+                            onChange={(e) => {
+                              if (e.target.checked) {
+                                onChange([...(value || []), option]);
+                              } else {
+                                onChange(
+                                  value?.filter(
+                                    (item: string) => item !== option,
+                                  ) || [],
+                                );
+                              }
+                            }}
+                            className="w-4 h-4 rounded border-gray-300 text-secondary focus:ring-secondary"
+                          />
+                          <span className="text-sm text-gray-700">
+                            {option}
+                          </span>
+                        </label>
+                      )}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* How urgently are you hiring? */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5 },
+                  },
+                }}
+              >
+                <label className="block text-sm font-semibold text-gray-900 mb-3">
+                  How urgently are you hiring?
+                </label>
+                <Controller
+                  name="urgency"
+                  control={control}
+                  render={({ field: { value, onChange } }) => (
+                    <CustomRadioGroup
+                      name="urgency"
+                      value={value}
+                      onChange={onChange}
+                      options={URGENCY_OPTIONS}
+                      className="grid grid-cols-2 gap-3"
+                    />
+                  )}
+                />
+              </motion.div>
+
+              {/* How many roles are you hiring for? */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5 },
+                  },
+                }}
+              >
+                <label className="block text-sm font-semibold text-gray-900 mb-3">
+                  How many roles are you hiring for?
+                </label>
+                <Controller
+                  name="rolesCount"
+                  control={control}
+                  render={({ field: { value, onChange } }) => (
+                    <CustomRadioGroup
+                      name="rolesCount"
+                      value={value}
+                      onChange={onChange}
+                      options={ROLES_COUNT_OPTIONS}
+                      className="grid grid-cols-2 gap-3"
+                    />
+                  )}
+                />
+              </motion.div>
+
+              {/* Where are you hiring? */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5 },
+                  },
+                }}
+              >
+                <label className="block text-sm font-semibold text-gray-900 mb-3">
+                  Where are you hiring?
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  {HIRING_LOCATION_OPTIONS.map((option) => (
+                    <Controller
+                      key={option}
+                      name="hiringLocation"
+                      control={control}
+                      render={({ field: { value, onChange } }) => (
+                        <label className="flex items-center gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={
+                              value?.includes(option.toLowerCase()) || false
+                            }
+                            onChange={(e) => {
+                              const lowerOption = option.toLowerCase();
+                              if (e.target.checked) {
+                                onChange([...(value || []), lowerOption]);
+                              } else {
+                                onChange(
+                                  value?.filter(
+                                    (item: string) => item !== lowerOption,
+                                  ) || [],
+                                );
+                              }
+                            }}
+                            className="w-4 h-4 rounded border-gray-300 text-secondary focus:ring-secondary"
+                          />
+                          <span className="text-sm text-gray-700">
+                            {option}
+                          </span>
+                        </label>
+                      )}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Company Name */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5 },
+                  },
+                }}
+              >
+                <InputField
+                  label="Company Name"
+                  placeholder="Enter company name"
+                  hasError={errors.company}
+                  registration={register("company")}
+                />
+              </motion.div>
+
+              {/* Your Name and Work Email */}
               <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 variants={{
@@ -221,7 +420,7 @@ const ContactSection = () => {
                 }}
               >
                 <InputField
-                  label="Full Name"
+                  label="Your Name"
                   placeholder="Enter your name"
                   hasError={errors.name}
                   isRequired
@@ -232,8 +431,8 @@ const ContactSection = () => {
                 />
                 <InputField
                   type="email"
-                  label="Email Address"
-                  placeholder="Enter your email"
+                  label="Work Email"
+                  placeholder="Enter your work email"
                   hasError={errors.email}
                   isRequired
                   registration={register("email", {
@@ -247,31 +446,7 @@ const ContactSection = () => {
                 />
               </motion.div>
 
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.5 },
-                  },
-                }}
-              >
-                <InputField
-                  label="Phone Number"
-                  placeholder="Enter your phone"
-                  hasError={errors.phone}
-                  registration={register("phone")}
-                />
-                <InputField
-                  label="Company Name"
-                  placeholder="Enter company name"
-                  hasError={errors.company}
-                  registration={register("company")}
-                />
-              </motion.div>
-
+              {/* Anything you'd like us to know? */}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 20 },
@@ -283,18 +458,38 @@ const ContactSection = () => {
                 }}
               >
                 <TextAreaField
-                  id="message"
-                  label="Message"
-                  placeholder="Tell us about your HR needs..."
-                  hasError={errors.message}
-                  isRequired
-                  registration={register("message", {
-                    required: "Message is required",
-                  })}
-                  rows={6}
+                  id="additionalInfo"
+                  label="Anything you'd like us to know? (Optional)"
+                  placeholder="Tell us more about your hiring needs..."
+                  hasError={errors.additionalInfo}
+                  registration={register("additionalInfo")}
+                  rows={4}
                 />
               </motion.div>
 
+              {/* Calendly Embed Notice */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5 },
+                  },
+                }}
+              >
+                <p className="text-xs text-gray-600 mb-3">
+                  Prefer to speak with us directly?{" "}
+                  <a
+                    href="#"
+                    className="text-secondary font-semibold hover:underline"
+                  >
+                    Book a Free Consultation
+                  </a>
+                </p>
+              </motion.div>
+
+              {/* Submit Button */}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 20 },
@@ -311,7 +506,7 @@ const ContactSection = () => {
                   className="w-full bg-secondary hover:bg-secondary/90 text-white"
                   disabled={isPending}
                 >
-                  {isPending ? "Sending..." : "Start Your Hiring Process"}
+                  {isPending ? "Sending..." : "Submit"}
                 </Button>
               </motion.div>
             </motion.form>

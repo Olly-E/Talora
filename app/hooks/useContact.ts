@@ -2,11 +2,14 @@ import { useMutation } from "@tanstack/react-query";
 import { axiosInstance } from "@/app/lib/axios";
 
 interface ContactFormData {
+  helpNeeded: string[];
+  urgency: string;
+  rolesCount: string;
+  hiringLocation: string[];
+  company: string;
   name: string;
   email: string;
-  phone: string;
-  company: string;
-  message: string;
+  additionalInfo?: string;
 }
 
 interface ContactResponse {
