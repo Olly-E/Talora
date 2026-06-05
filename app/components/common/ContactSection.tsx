@@ -120,11 +120,8 @@ const ContactSection = () => {
                 direction="bottom"
                 initialDelay={0.3}
               >
-                Tell us about your hiring needs, and we will design a structured
-                approach to help you source the right talent, streamline your
-                recruitment process, and hire with confidence. We work with
-                founders and growing companies looking to build structured,
-                scalable hiring systems.
+                Looking to hire, grow your team, or improve your hiring process?
+                Let us know what you need help with and we’ll take it from there
               </ScrollTriggeredSplitText>
             </motion.p>
 
