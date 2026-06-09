@@ -191,7 +191,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-6">
               <a
-                href="/contact#contact-form"
+                href="/privacy-policy"
                 className="text-white/70 hover:text-primary text-sm transition-colors"
               >
                 Privacy Policy
