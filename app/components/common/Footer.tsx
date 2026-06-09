@@ -9,7 +9,8 @@ const Footer = () => {
     Company: [
       { label: "About Talora", href: "/about" },
       { label: "How It Works", href: "/services" },
-      { label: "Contact", href: "/contact" },
+
+      { label: "Privacy policy", href: "/privacy-policy" },
     ],
     Services: [
       { label: "Recruitment Automation", href: "/services/hr-automation" },
@@ -25,7 +26,8 @@ const Footer = () => {
         label: "contact@taloraagency.com",
         href: "mailto:contact@taloraagency.com",
       },
-      { label: "Global Remote Service", href: "/contact" },
+      { label: "Contact", href: "/contact" },
+      { label: "Global Remote Service", href: "/service" },
     ],
   };
 
@@ -191,12 +193,7 @@ const Footer = () => {
               Copyright 2025 Talora All right reserved
             </p>
             <div className="flex gap-6">
-              <Link
-                href="/privacy-policy"
-                className="text-white/70 hover:text-primary text-sm transition-colors"
-              >
-                Privacy Policy
-              </Link>
+         
               <Link
                 href="/contact#contact-form"
                 className="text-white/70 hover:text-primary text-sm transition-colors"
