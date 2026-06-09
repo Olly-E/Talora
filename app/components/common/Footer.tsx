@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "../elements/Button";
 import footerImg from "@/public/images/footerImg.webp";
+import Link from "next/link";
 
 const Footer = () => {
   const footerLinks = {
@@ -190,18 +191,18 @@ const Footer = () => {
               Copyright 2025 Talora All right reserved
             </p>
             <div className="flex gap-6">
-              <a
+              <Link
                 href="/privacy-policy"
                 className="text-white/70 hover:text-primary text-sm transition-colors"
               >
                 Privacy Policy
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contact#contact-form"
                 className="text-white/70 hover:text-primary text-sm transition-colors"
               >
                 Terms Condition
-              </a>
+              </Link>
             </div>
           </div>
         </div>
