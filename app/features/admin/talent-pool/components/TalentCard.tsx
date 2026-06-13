@@ -5,18 +5,24 @@ import {
   Download,
   Trash2,
   FileText,
+  Loader2,
 } from "lucide-react";
 import { Button } from "@/app/components/elements/Button";
 import { getFormattedTimeAgoText } from "@/app/utils/utils";
-import { TalentPoolEntry } from "../api";
+import { TalentPoolEntry, useDeleteTalentPool } from "../api";
 
 interface TalentCardProps {
   entry: TalentPoolEntry;
   onDownloadCV: (cvUrl: string) => void;
-  onDelete: (id: number) => void;
 }
 
-export function TalentCard({ entry, onDownloadCV, onDelete }: TalentCardProps) {
+export function TalentCard({ entry, onDownloadCV }: TalentCardProps) {
+  const { mutate: deleteEntry, isPending: deleting } = useDeleteTalentPool();
+  const handleDelete = () => {
+    if (!confirm("Are you sure you want to delete this entry?")) return;
+    deleteEntry(entry.id);
+  };
+
   return (
     <div className="relative group">
       {/* Tooltip Container */}
@@ -105,10 +111,14 @@ export function TalentCard({ entry, onDownloadCV, onDelete }: TalentCardProps) {
             <Button
               size="sm"
               variant="outline"
-              onClick={() => onDelete(entry.id)}
+              onClick={handleDelete}
               className="text-red-600 hover:bg-red-50 hover:border-red-300 border-gray-200 px-3 rounded-md!"
             >
-              <Trash2 className="size-4" />
+              {deleting ? (
+                <Loader2 className="size-4 animate-spin" />
+              ) : (
+                <Trash2 className="size-4" />
+              )}
             </Button>
           </div>
         </div>

@@ -53,9 +53,9 @@ export function CVUploadModal({ isOpen, onClose }: CVUploadModalProps) {
       return;
     }
 
-    // Validate file size (max 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      toast.error("File size must be less than 5MB");
+    // Validate file size (max 2MB)
+    if (file.size > 2 * 1024 * 1024) {
+      toast.error("File size must be less than 2MB");
       return;
     }
 
@@ -80,8 +80,13 @@ export function CVUploadModal({ isOpen, onClose }: CVUploadModalProps) {
       setUploadedCvUrl(cvUrl);
       toast.success("CV uploaded successfully!");
     } catch (error) {
+      console.error("Upload error:", error);
       console.error("Error uploading CV:", error);
-      toast.error("Failed to upload CV. Please try again.");
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Failed to upload CV. Please try again.",
+      );
       setSelectedFile(null);
     } finally {
       setIsUploadingFile(false);
@@ -110,7 +115,8 @@ export function CVUploadModal({ isOpen, onClose }: CVUploadModalProps) {
       });
 
       if (!submitResponse.ok) {
-        throw new Error("Failed to submit application");
+        const errorData = await submitResponse.json();
+        throw new Error(errorData.error);
       }
 
       toast.success("Your application has been submitted successfully!");
@@ -120,7 +126,11 @@ export function CVUploadModal({ isOpen, onClose }: CVUploadModalProps) {
       onClose();
     } catch (error) {
       console.error("Error submitting application:", error);
-      toast.error("Failed to submit application. Please try again.");
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Failed to upload CV. Please try again.",
+      );
     } finally {
       setIsSubmitting(false);
     }

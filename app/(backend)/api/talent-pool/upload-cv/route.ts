@@ -1,10 +1,5 @@
+import { put } from "@vercel/blob";
 import { NextRequest, NextResponse } from "next/server";
-import cloudinary from "@/app/lib/cloudinary";
-
-interface CloudinaryUploadResult {
-  secure_url: string;
-  public_id: string;
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -15,7 +10,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
-    // Validate file type
     const validTypes = [
       "application/pdf",
       "application/msword",
@@ -29,7 +23,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate file size (5MB)
     if (file.size > 5 * 1024 * 1024) {
       return NextResponse.json(
         { error: "File size exceeds 5MB limit" },
@@ -37,34 +30,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    const uploadResponse = await new Promise<CloudinaryUploadResult>(
-      (resolve, reject) => {
-        cloudinary.uploader
-          .upload_stream(
-            {
-              folder: "talora/cvs",
-              resource_type: "raw", // Use "raw" for PDFs and documents
-              access_mode: "public", // Ensure public access
-              type: "upload",
-            },
-            (error, result) => {
-              if (error) reject(error);
-              else resolve(result as CloudinaryUploadResult);
-            },
-          )
-          .end(buffer);
-      },
-    );
+    const blob = await put(file.name, file, {
+      access: "public",
+    });
 
     return NextResponse.json({
-      url: uploadResponse.secure_url,
-      publicId: uploadResponse.public_id,
+      url: blob.url,
+      publicId: blob.pathname,
     });
-  } catch (error: unknown) {
-    console.error("Error uploading CV to Cloudinary:", error);
-    return NextResponse.json({ error: "Error uploading CV" }, { status: 500 });
+  } catch (error) {
+    console.error("Error uploading CV:", error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Error uploading CV" },
+      { status: 500 },
+    );
   }
 }

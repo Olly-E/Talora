@@ -18,12 +18,6 @@ export default function TalentPoolPage() {
   const [isExporting, setIsExporting] = useState(false);
 
   const { data, isLoading } = useGetTalentPool({ page, limit, search });
-  const { mutate: deleteEntry } = useDeleteTalentPool();
-
-  const handleDelete = (id: number) => {
-    if (!confirm("Are you sure you want to delete this entry?")) return;
-    deleteEntry(id);
-  };
 
   const handleDownloadCV = (cvUrl: string) => {
     window.open(cvUrl, "_blank");
@@ -220,7 +214,6 @@ export default function TalentPoolPage() {
                   key={entry.id}
                   entry={entry}
                   onDownloadCV={handleDownloadCV}
-                  onDelete={handleDelete}
                 />
               ))}
             </div>
